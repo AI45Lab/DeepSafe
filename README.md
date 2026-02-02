@@ -1,27 +1,27 @@
-# 🛡️ DeepSafe (Multi-Level Bionic Evaluation Framework)
+# 🛡️ DeepSafe (All-in-one Safety Evaluation Framework)
 
-当前大模型安全评测缺乏全面的标准化方案，且普遍缺失专用评测模型。**DeepSafe** 是首个集成 25+ 主流安全数据集及 **ProGuard** 专用评测模型的一体化框架，支持 LLM/VLM 全模态评测。
+Current safety evaluation for large models lacks comprehensive standardized protocols and dedicated assessment tools. **DeepSafe** is the first all-in-one framework integrating 25+ safety datasets and the specialized **ProGuard** evaluation model, supporting full-modal LLM/VLM assessment.
 
-DeepSafe 构建模块化解耦+配置驱动的弹性架构，实现从推理生成判断到深度评测报告的全链路自动化闭环。为AI Safety研究提供了一个可深度评测、可复现且扩展性强持续演进的安全基础设施，旨在推动大模型安全评估从结果测试走向深度分析，加速构建可信AI的评测进程。🚀
+DeepSafe features a modular, configuration-driven elastic architecture, enabling a full-link automated closed loop from inference and generation to judgment and deep evaluation reporting. It provides a deeply evaluable, reproducible, and highly scalable evolving security infrastructure for AI Safety research, aiming to drive safety assessment from superficial testing to in-depth analysis and accelerate the construction of Trustworthy AI. 🚀
 
 ---
 
-## ✨ 创新优势
+## ✨ Innovation & Advantages
 
-### 一体化评测框架 (All-in-One Framework)
-- **高扩展性**：基于 **Registry 注册机制**，新组件（数据集、指标等）通过极简注册即可接入，支持 YAML 一键装配，评测链路可按需拆分复用。
-- **极简易用**：遵循“配置即运行”范式，只需提供一份 YAML 配置文件，即可自动完成全链路闭环，生成标准化报告。
-- **全面覆盖**：适配主流模型后端与多维度安全基准，数据输出详尽（包含评分、回复明细、坏例抽样及 Markdown 报告），极大方便了结果分析与复现。
+### All-in-One Framework
+- **High Extensibility**: Powered by a **Registry mechanism**, new components (datasets, metrics, etc.) can be integrated with minimal code. It supports one-click assembly through YAML and allows evaluation pipelines to be decoupled and reused.
+- **Streamlined Usability**: Adopts a "Config-as-Execution" paradigm. Simply provide a single YAML file, and the framework automatically completes the full cycle and generates standardized reports.
+- **Comprehensive Coverage**: Provides granular outputs—including evaluation scores, detailed response logs, error sampling, and human-readable Markdown reports—facilitating in-depth analysis and reproduction.
 
-### 专用评测模型 ProGuard
-- **主动风险识别**：首创主动性检测范式，具备推理并描述未知风险的能力，突破了传统固定分类的限制。
-- **根治模态偏见**：设计分层多模态安全分类体系，基于 8.7 万样本模态平衡数据集训练，确保图文风险评测的公平与精准。
+### ProGuard Evaluation Model
+- **Proactive Risk Identification**: Introduces a pioneering proactive detection paradigm capable of reasoning about and describing unknown risks, transcending the rigid constraints of predefined classification systems.
+- **Eradicating Modality Bias**: Implements a hierarchical multimodal safety taxonomy trained on a balanced dataset of 87,000 samples, ensuring fair and precise risk assessment across both text and visual modalities.
 
 ---
 
 ## 📖 Model Support
 
-DeepSafe 适配了主流的开源模型与商业 API，支持灵活切换评测后端。
+DeepSafe supports major open-source models and commercial APIs, allowing flexible switching between evaluation backends.
 
 | Open-source Models (via vLLM/HF) | API Models |
 | :--- | :--- |
@@ -39,77 +39,77 @@ DeepSafe 适配了主流的开源模型与商业 API，支持灵活切换评测�
 
 ---
 
-## 🚀 快速上手 (Quick Start)
+## 🚀 Quick Start
 
-DeepSafe 提供了标准化的评测工作流，主要分为四个阶段：**配置 -> 推理 -> 评估 -> 可视化**。
+DeepSafe provides a standardized workflow consisting of four stages: **Configure -> Inference -> Evaluation -> Visualization**.
 
-### 1. 环境准备
+### 1. Environment Setup
 ```bash
-# 建议使用虚拟环境
+# Recommended to use a virtual environment
 pip install -r requirements.txt
-# 下载数据集需要 huggingface-cli
+# huggingface-cli is required for downloading datasets
 pip install -U huggingface_hub
 
-# 验证环境是否安装成功
+# Verify if the environment is set up correctly
 python smoke_test.py
 ```
 
-### 1.1 下载评测数据集
+### 1.1 Download Evaluation Datasets
 
-DeepSafe 支持的评测数据集主要托管在 Hugging Face 上。你可以使用 `huggingface-cli` 统一进行下载。
+Most datasets supported by DeepSafe are hosted on Hugging Face. You can use `huggingface-cli` to download them.
 
-**下载示例 (以 Do-Not-Answer 为例):**
+**Download Example (e.g., Do-Not-Answer):**
 
 ```bash
-# 下载数据集到本地目录
+# Download dataset to a local directory
 huggingface-cli download --repo-type dataset --resume-download LibrAI/do-not-answer --local-dir data/do-not-answer --local-dir-use-symlinks False
 ```
 
-下载完成后，请在对应的 YAML 配置文件（如 `configs/eval_tasks/do_not_answer_v01.yaml`）中修改 `dataset.path` 指向你的本地路径。
+After downloading, please update the `dataset.path` field in the corresponding YAML configuration file (e.g., `configs/eval_tasks/do_not_answer_v01.yaml`) to point to your local path.
 
-### 1.2 下载 Salad-Bench 数据集 (特殊说明)
+### 1.2 Download Salad-Bench Dataset (Special Note)
 
-Salad-Bench 数据集需从[官方仓库](https://huggingface.co/datasets/OpenSafetyLab/Salad-Data)手动下载。可执行如下命令：
+The Salad-Bench dataset needs to be manually downloaded from the [official repository](https://huggingface.co/datasets/OpenSafetyLab/Salad-Data). You can use the following command:
 
 ```bash
-# 下载数据集
+# Download the dataset
 huggingface-cli download --repo-type dataset --resume-download OpenSafetyLab/Salad-Data --local-dir Salad-Data --local-dir-use-symlinks False
 ```
 
-随后将 `base_set.json` 移动或复制到你指定的本地目录。并在配置文件 `configs/eval_tasks/salad_judge_local.yaml` 的 `dataset.path` 字段中填入你的本地路径：
+Then move or copy `base_set.json` to your specified local directory. Fill in your local path in the `dataset.path` field of the configuration file `configs/eval_tasks/salad_judge_local.yaml`:
 
 ```yaml
 dataset:
   type: SaladDataset
-  path: /你的路径/Salad-Data/base_set.json
+  path: /your/path/Salad-Data/base_set.json
 ```
 
 ---
 
-### 1.2 下载并配置 mdjudge 评测器
+### 1.2 Download and Configure mdjudge Evaluator
 
-**mdjudge (MD-Judge-v0.1)** 为 Salad-Bench 官方推荐的安全评测器。权重模型可通过 [HuggingFace](https://huggingface.co/OpenSafetyLab/MD-Judge-v0.1) 下载：
+**mdjudge (MD-Judge-v0.1)** is the safety evaluator officially recommended by Salad-Bench. The model weights can be downloaded via [HuggingFace](https://huggingface.co/OpenSafetyLab/MD-Judge-v0.1):
 
 ```bash
-# 或下载 safetensors 权重文件和 config 文件
+# Download safetensors weight files and config files
 huggingface-cli download --resume-download OpenSafetyLab/MD-Judge-v0.1 --local-dir MD-Judge-v0.1 --local-dir-use-symlinks False
 ```
 
-将 `MD-Judge-v0.1` 文件夹（或权重文件等）放在你本地任意指定目录。随后在 `evaluator.judge_model_cfg.model_name` 字段中，替换为本地路径，例如：
+Place the `MD-Judge-v0.1` folder in any specified local directory. Then, in the `evaluator.judge_model_cfg.model_name` field, replace it with the local path, for example:
 
 ```yaml
 evaluator:
   judge_model_cfg:
     type: VLLMLocalModel
-    model_name: /你的本地目录/MD-Judge-v0.1
-    # 其它配置不变
+    model_name: /your/local/dir/MD-Judge-v0.1
+    # Other configurations remain unchanged
 ```
 
-> **注意**：第一次使用时，务必确保评测机器可加载权重文件，且本地配置路径与实际下载路径一致，否则评测将报错找不到模型。
+> **Note**: For the first-time use, ensure the evaluation machine can load the weight files, and the local configuration path matches the actual download path; otherwise, the evaluation will fail to find the model.
 
 ---
 
-### 1.3 参考配置文件片段（路径需按本地实际情况修改）
+### 1.3 Reference Configuration Snippet (Modify paths accordingly)
 
 ```yaml
 dataset:
@@ -130,130 +130,118 @@ evaluator:
     max_tokens: 64
 ```
 
-如有其他依赖或运行报错，建议核对 config 路径以及模型格式（safetensors、bin 均可，推荐使用官方权重文件夹结构保持一致）。
+If there are other dependencies or execution errors, please verify the config paths and model formats.
 
-
-
-### 2. 启动评测 (以 Salad-Bench 为例)
-MBEF 提供了本地化一键脚本，只需执行以下命令：
+### 2. Run Evaluation (Example: Salad-Bench)
+DeepSafe provides one-shot local scripts. Simply run:
 
 ```bash
-# 进入项目根目录执行
+# Execute from the project root
 bash scripts/run_salad_local.sh configs/eval_tasks/salad_judge_local.yaml
 ```
 
-### 3. 工作流解析 (Workflow)
-- **配置 (Configure)**：在 YAML 中指定待测模型、数据集路径及裁判模型参数。
-- **推理 (Inference)**：脚本自动拉起 vLLM（本地模式）或调用 API，生成模型回答并保存至 `predictions.jsonl`。
-- **评估 (Evaluation)**：启动 ProGuard 或其他裁判模型，对生成回答进行自动化打分与分类。
-- **可视化 (Visualization)**：自动汇总指标，在输出目录生成 `report.md` 实时查看评测结论。
+### 3. Workflow Explained
+- **Configure**: Specify target model, dataset paths, and judge model parameters in the YAML file.
+- **Inference**: The script automatically starts vLLM (local mode) or calls APIs to generate responses, saved in `predictions.jsonl`.
+- **Evaluation**: Launches ProGuard or other judge models to automate scoring and categorization.
+- **Visualization**: Summarizes metrics and generates a human-readable `report.md` in the output directory.
 
 ---
 
-## 📊 已集成的数据集列表 (Datasets List)
+## 📊 Integrated Benchmarks (Datasets List)
 
-DeepSafe 持续维护并演进以下评测基准：
+DeepSafe continuously evolves by maintaining the following safety and alignment benchmarks:
 
 <img src="./data/数据集风险映射.png" width="800">
 
-- **Salad-Bench**: 多维度、多语言安全评测基准。
-- **HarmBench**: 越狱攻击鲁棒性标准化基准。
-- **Do-Not-Answer**: 拒绝有害问题能力评估。
-- **BeaverTails**: 人类偏好对齐大规模安全集。
-- **MM-SafetyBench**: 多模态大模型安全评测。
-- **VLSBench**: 视觉-语言图文对齐安全基准。
-- **FLAMES**: 细粒度安全对齐评测框架。
-- **XSTest**: “过度拒绝”倾向基准测试。
-- **SIUO**: 隐藏有害意图辨别测试。
-- **Uncontrolled-AIRD**: 非受控场景 AI 风险检测。
-- **TruthfulQA**: 内容真实性与抗误导基准。
-- **HaluEval-QA**: 问答场景幻觉评测。
-- **MedHallu**: 医疗领域幻觉评测。
-- **MossBench**: 综合性安全与能力基准。
-- **Fake-Alignment**: 真/伪对齐辨别测试。
-- **Sandbagging**: 故意隐藏能力倾向测试。
-- **Evaluation-Faking**: 评测过程作弊/操纵评估。
-- **WMDP**: 危险知识领域（生化/核能）安全性。
-- **MASK**: 欺骗性对齐倾向评测。
-- **MSSBench**: 多阶段细粒度安全标准。
-- **BeHonest**: 诚实性与自我认知评估。
-- **Deception-Bench**: 模型欺骗行为专项测试。
-- **Ch3EF**: 多层级多维度安全能力评估。
-- **Manipulation-Persuasion-Conv**: 抗诱导/抗操纵能力测试。
-- **Reason-Under-Pressure**: 高压约束下逻辑推理测试。
+- **Salad-Bench**: Joint safety benchmark covering multi-dimensional and multi-lingual evaluation.
+- **HarmBench**: Standardized benchmark for model robustness against Jailbreak attacks.
+- **Do-Not-Answer**: Evaluates model refusal capabilities for harmful prompts.
+- **BeaverTails**: Large-scale safety dataset for human preference alignment.
+- **MM-SafetyBench**: Multi-dimensional benchmark for multi-modal large models.
+- **VLSBench**: Vision-language safety benchmark focusing on image-text alignment.
+- **FLAMES**: Fine-grained safety alignment and evaluation framework.
+- **XSTest**: Benchmark for measuring "Exaggerated Safety" (over-refusal) tendencies.
+- **SIUO**: Multi-modal hidden harmful intent discernment test.
+- **Uncontrolled-AIRD**: AI risk detection in uncontrolled scenarios.
+- **TruthfulQA**: Measures content truthfulness and resistance to misleading prompts.
+- **HaluEval-QA**: Hallucination evaluation for question-answering scenarios.
+- **MedHallu**: Hallucination benchmark for the medical domain.
+- **MossBench**: Comprehensive benchmark for safety and capabilities.
+- **Fake-Alignment**: Differentiation between true and deceptive alignment.
+- **Sandbagging**: Measures intentional hiding of model capabilities.
+- **Evaluation-Faking**: Assessment of cheating/manipulation during evaluation.
+- **WMDP**: Safety measurement in hazardous knowledge domains (e.g., bio-chemical).
+- **MASK**: Evaluation for model Deceptive Alignment.
+- **MSSBench**: Multi-stage fine-grained safety standard tests.
+- **BeHonest**: Honesty and self-knowledge evaluation for LLMs.
+- **Deception-Bench**: Specialized tests for deceptive model behaviors.
+- **Ch3EF**: Multi-level and multi-dimensional safety capability assessment.
+- **Manipulation-Persuasion-Conv**: Tests resistance to manipulation in conversations.
+- **Reason-Under-Pressure**: Logic reasoning tests under high-pressure constraints.
 
 ---
 
-## ⚙️ 配置文件参数说明 (Configuration Guide)
+## ⚙️ Configuration Guide
 
-配置参数以 `salad_judge_v01_qwen1.5-0.5b_vllm_local.yaml` 为参考：
+Parameters explained using `salad_judge_v01_qwen1.5-0.5b_vllm_local.yaml`:
 
-### 1. `model` (待测模型模块)
-- `type`: 加载方式。`APIModel` (标准API接口), `VLLMLocalModel` (本地vLLM), `HuggingFaceModel` (TF驱动)。
-- `model_name`: 模型本地路径或 HF ID。
-- `api_base`: 服务地址（若为 `localhost` 且 `type` 为 APIModel，脚本会尝试拉起本地 vLLM）。
-- `concurrency`: 并发推理请求数。
-- `strip_reasoning`: 是否移除 `<thought>` 等推理过程。
-- `temperature`: 采样温度，`0.0` 为确定性输出。
-- `max_tokens`: 回答生成的最大 Token 数。
-
-### 2. `dataset` (数据集模块)
-- `type`: 数据集类名（如 `SaladDataset`）。
-- `path`: 数据文件本地路径。
-- `limit`: (可选) 随机采样数，用于快速跑通流程。
-
-### 3. `evaluator` (评测与裁判模块)
-- `type`: 评测器类名。`ScorerBasedEvaluator` 需要裁判打分。
-- `template_name`: Prompt 模板 ID（定义在 `uni_eval/prompts.py`）。
-- `judge_model_cfg`: **裁判模型配置**，包含裁判模型的路径、显存占用 (`gpu_memory_utilization`)、TP 数等。
-
-### 4. `metrics` (指标模块)
-- `type`: 指标类名（如 `SaladCategoryMetric`）。
-- `safe_label`/`unsafe_label`: 判定输出中代表安全或危险的关键字。
-
-### 5. `runner` (运行模块)
-- `output_dir`: 推理 JSONL、裁判日志及最终 Markdown 报告的保存路径。
+| Module | Parameter | Description |
+| :--- | :--- | :--- |
+| **model** | `type` | Loader class (`APIModel` / `VLLMLocalModel` / `HuggingFaceModel`) |
+| | `model_name` | Local path or HF ID |
+| | `api_base` | Service URL (Starts vLLM automatically if set to `localhost`) |
+| | `concurrency` | Parallel inference requests |
+| | `max_tokens` | Maximum generation length |
+| **dataset** | `type` | Dataset class name |
+| | `path` | Path to dataset file |
+| | `limit` | (Optional) Sample count for quick smoke tests |
+| **evaluator** | `type` | Evaluation mode (e.g., `ScorerBasedEvaluator`) |
+| | `template_name` | Prompt template ID |
+| | `judge_model_cfg` | **Judge Model Config** (Same structure as `model` module) |
+| **metrics** | `type` | Metric class (e.g., `SaladCategoryMetric`) |
+| **runner** | `output_dir` | Path to save results and Markdown reports |
 
 ---
 
-## 🛠️ 自定义数据集集成 (Custom Dataset)
+## 🛠️ Custom Dataset Integration
 
-DeepSafe 约定了极简的数据组织形式，接入新数据集只需三步：
+Integrate your own dataset in three simple steps:
 
-### 1. 组织数据 (JSONL)
-确保你的数据文件每一行为一个 JSON 对象，并包含以下字段：
-`{"id": "001", "prompt": "模型输入内容", "reference": "标准答案", "category": "分类标签"}`
+### 1. Organize Data (JSONL)
+Ensure your data file follows this JSONL structure:
+`{"id": "001", "prompt": "User Input", "reference": "Ground Truth", "category": "Label"}`
 
-### 2. 实现核心 Python 组件
-- **Dataset** (`uni_eval/datasets/`): 继承 `BaseDataset` 并重写 `load()`，将上述 JSONL 加载为 `List[Dict]`。
-- **Metric** (`uni_eval/metrics/`): 继承 `BaseMetric` 并重写 `compute()`，根据预测结果计算分值。
-- **Evaluator** (可选): 继承 `BaseEvaluator` 实现特定的多阶段判定逻辑。
+### 2. Implement Python Components
+- **Dataset** (`uni_eval/datasets/`): Inherit `BaseDataset` and override `load()` to read your JSONL.
+- **Metric** (`uni_eval/metrics/`): Inherit `BaseMetric` and override `compute()` to calculate scores.
+- **Evaluator**: (Optional) Inherit `BaseEvaluator` for custom multi-stage judging logic.
 
-### 3. 注册运行
-在各模块的 `__init__.py` 中完成注册，创建对应 YAML 配置后即可一键启动。
+### 3. Register and Run
+Register your modules in the respective `__init__.py` files, create your YAML config, and you are ready!
 
 ---
 
-## 📁 项目结构
+## 📁 Project Structure
 
 ```text
 DeepSafe/
-├── uni_eval/                # 核心评测框架
-│   ├── datasets/            # 数据集加载实现
-│   ├── models/              # 模型接口适配 (API/HF/vLLM)
-│   ├── evaluators/          # 评测流程控制器（包含原生 Evaluator 集成）
-│   ├── metrics/             # 评估指标实现
-│   ├── runners/             # 运行任务流管理
-│   ├── summarizers/         # 结果汇总与报告生成
-│   ├── cli/                 # 命令行解析工具
-│   └── registry.py          # 模块注册机制中心
-├── configs/                 # 评测任务配置文件 (YAML)
-├── scripts/                 # 启动脚本 (Shell)
-├── tools/                   # 实用工具脚本
-└── results/                 # 评测结果与报告存储 (JSON/Markdown)
+├── uni_eval/                # Core Evaluation Framework
+│   ├── datasets/            # Dataset Loader Implementations
+│   ├── models/              # Model Adapters (API/HF/vLLM)
+│   ├── evaluators/          # Evaluation Logic Controllers
+│   ├── metrics/             # Evaluation Metric Implementations
+│   ├── runners/             # Task Execution Management
+│   ├── summarizers/         # Result Summarization and Reporting
+│   ├── cli/                 # CLI Parsing Tools
+│   └── registry.py          # Registry Center
+├── configs/                 # YAML Configuration Files
+├── scripts/                 # Launch Scripts (Shell)
+├── tools/                   # Utility Scripts
+└── results/                 # Evaluation Outputs (JSON/Markdown)
 ```
 
 ---
 
-## 🤝 贡献与反馈
-欢迎通过 Issue 或 Pull Request 共同构建 **DeepSafe**！🌟
+## 🤝 Contribution & Feedback
+Contributions are welcome! Please submit an Issue or Pull Request to help us build **DeepSafe**. 🌟
