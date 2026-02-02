@@ -1,0 +1,39 @@
+task_name: halu_eval_qa_v01
+output_dir: results/halu_eval_qa_v01
+
+dataset:
+  type: HaluEvalQADataset
+  path: /mnt/shared-storage-user/zhangbo1/datasets/HaluEval/data/test-00000-of-00001.parquet
+  # limit: 50  # uncomment for quick debugging
+
+model:
+  # This "model" is the judge itself.
+  type: APIModel
+  model_name: /mnt/shared-storage-user/ai4good2-share/models/meta-llama/Llama-2-7b-chat-hf
+  api_base: http://localhost:21141/v1
+  api_key: EMPTY
+  mode: chat
+  temperature: 0.0
+  max_tokens: 64
+  concurrency: 32
+  tensor_parallel_size: 1
+  gpu_memory_utilization: 0.8
+
+evaluator:
+  type: HaluEvalQAJudgeEvaluator
+  # Strictly match the author's QA prompt (world knowledge; no passage).
+  include_passage: false
+  strict_author_prompt: true
+  instruction_path: /mnt/shared-storage-user/zhangbo1/DeepSafe/data/qa_evaluation_instruction.txt
+  batch_size: 16
+
+metrics:
+  - type: HaluEvalQAMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/halu_eval_qa_v01
+

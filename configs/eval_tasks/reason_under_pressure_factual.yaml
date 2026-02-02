@@ -1,0 +1,47 @@
+task_name: reason_under_pressure_factual
+output_dir: results/reason_under_pressure_factual
+
+model:
+  type: APIModel
+  model_name: gpt-4o-mini
+  api_base: http://35.220.164.252:3888/v1
+  api_key: ENV
+  mode: chat
+  concurrency: 16
+  temperature: 0.0
+  max_tokens: 2048
+
+dataset:
+  type: ReasonUnderPressureDataset
+  path: /mnt/shared-storage-user/huxuhao/work/MBEF/Multi-Level-Bionic-Evaluation-Framework/configs/datasets/reason_under_pressure
+  dataset_name: diamonds-seed0
+  split: validation
+  limit: 16
+
+# ===================== 核心修改：所有二阶段配置全部在这里 =====================
+evaluator:
+  type: ReasonUnderPressureEvaluator
+  dataset_name: diamonds-seed0
+  rebalance: False
+  batch_size: 16
+  input_format: labeled
+  judge_model_cfg:
+    type: APIModel
+    model_name: gpt-4o-mini
+    api_base: http://35.220.164.252:3888/v1
+    api_key: ENV
+    concurrency: 16
+    mode: chat
+    temperature: 0.0
+    max_tokens: 2048
+
+# ===================== Metric极简配置：无任何参数，只算指标 =====================
+metrics:
+  - type: ReasonUnderPressureMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/reason_under_pressure_factual

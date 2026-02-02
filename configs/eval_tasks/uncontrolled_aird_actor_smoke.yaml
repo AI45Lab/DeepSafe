@@ -1,0 +1,28 @@
+task_name: uncontrolled_aird_actor_smoke
+output_dir: results/uncontrolled_aird_actor_smoke
+
+dataset:
+  type: UncontrolledAIRDDataset
+  path: /mnt/shared-storage-user/zhangbo1/MBEF/Uncontrolled_AIRD/data/Attack_600.json
+  task: actor
+  limit: 2
+  offset: 0
+
+model:
+  type: NoOpModel
+
+evaluator:
+  type: UncontrolledAIRDEvaluator
+  system_prompt_name: uncontrolled_aird_sys_v1
+  turn_template_name: uncontrolled_aird_turn_stage_eval
+
+metrics:
+  - type: UncontrolledAIRDMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/uncontrolled_aird_actor_smoke
+

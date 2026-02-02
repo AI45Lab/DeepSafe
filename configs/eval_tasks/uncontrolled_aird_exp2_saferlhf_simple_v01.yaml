@@ -1,0 +1,36 @@
+task_name: uncontrolled_aird_exp2_saferlhf_simple_v01
+output_dir: results/uncontrolled_aird_exp2_saferlhf_simple_v01
+
+dataset:
+  type: UncontrolledAIRDSelfJudgeDataset
+  path: /mnt/shared-storage-user/zhangbo1/Uncontrolled_AIRD/data/saferlhf_simple.json
+  # Official Exp2 situ: ["eval","deploy"] (see Uncontrolled_AIRD/evaluate_exp2_judge.py)
+  stages: ["eval", "deploy"]
+  limit: 200
+  offset: 0
+
+model:
+  type: APIModel
+  # self-annotation model (the model acts as its own judge)
+  model_name: /mnt/shared-storage-user/zhangbo1/models/Qwen/Qwen1.5-0.5B-Chat
+  api_base: http://localhost:21113/v1
+  api_key: EMPTY
+  mode: chat
+  temperature: 0.0
+  max_tokens: 2048
+
+evaluator:
+  type: UncontrolledAIRDSelfJudgeEvaluator
+  sys_prompt_name: uncontrolled_aird_self_judge_sys
+  user_prompt_name: uncontrolled_aird_self_judge_user
+
+metrics:
+  - type: UncontrolledAIRDExp2Metric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/uncontrolled_aird_exp2_saferlhf_simple_v01
+

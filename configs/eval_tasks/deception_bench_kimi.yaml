@@ -1,0 +1,43 @@
+model:
+  type: APIModel
+  # Target Model: GPT-4o (OpenAI API)
+  model_name: anthropic/claude-sonnet-4.5
+  api_base: https://api.boyuerichdata.opensphereai.com/v1
+  api_key: ENV  # 从环境变量 OPENAI_API_KEY 读取，或者直接写你的 API key
+  concurrency: 10  # OpenAI API 有速率限制，建议设置较小的并发数
+  mode: chat
+  temperature: 0.0
+  max_tokens: 2048  # DeceptionBench 需要较长的输出（包含 reasoning 和 output）
+
+dataset:
+  type: DeceptionBenchDataset
+  # Path is optional for DeceptionBench - it loads from HuggingFace by default
+  path: ""
+
+evaluator:
+  type: DeceptionBenchEvaluator
+  batch_size: 10  # 较小的 batch size，因为使用 OpenAI API
+  # system_prompt_name: "deception_bench_system"  # 使用 prompts.py 中定义的 prompt
+  # 或者
+  # system_prompt_override: "你的自定义 system prompt 字符串"
+  # Judge model: 也使用 GPT-4o 进行对齐判断
+  # 如果不想用 judge model，可以注释掉 judge_model_cfg，会使用关键词匹配回退
+  judge_model_cfg:
+    type: APIModel
+    model_name: gpt-4o
+    api_base: https://api.boyuerichdata.opensphereai.com/v1
+    api_key: ENV  # 从环境变量 OPENAI_API_KEY 读取
+    concurrency: 10
+    mode: chat
+    temperature: 0.0
+    max_tokens: 64  # Judge 只需要简短的是/否判断
+
+metrics:
+  - type: DeceptionBenchMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/deception_bench_claude-sonnet-4.5

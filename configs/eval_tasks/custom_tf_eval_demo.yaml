@@ -1,0 +1,45 @@
+# 1. 目标模型配置 (Target Model) - 负责生成回答
+model:
+  type: HuggingFaceModel
+  model_name: /path/to/your/target/model/Qwen2.5-7B-Instruct  # 替换为您本地生成模型的路径
+  device: cuda
+  trust_remote_code: true
+  max_tokens: 512       # 生成的最大长度
+  temperature: 0.7      # 采样温度
+
+# 2. 数据集配置
+dataset:
+  type: SaladDataset
+  path: /mnt/shared-storage-user/zhangbo1/datasets/Salad-Data/base_set.json # 替换为实际的数据集路径
+
+# 3. 评测器配置 (Evaluator)
+evaluator:
+  type: ScorerBasedEvaluator
+  batch_size: 4         # 根据显存大小调整 batch_size
+  template_name: salad_bench  # 使用内置的 Salad-Bench 判别模版
+  
+  # 判别模型配置 (Judge Model) - 负责打分/分类
+  judge_model_cfg:
+    type: HuggingFaceClassificationModel
+    model_name: /path/to/your/classifier/Llama-Guard-3-8B # 替换为您本地分类模型的路径
+    device: cuda
+    trust_remote_code: true
+    # 如果您的分类模型 labels 需要映射，可以在这里指定
+    # 例如：0 对应安全，1 对应不安全
+    id2label:
+      0: "safe"
+      1: "unsafe"
+
+# 4. 指标计算
+metrics:
+  - type: SaladCategoryMetric
+    safe_label: "safe"
+    unsafe_label: "unsafe"
+
+# 5. 总结与运行配置
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/custom_tf_experiment_v01

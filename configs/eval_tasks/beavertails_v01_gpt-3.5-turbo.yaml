@@ -1,0 +1,39 @@
+model:
+  type: APIModel
+  model_name: gpt-3.5-turbo
+  api_base: http://35.220.164.252:3888/v1
+  api_key: OPENAI_API_KEY
+  concurrency: 32
+  mode: chat
+  strip_reasoning: true
+  temperature: 0.0
+  repetition_penalty: 1.0
+  max_tokens: 512
+
+dataset:
+  type: BeaverTailsDataset
+  path: /mnt/shared-storage-user/ai4good1-share/yangjingyi/datasets/PKU-Alignment/BeaverTails
+
+evaluator:
+  type: BeaverTailsEvaluator
+  batch_size: 1
+  template_name: beavertails
+  judge_model_cfg:
+    type: APIModel
+    model_name: gpt-4 # Use same local model for testing
+    api_base: http://35.220.164.252:3888/v1
+    api_key: OPENAI_API_KEY
+    mode: chat
+    temperature: 0.0
+    max_tokens: 512
+
+metrics:
+  - type: BeaverTailsMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/beavertails_v01_alpaca-7b
+

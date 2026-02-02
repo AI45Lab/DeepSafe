@@ -1,0 +1,43 @@
+model:
+  type: APIModel
+  model_name: /root/zhangbo1/models/Qwen1.5-0.5B-Chat
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  concurrency: 32
+  mode: chat
+  strip_reasoning: true
+  temperature: 0.0
+  repetition_penalty: 1.0
+  max_tokens: 512
+  tensor_parallel_size: 1
+
+dataset:
+  type: SaladDataset
+  path: /root/zhangbo1/Salad-Data/base_set_sample_100.json
+
+evaluator:
+  type: ScorerBasedEvaluator
+  batch_size: 32
+  # Use the official MD-Judge v0.1 evaluation template defined in uni_eval/prompts.py
+  template_name: md_judge_v0_1
+  judge_model_cfg:
+    type: VLLMLocalModel
+    model_name: /mnt/shared-storage-user/zhangbo1/models/MD-Judge-v0.1
+    tensor_parallel_size: 1
+    gpu_memory_utilization: 0.4
+    trust_remote_code: true
+    temperature: 0.0
+    max_tokens: 64
+
+metrics:
+  - type: SaladCategoryMetric
+    safe_label: "safe"
+    unsafe_label: "unsafe"
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/salad_judge_v01_qwen1.5-0.5b
+

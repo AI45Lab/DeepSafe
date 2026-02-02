@@ -1,0 +1,49 @@
+model:
+  type: APIModel
+  model_name: /mnt/shared-storage-user/ai4good2-share/models/Qwen/Qwen2-VL-7B-Instruct
+  api_base: http://localhost:21113/v1
+  api_key: EMPTY
+  mode: chat
+  temperature: 0.0
+  max_tokens: 512
+  repetition_penalty: 1.0
+  tensor_parallel_size: 1
+  gpu_memory_utilization: 0.8
+  concurrency: 16
+
+
+dataset:
+  type: VLSBenchDataset
+  path: /mnt/shared-storage-user/zhangbo1/datasets/vlsbench/data_sample_10.json
+
+evaluator:
+  type: TemplateQAEvaluator
+  batch_size: 8
+  mode: text-image
+  system_prompt_key: proguard_text_image_system
+  user_prompt_key: proguard_text_image_user
+  prediction_field: prediction
+  use_precomputed_predictions: true
+  require_precomputed_predictions: false
+  output_field: judgment
+  # Override in CLI if needed
+  judge_model_cfg:
+    type: APIModel
+    model_name: ProGuard-7B
+    api_base: http://127.0.0.1:21122/v1
+    api_key: EMPTY
+    mode: chat
+    temperature: 0.0
+    max_tokens: 1024
+
+metrics:
+  - type: ProGuardSafetyMetric
+    judgment_field: judgment
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/vlsbench_proguard_judge_v01
+

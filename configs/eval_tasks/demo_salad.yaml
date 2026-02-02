@@ -1,0 +1,32 @@
+# Demo Configuration for Salad MCQ Evaluation (YAML Version)
+
+model:
+  type: APIModel
+  model_name: /mnt/shared-storage-user/zhangbo1/models/Qwen3-4B
+  # Hardcoded port to match rlaunch_mbef_demo.sh
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  concurrency: 32
+  mode: chat
+  strip_reasoning: true
+  temperature: 0.0  # Greedy decoding as per paper
+  repetition_penalty: 1.0 # Increased to prevent reasoning loops
+  max_tokens: 1024  # Increased for reasoning models (think tokens + answer)
+
+dataset:
+  type: SaladDataset
+  path: /mnt/shared-storage-user/zhangbo1/datasets/Salad-Data/mcq_set_sample_100.json
+
+evaluator:
+  type: StandardEvaluator
+  batch_size: 10
+
+metrics:
+  - type: SaladMCQMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/demo_salad_mcq_yaml

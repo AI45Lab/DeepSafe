@@ -1,0 +1,40 @@
+# Ch3Ef Harmless Dimension Evaluation Configuration Example
+# For Harmless dimension (safety evaluation with safe_label)
+
+model:
+  type: APIModel
+  model_name: /mnt/shared-storage-user/ai4good2-share/models/microsoft/kosmos-2-patch14-224
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  concurrency: 32
+  mode: chat
+  strip_reasoning: true
+  temperature: 0.0
+  repetition_penalty: 1.0
+  max_tokens: 512
+
+dataset:
+  type: Ch3efDataset
+  path: /mnt/shared-storage-user/dutianyi/dataset/Ch3Ef/meta_file/Harmless.json
+
+evaluator:
+  type: Ch3EfEvaluator
+  batch_size: 16
+  # Use the official MD-Judge v0.1 evaluation template defined in uni_eval/prompts.py
+  template_name: md_judge_v0_1
+  # This example config is used by `scripts/run_ch3ef_gen.sh` (GEN-only stage).
+  # GEN does not require an LLM judge, and `uni_eval/cli/parse_eval_config.py --strict`
+  # treats any non-empty `judge_model_cfg` as required to contain `model_name`.
+  # Keep it empty and explicitly disable judge to make GEN work out-of-the-box.
+  enable_judge: false
+  judge_model_cfg: {}
+metrics:
+  - type: Ch3EfAccEceMetric
+
+summarizer:
+  type: Ch3EfSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/ch3ef_harmless
+

@@ -1,0 +1,45 @@
+model:
+  type: APIModel
+  # Override at runtime, e.g.:
+  # --model.model_name /root/zhangbo1/models/Qwen1.5-7B-Chat
+  model_name: /root/zhangbo1/models/Qwen1.5-0.5B-Chat
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  mode: chat
+  concurrency: 32
+  temperature: 0.0
+  max_tokens: 512
+
+dataset:
+  type: DoNotAnswerDataset
+  # If this path exists locally, it will be loaded first; otherwise fallback to HF.
+  # You said you'll place the downloaded dataset under:
+  # /root/zhangbo1/MBFF-1222/configs/datasets
+  # Recommended local dir:
+  path: /root/zhangbo1/MBFF-1222/configs/datasets/do-not-answer
+  split: train
+  # For quick smoke tests, override with: --dataset.limit 10
+  limit: 0
+
+evaluator:
+  type: DoNotAnswerEvaluator
+  # Official LibrAI classifiers (Longformer). For faster CPU runs you can switch to:
+  # harmful_model: LibrAI/bert-harmful-ro
+  # action_model: LibrAI/bert-action-ro
+  harmful_model: LibrAI/longformer-harmful-ro
+  action_model: LibrAI/longformer-action-ro
+  classifier_device: cpu
+  batch_size: 16
+  input_format: labeled
+
+metrics:
+  - type: DoNotAnswerMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: /root/zhangbo1/MBFF-1222/results/do_not_answer/latest
+
+

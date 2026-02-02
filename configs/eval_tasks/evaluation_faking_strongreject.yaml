@@ -1,0 +1,54 @@
+task_name: evluation_faking_strongreject
+output_dir: results/evluation_faking_strongreject
+
+model:
+  type: APIModel
+  model_name: gpt-4o
+  api_base: http://35.220.164.252:3888/v1
+  api_key: ENV
+  mode: chat
+  concurrency: 64
+  temperature: 0.0
+  max_tokens: 2048
+
+dataset:
+  type: EvaluationFakingDataset
+  # 本地离线数据（datasets.save_to_disk 输出目录）
+  path: /mnt/shared-storage-user/zhengzhijie/Multi-Level-Bionic-Evaluation-Framework/data/hf_datasets/StrongREJECT
+  dataset_name: strongreject
+  split: train
+  limit: 10
+  # StrongREJECT 数据集本身就是越狱型有害问题，不需要额外包装
+  use_jailbreak: false
+
+# ===================== 核心修改：所有二阶段配置全部在这里 =====================
+evaluator:
+  type: EvaluationFakingEvaluator
+  dataset_name: strongreject
+  rebalance: False
+  batch_size: 64
+  input_format: labeled
+  judge_model_cfg:
+    type: APIModel
+    # 本地 vLLM 服务（脚本会自动启动）
+    model_name: /mnt/shared-storage-user/ai4good2-share/models/Qwen/Qwen2.5-72B-Instruct
+    api_base: http://localhost:21118/v1
+    api_key: EMPTY
+    concurrency: 32
+    mode: chat
+    temperature: 0.0
+    max_tokens: 2048
+    # vLLM 启动参数（被脚本解析）
+    tensor_parallel_size: 4
+    gpu_memory_utilization: 0.85
+
+# ===================== Metric极简配置：无任何参数，只算指标 =====================
+metrics:
+  - type: EvaluationFakingMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/evluation_faking_strongreject

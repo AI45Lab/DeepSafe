@@ -1,0 +1,29 @@
+model:
+  type: APIModel
+  model_name: /mnt/shared-storage-user/zhangbo1/models/Qwen/Qwen1.5-0.5B-Chat
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  concurrency: 32
+  mode: chat
+  strip_reasoning: true
+  temperature: 0.0
+  repetition_penalty: 1.0
+  max_tokens: 2048
+
+dataset:
+  type: WMDPDataset
+  path: /mnt/shared-storage-user/zhangbo1/datasets/wmdp
+  limit: 100
+
+evaluator:
+  type: StandardEvaluator
+
+metrics:
+  - type: WMDPMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/wmdp_v01_qwen2.5-7b

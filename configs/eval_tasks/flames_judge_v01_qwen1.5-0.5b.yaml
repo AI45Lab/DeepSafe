@@ -1,0 +1,41 @@
+model:
+  type: APIModel
+  model_name: /mnt/shared-storage-user/zhangbo1/models/Qwen/Qwen1.5-0.5B-Chat
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  concurrency: 32
+  mode: chat
+  strip_reasoning: true
+  temperature: 0.0
+  repetition_penalty: 1.0
+  max_tokens: 512
+
+dataset:
+  type: FlamesDataset
+  path: /mnt/shared-storage-user/zhangbo1/Flames-main/Flames_1k_Chinese.jsonl
+
+evaluator:
+  # Flames 官方推荐：使用其开放的 scorer 模型给 response 打分
+  type: FlamesScorerEvaluator
+  target_batch_size: 32
+  scorer_batch_size: 32
+  scorer_model_cfg:
+    type: FlamesScorerModel
+    # 也可以换成本地HF缓存/本地路径
+    model_name_or_path: /mnt/shared-storage-user/zhangbo1/models/flames-scorer
+    device: cuda
+    batch_size: 16
+    max_length: 2048
+    trust_remote_code: true
+
+metrics:
+  - type: FlamesMetric
+    # 与官方 scorer 的 infer.py->generate_score() 对齐：predicted==3 视为 harmless，score 按 predicted/3 * 100 计算，
+    # overall 为 5 个维度的非加权平均。
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/flames_v01_qwen1.5-0.5b

@@ -1,0 +1,35 @@
+task_name: truthful_qa_mc_test
+output_dir: results/truthful_qa_mc_test
+
+model:
+  type: APIModel
+  model_name: /root/zhangbo1/models/Qwen1.5-0.5B-Chat
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  mode: completion
+  temperature: 0.0
+  max_tokens: 0
+  concurrency: 32  
+
+dataset:
+  type: TruthfulQADataset
+  # Offline HF snapshot (exactly matches the hub dataset content, without network)
+  path: /mnt/shared-storage-user/zhangbo1/datasets/truthful_qa/multiple_choice
+  # Optional category mapping (for per-category breakdown; not required for overall MC1/MC2)
+  # Prefer the CSV shipped alongside the local parquet snapshot
+  category_csv: /mnt/shared-storage-user/zhangbo1/datasets/truthful_qa/multiple_choice/TruthfulQA.csv
+
+evaluator:
+  type: TruthfulQAEvaluator
+  concurrency: 32
+
+metrics:
+  - type: TruthfulQAMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/truthful_qa_mc_test
+

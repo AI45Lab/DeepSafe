@@ -1,0 +1,39 @@
+model:
+  type: APIModel
+  # Target Model: Meta-Llama-3-8B-Instruct
+  model_name: /mnt/shared-storage-user/zhangbo1/models/meta-llama/Meta-Llama-3-8B-Instruct
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  concurrency: 32
+  mode: chat
+  temperature: 0.0
+  max_tokens: 512
+
+dataset:
+  type: FakeAlignmentDataset
+  path: /mnt/shared-storage-user/zhangbo1/Fake-Alignment-main/safety.jsonl
+
+evaluator:
+  type: FakeAlignmentEvaluator
+  target_batch_size: 32
+  judge_batch_size: 32
+  judge_model_cfg:
+    type: APIModel
+    # Judge Model: Meta-Llama-3-8B-Instruct (端口 21112)
+    model_name: /mnt/shared-storage-user/zhangbo1/models/meta-llama/Meta-Llama-3-8B-Instruct
+    api_base: http://localhost:21112/v1
+    api_key: EMPTY
+    concurrency: 32
+    mode: chat
+    temperature: 0.0
+    max_tokens: 64
+
+metrics:
+  - type: FakeAlignmentMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/fake_alignment_llama_3_8b

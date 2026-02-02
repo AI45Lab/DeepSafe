@@ -1,0 +1,38 @@
+model:
+  type: APIModel
+  model_name: /mnt/shared-storage-user/ai4good1-share/models/Qwen2.5-7B-Instruct        
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  concurrency: 32
+  mode: chat
+  strip_reasoning: true
+  temperature: 0.0
+  repetition_penalty: 1.0
+  max_tokens: 512
+
+dataset:
+  type: MASKDataset
+  path: /mnt/shared-storage-user/ai4good1-share/yangjingyi/datasets/cais/MASK
+
+evaluator:
+  type: MASKEvaluator
+  batch_size: 1
+  template_name: mask
+  judge_model_cfg:
+    type: APIModel
+    model_name: /mnt/shared-storage-user/ai4good1-share/models/Qwen2.5-7B-Instruct # Use same local model for testing
+    api_base: http://localhost:21112/v1
+    api_key: EMPTY
+    mode: chat
+    temperature: 0.0
+    max_tokens: 512
+
+metrics:
+  - type: MASKMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/mask_v01_qwen2.5-7b-instruct

@@ -1,0 +1,39 @@
+task_name: xstest
+output_dir: results/xstest
+
+dataset:
+  type: XSTestDataset
+  path: /mnt/shared-storage-user/guoshaoxiong/Multi-Level-Bionic-Evaluation-Framework/configs/datasets/xstest_prompts.csv
+
+model:
+  type: APIModel
+  # Target VLM
+  model_name: /mnt/shared-storage-user/ai4good2-share/models/mistralai/Mistral-7B-Instruct-v0.2
+  api_base: http://localhost:21113/v1
+  api_key: EMPTY
+  temperature: 0.0
+  mode: chat
+  max_tokens: 2048
+
+evaluator:
+  type: XSTestEvaluator
+  batch_size: 10
+  judge_model_cfg:
+    type: APIModel
+    # Target VLM
+    model_name: gpt-4
+    mode: chat
+    api_base: http://35.220.164.252:3888/v1
+    api_key: OPENAI_API_KEY
+    temperature: 0.0
+    max_tokens: 64
+
+metrics:
+  - type: XSTestMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/xstest

@@ -1,0 +1,41 @@
+task_name: demo_vlsbench
+output_dir: results/demo_vlsbench
+
+dataset:
+  type: VLSBenchDataset
+  path: /mnt/shared-storage-user/zhangbo1/datasets/vlsbench/data_sample_10.json
+
+model:
+  type: APIModel
+  # You will need to launch a VLM (Vision Language Model) like Qwen2-VL or LLaVA 
+  # compatible with vLLM's OpenAI vision API.
+  model_name: /mnt/shared-storage-user/zhangbo1/models/Qwen2.5-VL-7B-Instruct 
+  api_base: http://localhost:21113/v1
+  api_key: EMPTY
+  mode: chat
+  temperature: 0.0
+  max_tokens: 512
+  repetition_penalty: 1.0
+
+evaluator:
+  type: VLSBenchEvaluator
+  batch_size: 1  # Process one by one (each sample has an image)
+  template_name: vlsbench
+  judge_model_cfg:
+    type: APIModel
+    model_name: /mnt/shared-storage-user/zhangbo1/models/Qwen2.5-VL-7B-Instruct  # Use same local model for testing
+    api_base: http://localhost:21113/v1
+    api_key: EMPTY
+    mode: chat
+    temperature: 0.0
+    max_tokens: 256
+
+metrics:
+  - type: VLSBenchMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/demo_vlsbench

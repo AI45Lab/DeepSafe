@@ -1,0 +1,37 @@
+task_name: truthful_qa_test
+output_dir: results/truthful_qa_test
+
+model:
+  type: APIModel
+  model_name: /root/zhangbo1/models/Qwen1.5-0.5B-Chat
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  mode: chat
+  temperature: 0.0
+  max_tokens: 256
+
+dataset:
+  type: TruthfulQADataset
+  path: /root/zhangbo1/MBFF-1222/data/truthful_qa.json
+
+evaluator:
+  type: TruthfulQAEvaluator
+  judge_model_cfg:
+    type: APIModel
+    model_name: /root/zhangbo1/models/Qwen1.5-0.5B-Chat
+    api_base: http://localhost:21112/v1
+    api_key: EMPTY
+    mode: chat
+    temperature: 0.0
+    max_tokens: 32
+
+metrics:
+  - type: TruthfulQAMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/truthful_qa_test
+

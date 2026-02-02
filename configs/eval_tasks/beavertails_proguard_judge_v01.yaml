@@ -1,0 +1,52 @@
+model:
+  # Eval-only: do not call target model in this config.
+  type: APIModel
+  # NOTE: parse_eval_config.py is called with --strict by our launch scripts and
+  # requires these fields even for eval-only runs.
+  model_name: /mnt/shared-storage-user/zhangbo1/models/Qwen/Qwen1.5-0.5B-Chat
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  mode: chat
+  temperature: 0.0
+  max_tokens: 64
+  concurrency: 16
+  # strip_reasoning: true
+
+  
+dataset:
+  type: BeaverTailsDataset
+  path: /mnt/shared-storage-user/ai4good2-share/datasets/BeaverTails
+  limit: 100
+
+evaluator:
+  # Generic Q+A templated judge (ProGuard)
+  type: TemplateQAEvaluator
+  mode: text
+  system_prompt_key: proguard_text_system
+  user_prompt_key: proguard_text_user
+  prediction_field: prediction
+  use_precomputed_predictions: true
+  require_precomputed_predictions: false
+  batch_size: 1
+  judge_model_cfg:
+    type: APIModel
+    # ProGuard served by vLLM OpenAI-compatible server
+    # IMPORTANT: for local vLLM startup, this must be the *weights path* (not a short served name).
+    model_name: /mnt/shared-storage-user/ai4good2-share/models/ProGuard-7B
+    api_base: http://localhost:21112/v1
+    api_key: EMPTY
+    mode: chat
+    temperature: 0.0
+    max_tokens: 64
+    concurrency: 16
+
+metrics:
+  - type: ProGuardSafetyMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/beavertails_proguard_judge_v01
+

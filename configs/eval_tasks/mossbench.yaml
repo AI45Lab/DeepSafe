@@ -1,0 +1,40 @@
+task_name: demo_mossbench
+output_dir: results/demo_mossbench
+
+dataset:
+  type: MOSSBenchDataset
+  path: /mnt/shared-storage-user/dutianyi/dataset/MOSSBench/MOSSBench/information.csv
+
+model:
+  type: APIModel
+  model_name: /mnt/shared-storage-user/ai4good2-share/models/Qwen/Qwen2.5-VL-7B-Instruct
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  mode: chat
+  temperature: 0.0
+  max_tokens: 512
+  repetition_penalty: 1.0
+
+evaluator:
+  type: MOSSBenchEvaluator
+  batch_size: 8
+  template_name: mossbench
+  judge_model_cfg:
+    type: APIModel
+    # Target VLM
+    model_name: gpt-4-turbo
+    mode: chat
+    api_base: http://35.220.164.252:3888/v1
+    api_key: OPENAI_API_KEY
+    temperature: 0.0
+    max_tokens: 1024
+
+metrics:
+  - type: MOSSBenchMetric
+
+summarizer:
+  type: MOSSBenchSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/demo_mossbench

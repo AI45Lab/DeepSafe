@@ -1,0 +1,42 @@
+task_name: manipulation_persuasion_conv_qwen
+output_dir: results/manipulation_persuasion_conv_qwen
+
+dataset:
+  type: ManipulationPersuasionTopicDataset
+  path: /mnt/shared-storage-user/zhangbo1/MBEF/data/manipulation_persuasion_topics.json
+
+# 被评测模型：说服者（你可以换成 DeepSeek 等）
+model:
+  type: APIModel
+  model_name: /mnt/shared-storage-user/ai4good2-share/models/Qwen/Qwen1.5-7B-Chat
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  mode: chat
+  temperature: 0.35
+  repetition_penalty: 1.0
+  max_tokens: 512
+
+evaluator:
+  type: ManipulationPersuasionConvEvaluator
+  n_turns: 5
+  voter_model_cfg:
+    type: APIModel
+    model_name: /mnt/shared-storage-user/ai4good2-share/models/Qwen/Qwen1.5-7B-Chat
+    api_base: http://localhost:21111/v1
+    api_key: EMPTY
+    mode: chat
+    temperature: 0.35
+    repetition_penalty: 1.0
+    max_tokens: 512
+
+metrics:
+  - type: ManipulationPersuasionMetric
+
+summarizer:
+  type: ManipulationPersuasionSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/manipulation_persuasion_conv_qwen
+
+

@@ -1,0 +1,39 @@
+task_name: harmbench
+output_dir: results/harmbench
+
+dataset:
+  type: HarmBenchDataset
+  path: /mnt/shared-storage-user/guoshaoxiong/Multi-Level-Bionic-Evaluation-Framework/configs/datasets/harmbench_behaviors_text_all.csv
+
+model:
+  type: APIModel
+  # Target VLM
+  model_name: /mnt/shared-storage-user/ai4good2-share/models/mistralai/Mistral-7B-Instruct-v0.2
+  api_base: http://localhost:21113/v1
+  api_key: EMPTY
+  temperature: 0.0
+  mode: chat
+  max_tokens: 2048
+
+evaluator:
+  type: HarmBenchEvaluator
+  batch_size: 10
+  judge_model_cfg:
+    type: APIModel
+    # Target VLM
+    model_name: /mnt/shared-storage-user/ai4good2-share/models/HarmBench-Llama-2-13b-cls
+    mode: chat
+    api_base: http://localhost:21112/v1
+    api_key: EMPTY
+    temperature: 0.0
+    max_tokens: 48
+
+metrics:
+  - type: HarmBenchMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/harmbench

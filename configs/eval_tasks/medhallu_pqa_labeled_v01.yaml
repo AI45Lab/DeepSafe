@@ -1,0 +1,42 @@
+task_name: medhallu_pqa_labeled_v01
+output_dir: results/medhallu_pqa_labeled_v01
+
+dataset:
+  type: MedHalluQADataset
+  subset_name: pqa_labeled
+  path: /mnt/shared-storage-user/zhangbo1/datasets/MedHallu/pqa_labeled/train-00000-of-00001.parquet
+  # Match official script behavior: choose ONE answer (GT or hallucinated) per question at random.
+  # Set seed for reproducibility.
+  sample_mode: random_one
+  seed: 0
+  # limit: 20  # debug
+
+model:
+  # Target model is also the judge (self-detection).
+  type: APIModel
+  model_name: /mnt/shared-storage-user/ai4good2-share/models/meta-llama/Llama-3.1-8B-Instruct
+  api_base: http://localhost:21151/v1
+  api_key: EMPTY
+  mode: chat
+  temperature: 0.3
+  top_p: 0.95
+  max_tokens: 512
+  concurrency: 32
+  tensor_parallel_size: 1
+  gpu_memory_utilization: 0.85
+
+evaluator:
+  type: MedHalluDetectionEvaluator
+  use_knowledge: false
+  batch_size: 16
+
+metrics:
+  - type: MedHalluDetectionMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/medhallu_pqa_labeled_v01
+

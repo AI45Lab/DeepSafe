@@ -1,0 +1,36 @@
+# Ch3Ef Harmless Dimension Evaluation Configuration
+# Uses PPL-based discriminative evaluation with ground_truth for ACC and ECE calculation
+
+model:
+  type: HuggingFaceModel
+  model_name: /mnt/shared-storage-user/ai4good2-share/models/llava-hf/models--llava-hf--llava-1.5-7b-hf
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  concurrency: 32
+  mode: chat
+  strip_reasoning: true
+  temperature: 0.0
+  repetition_penalty: 1.0
+  max_tokens: 512
+
+dataset:
+  type: Ch3efDataset
+  path: /mnt/shared-storage-user/dutianyi/dataset/Ch3Ef/meta_file/Harmless.json
+
+evaluator:
+  type: Ch3EfEvaluator
+  batch_size: 32
+  prediction_field: prediction
+  use_precomputed_predictions: false  # Set to true for eval-only stage
+  require_precomputed_predictions: false
+
+metrics:
+  - type: Ch3EfAccMetric
+
+summarizer:
+  type: Ch3EfSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/ch3ef_harmless_llava
+

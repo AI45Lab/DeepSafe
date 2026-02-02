@@ -1,0 +1,42 @@
+model:
+  # Target model; overwritten by batch overrides per model
+  type: APIModel
+  model_name: /mnt/shared-storage-user/ai4good2-share/models/Qwen/Qwen1.5-0.5B-Chat
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  concurrency: 32
+  mode: chat
+  strip_reasoning: true
+  temperature: 0.0
+  repetition_penalty: 1.0
+  max_tokens: 512
+
+dataset:
+  type: BeaverTailsDataset
+  path: /mnt/shared-storage-user/ai4good2-share/datasets/BeaverTails
+
+evaluator:
+  type: BeaverTailsEvaluator
+  batch_size: 1
+  template_name: beavertails
+  # Judge model: Beaver-dam-7B (local vLLM, GPU)
+  judge_model_cfg:
+    type: APIModel
+    model_name: /mnt/shared-storage-user/ai4good2-share/models/PKU-Alignment/beaver-dam-7b
+    api_base: http://localhost:21112/v1
+    api_key: EMPTY
+    # beaver-dam-7b may not provide a chat template in vLLM; use completions API.
+    mode: completion
+    temperature: 0.0
+    max_tokens: 64
+
+metrics:
+  - type: BeaverTailsMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/beavertails_batch/default
+

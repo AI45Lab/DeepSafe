@@ -1,0 +1,39 @@
+model:
+  type: APIModel
+  model_name: Qwen2.5-VL-7B-Instruct
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  concurrency: 8
+  mode: chat
+  temperature: 0.0
+  max_tokens: 512
+
+dataset:
+  type: SIUODataset
+  # 建议先在 json 中截取前 5-10 条数据做一个测试文件，或者直接跑全量
+  path: /mnt/shared-storage-user/ai4good2-share/datasets/SIUO/siuo_gen.json
+  image_dir: /mnt/shared-storage-user/ai4good2-share/datasets/SIUO/images
+  encode_image_as_base64: true
+  # max_samples: 5
+
+evaluator:
+  type: SIUOEvaluator
+  batch_size: 1
+  template_name: siuo_safety
+  judge_model_cfg:
+    type: APIModel
+    model_name: Qwen2.5-VL-7B-Instruct
+    api_base: http://localhost:21112/v1
+    api_key: EMPTY
+    temperature: 0.0
+    max_tokens: 512
+
+metrics:
+  - type: SIUOMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: /mnt/shared-storage-user/wuyuyao/gitee/Multi-Level-Bionic-Evaluation-Framework-wuyuyao/results/siuo_test_qwen3vl

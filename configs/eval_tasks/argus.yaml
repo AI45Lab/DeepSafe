@@ -1,0 +1,49 @@
+task_name: argus
+output_dir: results/argus
+
+dataset:
+  type: ArgusDataset
+  path: /mnt/shared-storage-user/guoshaoxiong/Multi-Level-Bionic-Evaluation-Framework/configs/datasets/Argus
+
+model:
+  type: ArgusBase
+  # Target VLM
+  model_name: /mnt/shared-storage-user/zhangbo1/models/Qwen2.5-VL-32B-Instruct
+  api_base: http://localhost:21113/v1
+  api_key: EMPTY
+  temperature: 0.0
+  max_tokens: 512
+  repetition_penalty: 1.0
+  sprompt: ""
+
+evaluator:
+  type: ArgusEvaluator
+  batch_size: 10
+  judge_model_cfg:
+    type: ArgusBase
+    # Judge model
+    model_name: /mnt/shared-storage-user/zhangbo1/models/Qwen2.5-VL-32B-Instruct
+    api_base: http://localhost:21113/v1
+    api_key: EMPTY
+    temperature: 0.0
+    max_tokens: 256
+  base_model_cfg:
+    type: ArgusBase
+      # Base model
+    model_name: /mnt/shared-storage-user/zhangbo1/models/Qwen2.5-VL-32B-Instruct
+    api_base: http://localhost:21113/v1
+    api_key: EMPTY
+    temperature: 0.0
+    max_tokens: 256
+    sprompt: ""
+
+metrics:
+  - type: ArgusDomainMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/argus
+

@@ -1,0 +1,48 @@
+model:
+  # Eval-only: never call the target model (reuse precomputed predictions.jsonl).
+  type: NoOpModel
+  # NOTE: parse_eval_config.py (strict mode) requires model.model_name to exist even for NoOpModel.
+  # This value is a placeholder and will not be used during eval.
+  model_name: "noop"
+  # NOTE: parse_eval_config.py (strict mode) also requires model.api_base/api_key/mode.
+  # These are placeholders to satisfy config parsing in batch scripts.
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  mode: chat
+
+dataset:
+  type: SaladDataset
+  path: /mnt/shared-storage-user/zhangbo1/datasets/Salad-Data/base_set.json
+
+evaluator:
+  type: TemplateQAEvaluator
+  batch_size: 16
+  mode: text
+  system_prompt_key: proguard_text_system
+  user_prompt_key: proguard_text_user
+  prediction_field: prediction
+  use_precomputed_predictions: true
+  require_precomputed_predictions: false
+  output_field: judgment
+  judge_model_cfg:
+    # ProGuard served by vLLM OpenAI-compatible server.
+    # If your ProGuard server uses a different host/port/name, override via CLI.
+    type: APIModel
+    model_name: /mnt/shared-storage-user/ai4good2-share/models/ProGuard-7B
+    api_base: http://localhost:21112/v1
+    api_key: EMPTY
+    mode: chat
+    temperature: 0.0
+    max_tokens: 1024
+
+metrics:
+  - type: ProGuardSafetyMetric
+    judgment_field: judgment
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/salad_judge_v01_qwen1.5-0.5b
+

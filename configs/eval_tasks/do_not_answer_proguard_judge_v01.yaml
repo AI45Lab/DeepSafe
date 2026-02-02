@@ -1,0 +1,40 @@
+model:
+  type: NoOpModel
+
+dataset:
+  type: DoNotAnswerDataset
+  # Default to HF (override to your local cache dir if you have one)
+  path: HF
+  split: train
+
+
+evaluator:
+  type: TemplateQAEvaluator
+  batch_size: 16
+  mode: text
+  system_prompt_key: proguard_text_system
+  user_prompt_key: proguard_text_user
+  prediction_field: prediction
+  use_precomputed_predictions: true
+  require_precomputed_predictions: false
+  output_field: judgment
+  judge_model_cfg:
+    type: APIModel
+    model_name: ProGuard-7B
+    api_base: http://127.0.0.1:21122/v1
+    api_key: EMPTY
+    mode: chat
+    temperature: 0.0
+    max_tokens: 1024
+
+metrics:
+  - type: ProGuardSafetyMetric
+    judgment_field: judgment
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/do_not_answer_proguard_judge_v01
+

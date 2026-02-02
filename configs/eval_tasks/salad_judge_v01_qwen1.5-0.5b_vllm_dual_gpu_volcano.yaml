@@ -1,0 +1,46 @@
+model:
+  type: APIModel
+  model_name: /root/zhangbo1/models/Qwen1.5-0.5B-Chat
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  concurrency: 8
+  mode: chat
+  strip_reasoning: true
+  temperature: 0.0
+  repetition_penalty: 1.0
+  max_tokens: 512
+
+dataset:
+  type: SaladDataset
+  path: /root/zhangbo1/Salad-Data/base_set_sample_100.json
+
+evaluator:
+  type: ScorerBasedEvaluator
+  batch_size: 16
+  template_name: md_judge_v0_1
+  # Judge served by a separate vLLM API server on localhost:21112 (bound to a different GPU).
+  judge_model_cfg:
+    type: APIModel
+    model_name: /root/zhangbo1/models/MD-Judge-v0.1
+    api_base: http://localhost:21112/v1
+    api_key: EMPTY
+    concurrency: 4
+    # IMPORTANT: MD-Judge-v0.1 tokenizer doesn't ship a chat_template, and transformers>=4.44
+    # forbids default chat templates in vLLM. Use completion mode so we call /v1/completions.
+    mode: completion
+    temperature: 0.0
+    max_tokens: 64
+
+metrics:
+  - type: SaladCategoryMetric
+    safe_label: "safe"
+    unsafe_label: "unsafe"
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/saladbench_service
+
+

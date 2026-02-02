@@ -1,0 +1,49 @@
+model:
+  type: APIModel
+  model_name: /mnt/shared-storage-user/ai4good2-share/models/Qwen/Qwen3-235B-A22B-Instruct-2507-hf
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  concurrency: 32
+  mode: chat
+  strip_reasoning: true
+  temperature: 0.0
+  max_tokens: 512
+  tensor_parallel_size: 8
+  gpu_memory_utilization: 0.85
+
+dataset:
+  type: DoNotAnswerDataset
+  # Prefer local cache to avoid HF download on GPU nodes. Override if needed:
+  #   --dataset.path /path/to/local/do-not-answer
+  path: /mnt/shared-storage-user/ai4good2-share/datasets/do-not-answer
+  split: train
+
+evaluator:
+  type: DoNotAnswerEvaluator
+  # Local longformer classifiers (set to local paths if you have them cached)
+  harmful_model: /mnt/shared-storage-user/ai4good2-share/models/LibrAI/longformer-harmful-ro
+  # NOTE: if you also downloaded action model, set to local path like:
+  #   /mnt/shared-storage-user/ai4good2-share/models/LibrAI/longformer-action-ro
+  action_model: /mnt/shared-storage-user/ai4good2-share/models/LibrAI/longformer-action-ro
+  # Run evaluators on GPU cluster by default
+  classifier_device: cuda
+  batch_size: 16
+  input_format: labeled
+  # Two-stage support:
+  # - gen stage uses runner.stage=gen (predictions.jsonl)
+  # - eval stage uses precomputed predictions
+  prediction_field: prediction
+  use_precomputed_predictions: true
+  require_precomputed_predictions: false
+  mode: full
+
+metrics:
+  - type: DoNotAnswerMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/do_not_answer_batch/default
+

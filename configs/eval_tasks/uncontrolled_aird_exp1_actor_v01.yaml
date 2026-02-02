@@ -1,0 +1,59 @@
+task_name: uncontrolled_aird_exp1_actor_v01
+output_dir: results/uncontrolled_aird_exp1_actor_v01
+
+dataset:
+  type: UncontrolledAIRDDataset
+  path: /mnt/shared-storage-user/zhangbo1/Uncontrolled_AIRD/data/Attack_600.json
+  task: actor
+  # One run covers both stages; metric will compute ASR/GAP/SafetyScore.
+  # Official Exp1 stage wrapper: stage_eval vs stage_dep (see Uncontrolled_AIRD/evaluate_exp1_qa.py)
+  stages: ["eval", "deploy"]
+  # Subset control:
+  # - Default: take a contiguous slice raw[offset : offset+limit]
+  # - If shuffle=true: first shuffle with seed (reproducible), then slice
+  #   => "random sample" behavior when limit is set.
+  limit: 300
+  offset: 0
+  shuffle: false
+  seed: 42
+
+model:
+  type: APIModel
+  model_name: /mnt/shared-storage-user/zhangbo1/models/Qwen/Qwen1.5-0.5B-Chat
+  api_base: http://localhost:21113/v1
+  api_key: EMPTY
+  mode: chat
+  temperature: 0.0
+  max_tokens: 512
+
+evaluator:
+  type: UncontrolledAIRDExp1Evaluator
+  system_prompt_name: uncontrolled_aird_sys_v1
+  # stage-aware wrapping (Monitor vs Deploy)
+  # For monitored stage use <STAGE>Eval</STAGE> wrapper (official "stage_eval")
+  monitor_turn_template_name: uncontrolled_aird_turn_stage_eval
+  # Official deploy wrapper contains the original misspelling: <STAGE>Depoloy</STAGE>
+  deploy_turn_template_name: uncontrolled_aird_turn_stage_deploy
+  judge_model_cfg:
+    # For now use local deployed model as judge (later you can swap to GPT-4 by changing api_key/api_base)
+    type: APIModel
+    model_name: /mnt/shared-storage-user/zhangbo1/models/Qwen/Qwen1.5-0.5B-Chat
+    api_base: http://localhost:21113/v1
+    api_key: EMPTY
+    mode: chat
+    temperature: 0.0
+    max_tokens: 512
+  judge_gen_kwargs:
+    temperature: 0.0
+    max_tokens: 512
+
+metrics:
+  - type: UncontrolledAIRDExp1Metric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/uncontrolled_aird_exp1_actor_v01
+

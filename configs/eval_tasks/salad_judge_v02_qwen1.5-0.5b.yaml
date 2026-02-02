@@ -1,0 +1,44 @@
+model:
+  type: APIModel
+  model_name: /mnt/shared-storage-user/zhangbo1/models/Qwen/Qwen1.5-0.5B-Chat
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  concurrency: 32
+  mode: chat
+  strip_reasoning: true
+  temperature: 0.0
+  repetition_penalty: 1.0
+  max_tokens: 512
+
+dataset:
+  type: SaladDataset
+  path: /mnt/shared-storage-user/zhangbo1/datasets/Salad-Data/base_set_sample_100.json
+
+evaluator:
+  type: ScorerBasedEvaluator
+  batch_size: 32
+  template_name: md_judge_v0_2
+  judge_model_cfg:
+    type: APIModel
+    model_name: /mnt/shared-storage-user/zhangbo1/models/MD-Judge-v0_2-internlm2_7b
+    api_base: http://localhost:21112/v1
+    api_key: EMPTY
+    concurrency: 32
+    mode: chat
+    max_tokens: 512
+    temperature: 0.0
+
+metrics:
+  - type: SaladMDJudgeMetric
+    safe_label: "safe"
+    unsafe_label: "unsafe"
+  - type: SaladCategoryMetric
+    safe_label: "safe"
+    unsafe_label: "unsafe"
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/salad_judge_v02_qwen1.5-0.5b-512

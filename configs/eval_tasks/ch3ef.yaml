@@ -1,0 +1,31 @@
+task_name: ch3ef
+output_dir: results/ch3ef
+
+dataset:
+  type: Ch3efDataset
+  path: /mnt/shared-storage-user/dutianyi/dataset/Ch3Ef/meta_file/Harmless.json
+  limit: 100
+
+model:
+  type: APIModel
+  # Target VLM
+  model_name: /mnt/shared-storage-user/ai4good2-share/models/Qwen/Qwen2.5-VL-7B-Instruct
+  api_base: http://localhost:21111/v1
+  api_key: EMPTY
+  temperature: 0.0
+  mode: chat
+  max_tokens: 4096
+
+evaluator:
+  type: Ch3EfEvaluator
+  batch_size: 8
+
+metrics:
+  - type: Ch3EfAccMetric
+
+summarizer:
+  type: Ch3EfSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/ch3ef
