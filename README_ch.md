@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="data/deepsafe_logo.svg" width="100%" alt="DeepSafe Logo">
+</p>
+
 # 🛡️ DeepSafe (All-in-one Safety Evaluation Framework)
 
 当前大模型安全评测缺乏全面的标准化方案，且普遍缺失专用评测模型。**DeepSafe** 是首个集成 25+ 主流安全数据集及 **ProGuard** 专用评测模型的一体化框架，支持 LLM/VLM 全模态评测。

@@ -1,12 +1,16 @@
+<p align="center">
+  <img src="data/deepsafe_logo.svg" width="100%" alt="DeepSafe Logo">
+</p>
+
 # 🛡️ DeepSafe (All-in-one Safety Evaluation Framework)
 
 Current safety evaluation for large models lacks comprehensive standardized protocols and dedicated assessment tools. **DeepSafe** is the first all-in-one framework integrating 25+ safety datasets and the specialized **ProGuard** evaluation model, supporting full-modal LLM/VLM assessment.
 
+
+## ✨ Features
+
 DeepSafe features a modular, configuration-driven elastic architecture, enabling a full-link automated closed loop from inference and generation to judgment and deep evaluation reporting. It provides a deeply evaluable, reproducible, and highly scalable evolving security infrastructure for AI Safety research, aiming to drive safety assessment from superficial testing to in-depth analysis and accelerate the construction of Trustworthy AI. 🚀
 
----
-
-## ✨ Innovation & Advantages
 
 ### All-in-One Framework
 - **High Extensibility**: Powered by a **Registry mechanism**, new components (datasets, metrics, etc.) can be integrated with minimal code. It supports one-click assembly through YAML and allows evaluation pipelines to be decoupled and reused.
