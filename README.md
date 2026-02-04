@@ -1,8 +1,13 @@
-<p align="center">
-  <img src="data/deepsafe_logo.svg" width="100%" alt="DeepSafe Logo">
-</p>
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./data/deepsafe-logo-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./data/deepsafe-logo-light.svg">
+    <img alt="DeepSafe Logo" src="./data/deepsafe-logo-dark.svg" width="300">
+  </picture>
+</div>
+<div style="height: 50px;"></div>
 
-# 🛡️ DeepSafe:Safety Evaluation ToolKit for LLMs and MLLMs
+# 🛡️ DeepSafe: All-in-One Safety Evaluation ToolKit for LLMs and MLLMs
 
 Current safety evaluation for large models lacks comprehensive standardized protocols and dedicated assessment tools. **DeepSafe** is the first all-in-one framework integrating 25+ safety datasets and the specialized **ProGuard** evaluation model, supporting full-modal LLM/VLM assessment.
 
@@ -40,6 +45,36 @@ DeepSafe supports major open-source models and commercial APIs, allowing flexibl
 | • **DeepSeek (Coder/Math)** | • **360 / MiniMax / SenseTime** |
 | • **BlueLM / TigerBot / WizardLM** | • **Xunfei (Spark)** |
 | • ...... | • ...... |
+
+## 📊 Dataset Support
+
+| Name | Description |
+| :--- | :--- |
+| **Salad-Bench** | Joint safety benchmark covering multi-dimensional and multi-lingual evaluation. |
+| **HarmBench** | Standardized benchmark for model robustness against Jailbreak attacks. |
+| **Do-Not-Answer** | Evaluates model refusal capabilities for harmful prompts. |
+| **BeaverTails** | Large-scale safety dataset for human preference alignment. |
+| **MM-SafetyBench** | Multi-dimensional benchmark for multi-modal large models. |
+| **VLSBench** | Vision-language safety benchmark focusing on image-text alignment. |
+| **FLAMES** | Fine-grained safety alignment and evaluation framework. |
+| **XSTest** | Benchmark for measuring "Exaggerated Safety" (over-refusal) tendencies. |
+| **SIUO** | Multi-modal hidden harmful intent discernment test. |
+| **Uncontrolled-AIRD** | AI risk detection in uncontrolled scenarios. |
+| **TruthfulQA** | Measures content truthfulness and resistance to misleading prompts. |
+| **HaluEval-QA** | Hallucination evaluation for question-answering scenarios. |
+| **MedHallu** | Hallucination benchmark for the medical domain. |
+| **MossBench** | Comprehensive benchmark for safety and capabilities. |
+| **Fake-Alignment** | Differentiation between true and deceptive alignment. |
+| **Sandbagging** | Measures intentional hiding of model capabilities. |
+| **Evaluation-Faking** | Assessment of cheating/manipulation during evaluation. |
+| **WMDP** | Safety measurement in hazardous knowledge domains (e.g., bio-chemical). |
+| **MASK** | Evaluation for model Deceptive Alignment. |
+| **MSSBench** | Multi-stage fine-grained safety standard tests. |
+| **BeHonest** | Honesty and self-knowledge evaluation for LLMs. |
+| **Deception-Bench** | Specialized tests for deceptive model behaviors. |
+| **Ch3EF** | Multi-level and multi-dimensional safety capability assessment. |
+| **Manipulation-Persuasion-Conv** | Tests resistance to manipulation in conversations. |
+| **Reason-Under-Pressure** | Logic reasoning tests under high-pressure constraints. |
 
 ---
 
@@ -149,40 +184,6 @@ bash scripts/run_salad_local.sh configs/eval_tasks/salad_judge_local.yaml
 - **Inference**: The script automatically starts vLLM (local mode) or calls APIs to generate responses, saved in `predictions.jsonl`.
 - **Evaluation**: Launches ProGuard or other judge models to automate scoring and categorization.
 - **Visualization**: Summarizes metrics and generates a human-readable `report.md` in the output directory.
-
----
-
-## 📊 Integrated Benchmarks (Datasets List)
-
-DeepSafe continuously evolves by maintaining the following safety and alignment benchmarks:
-
-<img src="./data/数据集风险映射.png" width="800">
-
-- **Salad-Bench**: Joint safety benchmark covering multi-dimensional and multi-lingual evaluation.
-- **HarmBench**: Standardized benchmark for model robustness against Jailbreak attacks.
-- **Do-Not-Answer**: Evaluates model refusal capabilities for harmful prompts.
-- **BeaverTails**: Large-scale safety dataset for human preference alignment.
-- **MM-SafetyBench**: Multi-dimensional benchmark for multi-modal large models.
-- **VLSBench**: Vision-language safety benchmark focusing on image-text alignment.
-- **FLAMES**: Fine-grained safety alignment and evaluation framework.
-- **XSTest**: Benchmark for measuring "Exaggerated Safety" (over-refusal) tendencies.
-- **SIUO**: Multi-modal hidden harmful intent discernment test.
-- **Uncontrolled-AIRD**: AI risk detection in uncontrolled scenarios.
-- **TruthfulQA**: Measures content truthfulness and resistance to misleading prompts.
-- **HaluEval-QA**: Hallucination evaluation for question-answering scenarios.
-- **MedHallu**: Hallucination benchmark for the medical domain.
-- **MossBench**: Comprehensive benchmark for safety and capabilities.
-- **Fake-Alignment**: Differentiation between true and deceptive alignment.
-- **Sandbagging**: Measures intentional hiding of model capabilities.
-- **Evaluation-Faking**: Assessment of cheating/manipulation during evaluation.
-- **WMDP**: Safety measurement in hazardous knowledge domains (e.g., bio-chemical).
-- **MASK**: Evaluation for model Deceptive Alignment.
-- **MSSBench**: Multi-stage fine-grained safety standard tests.
-- **BeHonest**: Honesty and self-knowledge evaluation for LLMs.
-- **Deception-Bench**: Specialized tests for deceptive model behaviors.
-- **Ch3EF**: Multi-level and multi-dimensional safety capability assessment.
-- **Manipulation-Persuasion-Conv**: Tests resistance to manipulation in conversations.
-- **Reason-Under-Pressure**: Logic reasoning tests under high-pressure constraints.
 
 ---
 

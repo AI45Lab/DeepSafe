@@ -1,6 +1,11 @@
-<p align="center">
-  <img src="data/deepsafe_logo.svg" width="100%" alt="DeepSafe Logo">
-</p>
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./data/deepsafe-logo-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./data/deepsafe-logo-light.svg">
+    <img alt="DeepSafe Logo" src="./data/deepsafe-logo-dark.svg" width="300">
+  </picture>
+</div>
+<div style="height: 50px;"></div>
 
 # 🛡️ DeepSafe: LLM和MLLM安全评测工具集
 
@@ -40,6 +45,36 @@ DeepSafe 适配了主流的开源模型与商业 API，支持灵活切换评测�
 | • **DeepSeek (Coder/Math)** | • **360 / MiniMax / SenseTime** |
 | • **BlueLM / TigerBot / WizardLM** | • **Xunfei (Spark)** |
 | • ...... | • ...... |
+
+## 📊 Dataset Support
+
+| Name | Description |
+| :--- | :--- |
+| **Salad-Bench** | 多维度、多语言安全评测基准。 |
+| **HarmBench** | 越狱攻击鲁棒性标准化基准。 |
+| **Do-Not-Answer** | 拒绝有害问题能力评估。 |
+| **BeaverTails** | 人类偏好对齐大规模安全集。 |
+| **MM-SafetyBench** | 多模态大模型安全评测。 |
+| **VLSBench** | 视觉-语言图文对齐安全基准。 |
+| **FLAMES** | 细粒度安全对齐评测框架。 |
+| **XSTest** | “过度拒绝”倾向基准测试。 |
+| **SIUO** | 隐藏有害意图辨别测试。 |
+| **Uncontrolled-AIRD** | 非受控场景 AI 风险检测。 |
+| **TruthfulQA** | 内容真实性与抗误导基准。 |
+| **HaluEval-QA** | 问答场景幻觉评测。 |
+| **MedHallu** | 医疗领域幻觉评测。 |
+| **MossBench** | 综合性安全与能力基准。 |
+| **Fake-Alignment** | 真/伪对齐辨别测试。 |
+| **Sandbagging** | 故意隐藏能力倾向测试。 |
+| **Evaluation-Faking** | 评测过程作弊/操纵评估。 |
+| **WMDP** | 危险知识领域（生化/核能）安全性。 |
+| **MASK** | 欺骗性对齐倾向评测。 |
+| **MSSBench** | 多阶段细粒度安全标准。 |
+| **BeHonest** | 诚实性与自我认知评估。 |
+| **Deception-Bench** | 模型欺骗行为专项测试。 |
+| **Ch3EF** | 多层级多维度安全能力评估。 |
+| **Manipulation-Persuasion-Conv** | 抗诱导/抗操纵能力测试。 |
+| **Reason-Under-Pressure** | 高压约束下逻辑推理测试。 |
 
 ---
 
@@ -151,40 +186,6 @@ bash scripts/run_salad_local.sh configs/eval_tasks/salad_judge_local.yaml
 - **推理 (Inference)**：脚本自动拉起 vLLM（本地模式）或调用 API，生成模型回答并保存至 `predictions.jsonl`。
 - **评估 (Evaluation)**：启动 ProGuard 或其他裁判模型，对生成回答进行自动化打分与分类。
 - **可视化 (Visualization)**：自动汇总指标，在输出目录生成 `report.md` 实时查看评测结论。
-
----
-
-## 📊 已集成的数据集列表 (Datasets List)
-
-DeepSafe 持续维护并演进以下评测基准：
-
-<img src="./data/数据集风险映射.png" width="800">
-
-- **Salad-Bench**: 多维度、多语言安全评测基准。
-- **HarmBench**: 越狱攻击鲁棒性标准化基准。
-- **Do-Not-Answer**: 拒绝有害问题能力评估。
-- **BeaverTails**: 人类偏好对齐大规模安全集。
-- **MM-SafetyBench**: 多模态大模型安全评测。
-- **VLSBench**: 视觉-语言图文对齐安全基准。
-- **FLAMES**: 细粒度安全对齐评测框架。
-- **XSTest**: “过度拒绝”倾向基准测试。
-- **SIUO**: 隐藏有害意图辨别测试。
-- **Uncontrolled-AIRD**: 非受控场景 AI 风险检测。
-- **TruthfulQA**: 内容真实性与抗误导基准。
-- **HaluEval-QA**: 问答场景幻觉评测。
-- **MedHallu**: 医疗领域幻觉评测。
-- **MossBench**: 综合性安全与能力基准。
-- **Fake-Alignment**: 真/伪对齐辨别测试。
-- **Sandbagging**: 故意隐藏能力倾向测试。
-- **Evaluation-Faking**: 评测过程作弊/操纵评估。
-- **WMDP**: 危险知识领域（生化/核能）安全性。
-- **MASK**: 欺骗性对齐倾向评测。
-- **MSSBench**: 多阶段细粒度安全标准。
-- **BeHonest**: 诚实性与自我认知评估。
-- **Deception-Bench**: 模型欺骗行为专项测试。
-- **Ch3EF**: 多层级多维度安全能力评估。
-- **Manipulation-Persuasion-Conv**: 抗诱导/抗操纵能力测试。
-- **Reason-Under-Pressure**: 高压约束下逻辑推理测试。
 
 ---
 
