@@ -2,7 +2,7 @@
   <img src="data/deepsafe_logo.svg" width="100%" alt="DeepSafe Logo">
 </p>
 
-# 🛡️ DeepSafe (All-in-one Safety Evaluation Framework)
+# 🛡️ DeepSafe:Safety Evaluation ToolKit for LLMs and MLLMs
 
 Current safety evaluation for large models lacks comprehensive standardized protocols and dedicated assessment tools. **DeepSafe** is the first all-in-one framework integrating 25+ safety datasets and the specialized **ProGuard** evaluation model, supporting full-modal LLM/VLM assessment.
 
