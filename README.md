@@ -11,14 +11,24 @@
 </div>
 <div style="height: 6px;"></div>
 <div align="center">
-  <a href="https://ai45.shlab.org.cn/safety-eval">🌐 HomePage</a> |
-  <a href="#">🤗 Hugging Face</a> |
-  <a href="#">📄 Technical Report</a> |
-  <a href="#quick-start">📚 Documentation</a>
+  <a href="https://ai45.shlab.org.cn/safety-entry">
+    <img alt="HomePage" src="https://img.shields.io/static/v1?label=&message=%F0%9F%8C%90%20HomePage&color=2F81F7&style=flat">
+  </a>
+  <a href="#">
+    <img alt="Hugging Face" src="https://img.shields.io/static/v1?label=&message=Hugging%20Face&color=FFCC00&style=flat&logo=huggingface&logoColor=000000">
+  </a>
+  <a href="#">
+    <img alt="Technical Report (arXiv)" src="https://img.shields.io/static/v1?label=&message=Technical%20Report&color=B31B1B&style=flat&logo=arxiv&logoColor=FFFFFF">
+  </a>
+  <a href="#quick-start">
+    <img alt="Documentation" src="https://img.shields.io/static/v1?label=&message=%F0%9F%93%9A%20Documentation&color=8250DF&style=flat">
+  </a>
 </div>
 <div style="height: 18px;"></div>
 
 Current safety evaluation for large models lacks comprehensive standardized protocols and dedicated assessment tools. **DeepSafe** is the first all-in-one framework integrating 25+ safety datasets and the specialized **ProGuard** evaluation model, supporting full-modal LLM/VLM assessment.
+
+> **DeepSafe** is part of **DeepSight** and works best with 🔍 [**DeepScan**](https://github.com/AI45Lab/DeepScan) (LLM/MLLM diagnosis toolkit). See the unified evaluation–diagnosis workflow on the [🌐 HomePage](https://ai45.shlab.org.cn/safety-entry).
 
 
 ## ✨ Features
