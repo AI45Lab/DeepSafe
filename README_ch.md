@@ -28,7 +28,7 @@
 
 当前大模型安全评测缺乏全面的标准化方案，且普遍缺失专用评测模型。**DeepSafe** 是首个集成 25+ 主流安全数据集及 **ProGuard** 专用评测模型的一体化框架，支持 LLM/VLM 全模态评测。
 
-> **DeepSafe** 源自 **DeepSight**，并可与 🔍 [**DeepScan**](https://github.com/AI45Lab/DeepScan)（LLM/MLLM 诊断工具集）联动使用。完整的“评测‑诊断”一体化工作流见 [🌐 HomePage](https://ai45.shlab.org.cn/safety-entry)。
+> **DeepSafe** 源自 **DeepSight**，并可与 🔍 [**DeepScan**](https://github.com/AI45Lab/DeepScan)（LLM/MLLM 诊断工具集）联动使用。完整的“评测‑诊断”一体化工作流见 [<img src="https://avatars.githubusercontent.com/u/194484914?s=200&v=4" height="14" alt="AI45"> HomePage](https://ai45.shlab.org.cn/safety-entry)。
 
 DeepSafe 构建模块化解耦+配置驱动的弹性架构，实现从推理生成判断到深度评测报告的全链路自动化闭环。为AI Safety研究提供了一个可深度评测、可复现且扩展性强持续演进的安全基础设施，旨在推动大模型安全评估从结果测试走向深度分析，加速构建可信AI的评测进程。🚀
 
