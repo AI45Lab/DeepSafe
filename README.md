@@ -11,7 +11,7 @@
 </div>
 <div style="height: 6px;"></div>
 <div align="center">
-  <a href="#">🌐 HomePage</a> |
+  <a href="https://ai45.shlab.org.cn/safety-eval">🌐 HomePage</a> |
   <a href="#">🤗 Hugging Face</a> |
   <a href="#">📄 Technical Report</a> |
   <a href="#quick-start">📚 Documentation</a>
@@ -87,6 +87,7 @@ DeepSafe supports major open-source models and commercial APIs, allowing flexibl
 
 ---
 
+<a id="quick-start"></a>
 ## 🚀 Quick Start
 
 DeepSafe provides a standardized workflow consisting of four stages: **Configure -> Inference -> Evaluation -> Visualization**.

@@ -11,10 +11,10 @@
 </div>
 <div style="height: 6px;"></div>
 <div align="center">
-  <a href="#">🌐 HomePage</a> |
+  <a href="https://ai45.shlab.org.cn/safety-eval">🌐 HomePage</a> |
   <a href="#">🤗 Hugging Face</a> |
   <a href="#">📄 Technical Report</a> |
-  <a href="#快速上手-quick-start">📚 Documentation</a>
+  <a href="#quick-start">📚 Documentation</a>
 </div>
 <div style="height: 18px;"></div>
 
@@ -87,6 +87,7 @@ DeepSafe 适配了主流的开源模型与商业 API，支持灵活切换评测�
 
 ---
 
+<a id="quick-start"></a>
 ## 🚀 快速上手 (Quick Start)
 
 DeepSafe 提供了标准化的评测工作流，主要分为四个阶段：**配置 -> 推理 -> 评估 -> 可视化**。
