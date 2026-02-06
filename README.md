@@ -5,9 +5,18 @@
     <img alt="DeepSafe Logo" src="./data/deepsafe-logo-dark.svg" width="300">
   </picture>
 </div>
-<div style="height: 50px;"></div>
-
-# 🛡️ DeepSafe: All-in-One Safety Evaluation ToolKit for LLMs and MLLMs
+<div style="height: 8px;"></div>
+<div align="center">
+  <h3 style="margin: 0;">All-in-One Safety Evaluation ToolKit for LLMs and MLLMs</h3>
+</div>
+<div style="height: 6px;"></div>
+<div align="center">
+  <a href="#">🌐 HomePage</a> |
+  <a href="#">🤗 Hugging Face</a> |
+  <a href="#">📄 Technical Report</a> |
+  <a href="#quick-start">📚 Documentation</a>
+</div>
+<div style="height: 18px;"></div>
 
 Current safety evaluation for large models lacks comprehensive standardized protocols and dedicated assessment tools. **DeepSafe** is the first all-in-one framework integrating 25+ safety datasets and the specialized **ProGuard** evaluation model, supporting full-modal LLM/VLM assessment.
 
@@ -250,3 +259,9 @@ DeepSafe/
 
 ## 🤝 Contribution & Feedback
 Contributions are welcome! Please submit an Issue or Pull Request to help us build **DeepSafe**. 🌟
+
+---
+
+## 📬 Contact
+
+- **Email**: [`shaojing@pjlab.org.cn`](mailto:shaojing@pjlab.org.cn)

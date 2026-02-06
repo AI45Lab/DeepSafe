@@ -5,9 +5,18 @@
     <img alt="DeepSafe Logo" src="./data/deepsafe-logo-dark.svg" width="300">
   </picture>
 </div>
-<div style="height: 50px;"></div>
-
-# 🛡️ DeepSafe: LLM和MLLM安全评测工具集
+<div style="height: 8px;"></div>
+<div align="center">
+  <h3 style="margin: 0;">LLM和MLLM安全评测工具集</h3>
+</div>
+<div style="height: 6px;"></div>
+<div align="center">
+  <a href="#">🌐 HomePage</a> |
+  <a href="#">🤗 Hugging Face</a> |
+  <a href="#">📄 Technical Report</a> |
+  <a href="#快速上手-quick-start">📚 Documentation</a>
+</div>
+<div style="height: 18px;"></div>
 
 当前大模型安全评测缺乏全面的标准化方案，且普遍缺失专用评测模型。**DeepSafe** 是首个集成 25+ 主流安全数据集及 **ProGuard** 专用评测模型的一体化框架，支持 LLM/VLM 全模态评测。
 
@@ -262,3 +271,9 @@ DeepSafe/
 
 ## 🤝 贡献与反馈
 欢迎通过 Issue 或 Pull Request 共同构建 **DeepSafe**！🌟
+
+---
+
+## 📬 联系我们
+
+- **邮箱**：[`shaojing@pjlab.org.cn`](mailto:shaojing@pjlab.org.cn)
