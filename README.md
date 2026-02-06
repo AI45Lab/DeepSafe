@@ -22,6 +22,10 @@ Current safety evaluation for large models lacks comprehensive standardized prot
 > **DeepSafe** is part of **DeepSight** and works best with 🔍 [**DeepScan**](https://github.com/AI45Lab/DeepScan) (LLM/MLLM diagnosis toolkit). See the unified evaluation–diagnosis workflow on the [<img src="https://avatars.githubusercontent.com/u/194484914?s=200&v=4" height="14" alt="AI45"> HomePage](https://ai45.shlab.org.cn/safety-entry).
 
 
+## 🆕 News
+- 🔥🔥🔥 **2026-02-06: DeepSafe's latest leaderboards and in-depth analysis are out now!**
+  Our evaluation comprehensively covers mainstream LLMs and MLLMs, including GPT, Claude, Gemini, DeepSeek, Qwen, Llama, and Mistral, providing a deep dive into the current state of AI safety. Access full results: [**Leaderboard**](https://ai45.shlab.org.cn/deepsafe) | [**Frontier Risk Report**](https://ai45.shlab.org.cn/safety-report#front-risk-report) | [**Content Risk Report**](https://ai45.shlab.org.cn/safety-report#eval-report)
+
 ## ✨ Features
 
 DeepSafe features a modular, configuration-driven elastic architecture, enabling a full-link automated closed loop from inference and generation to judgment and deep evaluation reporting. It provides a deeply evaluable, reproducible, and highly scalable evolving security infrastructure for AI Safety research, aiming to drive safety assessment from superficial testing to in-depth analysis and accelerate the construction of Trustworthy AI. 🚀

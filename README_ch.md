@@ -21,6 +21,11 @@
 
 > **DeepSafe** 源自 **DeepSight**，并可与 🔍 [**DeepScan**](https://github.com/AI45Lab/DeepScan)（LLM/MLLM 诊断工具集）联动使用。完整的“评测‑诊断”一体化工作流见 [<img src="https://avatars.githubusercontent.com/u/194484914?s=200&v=4" height="14" alt="AI45"> HomePage](https://ai45.shlab.org.cn/safety-entry)。
 
+
+## 🆕 最新进展
+
+- 🔥🔥🔥 2026-02-06：DeepSafe 最新评测榜单与深度分析重磅出炉！
+  本次评测全面覆盖 GPT、Claude、Gemini、DeepSeek、Qwen、Llama、Mistral 等主流语言及多模态模型，深度剖析 AI 安全现状。一键获取完整数据：[**榜单详情**](https://ai45.shlab.org.cn/deepsafe) | [**前沿风险报告**](https://ai45.shlab.org.cn/safety-report#front-risk-report) | [**内容风险报告**](https://ai45.shlab.org.cn/safety-report#eval-report)
 ## ✨ Features
 
 DeepSafe 构建模块化解耦+配置驱动的弹性架构，实现从推理生成判断到深度评测报告的全链路自动化闭环。为 AI Safety 研究提供了一个可深度评测、可复现且扩展性强、持续演进的安全基础设施，旨在推动大模型安全评估从结果测试走向深度分析，加速构建可信 AI 的评测进程。🚀
