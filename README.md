@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./data/deepsafe-logo-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="./data/deepsafe-logo-light.svg">
-    <img alt="DeepSafe Logo" src="./data/deepsafe-logo-dark.svg" width="300">
+    <img alt="DeepSafe Logo" src="./data/deepsafe-logo-dark.svg" width="280">
   </picture>
 </div>
 <div style="height: 8px;"></div>
