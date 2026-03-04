@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>openclaw-deepsafe — Preflight Security Scanner for OpenClaw</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0e1a;
+  --bg-card: rgba(255,255,255,0.04);
+  --bg-card-hover: rgba(255,255,255,0.07);
+  --border: rgba(255,255,255,0.08);
+  --border-hover: rgba(255,255,255,0.15);
+  --text: #e2e8f0;
+  --text-dim: #94a3b8;
+  --text-bright: #f8fafc;
+  --blue: #3b82f6;
+  --purple: #8b5cf6;
+  --gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  --gradient-text: linear-gradient(135deg, #60a5fa, #a78bfa);
+  --glow-blue: rgba(59,130,246,0.15);
+  --glow-purple: rgba(139,92,246,0.15);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Animated background grid ── */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.bg-glow {
+  position: fixed;
+  z-index: -1;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.bg-glow--blue { top: -200px; left: -100px; background: var(--glow-blue); }
+.bg-glow--purple { top: 300px; right: -200px; background: var(--glow-purple); }
+
+/* ── Reveal animations ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.35s; }
+
+/* ── Navigation ── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 16px 0;
+  background: rgba(10,14,26,0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav svg { height: 28px; width: auto; }
+
+.nav-links { display: flex; gap: 32px; align-items: center; }
+
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--text-bright); }
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  background: var(--gradient);
+  color: #fff !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* ── Hero ── */
+.hero {
+  padding: 180px 0 120px;
+  text-align: center;
+  position: relative;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px 6px 8px;
+  border-radius: 100px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 32px;
+}
+
+.hero-badge span {
+  padding: 2px 10px;
+  border-radius: 100px;
+  background: var(--gradient);
+  color: #fff;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.hero-logo { margin-bottom: 40px; }
+.hero-logo svg { height: 44px; width: auto; opacity: 0.9; }
+
+.hero h1 {
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 24px;
+}
+
+.hero p {
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--text-dim);
+  max-width: 600px;
+  margin: 0 auto 48px;
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s cubic-bezier(0.16,1,0.3,1);
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--gradient);
+  color: #fff;
+  box-shadow: 0 0 0 0 rgba(59,130,246,0), 0 4px 24px rgba(59,130,246,0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 0 0 rgba(59,130,246,0), 0 8px 32px rgba(59,130,246,0.35); }
+.btn-primary:hover::before { opacity: 1; }
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+
+.btn-outline:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card);
+  transform: translateY(-2px);
+}
+
+.btn-outline svg { width: 18px; height: 18px; fill: currentColor; }
+
+.copied-toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: rgba(59,130,246,0.15);
+  border: 1px solid rgba(59,130,246,0.3);
+  backdrop-filter: blur(16px);
+  color: #60a5fa;
+  font-size: 14px;
+  font-weight: 500;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+  z-index: 200;
+}
+
+.copied-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── Section base ── */
+section { padding: 100px 0; }
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-bright);
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  font-size: 17px;
+  color: var(--text-dim);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-header .section-desc { margin: 0 auto; }
+
+/* ── How it works ── */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.step {
+  position: relative;
+  padding: 40px 32px;
+  border-radius: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+
+.step:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+}
+
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--gradient);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.step h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+}
+
+.step p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+
+.step code {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.2);
+  color: #60a5fa;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+
+/* ── Dimensions grid ── */
+.dims {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.dim-card {
+  position: relative;
+  padding: 36px;
+  border-radius: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+
+.dim-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+}
+
+.dim-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.dim-card:hover::before { opacity: 1; }
+
+.dim-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.dim-icon--deploy { background: rgba(59,130,246,0.12); }
+.dim-icon--skill  { background: rgba(168,85,247,0.12); }
+.dim-icon--model  { background: rgba(236,72,153,0.12); }
+.dim-icon--memory { background: rgba(34,197,94,0.12); }
+
+.dim-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+}
+
+.dim-card p { font-size: 14px; color: var(--text-dim); line-height: 1.6; margin-bottom: 16px; }
+
+.dim-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.dim-tag {
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 500;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+}
+
+/* ── Terminal mockup ── */
+.terminal-section { padding: 100px 0; }
+
+.terminal-section .section-header { margin-bottom: 48px; }
+
+.terminal {
+  max-width: 740px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #0d1117;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03);
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid var(--border);
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-dot--red    { background: #ff5f57; }
+.terminal-dot--yellow { background: #febc2e; }
+.terminal-dot--green  { background: #28c840; }
+
+.terminal-title {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.terminal-body {
+  padding: 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  overflow-x: auto;
+}
+
+.terminal-body .prompt { color: #7c3aed; }
+.terminal-body .cmd { color: #e2e8f0; }
+.terminal-body .info { color: #60a5fa; }
+.terminal-body .success { color: #34d399; }
+.terminal-body .warn { color: #fbbf24; }
+.terminal-body .dim { color: #475569; }
+.terminal-body .heading { color: #a78bfa; font-weight: 600; }
+
+/* ── Features grid ── */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.feature {
+  padding: 32px;
+  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+
+.feature:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+}
+
+.feature-icon {
+  font-size: 28px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.feature h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 6px;
+}
+
+.feature p { font-size: 14px; color: var(--text-dim); line-height: 1.5; }
+
+/* ── Footer ── */
+footer {
+  padding: 64px 0 40px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-left { display: flex; align-items: center; gap: 24px; }
+
+.footer-left svg { height: 24px; width: auto; opacity: 0.7; }
+
+.footer-text {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.footer-right { display: flex; align-items: center; gap: 16px; }
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-link:hover { color: var(--text-bright); }
+
+.footer-link svg { width: 16px; height: 16px; fill: currentColor; }
+
+.star-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.star-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-1px);
+}
+
+.star-btn svg { width: 14px; height: 14px; fill: #fbbf24; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .steps, .features { grid-template-columns: 1fr; }
+  .dims { grid-template-columns: 1fr; }
+  .hero { padding: 140px 0 80px; }
+  section { padding: 72px 0; }
+  .nav-links { display: none; }
+  .footer-content { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .hero-buttons { flex-direction: column; align-items: center; }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow--blue"></div>
+<div class="bg-glow bg-glow--purple"></div>
+
+<!-- ── Nav ── -->
+<nav>
+  <div class="container">
+    <a href="#" aria-label="DeepSafe Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 241.25 49.18"><defs><style>.ds-logo{fill:#fff}</style></defs><g><path class="ds-logo" d="M36.92,34.89c-.74.57-1.56.83-2.47.49-.48-.17-.79-.05-1.13.29-1.75,1.78-3.51,3.54-5.28,5.3-.27.27-.24.43.02.67.86.84,1.71,1.69,2.55,2.55.25.26.45.25.71.03,1.44-1.22,2.8-2.51,3.99-3.97,2.47-3.02,4.24-6.43,5.52-10.1,1.42-4.07,2.13-8.27,2.44-12.54,0-.11.04-.24-.1-.32-.18,0-.28.15-.39.26-1.64,1.63-3.29,3.27-4.93,4.91-.23.23-.44.47-.39.84.13,1.06-.79,2.12-1.88,2.08-.47-.02-.8.13-1.12.45-5.2,5.22-10.41,10.42-15.62,15.63-.2.2-.3.5-.56.64-.21-.09-.34-.26-.49-.4-1.3-1.3-2.59-2.6-3.88-3.9q-.42-.42,0-.85c1.45-1.45,2.9-2.91,4.36-4.35.3-.3.44-.62.44-1.05-.02-1.14,0-2.29,0-3.43,0-.25-.02-.5-.3-.57-.43-.1-.84-.58-1.34.41-.74,1.45-1.91,2.62-3.35,3.37-.63.33-.82.73-.73,1.25.23,1.42-1.11,2.54-2.48,2.09-.9-.3-1.45-1.23-1.29-2.19.16-.96.96-1.57,2.01-1.52.31.02.57-.02.8-.25,1.4-1.4,2.8-2.8,4.2-4.2.25-.25.33-.5.24-.87-.46-1.96,1.29-3.72,3.2-3.23,1.07.27,1.75.96,1.98,2.02.23,1.05-.06,1.99-.94,2.66-.33.25-.45.53-.45.93.02,1.33,0,2.67,0,4.01,0,.55-.17.98-.57,1.37-1.23,1.2-2.43,2.43-3.65,3.64-.26.26-.25.42.11.71.59.48,1.12,1.01,1.61,1.6.36.43.56.49.9.14,4.92-4.93,9.85-9.86,14.78-14.78.24-.24.33-.46.26-.82-.26-1.34.91-2.53,2.25-2.27.31.06.55.02.78-.21,2.1-2.11,4.21-4.22,6.32-6.32.22-.22.33-.47.31-.79-.06-1.27-.12-2.55-.16-3.82-.01-.35-.2-.49-.51-.55-.46-.08-.93-.14-1.38-.26-.47-.12-.8,0-1.14.34-1.37,1.39-2.75,2.77-4.13,4.15-2.26,2.26-4.52,4.52-6.8,6.77-.28.28-.39.52-.22.92.22.51.21,1.07.07,1.6-.4,1.47-1.86,2.27-3.34,1.86-1.34-.37-2.17-1.84-1.82-3.23.36-1.43,1.76-2.28,3.22-1.91.38.1.64.02.9-.25,3.45-3.46,6.91-6.91,10.36-10.37.37-.37.34-.46-.17-.63-1.28-.43-2.57-.83-3.85-1.28-.42-.15-.88-.04-1.19.27-3.58,3.62-7.19,7.21-10.78,10.82-.32.32-.67.47-1.15.44-1.36-.08-2.72-.09-4.08,0-.63.04-1.07-.13-1.49-.56-1.43-1.47-2.89-2.92-4.33-4.38-.23-.23-.46-.37-.81-.32-1.4.22-2.39-.72-2.25-2.11.03-.32.07-.64-.28-.88-.69-.48-1.33-1.05-1.77-1.77-.2-.32-.47-.42-.78-.35-1.61.36-3.23.74-4.84,1.09-.34.08-.52.27-.51.61,0,.72,0,1.44-.1,2.15-.11.8.21,1.36.78,1.92,2.99,2.94,5.95,5.92,8.91,8.89.45.45.42.42.92-.01.39-.34.53-.87.38-1.37-.12-.4-.1-.85,0-1.27.34-1.32,1.76-2.15,3.12-1.83,1.43.34,2.35,1.74,2.04,3.12-.35,1.58-1.81,2.47-3.37,2.03-.43-.12-.71-.04-1,.3-.27.32-.56.63-.87.92-.9.84-.76.98-1.29.45-3.05-3.05-6.1-6.1-9.15-9.15-.11-.11-.19-.27-.37-.26-.12.11-.11.25-.09.38.2,2.04.34,4.08.67,6.1.68,4.1,1.85,8.04,3.72,11.76,1.47,2.92,3.32,5.57,5.66,7.85,3.14,3.06,6.84,5.21,10.99,6.61.36.12.7.15,1.07.03,2.46-.79,4.78-1.87,6.93-3.29.15-.1.34-.18.4-.44-1.37-1.31-2.76-2.63-4.11-4.03.24-.21.45-.39.65-.58,2.09-2.08,4.17-4.17,6.27-6.24.34-.34.44-.65.31-1.13-.25-.94.03-1.77.72-2.45.72-.7,1.59-.96,2.55-.68,2.1.61,2.66,3.05,1.04,4.61M22.43,16.43c3.21-3.21,6.46-6.39,9.7-9.69-.28-.14-.43-.23-.59-.3-3.33-1.5-6.45-3.35-9.34-5.59-.51-.39-.52-.39-1.05.02-2.64,2.05-5.5,3.75-8.5,5.2-.58.28-.6.36-.13.82,2,2,4.01,4,6,6.01.32.32.5.25.84-.15.82-.94,1.71-1.81,2.65-2.62.55-.47.73-.84.5-1.52-.61-1.79.94-3.71,2.97-3.36,1.5.25,2.45,1.62,2.18,3.14-.26,1.43-1.66,2.39-3.12,2.09-.43-.09-.72.03-1.01.33-1.38,1.4-2.77,2.79-4.16,4.18q-.57.57-1.12.02c-1.2-1.21-2.4-2.41-3.61-3.61-1.3-1.3-2.6-2.59-3.89-3.89-.27-.27-.52-.36-.9-.2-.55.24-1.12.43-1.68.65-.45.18-.48.32-.15.66.38.4.79.78,1.17,1.19.2.21.48.33.76.32,1.38-.03,2.14.74,2.14,2.12,0,.42.14.72.62,1,1.44.85,2.62,2.06,3.49,3.48.36.59.8.94,1.39.87.75-.08,1.5-.11,2.24-.03,1.08.11,1.92-.21,2.6-1.13M36.22,33.28c.21-.7-.05-1.3-.66-1.5-.56-.19-1.22.15-1.41.73-.17.52.08,1.08.58,1.33.54.27,1.07.09,1.49-.56M18.93,26.1c.52.06.86-.21,1.11-.63.23-.38.2-.76-.06-1.11-.26-.36-.62-.52-1.07-.46-.49.07-.88.49-.92.98-.05.59.23.97.94,1.21M25.78,7.11c-.44-.34-.89-.4-1.3-.16-.4.24-.63.69-.55,1.11.09.49.44.85.92.95.37.08.85-.15,1.09-.51.27-.4.23-.83-.17-1.39M14.66,21.55c-.03-.13-.03-.26-.08-.38-.18-.41-.49-.65-.94-.68-.48-.04-.8.2-1.04.6-.23.39-.21.76.05,1.11.25.34.61.56,1.06.49.53-.09.85-.46.95-1.13M25.5,23.13c.04.08.07.16.12.23.37.53,1.06.64,1.57.26.48-.36.58-1.05.22-1.52-.39-.53-1.05-.6-1.57-.18-.38.3-.42.71-.35,1.22Z"/></g><g><g><path class="ds-logo" d="M59.79,36.55V6.45h10.06c3.47,0,6.35.62,8.64,1.87s3.99,3,5.1,5.25c1.1,2.25,1.66,4.9,1.66,7.93s-.55,5.68-1.66,7.93c-1.1,2.25-2.8,4-5.1,5.25s-5.17,1.87-8.64,1.87h-10.06ZM65.6,31.56h3.96c2.44,0,4.37-.4,5.81-1.2,1.43-.8,2.45-1.96,3.05-3.46s.9-3.3.9-5.4-.3-3.93-.9-5.44c-.6-1.51-1.62-2.66-3.05-3.46-1.43-.8-3.37-1.2-5.81-1.2h-3.96v20.17Z"/><path class="ds-logo" d="M97.89,37.07c-2.18,0-4.11-.47-5.78-1.42-1.68-.95-2.98-2.26-3.91-3.93-.93-1.68-1.4-3.6-1.4-5.78s.47-4.26,1.4-5.98c.93-1.72,2.23-3.08,3.89-4.08,1.66-1,3.6-1.5,5.81-1.5s4.03.47,5.63,1.42c1.6.95,2.85,2.21,3.74,3.81.89,1.59,1.33,3.42,1.33,5.48,0,.29,0,.61-.02.97-.02.36-.04.72-.06,1.1h-17.54v-3.57h11.78c-.09-1.35-.58-2.44-1.48-3.27-.9-.83-2.01-1.25-3.33-1.25-1,0-1.91.24-2.73.71-.82.47-1.47,1.16-1.96,2.06-.49.9-.73,2.04-.73,3.42v1.25c0,1.18.22,2.2.67,3.07.44.88,1.07,1.56,1.87,2.04.8.49,1.73.73,2.8.73s1.97-.22,2.64-.67c.67-.44,1.2-1.04,1.57-1.78h5.89c-.37,1.35-1.04,2.57-2,3.68-.96,1.1-2.12,1.96-3.48,2.58-1.36.62-2.89.92-4.58.92Z"/><path class="ds-logo" d="M121.2,37.07c-2.18,0-4.11-.47-5.78-1.42-1.68-.95-2.98-2.26-3.91-3.93-.93-1.68-1.4-3.6-1.4-5.78s.47-4.26,1.4-5.98c.93-1.72,2.23-3.08,3.89-4.08,1.66-1,3.6-1.5,5.81-1.5s4.03.47,5.63,1.42c1.6.95,2.85,2.21,3.74,3.81.89,1.59,1.33,3.42,1.33,5.48,0,.29,0,.61-.02.97-.02.36-.04.72-.06,1.1h-17.54v-3.57h11.78c-.09-1.35-.58-2.44-1.48-3.27-.9-.83-2.01-1.25-3.33-1.25-1,0-1.91.24-2.73.71-.82.47-1.47,1.16-1.96,2.06-.49.9-.73,2.04-.73,3.42v1.25c0,1.18.22,2.2.67,3.07.44.88,1.07,1.56,1.87,2.04.8.49,1.73.73,2.8.73s1.97-.22,2.64-.67c.67-.44,1.2-1.04,1.57-1.78h5.89c-.37,1.35-1.04,2.57-2,3.68-.96,1.1-2.12,1.96-3.48,2.58-1.36.62-2.89.92-4.58.92Z"/><path class="ds-logo" d="M134.1,46.01V14.88h5.16l.65,2.97c.43-.6.97-1.17,1.61-1.7.65-.53,1.4-.96,2.28-1.29.87-.33,1.88-.49,3.03-.49,2.06,0,3.87.49,5.42,1.48,1.55.99,2.77,2.34,3.68,4.06.9,1.72,1.35,3.67,1.35,5.85s-.46,4.12-1.38,5.83c-.92,1.71-2.15,3.05-3.7,4.02-1.55.97-3.33,1.46-5.33,1.46-1.58,0-2.95-.29-4.11-.88-1.16-.59-2.11-1.4-2.86-2.43v12.25h-5.81ZM145.53,31.99c1.12,0,2.11-.26,2.99-.77.87-.52,1.56-1.24,2.06-2.17.5-.93.75-2.01.75-3.25s-.25-2.37-.75-3.33c-.5-.96-1.19-1.71-2.06-2.24-.88-.53-1.87-.8-2.99-.8s-2.11.27-2.99.8c-.88.53-1.56,1.27-2.04,2.21-.49.95-.73,2.05-.73,3.31s.24,2.32.73,3.25c.49.93,1.17,1.66,2.04,2.19.87.53,1.87.8,2.99.8Z"/><path class="ds-logo" d="M170.17,37.07c-2.18,0-4.12-.37-5.83-1.12-1.71-.75-3.05-1.83-4.02-3.27-.97-1.43-1.49-3.17-1.55-5.2h6.15c.03.89.26,1.69.69,2.41.43.72,1.02,1.28,1.78,1.7.76.42,1.67.62,2.73.62.92,0,1.71-.15,2.39-.45.67-.3,1.2-.72,1.59-1.27.39-.54.58-1.19.58-1.93,0-.86-.22-1.58-.65-2.15-.43-.57-1.01-1.06-1.74-1.46-.73-.4-1.58-.77-2.54-1.1-.96-.33-1.96-.67-2.99-1.01-2.41-.8-4.23-1.85-5.46-3.14-1.23-1.29-1.85-3-1.85-5.12,0-1.81.43-3.35,1.29-4.64s2.06-2.28,3.61-2.97c1.55-.69,3.31-1.03,5.29-1.03s3.82.35,5.35,1.05c1.53.7,2.75,1.71,3.65,3.03.9,1.32,1.38,2.87,1.44,4.64h-6.23c-.03-.66-.22-1.28-.58-1.87-.36-.59-.85-1.06-1.48-1.42-.63-.36-1.38-.54-2.24-.54-.75-.03-1.43.09-2.04.34-.62.26-1.1.64-1.44,1.14-.34.5-.52,1.13-.52,1.87s.17,1.32.52,1.81c.34.49.83.91,1.46,1.27.63.36,1.38.69,2.24.99.86.3,1.79.61,2.79.92,1.52.52,2.9,1.13,4.15,1.83,1.25.7,2.24,1.61,2.99,2.73.75,1.12,1.12,2.6,1.12,4.43,0,1.58-.41,3.04-1.23,4.39-.82,1.35-2.01,2.44-3.59,3.27-1.58.83-3.53,1.25-5.85,1.25Z"/><path class="ds-logo" d="M190.38,37.07c-1.78,0-3.25-.29-4.43-.88-1.18-.59-2.06-1.38-2.64-2.37s-.88-2.09-.88-3.29c0-1.35.34-2.52,1.01-3.53.67-1,1.7-1.78,3.08-2.34,1.38-.56,3.12-.84,5.25-.84h5.29c0-1.09-.14-1.98-.41-2.67s-.72-1.2-1.33-1.55c-.62-.34-1.43-.52-2.43-.52-1.09,0-2.01.23-2.77.69-.76.46-1.23,1.19-1.4,2.19h-5.63c.14-1.58.65-2.92,1.53-4.04.87-1.12,2.04-1.99,3.48-2.62,1.45-.63,3.06-.95,4.84-.95,2.04,0,3.81.34,5.31,1.01,1.51.67,2.65,1.66,3.44,2.97.79,1.3,1.18,2.89,1.18,4.75v13.46h-4.86l-.64-3.31c-.32.57-.7,1.09-1.14,1.55-.45.46-.96.86-1.55,1.2-.59.34-1.23.61-1.91.79-.69.19-1.48.28-2.36.28ZM191.8,32.59c.72,0,1.37-.14,1.96-.41.59-.27,1.1-.65,1.53-1.14.43-.49.77-1.03,1.03-1.63.26-.6.43-1.26.52-1.98v-.04h-4.43c-.92,0-1.66.11-2.21.32-.56.22-.97.52-1.23.92-.26.4-.39.86-.39,1.38,0,.54.13,1.01.39,1.4.26.39.64.68,1.14.88.5.2,1.07.3,1.7.3Z"/><path class="ds-logo" d="M203.71,19.74v-4.86h13.46v4.86h-13.46ZM206.68,36.55V12.94c0-1.81.3-3.24.9-4.3.6-1.06,1.47-1.83,2.6-2.32,1.13-.49,2.46-.73,3.98-.73h2.67v4.94h-1.76c-.92,0-1.58.18-1.98.54-.4.36-.6.97-.6,1.83v23.65h-5.8Z"/><path class="ds-logo" d="M228.61,37.07c-2.18,0-4.11-.47-5.78-1.42-1.68-.95-2.98-2.26-3.91-3.93-.93-1.68-1.4-3.6-1.4-5.78s.46-4.26,1.4-5.98c.93-1.72,2.23-3.08,3.89-4.08,1.66-1,3.6-1.5,5.8-1.5s4.03.47,5.63,1.42,2.85,2.21,3.74,3.81c.89,1.59,1.33,3.42,1.33,5.48,0,.29,0,.61-.02.97-.01.36-.04.72-.06,1.1h-17.54v-3.57h11.78c-.09-1.35-.58-2.44-1.48-3.27-.9-.83-2.01-1.25-3.33-1.25-1,0-1.91.24-2.73.71-.82.47-1.47,1.16-1.96,2.06s-.73,2.04-.73,3.42v1.25c0,1.18.22,2.2.67,3.07.44.88,1.07,1.56,1.87,2.04.8.49,1.73.73,2.79.73s1.97-.22,2.64-.67c.67-.44,1.2-1.04,1.57-1.78h5.89c-.37,1.35-1.04,2.57-2,3.68-.96,1.1-2.12,1.96-3.48,2.58s-2.89.92-4.58.92Z"/></g></g></svg>
+    </a>
+    <div class="nav-links">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#dimensions">Scan Dimensions</a>
+      <a href="#features">Features</a>
+      <a href="https://github.com/AI45Lab/DeepSafe" target="_blank" rel="noopener" class="nav-cta">
+        <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="container">
+    <div class="reveal">
+      <div class="hero-badge">
+        <span>New</span>
+        Part of the DeepSafe framework
+      </div>
+    </div>
+
+    <div class="hero-logo reveal reveal-delay-1">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 241.25 49.18" height="44"><defs><style>.ds-logo{fill:#fff}</style></defs><g><path class="ds-logo" d="M36.92,34.89c-.74.57-1.56.83-2.47.49-.48-.17-.79-.05-1.13.29-1.75,1.78-3.51,3.54-5.28,5.3-.27.27-.24.43.02.67.86.84,1.71,1.69,2.55,2.55.25.26.45.25.71.03,1.44-1.22,2.8-2.51,3.99-3.97,2.47-3.02,4.24-6.43,5.52-10.1,1.42-4.07,2.13-8.27,2.44-12.54,0-.11.04-.24-.1-.32-.18,0-.28.15-.39.26-1.64,1.63-3.29,3.27-4.93,4.91-.23.23-.44.47-.39.84.13,1.06-.79,2.12-1.88,2.08-.47-.02-.8.13-1.12.45-5.2,5.22-10.41,10.42-15.62,15.63-.2.2-.3.5-.56.64-.21-.09-.34-.26-.49-.4-1.3-1.3-2.59-2.6-3.88-3.9q-.42-.42,0-.85c1.45-1.45,2.9-2.91,4.36-4.35.3-.3.44-.62.44-1.05-.02-1.14,0-2.29,0-3.43,0-.25-.02-.5-.3-.57-.43-.1-.84-.58-1.34.41-.74,1.45-1.91,2.62-3.35,3.37-.63.33-.82.73-.73,1.25.23,1.42-1.11,2.54-2.48,2.09-.9-.3-1.45-1.23-1.29-2.19.16-.96.96-1.57,2.01-1.52.31.02.57-.02.8-.25,1.4-1.4,2.8-2.8,4.2-4.2.25-.25.33-.5.24-.87-.46-1.96,1.29-3.72,3.2-3.23,1.07.27,1.75.96,1.98,2.02.23,1.05-.06,1.99-.94,2.66-.33.25-.45.53-.45.93.02,1.33,0,2.67,0,4.01,0,.55-.17.98-.57,1.37-1.23,1.2-2.43,2.43-3.65,3.64-.26.26-.25.42.11.71.59.48,1.12,1.01,1.61,1.6.36.43.56.49.9.14,4.92-4.93,9.85-9.86,14.78-14.78.24-.24.33-.46.26-.82-.26-1.34.91-2.53,2.25-2.27.31.06.55.02.78-.21,2.1-2.11,4.21-4.22,6.32-6.32.22-.22.33-.47.31-.79-.06-1.27-.12-2.55-.16-3.82-.01-.35-.2-.49-.51-.55-.46-.08-.93-.14-1.38-.26-.47-.12-.8,0-1.14.34-1.37,1.39-2.75,2.77-4.13,4.15-2.26,2.26-4.52,4.52-6.8,6.77-.28.28-.39.52-.22.92.22.51.21,1.07.07,1.6-.4,1.47-1.86,2.27-3.34,1.86-1.34-.37-2.17-1.84-1.82-3.23.36-1.43,1.76-2.28,3.22-1.91.38.1.64.02.9-.25,3.45-3.46,6.91-6.91,10.36-10.37.37-.37.34-.46-.17-.63-1.28-.43-2.57-.83-3.85-1.28-.42-.15-.88-.04-1.19.27-3.58,3.62-7.19,7.21-10.78,10.82-.32.32-.67.47-1.15.44-1.36-.08-2.72-.09-4.08,0-.63.04-1.07-.13-1.49-.56-1.43-1.47-2.89-2.92-4.33-4.38-.23-.23-.46-.37-.81-.32-1.4.22-2.39-.72-2.25-2.11.03-.32.07-.64-.28-.88-.69-.48-1.33-1.05-1.77-1.77-.2-.32-.47-.42-.78-.35-1.61.36-3.23.74-4.84,1.09-.34.08-.52.27-.51.61,0,.72,0,1.44-.1,2.15-.11.8.21,1.36.78,1.92,2.99,2.94,5.95,5.92,8.91,8.89.45.45.42.42.92-.01.39-.34.53-.87.38-1.37-.12-.4-.1-.85,0-1.27.34-1.32,1.76-2.15,3.12-1.83,1.43.34,2.35,1.74,2.04,3.12-.35,1.58-1.81,2.47-3.37,2.03-.43-.12-.71-.04-1,.3-.27.32-.56.63-.87.92-.9.84-.76.98-1.29.45-3.05-3.05-6.1-6.1-9.15-9.15-.11-.11-.19-.27-.37-.26-.12.11-.11.25-.09.38.2,2.04.34,4.08.67,6.1.68,4.1,1.85,8.04,3.72,11.76,1.47,2.92,3.32,5.57,5.66,7.85,3.14,3.06,6.84,5.21,10.99,6.61.36.12.7.15,1.07.03,2.46-.79,4.78-1.87,6.93-3.29.15-.1.34-.18.4-.44-1.37-1.31-2.76-2.63-4.11-4.03.24-.21.45-.39.65-.58,2.09-2.08,4.17-4.17,6.27-6.24.34-.34.44-.65.31-1.13-.25-.94.03-1.77.72-2.45.72-.7,1.59-.96,2.55-.68,2.1.61,2.66,3.05,1.04,4.61M22.43,16.43c3.21-3.21,6.46-6.39,9.7-9.69-.28-.14-.43-.23-.59-.3-3.33-1.5-6.45-3.35-9.34-5.59-.51-.39-.52-.39-1.05.02-2.64,2.05-5.5,3.75-8.5,5.2-.58.28-.6.36-.13.82,2,2,4.01,4,6,6.01.32.32.5.25.84-.15.82-.94,1.71-1.81,2.65-2.62.55-.47.73-.84.5-1.52-.61-1.79.94-3.71,2.97-3.36,1.5.25,2.45,1.62,2.18,3.14-.26,1.43-1.66,2.39-3.12,2.09-.43-.09-.72.03-1.01.33-1.38,1.4-2.77,2.79-4.16,4.18q-.57.57-1.12.02c-1.2-1.21-2.4-2.41-3.61-3.61-1.3-1.3-2.6-2.59-3.89-3.89-.27-.27-.52-.36-.9-.2-.55.24-1.12.43-1.68.65-.45.18-.48.32-.15.66.38.4.79.78,1.17,1.19.2.21.48.33.76.32,1.38-.03,2.14.74,2.14,2.12,0,.42.14.72.62,1,1.44.85,2.62,2.06,3.49,3.48.36.59.8.94,1.39.87.75-.08,1.5-.11,2.24-.03,1.08.11,1.92-.21,2.6-1.13M36.22,33.28c.21-.7-.05-1.3-.66-1.5-.56-.19-1.22.15-1.41.73-.17.52.08,1.08.58,1.33.54.27,1.07.09,1.49-.56M18.93,26.1c.52.06.86-.21,1.11-.63.23-.38.2-.76-.06-1.11-.26-.36-.62-.52-1.07-.46-.49.07-.88.49-.92.98-.05.59.23.97.94,1.21M25.78,7.11c-.44-.34-.89-.4-1.3-.16-.4.24-.63.69-.55,1.11.09.49.44.85.92.95.37.08.85-.15,1.09-.51.27-.4.23-.83-.17-1.39M14.66,21.55c-.03-.13-.03-.26-.08-.38-.18-.41-.49-.65-.94-.68-.48-.04-.8.2-1.04.6-.23.39-.21.76.05,1.11.25.34.61.56,1.06.49.53-.09.85-.46.95-1.13M25.5,23.13c.04.08.07.16.12.23.37.53,1.06.64,1.57.26.48-.36.58-1.05.22-1.52-.39-.53-1.05-.6-1.57-.18-.38.3-.42.71-.35,1.22Z"/></g><g><g><path class="ds-logo" d="M59.79,36.55V6.45h10.06c3.47,0,6.35.62,8.64,1.87s3.99,3,5.1,5.25c1.1,2.25,1.66,4.9,1.66,7.93s-.55,5.68-1.66,7.93c-1.1,2.25-2.8,4-5.1,5.25s-5.17,1.87-8.64,1.87h-10.06ZM65.6,31.56h3.96c2.44,0,4.37-.4,5.81-1.2,1.43-.8,2.45-1.96,3.05-3.46s.9-3.3.9-5.4-.3-3.93-.9-5.44c-.6-1.51-1.62-2.66-3.05-3.46-1.43-.8-3.37-1.2-5.81-1.2h-3.96v20.17Z"/><path class="ds-logo" d="M97.89,37.07c-2.18,0-4.11-.47-5.78-1.42-1.68-.95-2.98-2.26-3.91-3.93-.93-1.68-1.4-3.6-1.4-5.78s.47-4.26,1.4-5.98c.93-1.72,2.23-3.08,3.89-4.08,1.66-1,3.6-1.5,5.81-1.5s4.03.47,5.63,1.42c1.6.95,2.85,2.21,3.74,3.81.89,1.59,1.33,3.42,1.33,5.48,0,.29,0,.61-.02.97-.02.36-.04.72-.06,1.1h-17.54v-3.57h11.78c-.09-1.35-.58-2.44-1.48-3.27-.9-.83-2.01-1.25-3.33-1.25-1,0-1.91.24-2.73.71-.82.47-1.47,1.16-1.96,2.06-.49.9-.73,2.04-.73,3.42v1.25c0,1.18.22,2.2.67,3.07.44.88,1.07,1.56,1.87,2.04.8.49,1.73.73,2.8.73s1.97-.22,2.64-.67c.67-.44,1.2-1.04,1.57-1.78h5.89c-.37,1.35-1.04,2.57-2,3.68-.96,1.1-2.12,1.96-3.48,2.58-1.36.62-2.89.92-4.58.92Z"/><path class="ds-logo" d="M121.2,37.07c-2.18,0-4.11-.47-5.78-1.42-1.68-.95-2.98-2.26-3.91-3.93-.93-1.68-1.4-3.6-1.4-5.78s.47-4.26,1.4-5.98c.93-1.72,2.23-3.08,3.89-4.08,1.66-1,3.6-1.5,5.81-1.5s4.03.47,5.63,1.42c1.6.95,2.85,2.21,3.74,3.81.89,1.59,1.33,3.42,1.33,5.48,0,.29,0,.61-.02.97-.02.36-.04.72-.06,1.1h-17.54v-3.57h11.78c-.09-1.35-.58-2.44-1.48-3.27-.9-.83-2.01-1.25-3.33-1.25-1,0-1.91.24-2.73.71-.82.47-1.47,1.16-1.96,2.06-.49.9-.73,2.04-.73,3.42v1.25c0,1.18.22,2.2.67,3.07.44.88,1.07,1.56,1.87,2.04.8.49,1.73.73,2.8.73s1.97-.22,2.64-.67c.67-.44,1.2-1.04,1.57-1.78h5.89c-.37,1.35-1.04,2.57-2,3.68-.96,1.1-2.12,1.96-3.48,2.58-1.36.62-2.89.92-4.58.92Z"/><path class="ds-logo" d="M134.1,46.01V14.88h5.16l.65,2.97c.43-.6.97-1.17,1.61-1.7.65-.53,1.4-.96,2.28-1.29.87-.33,1.88-.49,3.03-.49,2.06,0,3.87.49,5.42,1.48,1.55.99,2.77,2.34,3.68,4.06.9,1.72,1.35,3.67,1.35,5.85s-.46,4.12-1.38,5.83c-.92,1.71-2.15,3.05-3.7,4.02-1.55.97-3.33,1.46-5.33,1.46-1.58,0-2.95-.29-4.11-.88-1.16-.59-2.11-1.4-2.86-2.43v12.25h-5.81ZM145.53,31.99c1.12,0,2.11-.26,2.99-.77.87-.52,1.56-1.24,2.06-2.17.5-.93.75-2.01.75-3.25s-.25-2.37-.75-3.33c-.5-.96-1.19-1.71-2.06-2.24-.88-.53-1.87-.8-2.99-.8s-2.11.27-2.99.8c-.88.53-1.56,1.27-2.04,2.21-.49.95-.73,2.05-.73,3.31s.24,2.32.73,3.25c.49.93,1.17,1.66,2.04,2.19.87.53,1.87.8,2.99.8Z"/><path class="ds-logo" d="M170.17,37.07c-2.18,0-4.12-.37-5.83-1.12-1.71-.75-3.05-1.83-4.02-3.27-.97-1.43-1.49-3.17-1.55-5.2h6.15c.03.89.26,1.69.69,2.41.43.72,1.02,1.28,1.78,1.7.76.42,1.67.62,2.73.62.92,0,1.71-.15,2.39-.45.67-.3,1.2-.72,1.59-1.27.39-.54.58-1.19.58-1.93,0-.86-.22-1.58-.65-2.15-.43-.57-1.01-1.06-1.74-1.46-.73-.4-1.58-.77-2.54-1.1-.96-.33-1.96-.67-2.99-1.01-2.41-.8-4.23-1.85-5.46-3.14-1.23-1.29-1.85-3-1.85-5.12,0-1.81.43-3.35,1.29-4.64s2.06-2.28,3.61-2.97c1.55-.69,3.31-1.03,5.29-1.03s3.82.35,5.35,1.05c1.53.7,2.75,1.71,3.65,3.03.9,1.32,1.38,2.87,1.44,4.64h-6.23c-.03-.66-.22-1.28-.58-1.87-.36-.59-.85-1.06-1.48-1.42-.63-.36-1.38-.54-2.24-.54-.75-.03-1.43.09-2.04.34-.62.26-1.1.64-1.44,1.14-.34.5-.52,1.13-.52,1.87s.17,1.32.52,1.81c.34.49.83.91,1.46,1.27.63.36,1.38.69,2.24.99.86.3,1.79.61,2.79.92,1.52.52,2.9,1.13,4.15,1.83,1.25.7,2.24,1.61,2.99,2.73.75,1.12,1.12,2.6,1.12,4.43,0,1.58-.41,3.04-1.23,4.39-.82,1.35-2.01,2.44-3.59,3.27-1.58.83-3.53,1.25-5.85,1.25Z"/><path class="ds-logo" d="M190.38,37.07c-1.78,0-3.25-.29-4.43-.88-1.18-.59-2.06-1.38-2.64-2.37s-.88-2.09-.88-3.29c0-1.35.34-2.52,1.01-3.53.67-1,1.7-1.78,3.08-2.34,1.38-.56,3.12-.84,5.25-.84h5.29c0-1.09-.14-1.98-.41-2.67s-.72-1.2-1.33-1.55c-.62-.34-1.43-.52-2.43-.52-1.09,0-2.01.23-2.77.69-.76.46-1.23,1.19-1.4,2.19h-5.63c.14-1.58.65-2.92,1.53-4.04.87-1.12,2.04-1.99,3.48-2.62,1.45-.63,3.06-.95,4.84-.95,2.04,0,3.81.34,5.31,1.01,1.51.67,2.65,1.66,3.44,2.97.79,1.3,1.18,2.89,1.18,4.75v13.46h-4.86l-.64-3.31c-.32.57-.7,1.09-1.14,1.55-.45.46-.96.86-1.55,1.2-.59.34-1.23.61-1.91.79-.69.19-1.48.28-2.36.28ZM191.8,32.59c.72,0,1.37-.14,1.96-.41.59-.27,1.1-.65,1.53-1.14.43-.49.77-1.03,1.03-1.63.26-.6.43-1.26.52-1.98v-.04h-4.43c-.92,0-1.66.11-2.21.32-.56.22-.97.52-1.23.92-.26.4-.39.86-.39,1.38,0,.54.13,1.01.39,1.4.26.39.64.68,1.14.88.5.2,1.07.3,1.7.3Z"/><path class="ds-logo" d="M203.71,19.74v-4.86h13.46v4.86h-13.46ZM206.68,36.55V12.94c0-1.81.3-3.24.9-4.3.6-1.06,1.47-1.83,2.6-2.32,1.13-.49,2.46-.73,3.98-.73h2.67v4.94h-1.76c-.92,0-1.58.18-1.98.54-.4.36-.6.97-.6,1.83v23.65h-5.8Z"/><path class="ds-logo" d="M228.61,37.07c-2.18,0-4.11-.47-5.78-1.42-1.68-.95-2.98-2.26-3.91-3.93-.93-1.68-1.4-3.6-1.4-5.78s.46-4.26,1.4-5.98c.93-1.72,2.23-3.08,3.89-4.08,1.66-1,3.6-1.5,5.8-1.5s4.03.47,5.63,1.42,2.85,2.21,3.74,3.81c.89,1.59,1.33,3.42,1.33,5.48,0,.29,0,.61-.02.97-.01.36-.04.72-.06,1.1h-17.54v-3.57h11.78c-.09-1.35-.58-2.44-1.48-3.27-.9-.83-2.01-1.25-3.33-1.25-1,0-1.91.24-2.73.71-.82.47-1.47,1.16-1.96,2.06s-.73,2.04-.73,3.42v1.25c0,1.18.22,2.2.67,3.07.44.88,1.07,1.56,1.87,2.04.8.49,1.73.73,2.79.73s1.97-.22,2.64-.67c.67-.44,1.2-1.04,1.57-1.78h5.89c-.37,1.35-1.04,2.57-2,3.68-.96,1.1-2.12,1.96-3.48,2.58s-2.89.92-4.58.92Z"/></g></g></svg>
+    </div>
+
+    <h1 class="reveal reveal-delay-2">Know your risks<br>before you code.</h1>
+
+    <p class="reveal reveal-delay-2">One-command preflight security scan for OpenClaw. Checks deployment, skills, model safety, and memory &mdash; all locally.</p>
+
+    <div class="hero-buttons reveal reveal-delay-3">
+      <button class="btn btn-primary" id="install-btn" onclick="copyInstall()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/><polyline points="7 11 12 16 17 11"/><line x1="12" y1="4" x2="12" y2="16"/></svg>
+        Install Now
+      </button>
+      <a class="btn btn-outline" href="https://github.com/AI45Lab/DeepSafe" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── How It Works ── -->
+<section id="how-it-works">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Three steps. Zero friction.</h2>
+      <p class="section-desc">Get a comprehensive security report for your OpenClaw setup in under two minutes.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal reveal-delay-1">
+        <div class="step-num">1</div>
+        <h3>Install the plugin</h3>
+        <p>One command pulls the plugin from GitHub into your OpenClaw environment.</p>
+        <code>openclaw plugins install github:AI45Lab/DeepSafe/integrations/openclaw-deepsafe</code>
+      </div>
+      <div class="step reveal reveal-delay-2">
+        <div class="step-num">2</div>
+        <h3>Run the scan</h3>
+        <p>A single command kicks off the full preflight security analysis across all four dimensions.</p>
+        <code>openclaw deepsafe scan</code>
+      </div>
+      <div class="step reveal reveal-delay-3">
+        <div class="step-num">3</div>
+        <h3>Review the report</h3>
+        <p>A beautiful, interactive HTML report opens automatically in your browser with actionable findings.</p>
+        <code>&#x2192; report opens in browser</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 4 Dimensions ── -->
+<section id="dimensions">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Scan Dimensions</div>
+      <h2 class="section-title">Four layers of defense.</h2>
+      <p class="section-desc">Every scan covers deployment, skills, model behavior, and memory to give you complete situational awareness.</p>
+    </div>
+
+    <div class="dims">
+      <div class="dim-card reveal reveal-delay-1">
+        <div class="dim-icon dim-icon--deploy">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        </div>
+        <h3>Deployment Config</h3>
+        <p>Examines your gateway exposure, authentication settings, TLS configuration, and exposed ports for misconfigurations.</p>
+        <div class="dim-tags">
+          <span class="dim-tag">Gateway Exposure</span>
+          <span class="dim-tag">Auth Checks</span>
+          <span class="dim-tag">TLS Verification</span>
+          <span class="dim-tag">Port Scanning</span>
+        </div>
+      </div>
+
+      <div class="dim-card reveal reveal-delay-2">
+        <div class="dim-icon dim-icon--skill">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Skill / MCP Analysis</h3>
+        <p>Scans registered skills and MCP servers for prompt injection vectors, dangerous runtimes, and overly broad permissions.</p>
+        <div class="dim-tags">
+          <span class="dim-tag">Prompt Injection</span>
+          <span class="dim-tag">Dangerous Runtimes</span>
+          <span class="dim-tag">Permission Analysis</span>
+        </div>
+      </div>
+
+      <div class="dim-card reveal reveal-delay-3">
+        <div class="dim-icon dim-icon--model">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+        </div>
+        <h3>Model Safety</h3>
+        <p>Runs four specialized benchmarks against the configured model to evaluate behavioral risks in production contexts.</p>
+        <div class="dim-tags">
+          <span class="dim-tag">Persuasion</span>
+          <span class="dim-tag">Sandbagging</span>
+          <span class="dim-tag">Deception</span>
+          <span class="dim-tag">Hallucination</span>
+        </div>
+      </div>
+
+      <div class="dim-card reveal reveal-delay-4">
+        <div class="dim-icon dim-icon--memory">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <h3>Memory &amp; History</h3>
+        <p>Inspects conversation history and memory stores for leaked secrets, PII exposure, and injection persistence patterns.</p>
+        <div class="dim-tags">
+          <span class="dim-tag">Secret Leaks</span>
+          <span class="dim-tag">PII Detection</span>
+          <span class="dim-tag">Injection Persistence</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Terminal Demo ── -->
+<section class="terminal-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">See It In Action</div>
+      <h2 class="section-title">One command. Full report.</h2>
+      <p class="section-desc">Watch the scanner work through all four dimensions and produce an actionable security report.</p>
+    </div>
+
+    <div class="terminal reveal">
+      <div class="terminal-bar">
+        <div class="terminal-dot terminal-dot--red"></div>
+        <div class="terminal-dot terminal-dot--yellow"></div>
+        <div class="terminal-dot terminal-dot--green"></div>
+        <div class="terminal-title">Terminal &mdash; openclaw</div>
+      </div>
+      <div class="terminal-body">
+        <span class="prompt">$</span> <span class="cmd">openclaw deepsafe scan</span><br>
+        <br>
+        <span class="heading">DeepSafe Preflight Security Scanner v1.0</span><br>
+        <span class="dim">────────────────────────────────────────</span><br>
+        <br>
+        <span class="info">&#x25B6;</span> <span class="cmd">Scanning deployment config...</span><br>
+        <span class="success">&nbsp;&nbsp;&#x2713; Gateway: not publicly exposed</span><br>
+        <span class="success">&nbsp;&nbsp;&#x2713; TLS: enabled (valid cert)</span><br>
+        <span class="warn">&nbsp;&nbsp;&#x26A0; Auth: API key found in env (rotate recommended)</span><br>
+        <br>
+        <span class="info">&#x25B6;</span> <span class="cmd">Scanning skills &amp; MCP servers...</span><br>
+        <span class="success">&nbsp;&nbsp;&#x2713; 12 skills registered, 0 prompt-injection risks</span><br>
+        <span class="warn">&nbsp;&nbsp;&#x26A0; MCP shell-exec: unrestricted runtime detected</span><br>
+        <br>
+        <span class="info">&#x25B6;</span> <span class="cmd">Running model safety benchmarks...</span><br>
+        <span class="success">&nbsp;&nbsp;&#x2713; Persuasion:   0.12 (low risk)</span><br>
+        <span class="success">&nbsp;&nbsp;&#x2713; Sandbagging:  0.05 (minimal)</span><br>
+        <span class="success">&nbsp;&nbsp;&#x2713; Deception:    0.08 (low risk)</span><br>
+        <span class="warn">&nbsp;&nbsp;&#x26A0; Hallucination: 0.31 (moderate — review samples)</span><br>
+        <br>
+        <span class="info">&#x25B6;</span> <span class="cmd">Scanning memory &amp; history...</span><br>
+        <span class="success">&nbsp;&nbsp;&#x2713; No secrets detected in memory</span><br>
+        <span class="success">&nbsp;&nbsp;&#x2713; PII scan clean</span><br>
+        <span class="success">&nbsp;&nbsp;&#x2713; No injection persistence found</span><br>
+        <br>
+        <span class="dim">────────────────────────────────────────</span><br>
+        <span class="heading">Scan complete.</span> <span class="success">10 passed</span> &middot; <span class="warn">3 warnings</span> &middot; <span class="dim">0 critical</span><br>
+        <span class="info">&#x279C; Report: opening report.html in browser...</span><br>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Features Grid ── -->
+<section id="features">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">Built for developer workflow.</h2>
+      <p class="section-desc">No cloud accounts, no config files, no waiting. Just the security insights you need.</p>
+    </div>
+
+    <div class="features">
+      <div class="feature reveal reveal-delay-1">
+        <span class="feature-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/><line x1="15" y1="15" x2="9" y2="15"/></svg>
+        </span>
+        <h3>Zero Cloud Dependency</h3>
+        <p>Everything runs on your machine. No data leaves your environment, ever.</p>
+      </div>
+      <div class="feature reveal reveal-delay-2">
+        <span class="feature-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </span>
+        <h3>&lt; 2 Min Scan Time</h3>
+        <p>Full four-dimension analysis completes in under two minutes on typical setups.</p>
+      </div>
+      <div class="feature reveal reveal-delay-3">
+        <span class="feature-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </span>
+        <h3>Auto-Opens HTML Report</h3>
+        <p>A rich, interactive report launches in your browser the moment the scan finishes.</p>
+      </div>
+      <div class="feature reveal reveal-delay-1">
+        <span class="feature-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 019-9"/></svg>
+        </span>
+        <h3>Result Caching (TTL)</h3>
+        <p>Benchmark results are cached with configurable TTL so repeat scans are near-instant.</p>
+      </div>
+      <div class="feature reveal reveal-delay-2">
+        <span class="feature-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </span>
+        <h3>Python 3 Only</h3>
+        <p>No Docker, no Node, no extra dependencies. If you have Python 3, you're good to go.</p>
+      </div>
+      <div class="feature reveal reveal-delay-3">
+        <span class="feature-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </span>
+        <h3>Config Auto-Detection</h3>
+        <p>Automatically discovers your OpenClaw configuration&mdash;gateway, skills, models, and memory stores.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-left">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 241.25 49.18" height="24"><defs><style>.ds-logo{fill:#fff}</style></defs><g><path class="ds-logo" d="M36.92,34.89c-.74.57-1.56.83-2.47.49-.48-.17-.79-.05-1.13.29-1.75,1.78-3.51,3.54-5.28,5.3-.27.27-.24.43.02.67.86.84,1.71,1.69,2.55,2.55.25.26.45.25.71.03,1.44-1.22,2.8-2.51,3.99-3.97,2.47-3.02,4.24-6.43,5.52-10.1,1.42-4.07,2.13-8.27,2.44-12.54,0-.11.04-.24-.1-.32-.18,0-.28.15-.39.26-1.64,1.63-3.29,3.27-4.93,4.91-.23.23-.44.47-.39.84.13,1.06-.79,2.12-1.88,2.08-.47-.02-.8.13-1.12.45-5.2,5.22-10.41,10.42-15.62,15.63-.2.2-.3.5-.56.64-.21-.09-.34-.26-.49-.4-1.3-1.3-2.59-2.6-3.88-3.9q-.42-.42,0-.85c1.45-1.45,2.9-2.91,4.36-4.35.3-.3.44-.62.44-1.05-.02-1.14,0-2.29,0-3.43,0-.25-.02-.5-.3-.57-.43-.1-.84-.58-1.34.41-.74,1.45-1.91,2.62-3.35,3.37-.63.33-.82.73-.73,1.25.23,1.42-1.11,2.54-2.48,2.09-.9-.3-1.45-1.23-1.29-2.19.16-.96.96-1.57,2.01-1.52.31.02.57-.02.8-.25,1.4-1.4,2.8-2.8,4.2-4.2.25-.25.33-.5.24-.87-.46-1.96,1.29-3.72,3.2-3.23,1.07.27,1.75.96,1.98,2.02.23,1.05-.06,1.99-.94,2.66-.33.25-.45.53-.45.93.02,1.33,0,2.67,0,4.01,0,.55-.17.98-.57,1.37-1.23,1.2-2.43,2.43-3.65,3.64-.26.26-.25.42.11.71.59.48,1.12,1.01,1.61,1.6.36.43.56.49.9.14,4.92-4.93,9.85-9.86,14.78-14.78.24-.24.33-.46.26-.82-.26-1.34.91-2.53,2.25-2.27.31.06.55.02.78-.21,2.1-2.11,4.21-4.22,6.32-6.32.22-.22.33-.47.31-.79-.06-1.27-.12-2.55-.16-3.82-.01-.35-.2-.49-.51-.55-.46-.08-.93-.14-1.38-.26-.47-.12-.8,0-1.14.34-1.37,1.39-2.75,2.77-4.13,4.15-2.26,2.26-4.52,4.52-6.8,6.77-.28.28-.39.52-.22.92.22.51.21,1.07.07,1.6-.4,1.47-1.86,2.27-3.34,1.86-1.34-.37-2.17-1.84-1.82-3.23.36-1.43,1.76-2.28,3.22-1.91.38.1.64.02.9-.25,3.45-3.46,6.91-6.91,10.36-10.37.37-.37.34-.46-.17-.63-1.28-.43-2.57-.83-3.85-1.28-.42-.15-.88-.04-1.19.27-3.58,3.62-7.19,7.21-10.78,10.82-.32.32-.67.47-1.15.44-1.36-.08-2.72-.09-4.08,0-.63.04-1.07-.13-1.49-.56-1.43-1.47-2.89-2.92-4.33-4.38-.23-.23-.46-.37-.81-.32-1.4.22-2.39-.72-2.25-2.11.03-.32.07-.64-.28-.88-.69-.48-1.33-1.05-1.77-1.77-.2-.32-.47-.42-.78-.35-1.61.36-3.23.74-4.84,1.09-.34.08-.52.27-.51.61,0,.72,0,1.44-.1,2.15-.11.8.21,1.36.78,1.92,2.99,2.94,5.95,5.92,8.91,8.89.45.45.42.42.92-.01.39-.34.53-.87.38-1.37-.12-.4-.1-.85,0-1.27.34-1.32,1.76-2.15,3.12-1.83,1.43.34,2.35,1.74,2.04,3.12-.35,1.58-1.81,2.47-3.37,2.03-.43-.12-.71-.04-1,.3-.27.32-.56.63-.87.92-.9.84-.76.98-1.29.45-3.05-3.05-6.1-6.1-9.15-9.15-.11-.11-.19-.27-.37-.26-.12.11-.11.25-.09.38.2,2.04.34,4.08.67,6.1.68,4.1,1.85,8.04,3.72,11.76,1.47,2.92,3.32,5.57,5.66,7.85,3.14,3.06,6.84,5.21,10.99,6.61.36.12.7.15,1.07.03,2.46-.79,4.78-1.87,6.93-3.29.15-.1.34-.18.4-.44-1.37-1.31-2.76-2.63-4.11-4.03.24-.21.45-.39.65-.58,2.09-2.08,4.17-4.17,6.27-6.24.34-.34.44-.65.31-1.13-.25-.94.03-1.77.72-2.45.72-.7,1.59-.96,2.55-.68,2.1.61,2.66,3.05,1.04,4.61M22.43,16.43c3.21-3.21,6.46-6.39,9.7-9.69-.28-.14-.43-.23-.59-.3-3.33-1.5-6.45-3.35-9.34-5.59-.51-.39-.52-.39-1.05.02-2.64,2.05-5.5,3.75-8.5,5.2-.58.28-.6.36-.13.82,2,2,4.01,4,6,6.01.32.32.5.25.84-.15.82-.94,1.71-1.81,2.65-2.62.55-.47.73-.84.5-1.52-.61-1.79.94-3.71,2.97-3.36,1.5.25,2.45,1.62,2.18,3.14-.26,1.43-1.66,2.39-3.12,2.09-.43-.09-.72.03-1.01.33-1.38,1.4-2.77,2.79-4.16,4.18q-.57.57-1.12.02c-1.2-1.21-2.4-2.41-3.61-3.61-1.3-1.3-2.6-2.59-3.89-3.89-.27-.27-.52-.36-.9-.2-.55.24-1.12.43-1.68.65-.45.18-.48.32-.15.66.38.4.79.78,1.17,1.19.2.21.48.33.76.32,1.38-.03,2.14.74,2.14,2.12,0,.42.14.72.62,1,1.44.85,2.62,2.06,3.49,3.48.36.59.8.94,1.39.87.75-.08,1.5-.11,2.24-.03,1.08.11,1.92-.21,2.6-1.13M36.22,33.28c.21-.7-.05-1.3-.66-1.5-.56-.19-1.22.15-1.41.73-.17.52.08,1.08.58,1.33.54.27,1.07.09,1.49-.56M18.93,26.1c.52.06.86-.21,1.11-.63.23-.38.2-.76-.06-1.11-.26-.36-.62-.52-1.07-.46-.49.07-.88.49-.92.98-.05.59.23.97.94,1.21M25.78,7.11c-.44-.34-.89-.4-1.3-.16-.4.24-.63.69-.55,1.11.09.49.44.85.92.95.37.08.85-.15,1.09-.51.27-.4.23-.83-.17-1.39M14.66,21.55c-.03-.13-.03-.26-.08-.38-.18-.41-.49-.65-.94-.68-.48-.04-.8.2-1.04.6-.23.39-.21.76.05,1.11.25.34.61.56,1.06.49.53-.09.85-.46.95-1.13M25.5,23.13c.04.08.07.16.12.23.37.53,1.06.64,1.57.26.48-.36.58-1.05.22-1.52-.39-.53-1.05-.6-1.57-.18-.38.3-.42.71-.35,1.22Z"/></g><g><g><path class="ds-logo" d="M59.79,36.55V6.45h10.06c3.47,0,6.35.62,8.64,1.87s3.99,3,5.1,5.25c1.1,2.25,1.66,4.9,1.66,7.93s-.55,5.68-1.66,7.93c-1.1,2.25-2.8,4-5.1,5.25s-5.17,1.87-8.64,1.87h-10.06ZM65.6,31.56h3.96c2.44,0,4.37-.4,5.81-1.2,1.43-.8,2.45-1.96,3.05-3.46s.9-3.3.9-5.4-.3-3.93-.9-5.44c-.6-1.51-1.62-2.66-3.05-3.46-1.43-.8-3.37-1.2-5.81-1.2h-3.96v20.17Z"/><path class="ds-logo" d="M97.89,37.07c-2.18,0-4.11-.47-5.78-1.42-1.68-.95-2.98-2.26-3.91-3.93-.93-1.68-1.4-3.6-1.4-5.78s.47-4.26,1.4-5.98c.93-1.72,2.23-3.08,3.89-4.08,1.66-1,3.6-1.5,5.81-1.5s4.03.47,5.63,1.42c1.6.95,2.85,2.21,3.74,3.81.89,1.59,1.33,3.42,1.33,5.48,0,.29,0,.61-.02.97-.02.36-.04.72-.06,1.1h-17.54v-3.57h11.78c-.09-1.35-.58-2.44-1.48-3.27-.9-.83-2.01-1.25-3.33-1.25-1,0-1.91.24-2.73.71-.82.47-1.47,1.16-1.96,2.06-.49.9-.73,2.04-.73,3.42v1.25c0,1.18.22,2.2.67,3.07.44.88,1.07,1.56,1.87,2.04.8.49,1.73.73,2.8.73s1.97-.22,2.64-.67c.67-.44,1.2-1.04,1.57-1.78h5.89c-.37,1.35-1.04,2.57-2,3.68-.96,1.1-2.12,1.96-3.48,2.58-1.36.62-2.89.92-4.58.92Z"/><path class="ds-logo" d="M121.2,37.07c-2.18,0-4.11-.47-5.78-1.42-1.68-.95-2.98-2.26-3.91-3.93-.93-1.68-1.4-3.6-1.4-5.78s.47-4.26,1.4-5.98c.93-1.72,2.23-3.08,3.89-4.08,1.66-1,3.6-1.5,5.81-1.5s4.03.47,5.63,1.42c1.6.95,2.85,2.21,3.74,3.81.89,1.59,1.33,3.42,1.33,5.48,0,.29,0,.61-.02.97-.02.36-.04.72-.06,1.1h-17.54v-3.57h11.78c-.09-1.35-.58-2.44-1.48-3.27-.9-.83-2.01-1.25-3.33-1.25-1,0-1.91.24-2.73.71-.82.47-1.47,1.16-1.96,2.06-.49.9-.73,2.04-.73,3.42v1.25c0,1.18.22,2.2.67,3.07.44.88,1.07,1.56,1.87,2.04.8.49,1.73.73,2.8.73s1.97-.22,2.64-.67c.67-.44,1.2-1.04,1.57-1.78h5.89c-.37,1.35-1.04,2.57-2,3.68-.96,1.1-2.12,1.96-3.48,2.58-1.36.62-2.89.92-4.58.92Z"/><path class="ds-logo" d="M134.1,46.01V14.88h5.16l.65,2.97c.43-.6.97-1.17,1.61-1.7.65-.53,1.4-.96,2.28-1.29.87-.33,1.88-.49,3.03-.49,2.06,0,3.87.49,5.42,1.48,1.55.99,2.77,2.34,3.68,4.06.9,1.72,1.35,3.67,1.35,5.85s-.46,4.12-1.38,5.83c-.92,1.71-2.15,3.05-3.7,4.02-1.55.97-3.33,1.46-5.33,1.46-1.58,0-2.95-.29-4.11-.88-1.16-.59-2.11-1.4-2.86-2.43v12.25h-5.81ZM145.53,31.99c1.12,0,2.11-.26,2.99-.77.87-.52,1.56-1.24,2.06-2.17.5-.93.75-2.01.75-3.25s-.25-2.37-.75-3.33c-.5-.96-1.19-1.71-2.06-2.24-.88-.53-1.87-.8-2.99-.8s-2.11.27-2.99.8c-.88.53-1.56,1.27-2.04,2.21-.49.95-.73,2.05-.73,3.31s.24,2.32.73,3.25c.49.93,1.17,1.66,2.04,2.19.87.53,1.87.8,2.99.8Z"/><path class="ds-logo" d="M170.17,37.07c-2.18,0-4.12-.37-5.83-1.12-1.71-.75-3.05-1.83-4.02-3.27-.97-1.43-1.49-3.17-1.55-5.2h6.15c.03.89.26,1.69.69,2.41.43.72,1.02,1.28,1.78,1.7.76.42,1.67.62,2.73.62.92,0,1.71-.15,2.39-.45.67-.3,1.2-.72,1.59-1.27.39-.54.58-1.19.58-1.93,0-.86-.22-1.58-.65-2.15-.43-.57-1.01-1.06-1.74-1.46-.73-.4-1.58-.77-2.54-1.1-.96-.33-1.96-.67-2.99-1.01-2.41-.8-4.23-1.85-5.46-3.14-1.23-1.29-1.85-3-1.85-5.12,0-1.81.43-3.35,1.29-4.64s2.06-2.28,3.61-2.97c1.55-.69,3.31-1.03,5.29-1.03s3.82.35,5.35,1.05c1.53.7,2.75,1.71,3.65,3.03.9,1.32,1.38,2.87,1.44,4.64h-6.23c-.03-.66-.22-1.28-.58-1.87-.36-.59-.85-1.06-1.48-1.42-.63-.36-1.38-.54-2.24-.54-.75-.03-1.43.09-2.04.34-.62.26-1.1.64-1.44,1.14-.34.5-.52,1.13-.52,1.87s.17,1.32.52,1.81c.34.49.83.91,1.46,1.27.63.36,1.38.69,2.24.99.86.3,1.79.61,2.79.92,1.52.52,2.9,1.13,4.15,1.83,1.25.7,2.24,1.61,2.99,2.73.75,1.12,1.12,2.6,1.12,4.43,0,1.58-.41,3.04-1.23,4.39-.82,1.35-2.01,2.44-3.59,3.27-1.58.83-3.53,1.25-5.85,1.25Z"/><path class="ds-logo" d="M190.38,37.07c-1.78,0-3.25-.29-4.43-.88-1.18-.59-2.06-1.38-2.64-2.37s-.88-2.09-.88-3.29c0-1.35.34-2.52,1.01-3.53.67-1,1.7-1.78,3.08-2.34,1.38-.56,3.12-.84,5.25-.84h5.29c0-1.09-.14-1.98-.41-2.67s-.72-1.2-1.33-1.55c-.62-.34-1.43-.52-2.43-.52-1.09,0-2.01.23-2.77.69-.76.46-1.23,1.19-1.4,2.19h-5.63c.14-1.58.65-2.92,1.53-4.04.87-1.12,2.04-1.99,3.48-2.62,1.45-.63,3.06-.95,4.84-.95,2.04,0,3.81.34,5.31,1.01,1.51.67,2.65,1.66,3.44,2.97.79,1.3,1.18,2.89,1.18,4.75v13.46h-4.86l-.64-3.31c-.32.57-.7,1.09-1.14,1.55-.45.46-.96.86-1.55,1.2-.59.34-1.23.61-1.91.79-.69.19-1.48.28-2.36.28ZM191.8,32.59c.72,0,1.37-.14,1.96-.41.59-.27,1.1-.65,1.53-1.14.43-.49.77-1.03,1.03-1.63.26-.6.43-1.26.52-1.98v-.04h-4.43c-.92,0-1.66.11-2.21.32-.56.22-.97.52-1.23.92-.26.4-.39.86-.39,1.38,0,.54.13,1.01.39,1.4.26.39.64.68,1.14.88.5.2,1.07.3,1.7.3Z"/><path class="ds-logo" d="M203.71,19.74v-4.86h13.46v4.86h-13.46ZM206.68,36.55V12.94c0-1.81.3-3.24.9-4.3.6-1.06,1.47-1.83,2.6-2.32,1.13-.49,2.46-.73,3.98-.73h2.67v4.94h-1.76c-.92,0-1.58.18-1.98.54-.4.36-.6.97-.6,1.83v23.65h-5.8Z"/><path class="ds-logo" d="M228.61,37.07c-2.18,0-4.11-.47-5.78-1.42-1.68-.95-2.98-2.26-3.91-3.93-.93-1.68-1.4-3.6-1.4-5.78s.46-4.26,1.4-5.98c.93-1.72,2.23-3.08,3.89-4.08,1.66-1,3.6-1.5,5.8-1.5s4.03.47,5.63,1.42,2.85,2.21,3.74,3.81c.89,1.59,1.33,3.42,1.33,5.48,0,.29,0,.61-.02.97-.01.36-.04.72-.06,1.1h-17.54v-3.57h11.78c-.09-1.35-.58-2.44-1.48-3.27-.9-.83-2.01-1.25-3.33-1.25-1,0-1.91.24-2.73.71-.82.47-1.47,1.16-1.96,2.06s-.73,2.04-.73,3.42v1.25c0,1.18.22,2.2.67,3.07.44.88,1.07,1.56,1.87,2.04.8.49,1.73.73,2.79.73s1.97-.22,2.64-.67c.67-.44,1.2-1.04,1.57-1.78h5.89c-.37,1.35-1.04,2.57-2,3.68-.96,1.1-2.12,1.96-3.48,2.58s-2.89.92-4.58.92Z"/></g></g></svg>
+        <span class="footer-text">openclaw-deepsafe &mdash; Part of the DeepSafe framework</span>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/AI45Lab/DeepSafe" target="_blank" rel="noopener" class="footer-link">
+          <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+        <a href="https://github.com/AI45Lab/DeepSafe" target="_blank" rel="noopener" class="star-btn">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Star on GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Copied toast -->
+<div class="copied-toast" id="copied-toast">Copied install command to clipboard</div>
+
+<script>
+function copyInstall() {
+  const cmd = 'openclaw plugins install github:AI45Lab/DeepSafe/integrations/openclaw-deepsafe';
+  navigator.clipboard.writeText(cmd).then(function() {
+    var toast = document.getElementById('copied-toast');
+    toast.classList.add('show');
+    setTimeout(function() { toast.classList.remove('show'); }, 2200);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(function(el) { observer.observe(el); });
+});
+</script>
+
+</body>
+</html>

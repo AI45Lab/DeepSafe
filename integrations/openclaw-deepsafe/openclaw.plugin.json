@@ -1,7 +1,53 @@
 {
-  "id": "deepsafe",
+  "id": "openclaw-plugin-deepsafe",
   "name": "DeepSafe OpenClaw Plugin",
   "version": "0.1.0",
-  "description": "DeepSafe lightweight local checks for OpenClaw"
+  "description": "DeepSafe lightweight local checks for OpenClaw",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "profile": {
+        "type": "string",
+        "enum": [
+          "quick",
+          "full"
+        ],
+        "default": "quick",
+        "description": "Default scan profile"
+      },
+      "ttlDays": {
+        "type": "integer",
+        "minimum": 0,
+        "default": 3,
+        "description": "Cache TTL in days"
+      },
+      "outputRoot": {
+        "type": "string",
+        "default": "~/.openclaw/deepsafe/reports",
+        "description": "Report output root directory"
+      },
+      "openclawConfigPath": {
+        "type": "string",
+        "default": "~/.openclaw/openclaw.json",
+        "description": "Path to OpenClaw config JSON"
+      },
+      "workspacePath": {
+        "type": "string",
+        "default": "",
+        "description": "Optional workspace path override"
+      },
+      "runModel": {
+        "type": "boolean",
+        "default": true,
+        "description": "Enable model persuasion scanner in scan command"
+      },
+      "debug": {
+        "type": "boolean",
+        "default": false,
+        "description": "Enable debug logs"
+      }
+    }
+  }
 }
 

@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "pluginVersion": "0.1.0",
+    "profile": "quick",
+    "generatedAt": "2026-03-03T03:23:03.843Z",
+    "durationMs": 10,
+    "fromCache": false,
+    "fingerprint": "8e759ccfb39ec30de88edcf62ead9cb79e3f7ca742e2b5019f05adb048e3e5e5",
+    "ttlDays": 3
+  },
+  "scores": {
+    "total": 60,
+    "posture": 77,
+    "skill": 68,
+    "model": 0,
+    "memory": 95
+  },
+  "findings": [
+    {
+      "id": "posture-provider-inline-key-zhangbo",
+      "category": "posture",
+      "severity": "MEDIUM",
+      "title": "Provider API key is stored in plain config",
+      "evidence": "models.providers.zhangbo.apiKey is non-empty in /Users/zhangbo/.openclaw/openclaw.json",
+      "remediation": "Move secrets to environment variables or secret manager, and rotate exposed keys."
+    },
+    {
+      "id": "skill-dangerous-runtime-21",
+      "category": "skill",
+      "severity": "MEDIUM",
+      "title": "Potentially dangerous execution primitive detected in skill files",
+      "evidence": "/Users/zhangbo/.openclaw/workspace/skills/obsidian-direct/scripts/obsidian_search.py",
+      "remediation": "Restrict command execution paths and validate all user-controlled inputs."
+    },
+    {
+      "id": "skill-dangerous-runtime-30",
+      "category": "skill",
+      "severity": "MEDIUM",
+      "title": "Potentially dangerous execution primitive detected in skill files",
+      "evidence": "/Users/zhangbo/.openclaw/workspace/skills/playwright-scraper-skill/examples/README.md",
+      "remediation": "Restrict command execution paths and validate all user-controlled inputs."
+    }
+  ],
+  "modules": [
+    {
+      "name": "posture",
+      "status": "warn",
+      "score": 77,
+      "findings": 1,
+      "startedAt": "2026-03-03T03:23:03.833Z",
+      "endedAt": "2026-03-03T03:23:03.833Z",
+      "durationMs": 0
+    },
+    {
+      "name": "skill",
+      "status": "warn",
+      "score": 68,
+      "findings": 2,
+      "startedAt": "2026-03-03T03:23:03.833Z",
+      "endedAt": "2026-03-03T03:23:03.842Z",
+      "durationMs": 9
+    },
+    {
+      "name": "model",
+      "status": "error",
+      "score": 0,
+      "findings": 0,
+      "startedAt": "2026-03-03T03:23:03.842Z",
+      "endedAt": "2026-03-03T03:23:03.842Z",
+      "durationMs": 0,
+      "error": "Model scan requires --api-base and --model unless you use --no-model."
+    },
+    {
+      "name": "memory",
+      "status": "ok",
+      "score": 95,
+      "findings": 0,
+      "startedAt": "2026-03-03T03:23:03.842Z",
+      "endedAt": "2026-03-03T03:23:03.843Z",
+      "durationMs": 1
+    }
+  ]
+}

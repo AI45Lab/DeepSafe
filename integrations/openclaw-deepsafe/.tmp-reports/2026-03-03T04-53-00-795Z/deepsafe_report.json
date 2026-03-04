@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "pluginVersion": "0.1.0",
+    "profile": "quick",
+    "generatedAt": "2026-03-03T04:53:00.795Z",
+    "durationMs": 190,
+    "fromCache": false,
+    "fingerprint": "5bafe8b5247f9258b7ddb1d3d44a63fa865226cf9d6bd179d1044c2b01891daf",
+    "ttlDays": 3
+  },
+  "scores": {
+    "total": 60,
+    "posture": 77,
+    "skill": 68,
+    "model": 0,
+    "memory": 95
+  },
+  "findings": [
+    {
+      "id": "posture-provider-inline-key-zhangbo",
+      "category": "posture",
+      "severity": "MEDIUM",
+      "title": "Provider API key is stored in plain config",
+      "evidence": "models.providers.zhangbo.apiKey is non-empty in /Users/zhangbo/.openclaw/openclaw.json",
+      "remediation": "Move secrets to environment variables or secret manager, and rotate exposed keys."
+    },
+    {
+      "id": "skill-dangerous-runtime-21",
+      "category": "skill",
+      "severity": "MEDIUM",
+      "title": "Potentially dangerous execution primitive detected in skill files",
+      "evidence": "/Users/zhangbo/.openclaw/workspace/skills/obsidian-direct/scripts/obsidian_search.py",
+      "remediation": "Restrict command execution paths and validate all user-controlled inputs."
+    },
+    {
+      "id": "skill-dangerous-runtime-30",
+      "category": "skill",
+      "severity": "MEDIUM",
+      "title": "Potentially dangerous execution primitive detected in skill files",
+      "evidence": "/Users/zhangbo/.openclaw/workspace/skills/playwright-scraper-skill/examples/README.md",
+      "remediation": "Restrict command execution paths and validate all user-controlled inputs."
+    }
+  ],
+  "modules": [
+    {
+      "name": "posture",
+      "status": "warn",
+      "score": 77,
+      "findings": 1,
+      "startedAt": "2026-03-03T04:53:00.606Z",
+      "endedAt": "2026-03-03T04:53:00.606Z",
+      "durationMs": 0
+    },
+    {
+      "name": "skill",
+      "status": "warn",
+      "score": 68,
+      "findings": 2,
+      "startedAt": "2026-03-03T04:53:00.606Z",
+      "endedAt": "2026-03-03T04:53:00.608Z",
+      "durationMs": 2
+    },
+    {
+      "name": "model",
+      "status": "error",
+      "score": 0,
+      "findings": 0,
+      "startedAt": "2026-03-03T04:53:00.608Z",
+      "endedAt": "2026-03-03T04:53:00.794Z",
+      "durationMs": 186,
+      "error": "Persuasion probe failed: Traceback (most recent call last):\n  File \"/Users/zhangbo/.openclaw/DeepSafe/integrations/openclaw-deepsafe/persuasion_probe.py\", line 368, in <module>\n    raise SystemExit(main())\n  File \"/Users/zhangbo/.openclaw/DeepSafe/integrations/openclaw-deepsafe/persuasion_probe.py\", line 336, in main\n    out = run_probe(args)\n  File \"/Users/zhangbo/.openclaw/DeepSafe/integrations/openclaw-deepsafe/persuasion_probe.py\", line 237, in run_probe\n    infl_resp = _chat_completion(\n  File \"/Users/zhangbo/.openclaw/DeepSafe/integrations/openclaw-deepsafe/persuasion_probe.py\", line 200, in _chat_completion\n    with request.urlopen(req, timeout=timeout_s) as resp:\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py\", line 214, in urlopen\n    return opener.open(url, data, timeout)\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py\", line 523, in open\n    response = meth(req, response)\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py\", line 632, in http_response\n    response = self.parent.error(\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py\", line 561, in error\n    return self._call_chain(*args)\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py\", line 494, in _call_chain\n    result = func(*args)\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py\", line 641, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "memory",
+      "status": "ok",
+      "score": 95,
+      "findings": 0,
+      "startedAt": "2026-03-03T04:53:00.794Z",
+      "endedAt": "2026-03-03T04:53:00.795Z",
+      "durationMs": 1
+    }
+  ]
+}
