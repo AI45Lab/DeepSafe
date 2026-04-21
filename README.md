@@ -19,7 +19,7 @@
 
 Current safety evaluation for large models lacks comprehensive standardized protocols and dedicated assessment tools. **DeepSafe** is the first all-in-one framework integrating 25+ safety datasets and the specialized [**ProGuard**](https://huggingface.co/yushaohan/ProGuard-7B) evaluation model, supporting full-modal LLM/VLM assessment.
 
-> **DeepSafe** is part of **DeepSight** and works best with 🔍 [**DeepScan**](https://github.com/AI45Lab/DeepScan) (LLM/MLLM diagnosis toolkit). See the unified evaluation–diagnosis workflow on the [<img src="https://avatars.githubusercontent.com/u/194484914?s=200&v=4" height="14" alt="AI45"> HomePage](https://ai45.shlab.org.cn/safety-entry).
+> **DeepSafe** is part of **DeepSight** and works best with 🔍 [**DeepScan**](https://github.com/AI45Lab/DeepScan) (LLM/MLLM diagnosis toolkit). See the unified evaluation–diagnosis workflow on the [<img src="https://avatars.githubusercontent.com/u/194484914?s=200&v=4" height="14" alt="AI45"> HomePage](https://ai45.shlab.org.cn/deepsight).
 
 
 ## 🆕 News
