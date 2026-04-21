@@ -11,7 +11,7 @@
 </div>
 <div style="height: 6px;"></div>
 <div align="center">
-  <a href="https://ai45.shlab.org.cn/safety-entry"><img alt="Homepage" src="https://img.shields.io/static/v1?label=&message=%F0%9F%8C%90%20Homepage&color=2F81F7&style=flat"></a>
+  <a href="https://ai45.shlab.org.cn/deepsight"><img alt="Homepage" src="https://img.shields.io/static/v1?label=&message=%F0%9F%8C%90%20Homepage&color=2F81F7&style=flat"></a>
   <a href="https://arxiv.org/abs/2602.12092"><img alt="Technical Report (arXiv)" src="https://img.shields.io/static/v1?label=&message=Report&color=B31B1B&style=flat&logo=arxiv&logoColor=FFFFFF"></a>
   <a href="#quick-start"><img alt="Documentation" src="https://img.shields.io/badge/Documentation-8CA1AF?style=flat-square&logo=readthedocs&logoColor=white"></a>
 </div>
