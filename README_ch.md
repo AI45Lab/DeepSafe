@@ -19,7 +19,7 @@
 
 当前大模型安全评测缺乏全面的标准化方案，且普遍缺失专用评测模型。**DeepSafe** 是首个集成 25+ 主流安全数据集及 [**ProGuard**](https://huggingface.co/yushaohan/ProGuard-7B) 专用评测模型的一体化框架，支持 LLM/VLM 全模态评测。
 
-> **DeepSafe** 源自 **DeepSight**，并可与 🔍 [**DeepScan**](https://github.com/AI45Lab/DeepScan)（LLM/MLLM 诊断工具集）联动使用。完整的“评测‑诊断”一体化工作流见 [<img src="https://avatars.githubusercontent.com/u/194484914?s=200&v=4" height="14" alt="AI45"> HomePage](https://ai45.shlab.org.cn/safety-entry)。
+> **DeepSafe** 源自 **DeepSight**，并可与 🔍 [**DeepScan**](https://github.com/AI45Lab/DeepScan)（LLM/MLLM 诊断工具集）联动使用。完整的“评测‑诊断”一体化工作流见 [<img src="https://avatars.githubusercontent.com/u/194484914?s=200&v=4" height="14" alt="AI45"> HomePage](https://ai45.shlab.org.cn/deepsight)。
 
 
 ## 🆕 最新进展
