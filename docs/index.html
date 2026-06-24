@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DeepSafe Selected Benchmarks</title>
-  <meta name="description" content="DeepSafe selected benchmark pages for GitHub Pages.">
+  <title>DeepSafe Benchmark Suite</title>
+  <meta name="description" content="DeepSafe benchmark suite for LLM and MLLM safety evaluation.">
   <link rel="icon" href="assets/deepsafe-logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -16,6 +16,7 @@
     </a>
     <nav class="main-nav" aria-label="Primary">
       <a href="index.html#overview" class="active"><span class="lang-zh">概览</span><span class="lang-en">Overview</span></a>
+      <a href="index.html#usage" class=""><span class="lang-zh">使用指南</span><span class="lang-en">Guide</span></a>
       <a href="index.html#benchmarks" class=""><span class="lang-zh">Benchmarks</span><span class="lang-en">Benchmarks</span></a>
       <a href="https://github.com/AI45Lab/DeepSafe" target="_blank" rel="noopener">GitHub</a>
     </nav>
@@ -28,18 +29,18 @@
 <main>
   <section class="hero" id="overview">
     <div class="hero-copy">
-      <p class="eyebrow">Selected Benchmark Portal</p>
+      <p class="eyebrow">Benchmark Suite</p>
       <h1>DeepSafe</h1>
-      <p class="hero-lead"><span class="lang-zh">面向 LLM 与 MLLM 安全评测的 10 个核心 benchmark 静态门户。</span><span class="lang-en">A static portal for 10 selected DeepSafe safety benchmarks for LLMs and MLLMs.</span></p>
+      <p class="hero-lead"><span class="lang-zh">面向 LLM 与 MLLM 安全评测的 benchmark 门户，覆盖文本、多模态、幻觉、操纵、欺骗性对齐与红队攻击等关键场景。</span><span class="lang-en">A benchmark portal for LLM and MLLM safety evaluation across text, multimodal safety, hallucination, manipulation, deceptive alignment, and red-team scenarios.</span></p>
       <div class="hero-actions">
-        <a class="button" href="#benchmarks"><span class="lang-zh">查看 10 个 Benchmark</span><span class="lang-en">View 10 Benchmarks</span></a>
-        <a class="button ghost" href="https://ai45.shlab.org.cn/deepsafe" target="_blank" rel="noopener"><span class="lang-zh">原始页面</span><span class="lang-en">Original Page</span> ↗</a>
+        <a class="button" href="#benchmarks"><span class="lang-zh">浏览 Benchmark</span><span class="lang-en">Browse Benchmarks</span></a>
+        <a class="button ghost" href="#usage"><span class="lang-zh">使用指南</span><span class="lang-en">Usage Guide</span></a>
       </div>
     </div>
     <div class="hero-panel" aria-label="DeepSafe summary">
       <div class="metric"><strong>10</strong><span>Benchmarks</span></div>
       <div class="metric"><strong>LLM / MLLM</strong><span>Safety Evaluation</span></div>
-      <div class="metric"><strong>Static</strong><span>GitHub Pages</span></div>
+      <div class="metric"><strong>Config</strong><span>Driven Workflow</span></div>
     </div>
   </section>
 
@@ -49,7 +50,94 @@
         <p class="eyebrow">Overview</p>
         <h2><span class="lang-zh">项目亮点</span><span class="lang-en">Highlights</span></h2>
       </div>
-      <p class="large-copy"><span class="lang-zh">当前大模型安全评测缺乏全面的标准化方案，且普遍缺失专用评测模型。为此，我们发布 DeepSafe—聚焦 10 个核心安全 benchmark 与 ProGuard 评测能力的一体化展示，支持LLM/VLM评测，构建模块化解耦+配置驱动的弹性架构，实现从推理生成判断到深度评测报告的全链路自动化闭环。通过该静态版本，我们保留所选 benchmark 的原站介绍与榜单内容，提供可复查、可发布的 GitHub Pages 页面，旨在推动大模型安全评估从结果测试走向深度分析，加速构建可信AI的评测进程。</span><span class="lang-en">Safety evaluation for large models currently suffers from a lack of standardized protocols and dedicated assessment tools. We present DeepSafe, an all-in-one framework focused on 10 selected safety benchmarks and the specialized ProGuard evaluation capability. DeepSafe supports multimodal LLM/VLM evaluation through a modular, configuration-driven architecture that automates the entire workflow from inference to deep reporting. This static version preserves the original introduction and leaderboard content for the selected benchmarks in a GitHub Pages friendly form. It is designed to advance large-model safety evaluation from outcome-based testing to rigorous analysis, accelerating the development of trustworthy AI evaluation.</span></p>
+      <p class="large-copy"><span class="lang-zh">当前大模型安全评测缺乏全面的标准化方案，且普遍缺失专用评测模型。DeepSafe 提供标准化 benchmark 与 ProGuard 评测能力，支持 LLM/VLM 评测，采用模块化解耦与配置驱动架构，实现从推理生成、裁判评估到报告可视化的自动化闭环。页面整理了 benchmark 的介绍、评测方法、指标和榜单，方便研究者复查模型在关键安全场景中的表现，并推动大模型安全评估从结果测试走向深度分析。</span><span class="lang-en">Safety evaluation for large models still needs standardized protocols and dedicated assessment tools. DeepSafe provides safety benchmarks together with ProGuard evaluation capability for LLM/VLM assessment, using a modular and configuration-driven architecture to automate inference, judge-based evaluation, and report visualization. These pages organize benchmark introductions, methods, metrics, and leaderboards so researchers can review model behavior across critical safety scenarios and move safety evaluation from outcome testing toward deeper analysis.</span></p>
+    </div>
+  </section>
+
+  <section class="section-band usage-section" id="usage">
+    <div class="section-inner wide">
+      <div class="section-heading split-heading">
+        <div>
+          <p class="eyebrow">Usage Guide</p>
+          <h2><span class="lang-zh">如何使用 DeepSafe</span><span class="lang-en">How to Use DeepSafe</span></h2>
+          <p><span class="lang-zh">DeepSafe 的标准流程分为配置、推理、评估和可视化四步。下面的命令和 YAML 片段来自项目 README，可作为首次跑通 Salad-Bench 的参考。</span><span class="lang-en">DeepSafe follows a four-stage workflow: configure, inference, evaluation, and visualization. The commands and YAML below are adapted from the project README and can be used to run Salad-Bench end to end.</span></p>
+        </div>
+        <a class="button ghost" href="https://github.com/AI45Lab/DeepSafe#quick-start" target="_blank" rel="noopener">README ↗</a>
+      </div>
+
+      <div class="workflow-strip" aria-label="DeepSafe workflow">
+        <div><strong>01</strong><span><span class="lang-zh">配置</span><span class="lang-en">Configure</span></span></div>
+        <div><strong>02</strong><span><span class="lang-zh">推理</span><span class="lang-en">Inference</span></span></div>
+        <div><strong>03</strong><span><span class="lang-zh">评估</span><span class="lang-en">Evaluation</span></span></div>
+        <div><strong>04</strong><span><span class="lang-zh">可视化</span><span class="lang-en">Visualization</span></span></div>
+      </div>
+
+      <div class="guide-grid">
+        <article class="guide-card">
+          <span class="guide-kicker">Step 1</span>
+          <h3><span class="lang-zh">准备环境</span><span class="lang-en">Environment</span></h3>
+          <p><span class="lang-zh">建议在虚拟环境中安装依赖，并用 smoke test 确认基础组件可用。</span><span class="lang-en">Install dependencies in a virtual environment and run the smoke test to verify the setup.</span></p>
+          <pre class="code-panel"><code>pip install -r requirements.txt
+pip install -U huggingface_hub
+python smoke_test.py</code></pre>
+        </article>
+
+        <article class="guide-card">
+          <span class="guide-kicker">Step 2</span>
+          <h3><span class="lang-zh">准备数据集</span><span class="lang-en">Datasets</span></h3>
+          <p><span class="lang-zh">多数评测数据集托管在 Hugging Face。下载后，在对应 YAML 中把 <code>dataset.path</code> 指向本地文件。</span><span class="lang-en">Most evaluation datasets are hosted on Hugging Face. After downloading, point <code>dataset.path</code> in the YAML file to the local file.</span></p>
+          <pre class="code-panel"><code>huggingface-cli download --repo-type dataset \
+  --resume-download OpenSafetyLab/Salad-Data \
+  --local-dir Salad-Data \
+  --local-dir-use-symlinks False</code></pre>
+        </article>
+
+        <article class="guide-card">
+          <span class="guide-kicker">Step 3</span>
+          <h3><span class="lang-zh">配置裁判模型</span><span class="lang-en">Judge Model</span></h3>
+          <p><span class="lang-zh">Salad-Bench 可使用 MD-Judge-v0.1。下载权重后，把 <code>evaluator.judge_model_cfg.model_name</code> 改成本地路径，并按显存设置 TP 与显存占用。</span><span class="lang-en">Salad-Bench can use MD-Judge-v0.1. Download the weights, set <code>evaluator.judge_model_cfg.model_name</code> to the local path, and tune TP and GPU memory settings.</span></p>
+          <pre class="code-panel"><code>huggingface-cli download --resume-download \
+  OpenSafetyLab/MD-Judge-v0.1 \
+  --local-dir MD-Judge-v0.1 \
+  --local-dir-use-symlinks False</code></pre>
+        </article>
+
+        <article class="guide-card">
+          <span class="guide-kicker">Step 4</span>
+          <h3><span class="lang-zh">启动评测</span><span class="lang-en">Run Evaluation</span></h3>
+          <p><span class="lang-zh">在项目根目录执行任务脚本。流程会生成模型回答、调用评测器打分，并汇总指标。</span><span class="lang-en">Run the task script from the project root. It generates model responses, invokes the evaluator, and aggregates metrics.</span></p>
+          <pre class="code-panel"><code>bash scripts/run_salad_local.sh \
+  configs/eval_tasks/salad_judge_local.yaml</code></pre>
+        </article>
+
+        <article class="guide-card wide">
+          <span class="guide-kicker">YAML</span>
+          <h3><span class="lang-zh">参考配置片段</span><span class="lang-en">Reference Config</span></h3>
+          <p><span class="lang-zh">路径需要按本地实际位置修改。常用参数包括 <code>model.type</code>、<code>model_name</code>、<code>api_base</code>、<code>concurrency</code>、<code>strip_reasoning</code>、<code>temperature</code>、<code>max_tokens</code>、<code>dataset.type</code>、<code>dataset.path</code>、<code>dataset.limit</code>、<code>evaluator.type</code>、<code>template_name</code>、<code>judge_model_cfg</code>、<code>metrics.type</code> 和 <code>runner.output_dir</code>。</span><span class="lang-en">Adjust paths for your machine. Common fields include <code>model.type</code>, <code>model_name</code>, <code>api_base</code>, <code>concurrency</code>, <code>strip_reasoning</code>, <code>temperature</code>, <code>max_tokens</code>, <code>dataset.type</code>, <code>dataset.path</code>, <code>dataset.limit</code>, <code>evaluator.type</code>, <code>template_name</code>, <code>judge_model_cfg</code>, <code>metrics.type</code>, and <code>runner.output_dir</code>.</span></p>
+          <pre class="code-panel"><code>dataset:
+  type: SaladDataset
+  path: /your/path/to/Salad-Data/base_set_sample_100.json
+
+evaluator:
+  type: ScorerBasedEvaluator
+  batch_size: 32
+  template_name: md_judge_v0_1
+  judge_model_cfg:
+    type: VLLMLocalModel
+    model_name: /your/path/to/MD-Judge-v0.1
+    tensor_parallel_size: 1
+    gpu_memory_utilization: 0.4
+    trust_remote_code: true
+    temperature: 0.0
+    max_tokens: 64</code></pre>
+        </article>
+
+        <article class="guide-card">
+          <span class="guide-kicker">Output</span>
+          <h3><span class="lang-zh">查看结果</span><span class="lang-en">Outputs</span></h3>
+          <p><span class="lang-zh">评测完成后，输出目录会保存模型回答、预测/打分结果、样本记录和可读的 <code>report.md</code> 报告。</span><span class="lang-en">After evaluation, the output directory contains responses, predictions or scores, sample records, and a readable <code>report.md</code>.</span></p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -58,8 +146,8 @@
       <div class="section-heading split-heading">
         <div>
           <p class="eyebrow">Benchmarks</p>
-          <h2><span class="lang-zh">只展示 10 个 Benchmark</span><span class="lang-en">10 Benchmarks Only</span></h2>
-          <p><span class="lang-zh">每张卡片进入对应静态详情页，详情页内容来自原站当前 production JSON 快照。</span><span class="lang-en">Each card opens a static detail page sourced from the current production JSON snapshot.</span></p>
+          <h2><span class="lang-zh">Benchmark Suite</span><span class="lang-en">Benchmark Suite</span></h2>
+          <p><span class="lang-zh">每张卡片进入对应详情页，包含介绍、评测方法、指标和榜单，便于对不同模型的安全表现进行复查。</span><span class="lang-en">Each card opens a detail page with the introduction, evaluation method, metrics, and leaderboard for reviewing model safety behavior.</span></p>
         </div>
       </div>
       <div class="bench-grid"><a class="bench-card" href="benchmarks/salad-bench.html">
@@ -118,10 +206,10 @@
 </main>
   <footer class="site-footer">
     <div>
-      <strong>DeepSafe GitHub Pages</strong>
-      <p><span class="lang-zh">静态快照内容来自 AI45 DeepSafe production JSON，已裁剪为 10 个 benchmark。</span><span class="lang-en">Static snapshot sourced from AI45 DeepSafe production JSON, scoped to 10 benchmarks.</span></p>
+      <strong>DeepSafe Benchmark Suite</strong>
+      <p><span class="lang-zh">面向 LLM/MLLM 安全评测的 benchmark 门户。</span><span class="lang-en">A benchmark portal for LLM/MLLM safety evaluation.</span></p>
     </div>
-    <a href="https://ai45.shlab.org.cn/deepsafe" target="_blank" rel="noopener"><span class="lang-zh">原站</span><span class="lang-en">Original site</span> ↗</a>
+    <a href="https://github.com/AI45Lab/DeepSafe" target="_blank" rel="noopener">GitHub ↗</a>
   </footer>
   <script>
   (function(){
