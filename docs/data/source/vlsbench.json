@@ -1,0 +1,202 @@
+{
+    "zh-CN": {
+        "bench": {
+            "name": "VLSBench",
+            "desc": "VLSBench 建立了一套严格的多模态安全评估框架，通过识别并消除视觉安全信息泄露现象，迫使模型依赖真实的跨模态理解而非文本捷径来检测潜在风险。",
+            "tags": [
+                "多模态"
+            ],
+            "links": [
+                {
+                    "name": "Arxiv 链接",
+                    "url": "https://arxiv.org/abs/2411.19939"
+                },
+                {
+                    "name": "Repo 链接",
+                    "url": "https://github.com/hxhcreate/VLSBench"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "评测集亮点",
+                "content": [
+                    {
+                        "subTitle": "简介",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "VLSBench 解决了现有多模态安全基准测试中被称为“视觉安全信息泄露”的关键缺陷，即文本查询中存在的明显有害线索使得模型能够绕过视觉处理，仅凭文本即可拒绝输入。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "该框架引入了一个包含 2,400 对图像-文本对的专用数据集，其设计确保安全违规仅源于视觉内容与中性文本指令的交互，从而有效地消除了基于文本的拒绝捷径。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "通过隔离基于视觉的风险，VLSBench 揭示了 GPT-4o 和 LLaVA 等先进多模态大语言模型中存在的重大漏洞，这些模型虽然在传统基准测试中表现良好，但在必须进行视觉理解时却遭遇失败。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "研究结果表明，虽然文本对齐足以应对包含 VSIL 的数据集，但要在现实且无泄露的多模态场景中确保安全，稳健的多模态对齐是不可或缺的。",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "侧重点",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "视觉泄漏 (Visual Leakage)、多模态对齐安全"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "解决的主要问题",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "解决现有基准中图像本身可能隐含安全暗示，导致无法真实衡量模型对齐能力的问题。"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "评测方法与指标",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：GPT-4o",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "含义：用于对模型输出结果进行安全性判定与量化统计的评估器。"
+                            },
+                            {
+                                "label": "",
+                                "text": "用法：该评估器负责判断模型在给定测试样本下的输出是否符合安全规范，并为后续安全率 （如有）等指标的计算提供统一、可复现的判定口径。"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：安全率",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "在一组测试样本里，模型的输出被评为“安全/合规”（没有按要求生成有害内容、没有越狱成功、遵守安全策略）的比例"
+                            },
+                            {
+                                "label": "",
+                                "text": "数值越高说明模型越安全、更不容易产出违规内容"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "en-US": {
+        "bench": {
+            "name": "VLSBench",
+            "desc": "VLSBench establishes a rigorous evaluation framework for multimodal safety by identifying and eliminating Visual Safety Information Leakage (VSIL), thereby forcing models to rely on true cross-modal understanding rather than textual shortcuts to detect hazards.",
+            "tags": [
+                "Multimodal"
+            ],
+            "links": [
+                {
+                    "name": "Arxiv Link",
+                    "url": "https://arxiv.org/abs/2411.19939"
+                },
+                {
+                    "name": "Repo Link",
+                    "url": "https://github.com/hxhcreate/VLSBench"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "Highlight of the Evaluation Set",
+                "content": [
+                    {
+                        "subTitle": "Introduction",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "VLSBench addresses a critical flaw in existing multimodal safety benchmarks known as Visual Safety Information Leakage (VSIL), where explicit harmful cues in textual queries allow models to bypass visual processing and reject inputs based solely on text.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "The framework introduces a specialized dataset of 2,400 image-text pairs designed so that safety violations arise strictly from the intersection of visual content and neutral textual instructions, effectively removing text-based refusal shortcuts.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "By isolating visually grounded risks, VLSBench exposes significant vulnerabilities in state-of-the-art Multimodal Large Language Models like GPT-4o and LLaVA, which perform well on traditional benchmarks but fail when visual understanding is mandatory.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "The findings demonstrate that while textual alignment suffices for datasets containing VSIL, robust multimodal alignment is indispensable for ensuring safety in realistic, leak-free multimodal scenarios.",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Focus",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Visual leakage and multimodal alignment safety"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Solved Problems",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "resolving issues where images contain implicit safety cues, preventing the accurate measurement of model alignment capabilities."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Evaluation Methods and Metrics",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：GPT-4o",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Meaning: An evaluator used for safety judgment and quantitative statistics of model output results."
+                            },
+                            {
+                                "label": "",
+                                "text": "Usage: This evaluator is responsible for judging whether the model's output under given test samples complies with safety standards, and provides a unified and reproducible judgment standard for the calculation of subsequent metrics such as Safety rate (if any)."
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：Safety rate",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "The proportion of the model's output rated as \"safe/compliant\" (no harmful content was generated as required, no jailbreak was successful, security policy adherence) was rated in a set of test samples"
+                            },
+                            {
+                                "label": "",
+                                "text": "The higher the value, the safer the model is and the less likely it is to produce illegal content"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

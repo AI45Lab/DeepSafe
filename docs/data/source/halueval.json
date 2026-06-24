@@ -1,0 +1,192 @@
+{
+    "zh-CN": {
+        "bench": {
+            "name": "HaluEval",
+            "desc": "HaluEval 构建了一个大规模幻觉评估基准，通过系统生成和人工标注幻觉样本对大型语言模型在多任务上的幻觉识别性能进行分析与评估。",
+            "tags": [
+                "文本"
+            ],
+            "links": [
+                {
+                    "name": "Arxiv 链接",
+                    "url": "https://arxiv.org/abs/2305.11747"
+                },
+                {
+                    "name": "Repo 链接",
+                    "url": "https://github.com/RUCAIBox/HaluEval"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "评测集亮点",
+                "content": [
+                    {
+                        "subTitle": "简介",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "HaluEval 针对当前缺乏全面评估大型语言模型幻觉现象的基准数据集问题，通过构建包含自动生成和人工标注幻觉样本的大规模语料，覆盖问答、基于知识的对话和文本摘要等多种任务。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "它采用两阶段 先采样后过滤 的构建流程，将模型生成响应与人工标注结合，用于生成具有挑战性的幻觉样本，这些样本在保持表面合理性的同时包含事实错误。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "该基准包含 35,000 个样本，其中包括 30,000 个任务特定的幻觉样本和 5,000 个人工标注的一般查询样本，支持对幻觉类型及模型识别能力的多角度分析。",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "侧重点",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "综合幻觉、任务特异性幻觉"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "解决的主要问题",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "解决LLM在理解事实与生成事实之间不一致，容易产生逻辑或事实幻觉的问题。"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "评测方法与指标",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：Rule Based",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "含义：用于对模型输出结果进行安全性判定与量化统计的评估器。"
+                            },
+                            {
+                                "label": "",
+                                "text": "用法：该评估器负责判断模型在给定测试样本下的输出是否符合安全规范，并为后续Accuracy（判别准确率） （如有）等指标的计算提供统一、可复现的判定口径。"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：Accuracy（判别准确率）",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "把样本判为“有幻觉/ 无幻觉”（或“支持事实/不支持事实”）是否正确的比例"
+                            },
+                            {
+                                "label": "",
+                                "text": "越高表示越擅长识别事实/逻辑不一致的生成。"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "en-US": {
+        "bench": {
+            "name": "HaluEval",
+            "desc": "HaluEval establishes a large-scale hallucination evaluation benchmark that systematically generates and human-annotates hallucinated samples to analyze and assess the recognition performance of large language models across multiple tasks",
+            "tags": [
+                "Text"
+            ],
+            "links": [
+                {
+                    "name": "Arxiv Link",
+                    "url": "https://arxiv.org/abs/2305.11747"
+                },
+                {
+                    "name": "Repo Link",
+                    "url": "https://github.com/RUCAIBox/HaluEval"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "Highlight of the Evaluation Set",
+                "content": [
+                    {
+                        "subTitle": "Introduction",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "HaluEval addresses the absence of a comprehensive benchmark for evaluating hallucination phenomena in large language models by assembling a large corpus of both automatically generated and human-annotated hallucinated samples across question answering, knowledge-grounded dialogue, and text summarization tasks.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "It implements a two-stage sampling-then-filtering pipeline that uses model-generated responses combined with human labeling to produce challenging hallucinated examples designed to mimic plausible but factually incorrect outputs.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "The benchmark includes 35,000 samples, with 30,000 task-specific hallucinated instances and 5,000 human-annotated general queries, enabling multi-aspect analysis of hallucination characteristics and model recognition capabilities.",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Focus",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Comprehensive and task-specific hallucinations"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Solved Problems",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Resolving the inconsistency between factual understanding and generation, which leads to logical or factual hallucinations."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Evaluation Methods and Metrics",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：Rule Based",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Meaning: An evaluator used for safety judgment and quantitative statistics of model output results."
+                            },
+                            {
+                                "label": "",
+                                "text": "Usage: This evaluator is responsible for judging whether the model's output under given test samples complies with safety standards, and provides a unified and reproducible judgment standard for the calculation of subsequent metrics such as Accuracy (if any)."
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：Accuracy",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "The ratio of the sample to be judged as \"hallucinated/non-hallucination\" (or \"fact-supporting/unfact-supporting\") correct"
+                            },
+                            {
+                                "label": "",
+                                "text": "Higher means better at identifying factual/logical inconsistent generations."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

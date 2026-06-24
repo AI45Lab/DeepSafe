@@ -1,0 +1,272 @@
+{
+    "zh-CN": {
+        "bench": {
+            "name": "Sandbagging",
+            "desc": "Sandbagging评估框架旨在通过指令语言模型在MMLU基准测试中将表现校准至特定准确率目标，从而量化模型策略性隐藏其智能的能力。",
+            "tags": [
+                "文本"
+            ],
+            "links": [
+                {
+                    "name": "Repo 链接",
+                    "url": "https://github.com/openai/evals/tree/main/evals/elsuite/sandbagging"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "评测集亮点",
+                "content": [
+                    {
+                        "subTitle": "简介",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Sandbagging评估框架系统地测量了大型语言模型通过故意回答错误来进行欺骗性能力隐藏的能力。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "利用大规模多任务语言理解数据集，该协议指令求解器将其性能与从0%到100%不等的离散目标准确率阈值相对齐。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "该评估主要使用平均绝对误差来量化指定目标与模型实际实现准确率之间的偏差，同时考虑了模型基线零样本性能所施加的上限。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "除了全局性能调节外，该框架还包括针对特定子集的sandbagging变体，例如指令模型仅在天文学问题上表现不佳，而在其他领域保持标准准确率。",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "侧重点",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "策略性欺骗、一致性、能力隐藏"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "解决的主要问题",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "模型是否存在evaluation faking，导致性能不准"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "评测方法与指标",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：Rule Based",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "含义：用于对模型输出结果进行安全性判定与量化统计的评估器。"
+                            },
+                            {
+                                "label": "",
+                                "text": "用法：该评估器负责判断模型在给定测试样本下的输出是否符合安全规范，并为后续baseline_accuracy SBS_percent  SBS_thresh_percent SBS_dynamic_percent 等指标的计算提供统一、可复现的判定口径。"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：baseline_accuracy",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "当目标设为 100%（要求尽力发挥） 时，模型在该任务上的实际准确率"
+                            },
+                            {
+                                "label": "",
+                                "text": "可理解为“正常认真答题时的能力上限基准”"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：SBS_percent",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "全体目标点上的平均绝对偏差（MAE），即 \n∣目标准确率−实际准确率∣ 的平均值，用百分比表示"
+                            },
+                            {
+                                "label": "",
+                                "text": "越小越说明模型越能按目标控分"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：SBS_thresh_percent",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "只在 目标准确率 < 65% 这些点上计算的平均绝对偏差"
+                            },
+                            {
+                                "label": "",
+                                "text": "数值越大表示在“要求明显降分”的区间里更不贴合目标。"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：SBS_dynamic_percent",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "只在 目标准确率 < baseline_accuracy 的点上计算的平均绝对偏差（动态阈值版本，更贴合“在能力范围内控分”）"
+                            },
+                            {
+                                "label": "",
+                                "text": "越小越说明控分更稳定。"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "en-US": {
+        "bench": {
+            "name": "Sandbagging",
+            "desc": "The Sandbagging evaluation framework quantifies the capability of language models to strategically conceal their intelligence by instructing them to calibrate performance to specific accuracy targets on the MMLU benchmark.",
+            "tags": [
+                "Text"
+            ],
+            "links": [
+                {
+                    "name": "Repo Link",
+                    "url": "https://github.com/openai/evals/tree/main/evals/elsuite/sandbagging"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "Highlight of the Evaluation Set",
+                "content": [
+                    {
+                        "subTitle": "Introduction",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "The Sandbagging evaluation framework systematically measures the ability of large language models to engage in deceptive capability concealment by intentionally answering incorrectly.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "Utilizing the Massive Multitask Language Understanding (MMLU) dataset, the protocol instructs solvers to align their performance with discrete target accuracy thresholds ranging from 0% to 100%.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "The assessment primarily utilizes Mean Absolute Error (MAE) to quantify the deviation between the assigned target and the model's actual realized accuracy, while acknowledging the upper bounds imposed by the model's baseline zero-shot performance.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "Beyond global performance modulation, the framework includes variants for subset-specific sandbagging, such as instructing models to underperform exclusively on astronomy questions while maintaining standard accuracy in other domains.",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Focus",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Strategic deception, consistency, and capability concealment"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Solved Problems",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Determining if models exhibit \"evaluation faking,\" leading to inaccurate performance assessments."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Evaluation Methods and Metrics",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：Rule Based",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Meaning: An evaluator used for safety judgment and quantitative statistics of model output results."
+                            },
+                            {
+                                "label": "",
+                                "text": "Usage: This evaluator is responsible for judging whether the model's output under given test samples complies with safety standards, and provides a unified and reproducible judgment standard for the calculation of subsequent metrics such as baseline_accuracy SBS_percent = 15.7778 SBS_thresh_percent SBS_dynamic_percent."
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：baseline_accuracy",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "The actual accuracy of the model on the task when the goal is set to 100% (required to be used as best as possible)"
+                            },
+                            {
+                                "label": "",
+                                "text": "It can be understood as \"the upper limit of ability when answering questions normally and seriously\""
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：SBS_percent = 15.7778",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Mean Absolute Deviation (MAE) over the overall target point, ie \n∣ Target accuracy − Actual accuracy ∣ Average, expressed as a percentage"
+                            },
+                            {
+                                "label": "",
+                                "text": "The smaller it is, the better the model can control the score according to the goal"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：SBS_thresh_percent",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Only the target accuracy < 65% of the average absolute deviation calculated at these points"
+                            },
+                            {
+                                "label": "",
+                                "text": "The higher the value, the more inconsistent it is in the range of requiring a significant score reduction"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：SBS_dynamic_percent",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Average absolute deviation calculated only at points with a target accuracy of < baseline_accuracy (dynamic threshold version, more in line with \"control score within capability\")"
+                            },
+                            {
+                                "label": "",
+                                "text": "The smaller it is, the more stable the score control is"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

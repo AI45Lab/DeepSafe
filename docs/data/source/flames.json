@@ -1,0 +1,234 @@
+{
+    "zh-CN": {
+        "bench": {
+            "name": "Flames",
+            "desc": "FLAMES 建立了一个针对中文大语言模型价值对齐的高对抗性基准，其包含整合了特定中国文化价值观的五维评估框架，并提出了一个判别准确率优于 GPT-4 的专用评分模型。",
+            "tags": [
+                "文本"
+            ],
+            "links": [
+                {
+                    "name": "Arxiv 链接",
+                    "url": "https://arxiv.org/abs/2311.06899"
+                },
+                {
+                    "name": "Repo 链接",
+                    "url": "https://github.com/AI45Lab/Flames"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "评测集亮点",
+                "content": [
+                    {
+                        "subTitle": "简介",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "FLAMES 旨在解决现有安全基准在中文大语言模型评估中缺乏足够的对抗深度和文化语境的问题。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "该框架定义了公平性、安全性、道德、数据保护和合法性五个核心维度，独特地将和谐、仁爱等传统中国价值观与标准安全原则相结合。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "它汇集了 2,251 个由人工精心设计的强对抗性提示词，利用伪装、反向诱导和不安全询问等策略来揭示模型潜在的脆弱性，并引入了一个在 2.29 万条人工标注回复上训练的专用评分模型。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "对 17 个主流大语言模型的评估揭示了显著的安全差距，而专用的 FLAMES 评分器达到了 79.5% 的准确率，在自动判别性能上显著优于 GPT-4。",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "侧重点",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "中文价值观对齐、高度对抗性攻击"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "解决的主要问题",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "解决现有安全基准（如 CValues）攻击成功率低（仅3%左右）的问题，Flames 的攻击成功率高达 53%。"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "评测方法与指标",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：Flames-scorer",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "含义：用于对模型输出结果进行安全性判定与量化统计的评估器。"
+                            },
+                            {
+                                "label": "",
+                                "text": "用法：该评估器负责判断模型在给定测试样本下的输出是否符合安全规范，并为后续无害率（Harmless Rate） 无害得分（Harmless Score）  等指标的计算提供统一、可复现的判定口径。"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：无害率（Harmless Rate）",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "在 Flames 的全部对抗提示中，模型输出被 Flames-scorer 判定为“无害/未违反价值观与安全红线”的样本占比（通过率）"
+                            },
+                            {
+                                "label": "",
+                                "text": "越高表示越不容易被对抗提示诱导出有害内容。"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：无害得分（Harmless Score）",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Flames-scorer 对模型每条输出给出的“无害程度”连续分数的整体统计（通常取平均）"
+                            },
+                            {
+                                "label": "",
+                                "text": "它不仅看“过不过”，还看“有多无害/离红线有多远”，越高表示整体价值观对齐更好、更稳健。"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "en-US": {
+        "bench": {
+            "name": "Flames",
+            "desc": "FLAMES establishes a highly adversarial benchmark for Chinese LLM value alignment, featuring a five-dimensional framework incorporating specific Chinese cultural values and a specialized scoring model that outperforms GPT-4 in judgment accuracy.",
+            "tags": [
+                "Text"
+            ],
+            "links": [
+                {
+                    "name": "Arxiv Link",
+                    "url": "https://arxiv.org/abs/2311.06899"
+                },
+                {
+                    "name": "Repo Link",
+                    "url": "https://github.com/AI45Lab/Flames"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "Highlight of the Evaluation Set",
+                "content": [
+                    {
+                        "subTitle": "Introduction",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "FLAMES addresses the limitations of existing safety benchmarks that lack sufficient adversarial depth and cultural context for Chinese LLMs.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "The framework defines five core dimensions—Fairness, Safety, Morality, Data Protection, and Legality—uniquely integrating traditional Chinese values like harmony and benevolence alongside standard safety principles.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "It compiles 2,251 manually crafted, high-quality adversarial prompts utilizing disguise, reverse induction, and unsafe inquiry strategies to expose subtle model vulnerabilities, while also introducing a dedicated scoring model trained on 22.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "9K human-annotated responses.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "Experiments across 17 mainstream LLMs reveal significant safety gaps, with the specialized FLAMES-scorer achieving 79.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "5% accuracy, substantially surpassing GPT-4's performance as an automated judge.",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Focus",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Chinese value alignment and highly adversarial attacks"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Solved Problems",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Overcoming the low attack success rates (e.g., ~3% in CValues) of existing benchmarks; Flames achieves a success rate of approximately 53%."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Evaluation Methods and Metrics",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：Flames-scorer",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Meaning: An evaluator used for safety judgment and quantitative statistics of model output results."
+                            },
+                            {
+                                "label": "",
+                                "text": "Usage: This evaluator is responsible for judging whether the model's output under given test samples complies with safety standards, and provides a unified and reproducible judgment standard for the calculation of subsequent metrics such as Harmless Rate Harmless Score ."
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：Harmless Rate",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "The proportion of samples (pass rate) in which the model output is judged by Flames-scorer to be \"harmless/not violating values and safety red lines\" among all adversarial prompts in Flames. The higher it is, the less likely it is to be induced by confrontational prompts to induce harmful content."
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：Harmless Score",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "The overall statistics (usually averaged) of the \"harmlessness\" consecutive scores given by the Flames-scorer for each output of the model"
+                            },
+                            {
+                                "label": "",
+                                "text": "It not only looks at \"can't pass\", but also looks at \"how harmless/how far from the red line\", and the higher it is, the better and more stable the overall value alignment."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

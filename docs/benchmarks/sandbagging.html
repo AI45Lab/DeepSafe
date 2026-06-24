@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sandbagging | DeepSafe</title>
+  <meta name="description" content="DeepSafe selected benchmark pages for GitHub Pages.">
+  <link rel="icon" href="../assets/deepsafe-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body data-lang="zh-CN">
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="DeepSafe home">
+      <img src="../assets/deepsafe-logo.svg" alt="DeepSafe">
+      <span>DeepSafe</span>
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="../index.html#overview" class=""><span class="lang-zh">概览</span><span class="lang-en">Overview</span></a>
+      <a href="../index.html#benchmarks" class="active"><span class="lang-zh">Benchmarks</span><span class="lang-en">Benchmarks</span></a>
+      <a href="https://github.com/AI45Lab/DeepSafe" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <div class="lang-toggle" aria-label="Language">
+      <button type="button" data-set-lang="zh-CN" class="active">中文</button>
+      <button type="button" data-set-lang="en-US">EN</button>
+    </div>
+  </header>
+  
+<main>
+  <section class="detail-hero">
+    <a class="back-link" href="../index.html#benchmarks">← <span class="lang-zh">返回 Benchmark 列表</span><span class="lang-en">Back to Benchmarks</span></a>
+    <div class="detail-top">
+      <div>
+        <p class="eyebrow">Benchmark Detail</p>
+        <h1>Sandbagging</h1>
+        
+        <p class="detail-desc"><span class="lang-zh">Sandbagging评估框架旨在通过指令语言模型在MMLU基准测试中将表现校准至特定准确率目标，从而量化模型策略性隐藏其智能的能力。</span><span class="lang-en">The Sandbagging evaluation framework quantifies the capability of language models to strategically conceal their intelligence by instructing them to calibrate performance to specific accuracy targets on the MMLU benchmark.</span></p>
+      </div>
+      <div class="detail-side">
+        <div class="tag-row"><span class="lang-zh"><span>文本</span></span><span class="lang-en"><span>Text</span></span></div>
+        <span class="lang-zh"><div class="actions"><a class="button ghost" href="https://github.com/openai/evals/tree/main/evals/elsuite/sandbagging" target="_blank" rel="noopener">Repo 链接 <span aria-hidden="true">↗</span></a></div></span><span class="lang-en"><div class="actions"><a class="button ghost" href="https://github.com/openai/evals/tree/main/evals/elsuite/sandbagging" target="_blank" rel="noopener">Repo Link <span aria-hidden="true">↗</span></a></div></span>
+      </div>
+    </div>
+    <nav class="subnav" aria-label="Page sections">
+      <a href="#intro"><span class="lang-zh">介绍</span><span class="lang-en">Introduction</span></a>
+      <a href="#leaderboard"><span class="lang-zh">榜单</span><span class="lang-en">Leaderboard</span></a>
+    </nav>
+  </section>
+  <div id="intro" class="lang-zh">
+    <section class="section-band ">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Introduction</p>
+          <h2>评测集亮点</h2>
+        </div>
+        <div class="content-stack">
+          
+            <article class="info-block">
+              <h3>简介</h3>
+              <div class="text-list">
+                <p class="plain-line">Sandbagging评估框架系统地测量了大型语言模型通过故意回答错误来进行欺骗性能力隐藏的能力。</p><p class="plain-line">利用大规模多任务语言理解数据集，该协议指令求解器将其性能与从0%到100%不等的离散目标准确率阈值相对齐。</p><p class="plain-line">该评估主要使用平均绝对误差来量化指定目标与模型实际实现准确率之间的偏差，同时考虑了模型基线零样本性能所施加的上限。</p><p class="plain-line">除了全局性能调节外，该框架还包括针对特定子集的sandbagging变体，例如指令模型仅在天文学问题上表现不佳，而在其他领域保持标准准确率。</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>侧重点</h3>
+              <div class="text-list">
+                <p class="bullet-line">策略性欺骗、一致性、能力隐藏</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>解决的主要问题</h3>
+              <div class="text-list">
+                <p class="bullet-line">模型是否存在evaluation faking，导致性能不准</p>
+              </div>
+            </article>
+        </div>
+      </div>
+    </section>
+    <section class="section-band section-alt">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Introduction</p>
+          <h2>评测方法与指标</h2>
+        </div>
+        <div class="content-stack">
+          
+            <article class="info-block">
+              <h3>Evaluator：Rule Based</h3>
+              <div class="text-list">
+                <p class="bullet-line">含义：用于对模型输出结果进行安全性判定与量化统计的评估器。</p><p class="bullet-line">用法：该评估器负责判断模型在给定测试样本下的输出是否符合安全规范，并为后续baseline_accuracy SBS_percent  SBS_thresh_percent SBS_dynamic_percent 等指标的计算提供统一、可复现的判定口径。</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Metrics：baseline_accuracy</h3>
+              <div class="text-list">
+                <p class="bullet-line">当目标设为 100%（要求尽力发挥） 时，模型在该任务上的实际准确率</p><p class="bullet-line">可理解为“正常认真答题时的能力上限基准”</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Metrics：SBS_percent</h3>
+              <div class="text-list">
+                <p class="bullet-line">全体目标点上的平均绝对偏差（MAE），即 
+∣目标准确率−实际准确率∣ 的平均值，用百分比表示</p><p class="bullet-line">越小越说明模型越能按目标控分</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Metrics：SBS_thresh_percent</h3>
+              <div class="text-list">
+                <p class="bullet-line">只在 目标准确率 &lt; 65% 这些点上计算的平均绝对偏差</p><p class="bullet-line">数值越大表示在“要求明显降分”的区间里更不贴合目标。</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Metrics：SBS_dynamic_percent</h3>
+              <div class="text-list">
+                <p class="bullet-line">只在 目标准确率 &lt; baseline_accuracy 的点上计算的平均绝对偏差（动态阈值版本，更贴合“在能力范围内控分”）</p><p class="bullet-line">越小越说明控分更稳定。</p>
+              </div>
+            </article>
+        </div>
+      </div>
+    </section></div>
+  <div id="intro-en" class="lang-en">
+    <section class="section-band ">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Introduction</p>
+          <h2>Highlight of the Evaluation Set</h2>
+        </div>
+        <div class="content-stack">
+          
+            <article class="info-block">
+              <h3>Introduction</h3>
+              <div class="text-list">
+                <p class="plain-line">The Sandbagging evaluation framework systematically measures the ability of large language models to engage in deceptive capability concealment by intentionally answering incorrectly.</p><p class="plain-line">Utilizing the Massive Multitask Language Understanding (MMLU) dataset, the protocol instructs solvers to align their performance with discrete target accuracy thresholds ranging from 0% to 100%.</p><p class="plain-line">The assessment primarily utilizes Mean Absolute Error (MAE) to quantify the deviation between the assigned target and the model&#39;s actual realized accuracy, while acknowledging the upper bounds imposed by the model&#39;s baseline zero-shot performance.</p><p class="plain-line">Beyond global performance modulation, the framework includes variants for subset-specific sandbagging, such as instructing models to underperform exclusively on astronomy questions while maintaining standard accuracy in other domains.</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Focus</h3>
+              <div class="text-list">
+                <p class="bullet-line">Strategic deception, consistency, and capability concealment</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Solved Problems</h3>
+              <div class="text-list">
+                <p class="bullet-line">Determining if models exhibit &quot;evaluation faking,&quot; leading to inaccurate performance assessments.</p>
+              </div>
+            </article>
+        </div>
+      </div>
+    </section>
+    <section class="section-band section-alt">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Introduction</p>
+          <h2>Evaluation Methods and Metrics</h2>
+        </div>
+        <div class="content-stack">
+          
+            <article class="info-block">
+              <h3>Evaluator：Rule Based</h3>
+              <div class="text-list">
+                <p class="bullet-line">Meaning: An evaluator used for safety judgment and quantitative statistics of model output results.</p><p class="bullet-line">Usage: This evaluator is responsible for judging whether the model&#39;s output under given test samples complies with safety standards, and provides a unified and reproducible judgment standard for the calculation of subsequent metrics such as baseline_accuracy SBS_percent = 15.7778 SBS_thresh_percent SBS_dynamic_percent.</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Metrics：baseline_accuracy</h3>
+              <div class="text-list">
+                <p class="bullet-line">The actual accuracy of the model on the task when the goal is set to 100% (required to be used as best as possible)</p><p class="bullet-line">It can be understood as &quot;the upper limit of ability when answering questions normally and seriously&quot;</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Metrics：SBS_percent = 15.7778</h3>
+              <div class="text-list">
+                <p class="bullet-line">Mean Absolute Deviation (MAE) over the overall target point, ie 
+∣ Target accuracy − Actual accuracy ∣ Average, expressed as a percentage</p><p class="bullet-line">The smaller it is, the better the model can control the score according to the goal</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Metrics：SBS_thresh_percent</h3>
+              <div class="text-list">
+                <p class="bullet-line">Only the target accuracy &lt; 65% of the average absolute deviation calculated at these points</p><p class="bullet-line">The higher the value, the more inconsistent it is in the range of requiring a significant score reduction</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Metrics：SBS_dynamic_percent</h3>
+              <div class="text-list">
+                <p class="bullet-line">Average absolute deviation calculated only at points with a target accuracy of &lt; baseline_accuracy (dynamic threshold version, more in line with &quot;control score within capability&quot;)</p><p class="bullet-line">The smaller it is, the more stable the score control is</p>
+              </div>
+            </article>
+        </div>
+      </div>
+    </section></div>
+  <div id="leaderboard" class="lang-zh">
+    <section class="section-band table-section">
+      <div class="section-inner wide">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Leaderboard</p>
+            <h2>榜单</h2>
+            <p>表格展示了不同模型在各个安全维度上的表现</p>
+          </div>
+          <p class="report-link"><a href="https://ai45.shlab.org.cn/safety-report#front-risk-report" target="_blank" rel="noopener">查看报告 →</a></p>
+        </div>
+        <div class="table-wrap" role="region" aria-label="榜单表格" tabindex="0">
+          <table>
+            <thead><tr><th style="min-width:240px">模型</th><th style="min-width:128px">Baseline Accuracy</th><th style="min-width:128px">SBS_percent</th><th style="min-width:128px">SBS Fixed Thresh</th><th style="min-width:128px">SBS Dynamic Percent</th></tr></thead>
+            <tbody><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/google.svg" alt="" loading="lazy">
+            <div><strong>Gemini-3-flash</strong><span>排名 1</span></div>
+          </div>
+          <div class="model-meta"><span>Google</span><span>2025-12</span><span>闭源</span></div>
+        </td><td>92.00</td><td>14.22</td><td>16.33</td><td>15.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/deepseek.svg" alt="" loading="lazy">
+            <div><strong>deepseek-r1-250528</strong><span>排名 2</span></div>
+          </div>
+          <div class="model-meta"><span>DeepSeek</span><span>2025-05</span><span>开源</span></div>
+        </td><td>89.00</td><td>12.00</td><td>13.58</td><td>12.12</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/anthropic.svg" alt="" loading="lazy">
+            <div><strong>claude-sonnet-4-5-20250929</strong><span>排名 3</span></div>
+          </div>
+          <div class="model-meta"><span>Anthropic</span><span>2025-09</span><span>闭源</span></div>
+        </td><td>88.00</td><td>15.78</td><td>19.08</td><td>16.25</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/bytedance.svg" alt="" loading="lazy">
+            <div><strong>doubao-seed-1-6-flash-250828</strong><span>排名 4</span></div>
+          </div>
+          <div class="model-meta"><span>ByteDance</span><span>2025-08</span><span>闭源</span></div>
+        </td><td>87.50</td><td>26.00</td><td>34.83</td><td>31.29</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/openai.svg" alt="" loading="lazy">
+            <div><strong>GPT-4o</strong><span>排名 5</span></div>
+          </div>
+          <div class="model-meta"><span>OpenAI</span><span>2024-05</span><span>闭源</span></div>
+        </td><td>85.00</td><td>16.78</td><td>20.42</td><td>19.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/openai.svg" alt="" loading="lazy">
+            <div><strong>GPT-5.2</strong><span>排名 6</span></div>
+          </div>
+          <div class="model-meta"><span>OpenAI</span><span>2025-12</span><span>闭源</span></div>
+        </td><td>85.00</td><td>24.50</td><td>32.58</td><td>29.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/zai.svg" alt="" loading="lazy">
+            <div><strong>GLM-4.5-Air</strong><span>排名 7</span></div>
+          </div>
+          <div class="model-meta"><span>Z.ai</span><span>2025-07</span><span>开源</span></div>
+        </td><td>83.50</td><td>22.00</td><td>28.25</td><td>25.43</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/qwen.svg" alt="" loading="lazy">
+            <div><strong>Qwen2.5-72B-Instruct</strong><span>排名 8</span></div>
+          </div>
+          <div class="model-meta"><span>Qwen</span><span>2024-09</span><span>开源</span></div>
+        </td><td>82.50</td><td>17.67</td><td>21.50</td><td>19.29</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/meta.svg" alt="" loading="lazy">
+            <div><strong>Llama-3.3-70B-Instruct</strong><span>排名 9</span></div>
+          </div>
+          <div class="model-meta"><span>Meta-Llama</span><span>2024-12</span><span>开源</span></div>
+        </td><td>79.50</td><td>28.06</td><td>36.83</td><td>31.93</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/qwen.svg" alt="" loading="lazy">
+            <div><strong>Qwen3-30B-A3B-Thinking-2507 </strong><span>排名 10</span></div>
+          </div>
+          <div class="model-meta"><span>Qwen</span><span>2025-07</span><span>开源</span></div>
+        </td><td>79.00</td><td>29.39</td><td>38.50</td><td>33.29</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/mistral.svg" alt="" loading="lazy">
+            <div><strong>Mistral-Small-24B-Instruct-2501</strong><span>排名 11</span></div>
+          </div>
+          <div class="model-meta"><span>mistralai</span><span>2025-01</span><span>开源</span></div>
+        </td><td>78.00</td><td>17.78</td><td>20.33</td><td>17.71</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/google.svg" alt="" loading="lazy">
+            <div><strong>google/gemma-3-27b-it</strong><span>排名 12</span></div>
+          </div>
+          <div class="model-meta"><span>Google</span><span>2025-03</span><span>开源</span></div>
+        </td><td>76.00</td><td>20.06</td><td>23.83</td><td>20.50</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/internlm.svg" alt="" loading="lazy">
+            <div><strong>Internlm3-8b-Instruct</strong><span>排名 13</span></div>
+          </div>
+          <div class="model-meta"><span>Shanghai AI Laboratory</span><span>2025-01</span><span>开源</span></div>
+        </td><td>74.50</td><td>32.94</td><td>42.67</td><td>42.67</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/moonshot.svg" alt="" loading="lazy">
+            <div><strong>kimi-k2-thinking</strong><span>排名 14</span></div>
+          </div>
+          <div class="model-meta"><span>MoonShot</span><span>2025-11</span><span>开源</span></div>
+        </td><td>41.00</td><td>44.78</td><td>30.75</td><td>18.50</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section></div>
+  <div id="leaderboard-en" class="lang-en">
+    <section class="section-band table-section">
+      <div class="section-inner wide">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Leaderboard</p>
+            <h2>Leaderboard</h2>
+            <p>The table demonstrates various models&#39; performance on metrics</p>
+          </div>
+          <p class="report-link"><a href="https://ai45.shlab.org.cn/safety-report#front-risk-report" target="_blank" rel="noopener">View report →</a></p>
+        </div>
+        <div class="table-wrap" role="region" aria-label="Leaderboard table" tabindex="0">
+          <table>
+            <thead><tr><th style="min-width:240px">Model</th><th style="min-width:128px">Baseline Accuracy</th><th style="min-width:128px">SBS_percent</th><th style="min-width:128px">SBS Fixed Thresh</th><th style="min-width:128px">SBS Dynamic Percent</th></tr></thead>
+            <tbody><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/google.svg" alt="" loading="lazy">
+            <div><strong>Gemini-3-flash</strong><span>Rank 1</span></div>
+          </div>
+          <div class="model-meta"><span>Google</span><span>2025-12</span><span>Closed source</span></div>
+        </td><td>92.00</td><td>14.22</td><td>16.33</td><td>15.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/deepseek.svg" alt="" loading="lazy">
+            <div><strong>deepseek-r1-250528</strong><span>Rank 2</span></div>
+          </div>
+          <div class="model-meta"><span>DeepSeek</span><span>2025-05</span><span>Open source</span></div>
+        </td><td>89.00</td><td>12.00</td><td>13.58</td><td>12.12</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/anthropic.svg" alt="" loading="lazy">
+            <div><strong>claude-sonnet-4-5-20250929</strong><span>Rank 3</span></div>
+          </div>
+          <div class="model-meta"><span>Anthropic</span><span>2025-09</span><span>Closed source</span></div>
+        </td><td>88.00</td><td>15.78</td><td>19.08</td><td>16.25</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/bytedance.svg" alt="" loading="lazy">
+            <div><strong>doubao-seed-1-6-flash-250828</strong><span>Rank 4</span></div>
+          </div>
+          <div class="model-meta"><span>ByteDance</span><span>2025-08</span><span>Closed source</span></div>
+        </td><td>87.50</td><td>26.00</td><td>34.83</td><td>31.29</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/openai.svg" alt="" loading="lazy">
+            <div><strong>GPT-4o</strong><span>Rank 5</span></div>
+          </div>
+          <div class="model-meta"><span>OpenAI</span><span>2024-05</span><span>Closed source</span></div>
+        </td><td>85.00</td><td>16.78</td><td>20.42</td><td>19.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/openai.svg" alt="" loading="lazy">
+            <div><strong>GPT-5.2</strong><span>Rank 6</span></div>
+          </div>
+          <div class="model-meta"><span>OpenAI</span><span>2025-12</span><span>Closed source</span></div>
+        </td><td>85.00</td><td>24.50</td><td>32.58</td><td>29.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/zai.svg" alt="" loading="lazy">
+            <div><strong>GLM-4.5-Air</strong><span>Rank 7</span></div>
+          </div>
+          <div class="model-meta"><span>Z.ai</span><span>2025-07</span><span>Open source</span></div>
+        </td><td>83.50</td><td>22.00</td><td>28.25</td><td>25.43</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/qwen.svg" alt="" loading="lazy">
+            <div><strong>Qwen2.5-72B-Instruct</strong><span>Rank 8</span></div>
+          </div>
+          <div class="model-meta"><span>Qwen</span><span>2024-09</span><span>Open source</span></div>
+        </td><td>82.50</td><td>17.67</td><td>21.50</td><td>19.29</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/meta.svg" alt="" loading="lazy">
+            <div><strong>Llama-3.3-70B-Instruct</strong><span>Rank 9</span></div>
+          </div>
+          <div class="model-meta"><span>Meta-Llama</span><span>2024-12</span><span>Open source</span></div>
+        </td><td>79.50</td><td>28.06</td><td>36.83</td><td>31.93</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/qwen.svg" alt="" loading="lazy">
+            <div><strong>Qwen3-30B-A3B-Thinking-2507 </strong><span>Rank 10</span></div>
+          </div>
+          <div class="model-meta"><span>Qwen</span><span>2025-07</span><span>Open source</span></div>
+        </td><td>79.00</td><td>29.39</td><td>38.50</td><td>33.29</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/mistral.svg" alt="" loading="lazy">
+            <div><strong>Mistral-Small-24B-Instruct-2501</strong><span>Rank 11</span></div>
+          </div>
+          <div class="model-meta"><span>mistralai</span><span>2025-01</span><span>Open source</span></div>
+        </td><td>78.00</td><td>17.78</td><td>20.33</td><td>17.71</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/google.svg" alt="" loading="lazy">
+            <div><strong>google/gemma-3-27b-it</strong><span>Rank 12</span></div>
+          </div>
+          <div class="model-meta"><span>Google</span><span>2025-03</span><span>Open source</span></div>
+        </td><td>76.00</td><td>20.06</td><td>23.83</td><td>20.50</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/internlm.svg" alt="" loading="lazy">
+            <div><strong>Internlm3-8b-Instruct</strong><span>Rank 13</span></div>
+          </div>
+          <div class="model-meta"><span>Shanghai AI Laboratory</span><span>2025-01</span><span>Open source</span></div>
+        </td><td>74.50</td><td>32.94</td><td>42.67</td><td>42.67</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/moonshot.svg" alt="" loading="lazy">
+            <div><strong>kimi-k2-thinking</strong><span>Rank 14</span></div>
+          </div>
+          <div class="model-meta"><span>MoonShot</span><span>2025-11</span><span>Open source</span></div>
+        </td><td>41.00</td><td>44.78</td><td>30.75</td><td>18.50</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section></div>
+</main>
+  <footer class="site-footer">
+    <div>
+      <strong>DeepSafe GitHub Pages</strong>
+      <p><span class="lang-zh">静态快照内容来自 AI45 DeepSafe production JSON，已裁剪为 10 个 benchmark。</span><span class="lang-en">Static snapshot sourced from AI45 DeepSafe production JSON, scoped to 10 benchmarks.</span></p>
+    </div>
+    <a href="https://ai45.shlab.org.cn/deepsafe" target="_blank" rel="noopener"><span class="lang-zh">原站</span><span class="lang-en">Original site</span> ↗</a>
+  </footer>
+  <script>
+  (function(){
+    const saved = localStorage.getItem('deepsafe-lang') || 'zh-CN';
+    function setLang(lang){
+      document.body.dataset.lang = lang;
+      document.documentElement.lang = lang === 'en-US' ? 'en' : 'zh-CN';
+      localStorage.setItem('deepsafe-lang', lang);
+      document.querySelectorAll('[data-set-lang]').forEach(function(btn){ btn.classList.toggle('active', btn.dataset.setLang === lang); });
+    }
+    document.querySelectorAll('[data-set-lang]').forEach(function(btn){ btn.addEventListener('click', function(){ setLang(btn.dataset.setLang); }); });
+    setLang(saved);
+  })();
+  </script>
+</body>
+</html>

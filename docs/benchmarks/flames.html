@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FLAMES | DeepSafe</title>
+  <meta name="description" content="DeepSafe selected benchmark pages for GitHub Pages.">
+  <link rel="icon" href="../assets/deepsafe-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body data-lang="zh-CN">
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="DeepSafe home">
+      <img src="../assets/deepsafe-logo.svg" alt="DeepSafe">
+      <span>DeepSafe</span>
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="../index.html#overview" class=""><span class="lang-zh">概览</span><span class="lang-en">Overview</span></a>
+      <a href="../index.html#benchmarks" class="active"><span class="lang-zh">Benchmarks</span><span class="lang-en">Benchmarks</span></a>
+      <a href="https://github.com/AI45Lab/DeepSafe" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <div class="lang-toggle" aria-label="Language">
+      <button type="button" data-set-lang="zh-CN" class="active">中文</button>
+      <button type="button" data-set-lang="en-US">EN</button>
+    </div>
+  </header>
+  
+<main>
+  <section class="detail-hero">
+    <a class="back-link" href="../index.html#benchmarks">← <span class="lang-zh">返回 Benchmark 列表</span><span class="lang-en">Back to Benchmarks</span></a>
+    <div class="detail-top">
+      <div>
+        <p class="eyebrow">Benchmark Detail</p>
+        <h1>FLAMES</h1>
+        <p class="source-name"><span class="lang-zh">原站详情名称：Flames</span><span class="lang-en">Original detail label: Flames</span></p>
+        <p class="detail-desc"><span class="lang-zh">FLAMES 建立了一个针对中文大语言模型价值对齐的高对抗性基准，其包含整合了特定中国文化价值观的五维评估框架，并提出了一个判别准确率优于 GPT-4 的专用评分模型。</span><span class="lang-en">FLAMES establishes a highly adversarial benchmark for Chinese LLM value alignment, featuring a five-dimensional framework incorporating specific Chinese cultural values and a specialized scoring model that outperforms GPT-4 in judgment accuracy.</span></p>
+      </div>
+      <div class="detail-side">
+        <div class="tag-row"><span class="lang-zh"><span>文本</span></span><span class="lang-en"><span>Text</span></span></div>
+        <span class="lang-zh"><div class="actions"><a class="button ghost" href="https://arxiv.org/abs/2311.06899" target="_blank" rel="noopener">Arxiv 链接 <span aria-hidden="true">↗</span></a><a class="button ghost" href="https://github.com/AI45Lab/Flames" target="_blank" rel="noopener">Repo 链接 <span aria-hidden="true">↗</span></a></div></span><span class="lang-en"><div class="actions"><a class="button ghost" href="https://arxiv.org/abs/2311.06899" target="_blank" rel="noopener">Arxiv Link <span aria-hidden="true">↗</span></a><a class="button ghost" href="https://github.com/AI45Lab/Flames" target="_blank" rel="noopener">Repo Link <span aria-hidden="true">↗</span></a></div></span>
+      </div>
+    </div>
+    <nav class="subnav" aria-label="Page sections">
+      <a href="#intro"><span class="lang-zh">介绍</span><span class="lang-en">Introduction</span></a>
+      <a href="#leaderboard"><span class="lang-zh">榜单</span><span class="lang-en">Leaderboard</span></a>
+    </nav>
+  </section>
+  <div id="intro" class="lang-zh">
+    <section class="section-band ">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Introduction</p>
+          <h2>评测集亮点</h2>
+        </div>
+        <div class="content-stack">
+          
+            <article class="info-block">
+              <h3>简介</h3>
+              <div class="text-list">
+                <p class="plain-line">FLAMES 旨在解决现有安全基准在中文大语言模型评估中缺乏足够的对抗深度和文化语境的问题。</p><p class="plain-line">该框架定义了公平性、安全性、道德、数据保护和合法性五个核心维度，独特地将和谐、仁爱等传统中国价值观与标准安全原则相结合。</p><p class="plain-line">它汇集了 2,251 个由人工精心设计的强对抗性提示词，利用伪装、反向诱导和不安全询问等策略来揭示模型潜在的脆弱性，并引入了一个在 2.29 万条人工标注回复上训练的专用评分模型。</p><p class="plain-line">对 17 个主流大语言模型的评估揭示了显著的安全差距，而专用的 FLAMES 评分器达到了 79.5% 的准确率，在自动判别性能上显著优于 GPT-4。</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>侧重点</h3>
+              <div class="text-list">
+                <p class="bullet-line">中文价值观对齐、高度对抗性攻击</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>解决的主要问题</h3>
+              <div class="text-list">
+                <p class="bullet-line">解决现有安全基准（如 CValues）攻击成功率低（仅3%左右）的问题，Flames 的攻击成功率高达 53%。</p>
+              </div>
+            </article>
+        </div>
+      </div>
+    </section>
+    <section class="section-band section-alt">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Introduction</p>
+          <h2>评测方法与指标</h2>
+        </div>
+        <div class="content-stack">
+          
+            <article class="info-block">
+              <h3>Evaluator：Flames-scorer</h3>
+              <div class="text-list">
+                <p class="bullet-line">含义：用于对模型输出结果进行安全性判定与量化统计的评估器。</p><p class="bullet-line">用法：该评估器负责判断模型在给定测试样本下的输出是否符合安全规范，并为后续无害率（Harmless Rate） 无害得分（Harmless Score）  等指标的计算提供统一、可复现的判定口径。</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Metrics：无害率（Harmless Rate）</h3>
+              <div class="text-list">
+                <p class="bullet-line">在 Flames 的全部对抗提示中，模型输出被 Flames-scorer 判定为“无害/未违反价值观与安全红线”的样本占比（通过率）</p><p class="bullet-line">越高表示越不容易被对抗提示诱导出有害内容。</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Metrics：无害得分（Harmless Score）</h3>
+              <div class="text-list">
+                <p class="bullet-line">Flames-scorer 对模型每条输出给出的“无害程度”连续分数的整体统计（通常取平均）</p><p class="bullet-line">它不仅看“过不过”，还看“有多无害/离红线有多远”，越高表示整体价值观对齐更好、更稳健。</p>
+              </div>
+            </article>
+        </div>
+      </div>
+    </section></div>
+  <div id="intro-en" class="lang-en">
+    <section class="section-band ">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Introduction</p>
+          <h2>Highlight of the Evaluation Set</h2>
+        </div>
+        <div class="content-stack">
+          
+            <article class="info-block">
+              <h3>Introduction</h3>
+              <div class="text-list">
+                <p class="plain-line">FLAMES addresses the limitations of existing safety benchmarks that lack sufficient adversarial depth and cultural context for Chinese LLMs.</p><p class="plain-line">The framework defines five core dimensions—Fairness, Safety, Morality, Data Protection, and Legality—uniquely integrating traditional Chinese values like harmony and benevolence alongside standard safety principles.</p><p class="plain-line">It compiles 2,251 manually crafted, high-quality adversarial prompts utilizing disguise, reverse induction, and unsafe inquiry strategies to expose subtle model vulnerabilities, while also introducing a dedicated scoring model trained on 22.</p><p class="plain-line">9K human-annotated responses.</p><p class="plain-line">Experiments across 17 mainstream LLMs reveal significant safety gaps, with the specialized FLAMES-scorer achieving 79.</p><p class="plain-line">5% accuracy, substantially surpassing GPT-4&#39;s performance as an automated judge.</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Focus</h3>
+              <div class="text-list">
+                <p class="bullet-line">Chinese value alignment and highly adversarial attacks</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Solved Problems</h3>
+              <div class="text-list">
+                <p class="bullet-line">Overcoming the low attack success rates (e.g., ~3% in CValues) of existing benchmarks; Flames achieves a success rate of approximately 53%.</p>
+              </div>
+            </article>
+        </div>
+      </div>
+    </section>
+    <section class="section-band section-alt">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Introduction</p>
+          <h2>Evaluation Methods and Metrics</h2>
+        </div>
+        <div class="content-stack">
+          
+            <article class="info-block">
+              <h3>Evaluator：Flames-scorer</h3>
+              <div class="text-list">
+                <p class="bullet-line">Meaning: An evaluator used for safety judgment and quantitative statistics of model output results.</p><p class="bullet-line">Usage: This evaluator is responsible for judging whether the model&#39;s output under given test samples complies with safety standards, and provides a unified and reproducible judgment standard for the calculation of subsequent metrics such as Harmless Rate Harmless Score .</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Metrics：Harmless Rate</h3>
+              <div class="text-list">
+                <p class="bullet-line">The proportion of samples (pass rate) in which the model output is judged by Flames-scorer to be &quot;harmless/not violating values and safety red lines&quot; among all adversarial prompts in Flames. The higher it is, the less likely it is to be induced by confrontational prompts to induce harmful content.</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Metrics：Harmless Score</h3>
+              <div class="text-list">
+                <p class="bullet-line">The overall statistics (usually averaged) of the &quot;harmlessness&quot; consecutive scores given by the Flames-scorer for each output of the model</p><p class="bullet-line">It not only looks at &quot;can&#39;t pass&quot;, but also looks at &quot;how harmless/how far from the red line&quot;, and the higher it is, the better and more stable the overall value alignment.</p>
+              </div>
+            </article>
+        </div>
+      </div>
+    </section></div>
+  <div id="leaderboard" class="lang-zh">
+    <section class="section-band table-section">
+      <div class="section-inner wide">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Leaderboard</p>
+            <h2>榜单</h2>
+            <p>表格展示了不同模型在各个安全维度上的表现</p>
+          </div>
+          <p class="report-link"><a href="https://ai45.shlab.org.cn/safety-report#eval-report" target="_blank" rel="noopener">查看报告 →</a></p>
+        </div>
+        <div class="table-wrap" role="region" aria-label="榜单表格" tabindex="0">
+          <table>
+            <thead><tr><th style="min-width:240px">模型</th><th style="min-width:128px">Harmless Rate</th><th style="min-width:128px">Fairness</th><th style="min-width:128px">Safety</th><th style="min-width:128px">Morality</th><th style="min-width:128px">Legality</th><th style="min-width:128px">Data Protection</th></tr></thead>
+            <tbody><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/anthropic.svg" alt="" loading="lazy">
+            <div><strong>claude-sonnet-4-5-20250929</strong><span>排名 1</span></div>
+          </div>
+          <div class="model-meta"><span>Anthropic</span><span>2025-09</span><span>闭源</span></div>
+        </td><td>45.94</td><td>33.73</td><td>18.18</td><td>72.14</td><td>45.65</td><td>60.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/moonshot.svg" alt="" loading="lazy">
+            <div><strong>kimi-k2-thinking</strong><span>排名 2</span></div>
+          </div>
+          <div class="model-meta"><span>MoonShot</span><span>2025-11</span><span>开源</span></div>
+        </td><td>41.88</td><td>30.12</td><td>16.32</td><td>66.17</td><td>43.48</td><td>53.33</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/bytedance.svg" alt="" loading="lazy">
+            <div><strong>doubao-seed-1-6-flash-250828</strong><span>排名 3</span></div>
+          </div>
+          <div class="model-meta"><span>ByteDance</span><span>2025-08</span><span>闭源</span></div>
+        </td><td>41.07</td><td>36.95</td><td>13.75</td><td>63.18</td><td>43.48</td><td>48.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/qwen.svg" alt="" loading="lazy">
+            <div><strong>Qwen3-30B-A3B-Thinking-2507 </strong><span>排名 4</span></div>
+          </div>
+          <div class="model-meta"><span>Qwen</span><span>2025-07</span><span>开源</span></div>
+        </td><td>38.96</td><td>34.94</td><td>11.42</td><td>65.17</td><td>32.61</td><td>50.67</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/internlm.svg" alt="" loading="lazy">
+            <div><strong>Internlm3-8b-Instruct</strong><span>排名 5</span></div>
+          </div>
+          <div class="model-meta"><span>Shanghai AI Laboratory</span><span>2025-01</span><span>开源</span></div>
+        </td><td>37.61</td><td>33.73</td><td>18.65</td><td>57.21</td><td>30.43</td><td>48.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/zai.svg" alt="" loading="lazy">
+            <div><strong>GLM-4.5-Air</strong><span>排名 6</span></div>
+          </div>
+          <div class="model-meta"><span>Z.ai</span><span>2025-07</span><span>开源</span></div>
+        </td><td>36.88</td><td>28.11</td><td>7.93</td><td>58.71</td><td>45.65</td><td>44.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/qwen.svg" alt="" loading="lazy">
+            <div><strong>Qwen2.5-72B-Instruct</strong><span>排名 7</span></div>
+          </div>
+          <div class="model-meta"><span>Qwen</span><span>2024-09</span><span>开源</span></div>
+        </td><td>35.83</td><td>32.53</td><td>13.99</td><td>58.71</td><td>32.61</td><td>41.33</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/deepseek.svg" alt="" loading="lazy">
+            <div><strong>deepseek-r1-250528</strong><span>排名 8</span></div>
+          </div>
+          <div class="model-meta"><span>DeepSeek</span><span>2025-05</span><span>开源</span></div>
+        </td><td>35.74</td><td>28.92</td><td>9.32</td><td>64.18</td><td>28.26</td><td>48.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/meta.svg" alt="" loading="lazy">
+            <div><strong>Llama-3.3-70B-Instruct</strong><span>排名 9</span></div>
+          </div>
+          <div class="model-meta"><span>Meta-Llama</span><span>2024-12</span><span>开源</span></div>
+        </td><td>34.57</td><td>30.12</td><td>10.72</td><td>53.73</td><td>36.96</td><td>41.33</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/openai.svg" alt="" loading="lazy">
+            <div><strong>GPT-4o</strong><span>排名 10</span></div>
+          </div>
+          <div class="model-meta"><span>OpenAI</span><span>2024-05</span><span>闭源</span></div>
+        </td><td>27.32</td><td>24.10</td><td>11.19</td><td>48.76</td><td>15.22</td><td>37.33</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/mistral.svg" alt="" loading="lazy">
+            <div><strong>Mistral-Small-24B-Instruct-2501</strong><span>排名 11</span></div>
+          </div>
+          <div class="model-meta"><span>mistralai</span><span>2025-01</span><span>开源</span></div>
+        </td><td>26.74</td><td>24.10</td><td>9.79</td><td>51.24</td><td>15.22</td><td>33.33</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/google.svg" alt="" loading="lazy">
+            <div><strong>google/gemma-3-27b-it</strong><span>排名 12</span></div>
+          </div>
+          <div class="model-meta"><span>Google</span><span>2025-03</span><span>开源</span></div>
+        </td><td>26.44</td><td>23.69</td><td>7.69</td><td>52.24</td><td>15.22</td><td>33.33</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/google.svg" alt="" loading="lazy">
+            <div><strong>Gemini-3-flash</strong><span>排名 13</span></div>
+          </div>
+          <div class="model-meta"><span>Google</span><span>2025-12</span><span>闭源</span></div>
+        </td><td>20.77</td><td>11.24</td><td>4.90</td><td>28.36</td><td>50.00</td><td>9.33</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/openai.svg" alt="" loading="lazy">
+            <div><strong>GPT-5.2</strong><span>排名 14</span></div>
+          </div>
+          <div class="model-meta"><span>OpenAI</span><span>2025-12</span><span>闭源</span></div>
+        </td><td>14.58</td><td>9.24</td><td>4.20</td><td>21.39</td><td>26.09</td><td>12.00</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section></div>
+  <div id="leaderboard-en" class="lang-en">
+    <section class="section-band table-section">
+      <div class="section-inner wide">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Leaderboard</p>
+            <h2>Leaderboard</h2>
+            <p>The table demonstrates various models&#39; performance on metrics</p>
+          </div>
+          <p class="report-link"><a href="https://ai45.shlab.org.cn/safety-report#eval-report" target="_blank" rel="noopener">View report →</a></p>
+        </div>
+        <div class="table-wrap" role="region" aria-label="Leaderboard table" tabindex="0">
+          <table>
+            <thead><tr><th style="min-width:240px">Model</th><th style="min-width:128px">Harmless Rate</th><th style="min-width:128px">Fairness</th><th style="min-width:128px">Safety</th><th style="min-width:128px">Morality</th><th style="min-width:128px">Legality</th><th style="min-width:128px">Data Protection</th></tr></thead>
+            <tbody><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/anthropic.svg" alt="" loading="lazy">
+            <div><strong>claude-sonnet-4-5-20250929</strong><span>Rank 1</span></div>
+          </div>
+          <div class="model-meta"><span>Anthropic</span><span>2025-09</span><span>Closed source</span></div>
+        </td><td>45.94</td><td>33.73</td><td>18.18</td><td>72.14</td><td>45.65</td><td>60.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/moonshot.svg" alt="" loading="lazy">
+            <div><strong>kimi-k2-thinking</strong><span>Rank 2</span></div>
+          </div>
+          <div class="model-meta"><span>MoonShot</span><span>2025-11</span><span>Open source</span></div>
+        </td><td>41.88</td><td>30.12</td><td>16.32</td><td>66.17</td><td>43.48</td><td>53.33</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/bytedance.svg" alt="" loading="lazy">
+            <div><strong>doubao-seed-1-6-flash-250828</strong><span>Rank 3</span></div>
+          </div>
+          <div class="model-meta"><span>ByteDance</span><span>2025-08</span><span>Closed source</span></div>
+        </td><td>41.07</td><td>36.95</td><td>13.75</td><td>63.18</td><td>43.48</td><td>48.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/qwen.svg" alt="" loading="lazy">
+            <div><strong>Qwen3-30B-A3B-Thinking-2507 </strong><span>Rank 4</span></div>
+          </div>
+          <div class="model-meta"><span>Qwen</span><span>2025-07</span><span>Open source</span></div>
+        </td><td>38.96</td><td>34.94</td><td>11.42</td><td>65.17</td><td>32.61</td><td>50.67</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/internlm.svg" alt="" loading="lazy">
+            <div><strong>Internlm3-8b-Instruct</strong><span>Rank 5</span></div>
+          </div>
+          <div class="model-meta"><span>Shanghai AI Laboratory</span><span>2025-01</span><span>Open source</span></div>
+        </td><td>37.61</td><td>33.73</td><td>18.65</td><td>57.21</td><td>30.43</td><td>48.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/zai.svg" alt="" loading="lazy">
+            <div><strong>GLM-4.5-Air</strong><span>Rank 6</span></div>
+          </div>
+          <div class="model-meta"><span>Z.ai</span><span>2025-07</span><span>Open source</span></div>
+        </td><td>36.88</td><td>28.11</td><td>7.93</td><td>58.71</td><td>45.65</td><td>44.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/qwen.svg" alt="" loading="lazy">
+            <div><strong>Qwen2.5-72B-Instruct</strong><span>Rank 7</span></div>
+          </div>
+          <div class="model-meta"><span>Qwen</span><span>2024-09</span><span>Open source</span></div>
+        </td><td>35.83</td><td>32.53</td><td>13.99</td><td>58.71</td><td>32.61</td><td>41.33</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/deepseek.svg" alt="" loading="lazy">
+            <div><strong>deepseek-r1-250528</strong><span>Rank 8</span></div>
+          </div>
+          <div class="model-meta"><span>DeepSeek</span><span>2025-05</span><span>Open source</span></div>
+        </td><td>35.74</td><td>28.92</td><td>9.32</td><td>64.18</td><td>28.26</td><td>48.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/meta.svg" alt="" loading="lazy">
+            <div><strong>Llama-3.3-70B-Instruct</strong><span>Rank 9</span></div>
+          </div>
+          <div class="model-meta"><span>Meta-Llama</span><span>2024-12</span><span>Open source</span></div>
+        </td><td>34.57</td><td>30.12</td><td>10.72</td><td>53.73</td><td>36.96</td><td>41.33</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/openai.svg" alt="" loading="lazy">
+            <div><strong>GPT-4o</strong><span>Rank 10</span></div>
+          </div>
+          <div class="model-meta"><span>OpenAI</span><span>2024-05</span><span>Closed source</span></div>
+        </td><td>27.32</td><td>24.10</td><td>11.19</td><td>48.76</td><td>15.22</td><td>37.33</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/mistral.svg" alt="" loading="lazy">
+            <div><strong>Mistral-Small-24B-Instruct-2501</strong><span>Rank 11</span></div>
+          </div>
+          <div class="model-meta"><span>mistralai</span><span>2025-01</span><span>Open source</span></div>
+        </td><td>26.74</td><td>24.10</td><td>9.79</td><td>51.24</td><td>15.22</td><td>33.33</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/google.svg" alt="" loading="lazy">
+            <div><strong>google/gemma-3-27b-it</strong><span>Rank 12</span></div>
+          </div>
+          <div class="model-meta"><span>Google</span><span>2025-03</span><span>Open source</span></div>
+        </td><td>26.44</td><td>23.69</td><td>7.69</td><td>52.24</td><td>15.22</td><td>33.33</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/google.svg" alt="" loading="lazy">
+            <div><strong>Gemini-3-flash</strong><span>Rank 13</span></div>
+          </div>
+          <div class="model-meta"><span>Google</span><span>2025-12</span><span>Closed source</span></div>
+        </td><td>20.77</td><td>11.24</td><td>4.90</td><td>28.36</td><td>50.00</td><td>9.33</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/openai.svg" alt="" loading="lazy">
+            <div><strong>GPT-5.2</strong><span>Rank 14</span></div>
+          </div>
+          <div class="model-meta"><span>OpenAI</span><span>2025-12</span><span>Closed source</span></div>
+        </td><td>14.58</td><td>9.24</td><td>4.20</td><td>21.39</td><td>26.09</td><td>12.00</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section></div>
+</main>
+  <footer class="site-footer">
+    <div>
+      <strong>DeepSafe GitHub Pages</strong>
+      <p><span class="lang-zh">静态快照内容来自 AI45 DeepSafe production JSON，已裁剪为 10 个 benchmark。</span><span class="lang-en">Static snapshot sourced from AI45 DeepSafe production JSON, scoped to 10 benchmarks.</span></p>
+    </div>
+    <a href="https://ai45.shlab.org.cn/deepsafe" target="_blank" rel="noopener"><span class="lang-zh">原站</span><span class="lang-en">Original site</span> ↗</a>
+  </footer>
+  <script>
+  (function(){
+    const saved = localStorage.getItem('deepsafe-lang') || 'zh-CN';
+    function setLang(lang){
+      document.body.dataset.lang = lang;
+      document.documentElement.lang = lang === 'en-US' ? 'en' : 'zh-CN';
+      localStorage.setItem('deepsafe-lang', lang);
+      document.querySelectorAll('[data-set-lang]').forEach(function(btn){ btn.classList.toggle('active', btn.dataset.setLang === lang); });
+    }
+    document.querySelectorAll('[data-set-lang]').forEach(function(btn){ btn.addEventListener('click', function(){ setLang(btn.dataset.setLang); }); });
+    setLang(saved);
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+{
+    "zh-CN": {
+        "bench": {
+            "name": "Fake Alignment",
+            "desc": "Fake Alignment 通过一种新颖的比较基准量化开放式与多选式安全评估之间的性能差异，从而识别出大型语言模型中的“伪对齐”现象。",
+            "tags": [
+                "文本"
+            ],
+            "links": [
+                {
+                    "name": "Arxiv 链接",
+                    "url": "https://arxiv.org/abs/2311.05915"
+                },
+                {
+                    "name": "Repo 链接",
+                    "url": "https://github.com/AIFlames/Fake-Alignment"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "评测集亮点",
+                "content": [
+                    {
+                        "subTitle": "简介",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "FINE 解决了“伪对齐”问题，即模型在开放式回答中表现出高安全性，但在相应的多选测试中却因表面记忆而失败。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "该框架在五个安全维度上系统地构建了一个比较基准，利用一致性分数和一致性安全分数指标来量化回答风格与真正理解之间的差距。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "它揭示了许多广泛使用的模型尽管声称安全，但在这些严格的一致性检查中表现不佳。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "此外，该方法证明了利用多选数据进行的基于对比蒸馏的监督微调能有效缓解这一差异并增强真正的对齐。",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "侧重点",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "伪对齐(Fake Alignment)检测与跨题型一致性"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "解决的主要问题",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "解决模型在封闭式评估中表现安全，但在开放式生成中可能输出违规内容的问题。"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "评测方法与指标",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：Fine",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "含义：用于对模型输出结果进行安全性判定与量化统计的评估器。"
+                            },
+                            {
+                                "label": "",
+                                "text": "用法：该评估器负责判断模型在给定测试样本下的输出是否符合安全规范，并为后续一致性分数（CS, Consistency Score） 一致安全分数（CSS, Consistent Safety Score） 等指标的计算提供统一、可复现的判定口径。"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：一致性分数（CS, Consistency Score）",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "衡量模型在同一安全主题下，面对 MCQ（选择题） 时的行为是否一致"
+                            },
+                            {
+                                "label": "",
+                                "text": "一致性越低，越可能存在“封闭式测评看起来安全、开放式生成却不安全”的伪对齐现象。"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：一致安全分数（CSS, Consistent Safety Score）",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "在“是否一致”的基础上，更强调“一致地安全”——只有当模型在两种题型下都表现安全时才会得高分"
+                            },
+                            {
+                                "label": "",
+                                "text": "用于给出更“修正后/可信”的安全表现估计。"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "en-US": {
+        "bench": {
+            "name": "Fake Alignment",
+            "desc": "Fake Alignment identifies \"fake alignment\" in Large Language Models by quantifying the performance discrepancy between open-ended and multiple-choice safety evaluations through a novel comparative benchmark.",
+            "tags": [
+                "Text"
+            ],
+            "links": [
+                {
+                    "name": "Arxiv Link",
+                    "url": "https://arxiv.org/abs/2311.05915"
+                },
+                {
+                    "name": "Repo Link",
+                    "url": "https://github.com/AIFlames/Fake-Alignment"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "Highlight of the Evaluation Set",
+                "content": [
+                    {
+                        "subTitle": "Introduction",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "FINE addresses the \"fake alignment\" issue where models exhibit high safety in open-ended responses but fail corresponding multiple-choice tests due to superficial memorization.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "The framework systematically constructs a comparative benchmark across five safety dimensions, utilizing Consistency Score and Consistent Safety Score metrics to quantify the gap between response style and genuine understanding.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "It reveals that many widely used models perform poorly on these rigorous consistency checks despite purported safety.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "Furthermore, the methodology demonstrates that contrast distillation-based supervised fine-tuning with multiple-choice data effectively mitigates this discrepancy and enhances true alignment.",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Focus",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Detection of fake alignment and cross-task consistency"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Solved Problems",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Addressing the discrepancy where models appear safe in closed-ended evaluations but generate non-compliant content in open-ended tasks."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Evaluation Methods and Metrics",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：Fine",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Meaning: An evaluator used for safety judgment and quantitative statistics of model output results."
+                            },
+                            {
+                                "label": "",
+                                "text": "Usage: This evaluator is responsible for judging whether the model's output under given test samples complies with safety standards, and provides a unified and reproducible judgment standard for the calculation of subsequent metrics such as Consistency Score (CS) Consistent Safety Score (CSS)."
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：Consistency Score (CS)",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Measures whether the model's behavior is consistent when facing MCQs (multiple-choice questions) under the same safety topic"
+                            },
+                            {
+                                "label": "",
+                                "text": "The lower the consistency, the more likely it is that there will be a pseudo-alignment phenomenon where \"closed assessments look safe, open generation is not secure\"."
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：Consistent Safety Score (CSS)",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "On the basis of \"consistency\", more emphasis is placed on \"consistently safe\" - high scores will only be obtained if the model performs safe in both question types"
+                            },
+                            {
+                                "label": "",
+                                "text": "Used to give a more \"corrected/trusted\" estimate of security performance."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

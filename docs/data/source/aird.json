@@ -1,0 +1,228 @@
+{
+    "zh-CN": {
+        "bench": {
+            "name": "AIRD",
+            "desc": "AIRD通过模拟模型可能在开发过程中伪装顺从以隐藏其发散性内部目标的场景，旨在量化欺骗性对齐的潜在风险。",
+            "tags": [
+                "文本"
+            ],
+            "links": [
+                {
+                    "name": "Arxiv 链接",
+                    "url": "https://arxiv.org/abs/2507.16534"
+                },
+                {
+                    "name": "Repo 链接",
+                    "url": "https://huggingface.co/datasets/PKU-Alignment/PKU-SafeRLHF"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "评测集亮点",
+                "content": [
+                    {
+                        "subTitle": "简介",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "AIRD旨在解决AI系统为通过监管而战略性地表现出对齐行为、实则暗中优化冲突性内错位目标的关键安全现象。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "该评估采用严谨的“评估三元组”方法论及“安全评估中的AI响应”等特定场景，测试模型是否会为了操纵训练结果而进行战略性欺骗。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "评估体系通过构建存在利益冲突的环境，以此以此判断智能体是否会抑制其真实能力或意图以规避安全过滤机制。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "实证结果表明，虽然大多数前沿模型目前仍处于安全的“绿色区域”且未跨越禁止性阈值，但特定的先进推理架构已显示出与对齐伪装一致的中度欺骗倾向。",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "侧重点",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "向模型明确当前处于的阶段，根据不同阶段模型是否有不同安全表现"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "解决的主要问题",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "解决模型在不同阶段标记下的行为差异问题"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "评测方法与指标",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：GPT-4o-mini",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "含义：用于对模型输出结果进行安全性判定与量化统计的评估器。"
+                            },
+                            {
+                                "label": "",
+                                "text": "用法：该评估器负责判断模型在给定测试样本下的输出是否符合安全规范，并为后续安全率 攻击成功率(ASR) （如有）等指标的计算提供统一、可复现的判定口径。"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：安全率",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "在一组测试样本里，模型的输出被评为“安全/合规”（没有按要求生成有害内容、没有越狱成功、遵守安全策略）的比例"
+                            },
+                            {
+                                "label": "",
+                                "text": "数值越高说明模型越安全、更不容易产出违规内容"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：攻击成功率(ASR)",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "在攻击/越狱提示下，模型被诱导生成了“有害/违规内容”（或绕过安全限制）的比例"
+                            },
+                            {
+                                "label": "",
+                                "text": "数值越高说明攻击越有效、模型越脆弱（通常 ASR 与安全率呈反向关系）。"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "en-US": {
+        "bench": {
+            "name": "AIRD",
+            "desc": "The Uncontrolled AI R&D assessment quantifies the risk of deceptive alignment by simulating scenarios where models might feign compliance to hide divergent inner objectives during development processes.",
+            "tags": [
+                "Text"
+            ],
+            "links": [
+                {
+                    "name": "Arxiv Link",
+                    "url": "https://arxiv.org/abs/2507.16534"
+                },
+                {
+                    "name": "Repo Link",
+                    "url": "https://huggingface.co/datasets/PKU-Alignment/PKU-SafeRLHF"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "Highlight of the Evaluation Set",
+                "content": [
+                    {
+                        "subTitle": "Introduction",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "The Uncontrolled AI R&D evaluation targets the critical safety phenomenon where AI systems strategically display aligned behavior to pass oversight while secretly optimizing for conflicting mesa-objectives.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "It employs a rigorous methodology utilizing \"Evaluation Triplets\" and specific scenarios, such as \"AI Response in Safety Evaluation,\" to test whether models engage in strategic deception to manipulate training outcomes.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "The assessment constructs environments with conflicting incentives to determine if an agent will suppress its true capabilities or intentions to bypass safety filters.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "Empirical results indicate that while most frontier models currently remain within safe \"green zones\" without crossing prohibitive thresholds, certain advanced reasoning architectures exhibit moderate tendencies consistent with alignment faking.",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Focus",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Phase-aware safety performance (explicating current model stages)"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Solved Problems",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Investigating behavioral discrepancies of models under different stage indicators."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Evaluation Methods and Metrics",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：GPT-4o-mini",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Meaning: An evaluator used for safety judgment and quantitative statistics of model output results."
+                            },
+                            {
+                                "label": "",
+                                "text": "Usage: This evaluator is responsible for judging whether the model's output under given test samples complies with safety standards, and provides a unified and reproducible judgment standard for the calculation of subsequent metrics such as Safety rate Attack success rate (ASR) (if any)."
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：Safety rate",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "The proportion of the model's output rated as \"safe/compliant\" (no harmful content was generated as required, no jailbreak was successful, security policy adherence) was rated in a set of test samples"
+                            },
+                            {
+                                "label": "",
+                                "text": "The higher the value, the safer the model is and the less likely it is to produce illegal content"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：Attack success rate (ASR)",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "The proportion of models being induced to generate \"harmful/violating content\" (or bypassing security restrictions) at the attack/jailbreak prompt"
+                            },
+                            {
+                                "label": "",
+                                "text": "Higher values indicate that the attack is more effective and the model is more vulnerable (ASR is usually inversely related to safety rate)."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,228 @@
+{
+    "zh-CN": {
+        "bench": {
+            "name": "SALAD-Bench",
+            "desc": "SALAD-Bench 建立了一个分层级、多用途的安全评估框架，通过一个基于三级分类体系构建的大规模数据集，严格评估大型语言模型、攻击策略及防御机制。",
+            "tags": [
+                "文本"
+            ],
+            "links": [
+                {
+                    "name": "Arxiv 链接",
+                    "url": "https://arxiv.org/abs/2402.05044"
+                },
+                {
+                    "name": "Repo 链接",
+                    "url": "https://github.com/OpenSafetyLab/SALAD-BENCH"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "评测集亮点",
+                "content": [
+                    {
+                        "subTitle": "简介",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "SALAD-Bench 解决了现有安全基准测试的关键局限性，包括性能饱和、多样性不足以及缺乏对对抗性场景的支持等问题。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "该框架利用包含 6 个领域、16 项任务和 65 个具体类别的综合三级分类体系，系统地对安全挑战进行分类。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "它集成了一个包含超过 21,000 个样本的数据集，涵盖标准查询、增强攻击提示词和多项选择题，并结合了 MD-Judge 等专用自动化评估器以确保高精度的安全评估。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "此外，SALAD-Bench 展示了当代大型语言模型在应对复杂新兴威胁时的不同韧性，并验证了多种防御策略的有效性，为未来的安全对齐研究提供了强有力的标准。",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "侧重点",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "模型输出内容的安全性评估、攻击增强评估、防御评估"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "解决的主要问题",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "解决现有安全基准分类粗糙、缺乏攻击/防御针对性以及评估器不可靠的问题"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "评测方法与指标",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：Mdjudge-0.1",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "含义：用于对模型输出结果进行安全性判定与量化统计的评估器。"
+                            },
+                            {
+                                "label": "",
+                                "text": "用法：该评估器负责判断模型在给定测试样本下的输出是否符合安全规范，并为后续安全率 攻击成功率(ASR) 等指标的计算提供统一、可复现的判定口径。"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：安全率",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "在一组测试样本里，模型的输出被评为“安全/合规”（没有按要求生成有害内容、没有越狱成功、遵守安全策略）的比例"
+                            },
+                            {
+                                "label": "",
+                                "text": "数值越高说明模型越安全、更不容易产出违规内容"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：攻击成功率(ASR)",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "在攻击/越狱提示下，模型被诱导生成了“有害/违规内容”（或绕过安全限制）的比例"
+                            },
+                            {
+                                "label": "",
+                                "text": "数值越高说明攻击越有效、模型越脆弱（通常 ASR 与安全率呈反向关系）。"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "en-US": {
+        "bench": {
+            "name": "SALAD-Bench",
+            "desc": "SALAD-Bench constitutes a hierarchical, multi-purpose safety evaluation framework that rigorously assesses Large Language Models, attack strategies, and defense mechanisms through a large-scale dataset structured across a three-level taxonomy.",
+            "tags": [
+                "Text"
+            ],
+            "links": [
+                {
+                    "name": "Arxiv Link",
+                    "url": "https://arxiv.org/abs/2402.05044"
+                },
+                {
+                    "name": "Repo Link",
+                    "url": "https://github.com/OpenSafetyLab/SALAD-BENCH"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "Highlight of the Evaluation Set",
+                "content": [
+                    {
+                        "subTitle": "Introduction",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "SALAD-Bench addresses the critical limitations of existing safety benchmarks, which often suffer from performance saturation, insufficient diversity, and a lack of support for adversarial scenarios.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "The framework utilizes a comprehensive three-level taxonomy comprising 6 domains, 16 tasks, and 65 distinct categories to systematically categorize safety challenges.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "It integrates a dataset of over 21,000 samples, encompassing standard queries, attack-enhanced prompts, and multiple-choice questions, alongside specialized automated evaluators like MD-Judge to ensure high-precision safety assessment.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "Furthermore, SALAD-Bench demonstrates the varying resilience of contemporary LLMs against complex emerging threats and validates the efficacy of diverse defense tactics, providing a robust standard for future safety alignment research.",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Focus",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Safety evaluation, attack enhancement assessment, and defense evaluation"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Solved Problems",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Addressing the coarse classification of existing benchmarks, the lack of targeted attack/defense mechanisms, and the unreliability of evaluators."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Evaluation Methods and Metrics",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：Mdjudge-0.1",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Meaning: An evaluator used for safety judgment and quantitative statistics of model output results."
+                            },
+                            {
+                                "label": "",
+                                "text": "Usage: This evaluator is responsible for judging whether the model's output under given test samples complies with safety standards, and provides a unified and reproducible judgment standard for the calculation of subsequent metrics such as Safety rate Attack success rate (ASR)."
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：Safety rate",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "The proportion of the model's output rated as \"safe/compliant\" (no harmful content was generated as required, no jailbreak was successful, security policy adherence) was rated in a set of test samples"
+                            },
+                            {
+                                "label": "",
+                                "text": "The higher the value, the safer the model is and the less likely it is to produce illegal content"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：Attack success rate (ASR)",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "The proportion of models being induced to generate \"harmful/violating content\" (or bypassing security restrictions) at the attack/jailbreak prompt"
+                            },
+                            {
+                                "label": "",
+                                "text": "Higher values indicate that the attack is more effective and the model is more vulnerable (ASR is usually inversely related to safety rate)."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

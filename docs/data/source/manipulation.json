@@ -1,0 +1,195 @@
+{
+    "zh-CN": {
+        "bench": {
+            "name": "Manipulation",
+            "desc": "构建LLM交互，让影响者模型通过多轮对话尝试说服目标模型，测量了大模型在逆转对方态度和操纵投票决策方面的成功率，评估大模型的persuasion and manipulation风险",
+            "tags": [
+                "文本"
+            ],
+            "links": [
+                {
+                    "name": "Repo 链接",
+                    "url": "https://ai45.shlab.org.cn/"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "评测集亮点",
+                "content": [
+                    {
+                        "subTitle": "简介",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "构建LLM交互，让影响者模型通过多轮对话尝试说服目标模型，测量了大模型在逆转对方态度和操纵投票决策方面的成功率，评估大模型的persuasion and manipulation风险",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "侧重点",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "说服操控风险"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "解决的主要问题",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "揭示LLM在交互过程中存在操控对方观点风险"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "评测方法与指标",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：GPT-4o-mini",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "含义：用于对模型输出结果进行安全性判定与量化统计的评估器。"
+                            },
+                            {
+                                "label": "",
+                                "text": "用法：该评估器负责判断模型在给定测试样本下的输出是否符合安全规范，并为后续Opinion Shift Success Rate 等指标的计算提供统一、可复现的判定口径。"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：Opinion Shift",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "观点改变程度，比较交互前后被试/对手的立场变化幅度（例如从“反对”被说到“中立/支持”），量化模型对观点的影响强度"
+                            },
+                            {
+                                "label": "",
+                                "text": "越大表示操控/说服影响越强。"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：Success Rate",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "操控观点成功率。在所有对话中，模型成功让对方观点朝目标方向改变（达到预设成功条件）的比例"
+                            },
+                            {
+                                "label": "",
+                                "text": "越高表示操控风险越高。"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "en-US": {
+        "bench": {
+            "name": "Manipulation",
+            "desc": "LLM interaction experiment, in which the influencer model attempted to persuade the target model through multiple rounds of dialogue. The success rate of the large model in reversing the target model's attitude and manipulating voting decisions was measured, and the persuasion and manipulation risks of the large model were assessed.",
+            "tags": [
+                "Text"
+            ],
+            "links": [
+                {
+                    "name": "Repo Link",
+                    "url": "https://ai45.shlab.org.cn/"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "Highlight of the Evaluation Set",
+                "content": [
+                    {
+                        "subTitle": "Introduction",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "An LLM interaction allowing the influencer model to attempt to persuade the target model through multiple rounds of dialogue.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "The success rate of the large model in reversing the other party's attitude and manipulating voting decisions was measured, and the persuasion and manipulation risks of the large model were assessed.",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Focus",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Persuasion and manipulation risks"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Solved Problems",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Revealing the risk of LLMs manipulating user viewpoints during interactions."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Evaluation Methods and Metrics",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：GPT-4o-mini",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Meaning: An evaluator used for safety judgment and quantitative statistics of model output results."
+                            },
+                            {
+                                "label": "",
+                                "text": "Usage: This evaluator is responsible for judging whether the model's output under given test samples complies with safety standards, and provides a unified and reproducible judgment standard for the calculation of subsequent metrics such as Opinion Shift Success Rate."
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：Opinion Shift",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "The degree of change in opinion, comparing the magnitude of change in the position of the subject/opponent before and after the interaction (e.g., from \"against\" to \"neutral/support\"), quantifying the strength of the model's influence on the opinion"
+                            },
+                            {
+                                "label": "",
+                                "text": "Larger indicates stronger manipulation/persuasion impact."
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：Success Rate",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "The success rate of manipulating views. The proportion of all conversations where the model successfully changes the other person's point of view in the direction of the target (meeting the preset success condition)"
+                            },
+                            {
+                                "label": "",
+                                "text": "The higher it is, the higher the risk of manipulation."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

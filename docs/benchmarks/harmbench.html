@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HarmBench | DeepSafe</title>
+  <meta name="description" content="DeepSafe selected benchmark pages for GitHub Pages.">
+  <link rel="icon" href="../assets/deepsafe-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body data-lang="zh-CN">
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="DeepSafe home">
+      <img src="../assets/deepsafe-logo.svg" alt="DeepSafe">
+      <span>DeepSafe</span>
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="../index.html#overview" class=""><span class="lang-zh">概览</span><span class="lang-en">Overview</span></a>
+      <a href="../index.html#benchmarks" class="active"><span class="lang-zh">Benchmarks</span><span class="lang-en">Benchmarks</span></a>
+      <a href="https://github.com/AI45Lab/DeepSafe" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <div class="lang-toggle" aria-label="Language">
+      <button type="button" data-set-lang="zh-CN" class="active">中文</button>
+      <button type="button" data-set-lang="en-US">EN</button>
+    </div>
+  </header>
+  
+<main>
+  <section class="detail-hero">
+    <a class="back-link" href="../index.html#benchmarks">← <span class="lang-zh">返回 Benchmark 列表</span><span class="lang-en">Back to Benchmarks</span></a>
+    <div class="detail-top">
+      <div>
+        <p class="eyebrow">Benchmark Detail</p>
+        <h1>HarmBench</h1>
+        <p class="source-name"><span class="lang-zh">原站详情名称：Harmbench</span><span class="lang-en">Original detail label: Harmbench</span></p>
+        <p class="detail-desc"><span class="lang-zh">HarmBench 是一个大规模标准化评估框架和基准数据集，用于评估自动化红队攻击方法及模型的鲁棒拒绝能力。它包含400个精心设计的有害行为案例，并对这些案例提供了语义分类和功能分类。</span><span class="lang-en">HarmBench is a large‑scale, standardized evaluation framework and benchmark dataset designed to assess automated red‑teaming methods and the robustness of models’ refusal capabilities. It contains 400 carefully constructed harmful‑behavior scenarios, accompanied by both semantic and functional categorizations.</span></p>
+      </div>
+      <div class="detail-side">
+        <div class="tag-row"><span class="lang-zh"><span>文本</span></span><span class="lang-en"><span>Text</span></span></div>
+        <span class="lang-zh"><div class="actions"><a class="button ghost" href="https://arxiv.org/abs/2402.04249" target="_blank" rel="noopener">Arxiv 链接 <span aria-hidden="true">↗</span></a><a class="button ghost" href="https://github.com/centerforaisafety/HarmBench" target="_blank" rel="noopener">Repo 链接 <span aria-hidden="true">↗</span></a></div></span><span class="lang-en"><div class="actions"><a class="button ghost" href="https://arxiv.org/abs/2402.04249" target="_blank" rel="noopener">Arxiv Link <span aria-hidden="true">↗</span></a><a class="button ghost" href="https://github.com/centerforaisafety/HarmBench" target="_blank" rel="noopener">Repo Link <span aria-hidden="true">↗</span></a></div></span>
+      </div>
+    </div>
+    <nav class="subnav" aria-label="Page sections">
+      <a href="#intro"><span class="lang-zh">介绍</span><span class="lang-en">Introduction</span></a>
+      <a href="#leaderboard"><span class="lang-zh">榜单</span><span class="lang-en">Leaderboard</span></a>
+    </nav>
+  </section>
+  <div id="intro" class="lang-zh">
+    <section class="section-band ">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Introduction</p>
+          <h2>评测集亮点</h2>
+        </div>
+        <div class="content-stack">
+          
+            <article class="info-block">
+              <h3>简介</h3>
+              <div class="text-list">
+                <p class="plain-line">HarmBench 是一个大规模标准化评估框架和基准数据集，用于评估 自动化红队攻击方法及模型的鲁棒拒绝能力，包含 400 个精心设计的有害文本行为案例，并对这些案例提供了语义分类和功能分类。</p><p class="plain-line">这些设计使得评估能够覆盖过去许多评估遗漏的行为类型，实现了比过去工作更广泛和更细粒度的测试集覆盖HarmBench基准旨在评估多模态模型在实际应用中避免生成有害输出的能力。</p><p class="plain-line">该基准重点关注安全性和伦理问题，评估模型是否能够防止在文本和视觉输入中生成有害或偏见内容。数据集包含精心挑选的有害情境，用以测试模型在面对不当或不道德回应时的抗性。</p><p class="plain-line">研究表明，尽管多模态模型在技术上取得了显著进展，但在处理敏感内容时，特别是在存在微妙提示或挑战性的现实场景中，模型仍存在漏洞。HarmBench为评估多模态系统的安全性提供了一个全面框架，这对于开发符合社会价值和伦理指南的人工智能系统至关重要。</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>侧重点</h3>
+              <div class="text-list">
+                <p class="bullet-line">为红队攻击与防御研究提供一个可比、可扩展、可复现的基准</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>解决的主要问题</h3>
+              <div class="text-list">
+                <p class="bullet-line">解决当前自动化红队评估缺乏标准化和可比性的核心问题</p>
+              </div>
+            </article>
+        </div>
+      </div>
+    </section>
+    <section class="section-band section-alt">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Introduction</p>
+          <h2>评测方法与指标</h2>
+        </div>
+        <div class="content-stack">
+          
+            <article class="info-block">
+              <h3>Evaluator：HarmBench-Llama-2-13b-cls</h3>
+              <div class="text-list">
+                <p class="bullet-line">含义：用于对模型输出结果进行安全性判定与量化统计的评估器。</p><p class="bullet-line">用法：该评估器负责判断模型在给定测试样本下的输出是否符合安全规范，并为后续ASR（攻击成功率） （如有）等指标的计算提供统一、可复现的判定口径。</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Metrics：ASR（攻击成功率）</h3>
+              <div class="text-list">
+                <p class="bullet-line">在有害请求/攻击提示下，模型最终给出可执行的有害内容（即拒绝失败）的比例</p><p class="bullet-line">越高越不安全，越低表示拒绝更鲁棒。</p>
+              </div>
+            </article>
+        </div>
+      </div>
+    </section></div>
+  <div id="intro-en" class="lang-en">
+    <section class="section-band ">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Introduction</p>
+          <h2>Highlight of the Evaluation Set</h2>
+        </div>
+        <div class="content-stack">
+          
+            <article class="info-block">
+              <h3>Introduction</h3>
+              <div class="text-list">
+                <p class="plain-line">HarmBench is designed to evaluate multimodal models&#39; ability to avoid harmful outputs in real-world applications. The benchmark focuses on safety and ethical considerations, assessing whether models can prevent generating harmful or biased content in both text and visual inputs.</p><p class="plain-line">The dataset contains carefully curated harmful scenarios to test the models&#39; resistance to producing inappropriate or unethical responses.</p><p class="plain-line">The research indicates that despite significant progress in multimodal models, they still exhibit vulnerabilities when handling sensitive content, particularly in the presence of subtle cues or challenging real-world scenarios.</p><p class="plain-line">HarmBench provides a comprehensive framework for evaluating the safety of multimodal systems, which is crucial for the development of AI systems that adhere to societal values and ethical guidelines.</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Focus</h3>
+              <div class="text-list">
+                <p class="bullet-line">Red teaming attack and defense research</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Solved Problems</h3>
+              <div class="text-list">
+                <p class="bullet-line">Solving the core issue of lacking standardization, comparability, and reproducibility in automated red teaming.</p>
+              </div>
+            </article>
+        </div>
+      </div>
+    </section>
+    <section class="section-band section-alt">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Introduction</p>
+          <h2>Evaluation Methods and Metrics</h2>
+        </div>
+        <div class="content-stack">
+          
+            <article class="info-block">
+              <h3>Evaluator：HarmBench-Llama-2-13b-cls</h3>
+              <div class="text-list">
+                <p class="bullet-line">Meaning: An evaluator used for safety judgment and quantitative statistics of model output results.</p><p class="bullet-line">Usage: This evaluator is responsible for judging whether the model&#39;s output under given test samples complies with safety standards, and provides a unified and reproducible judgment standard for the calculation of subsequent metrics such as Attack success rate (ASR) (if any).</p>
+              </div>
+            </article>
+            <article class="info-block">
+              <h3>Metrics：Attack success rate (ASR)</h3>
+              <div class="text-list">
+                <p class="bullet-line">The proportion of models being induced to generate &quot;harmful/violating content&quot; (or bypassing security restrictions) at the attack/jailbreak prompt</p><p class="bullet-line">Higher values indicate that the attack is more effective and the model is more vulnerable (ASR is usually inversely related to safety rate).</p>
+              </div>
+            </article>
+        </div>
+      </div>
+    </section></div>
+  <div id="leaderboard" class="lang-zh">
+    <section class="section-band table-section">
+      <div class="section-inner wide">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Leaderboard</p>
+            <h2>榜单</h2>
+            <p>表格展示了不同模型在各个安全维度上的表现</p>
+          </div>
+          <p class="report-link"><a href="https://ai45.shlab.org.cn/safety-report#eval-report" target="_blank" rel="noopener">查看报告 →</a></p>
+        </div>
+        <div class="table-wrap" role="region" aria-label="榜单表格" tabindex="0">
+          <table>
+            <thead><tr><th style="min-width:240px">模型</th><th style="min-width:128px">Safe Rate</th><th style="min-width:128px">ASR</th><th style="min-width:128px">standard/ASR</th><th style="min-width:128px">copyright/ASR</th><th style="min-width:128px">contextual/ASR</th></tr></thead>
+            <tbody><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/openai.svg" alt="" loading="lazy">
+            <div><strong>GPT-5.2</strong><span>排名 1</span></div>
+          </div>
+          <div class="model-meta"><span>OpenAI</span><span>2025-12</span><span>闭源</span></div>
+        </td><td>98.74</td><td>1.26</td><td>0.00</td><td>0.00</td><td>5.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/anthropic.svg" alt="" loading="lazy">
+            <div><strong>claude-sonnet-4-5-20250929</strong><span>排名 2</span></div>
+          </div>
+          <div class="model-meta"><span>Anthropic</span><span>2025-09</span><span>闭源</span></div>
+        </td><td>96.15</td><td>3.85</td><td>4.59</td><td>0.00</td><td>6.38</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/qwen.svg" alt="" loading="lazy">
+            <div><strong>Qwen3-30B-A3B-Thinking-2507 </strong><span>排名 3</span></div>
+          </div>
+          <div class="model-meta"><span>Qwen</span><span>2025-07</span><span>开源</span></div>
+        </td><td>94.18</td><td>5.82</td><td>2.03</td><td>8.00</td><td>11.22</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/moonshot.svg" alt="" loading="lazy">
+            <div><strong>kimi-k2-thinking</strong><span>排名 4</span></div>
+          </div>
+          <div class="model-meta"><span>MoonShot</span><span>2025-11</span><span>开源</span></div>
+        </td><td>92.17</td><td>7.83</td><td>2.54</td><td>19.00</td><td>7.07</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/openai.svg" alt="" loading="lazy">
+            <div><strong>GPT-4o</strong><span>排名 5</span></div>
+          </div>
+          <div class="model-meta"><span>OpenAI</span><span>2024-05</span><span>闭源</span></div>
+        </td><td>91.25</td><td>8.75</td><td>7.50</td><td>0.00</td><td>20.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/google.svg" alt="" loading="lazy">
+            <div><strong>google/gemma-3-27b-it</strong><span>排名 6</span></div>
+          </div>
+          <div class="model-meta"><span>Google</span><span>2025-03</span><span>开源</span></div>
+        </td><td>90.53</td><td>9.47</td><td>3.38</td><td>18.00</td><td>10.81</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/qwen.svg" alt="" loading="lazy">
+            <div><strong>Qwen2.5-72B-Instruct</strong><span>排名 7</span></div>
+          </div>
+          <div class="model-meta"><span>Qwen</span><span>2024-09</span><span>开源</span></div>
+        </td><td>86.97</td><td>13.03</td><td>5.00</td><td>28.00</td><td>14.14</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/internlm.svg" alt="" loading="lazy">
+            <div><strong>Internlm3-8b-Instruct</strong><span>排名 8</span></div>
+          </div>
+          <div class="model-meta"><span>Shanghai AI Laboratory</span><span>2025-01</span><span>开源</span></div>
+        </td><td>85.96</td><td>14.04</td><td>15.50</td><td>1.00</td><td>24.24</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/bytedance.svg" alt="" loading="lazy">
+            <div><strong>doubao-seed-1-6-flash-250828</strong><span>排名 9</span></div>
+          </div>
+          <div class="model-meta"><span>ByteDance</span><span>2025-08</span><span>闭源</span></div>
+        </td><td>81.00</td><td>19.00</td><td>14.00</td><td>23.00</td><td>25.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/zai.svg" alt="" loading="lazy">
+            <div><strong>GLM-4.5-Air</strong><span>排名 10</span></div>
+          </div>
+          <div class="model-meta"><span>Z.ai</span><span>2025-07</span><span>开源</span></div>
+        </td><td>80.45</td><td>19.55</td><td>3.97</td><td>40.00</td><td>17.50</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/meta.svg" alt="" loading="lazy">
+            <div><strong>Llama-3.3-70B-Instruct</strong><span>排名 11</span></div>
+          </div>
+          <div class="model-meta"><span>Meta-Llama</span><span>2024-12</span><span>开源</span></div>
+        </td><td>75.75</td><td>24.25</td><td>14.50</td><td>41.00</td><td>27.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/google.svg" alt="" loading="lazy">
+            <div><strong>Gemini-3-flash</strong><span>排名 12</span></div>
+          </div>
+          <div class="model-meta"><span>Google</span><span>2025-12</span><span>闭源</span></div>
+        </td><td>73.93</td><td>26.07</td><td>7.00</td><td>76.00</td><td>14.14</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/deepseek.svg" alt="" loading="lazy">
+            <div><strong>deepseek-r1-250528</strong><span>排名 13</span></div>
+          </div>
+          <div class="model-meta"><span>DeepSeek</span><span>2025-05</span><span>开源</span></div>
+        </td><td>65.58</td><td>34.42</td><td>17.00</td><td>61.00</td><td>42.86</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/mistral.svg" alt="" loading="lazy">
+            <div><strong>Mistral-Small-24B-Instruct-2501</strong><span>排名 14</span></div>
+          </div>
+          <div class="model-meta"><span>mistralai</span><span>2025-01</span><span>开源</span></div>
+        </td><td>61.64</td><td>38.36</td><td>34.34</td><td>31.00</td><td>54.84</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section></div>
+  <div id="leaderboard-en" class="lang-en">
+    <section class="section-band table-section">
+      <div class="section-inner wide">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Leaderboard</p>
+            <h2>Leaderboard</h2>
+            <p>The table demonstrates various models&#39; performance on metrics</p>
+          </div>
+          <p class="report-link"><a href="https://ai45.shlab.org.cn/safety-report#eval-report" target="_blank" rel="noopener">View report →</a></p>
+        </div>
+        <div class="table-wrap" role="region" aria-label="Leaderboard table" tabindex="0">
+          <table>
+            <thead><tr><th style="min-width:240px">Model</th><th style="min-width:128px">Safe Rate</th><th style="min-width:128px">ASR</th><th style="min-width:128px">standard/ASR</th><th style="min-width:128px">copyright/ASR</th><th style="min-width:128px">contextual/ASR</th></tr></thead>
+            <tbody><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/openai.svg" alt="" loading="lazy">
+            <div><strong>GPT-5.2</strong><span>Rank 1</span></div>
+          </div>
+          <div class="model-meta"><span>OpenAI</span><span>2025-12</span><span>Closed source</span></div>
+        </td><td>98.74</td><td>1.26</td><td>0.00</td><td>0.00</td><td>5.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/anthropic.svg" alt="" loading="lazy">
+            <div><strong>claude-sonnet-4-5-20250929</strong><span>Rank 2</span></div>
+          </div>
+          <div class="model-meta"><span>Anthropic</span><span>2025-09</span><span>Closed source</span></div>
+        </td><td>96.15</td><td>3.85</td><td>4.59</td><td>0.00</td><td>6.38</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/qwen.svg" alt="" loading="lazy">
+            <div><strong>Qwen3-30B-A3B-Thinking-2507 </strong><span>Rank 3</span></div>
+          </div>
+          <div class="model-meta"><span>Qwen</span><span>2025-07</span><span>Open source</span></div>
+        </td><td>94.18</td><td>5.82</td><td>2.03</td><td>8.00</td><td>11.22</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/moonshot.svg" alt="" loading="lazy">
+            <div><strong>kimi-k2-thinking</strong><span>Rank 4</span></div>
+          </div>
+          <div class="model-meta"><span>MoonShot</span><span>2025-11</span><span>Open source</span></div>
+        </td><td>92.17</td><td>7.83</td><td>2.54</td><td>19.00</td><td>7.07</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/openai.svg" alt="" loading="lazy">
+            <div><strong>GPT-4o</strong><span>Rank 5</span></div>
+          </div>
+          <div class="model-meta"><span>OpenAI</span><span>2024-05</span><span>Closed source</span></div>
+        </td><td>91.25</td><td>8.75</td><td>7.50</td><td>0.00</td><td>20.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/google.svg" alt="" loading="lazy">
+            <div><strong>google/gemma-3-27b-it</strong><span>Rank 6</span></div>
+          </div>
+          <div class="model-meta"><span>Google</span><span>2025-03</span><span>Open source</span></div>
+        </td><td>90.53</td><td>9.47</td><td>3.38</td><td>18.00</td><td>10.81</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/qwen.svg" alt="" loading="lazy">
+            <div><strong>Qwen2.5-72B-Instruct</strong><span>Rank 7</span></div>
+          </div>
+          <div class="model-meta"><span>Qwen</span><span>2024-09</span><span>Open source</span></div>
+        </td><td>86.97</td><td>13.03</td><td>5.00</td><td>28.00</td><td>14.14</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/internlm.svg" alt="" loading="lazy">
+            <div><strong>Internlm3-8b-Instruct</strong><span>Rank 8</span></div>
+          </div>
+          <div class="model-meta"><span>Shanghai AI Laboratory</span><span>2025-01</span><span>Open source</span></div>
+        </td><td>85.96</td><td>14.04</td><td>15.50</td><td>1.00</td><td>24.24</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/bytedance.svg" alt="" loading="lazy">
+            <div><strong>doubao-seed-1-6-flash-250828</strong><span>Rank 9</span></div>
+          </div>
+          <div class="model-meta"><span>ByteDance</span><span>2025-08</span><span>Closed source</span></div>
+        </td><td>81.00</td><td>19.00</td><td>14.00</td><td>23.00</td><td>25.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/zai.svg" alt="" loading="lazy">
+            <div><strong>GLM-4.5-Air</strong><span>Rank 10</span></div>
+          </div>
+          <div class="model-meta"><span>Z.ai</span><span>2025-07</span><span>Open source</span></div>
+        </td><td>80.45</td><td>19.55</td><td>3.97</td><td>40.00</td><td>17.50</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/meta.svg" alt="" loading="lazy">
+            <div><strong>Llama-3.3-70B-Instruct</strong><span>Rank 11</span></div>
+          </div>
+          <div class="model-meta"><span>Meta-Llama</span><span>2024-12</span><span>Open source</span></div>
+        </td><td>75.75</td><td>24.25</td><td>14.50</td><td>41.00</td><td>27.00</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/google.svg" alt="" loading="lazy">
+            <div><strong>Gemini-3-flash</strong><span>Rank 12</span></div>
+          </div>
+          <div class="model-meta"><span>Google</span><span>2025-12</span><span>Closed source</span></div>
+        </td><td>73.93</td><td>26.07</td><td>7.00</td><td>76.00</td><td>14.14</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/deepseek.svg" alt="" loading="lazy">
+            <div><strong>deepseek-r1-250528</strong><span>Rank 13</span></div>
+          </div>
+          <div class="model-meta"><span>DeepSeek</span><span>2025-05</span><span>Open source</span></div>
+        </td><td>65.58</td><td>34.42</td><td>17.00</td><td>61.00</td><td>42.86</td></tr><tr><td class="model-cell">
+          <div class="model-main">
+            <img src="https://research.ai45.shlab.org.cn/Blog_pics/mistral.svg" alt="" loading="lazy">
+            <div><strong>Mistral-Small-24B-Instruct-2501</strong><span>Rank 14</span></div>
+          </div>
+          <div class="model-meta"><span>mistralai</span><span>2025-01</span><span>Open source</span></div>
+        </td><td>61.64</td><td>38.36</td><td>34.34</td><td>31.00</td><td>54.84</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section></div>
+</main>
+  <footer class="site-footer">
+    <div>
+      <strong>DeepSafe GitHub Pages</strong>
+      <p><span class="lang-zh">静态快照内容来自 AI45 DeepSafe production JSON，已裁剪为 10 个 benchmark。</span><span class="lang-en">Static snapshot sourced from AI45 DeepSafe production JSON, scoped to 10 benchmarks.</span></p>
+    </div>
+    <a href="https://ai45.shlab.org.cn/deepsafe" target="_blank" rel="noopener"><span class="lang-zh">原站</span><span class="lang-en">Original site</span> ↗</a>
+  </footer>
+  <script>
+  (function(){
+    const saved = localStorage.getItem('deepsafe-lang') || 'zh-CN';
+    function setLang(lang){
+      document.body.dataset.lang = lang;
+      document.documentElement.lang = lang === 'en-US' ? 'en' : 'zh-CN';
+      localStorage.setItem('deepsafe-lang', lang);
+      document.querySelectorAll('[data-set-lang]').forEach(function(btn){ btn.classList.toggle('active', btn.dataset.setLang === lang); });
+    }
+    document.querySelectorAll('[data-set-lang]').forEach(function(btn){ btn.addEventListener('click', function(){ setLang(btn.dataset.setLang); }); });
+    setLang(saved);
+  })();
+  </script>
+</body>
+</html>

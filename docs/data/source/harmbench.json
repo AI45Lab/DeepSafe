@@ -1,0 +1,202 @@
+{
+    "zh-CN": {
+        "bench": {
+            "name": "Harmbench",
+            "desc": "HarmBench 是一个大规模标准化评估框架和基准数据集，用于评估自动化红队攻击方法及模型的鲁棒拒绝能力。它包含400个精心设计的有害行为案例，并对这些案例提供了语义分类和功能分类。",
+            "tags": [
+                "文本"
+            ],
+            "links": [
+                {
+                    "name": "Arxiv 链接",
+                    "url": "https://arxiv.org/abs/2402.04249"
+                },
+                {
+                    "name": "Repo 链接",
+                    "url": "https://github.com/centerforaisafety/HarmBench"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "评测集亮点",
+                "content": [
+                    {
+                        "subTitle": "简介",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "HarmBench 是一个大规模标准化评估框架和基准数据集，用于评估 自动化红队攻击方法及模型的鲁棒拒绝能力，包含 400 个精心设计的有害文本行为案例，并对这些案例提供了语义分类和功能分类。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "这些设计使得评估能够覆盖过去许多评估遗漏的行为类型，实现了比过去工作更广泛和更细粒度的测试集覆盖HarmBench基准旨在评估多模态模型在实际应用中避免生成有害输出的能力。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "该基准重点关注安全性和伦理问题，评估模型是否能够防止在文本和视觉输入中生成有害或偏见内容。数据集包含精心挑选的有害情境，用以测试模型在面对不当或不道德回应时的抗性。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "研究表明，尽管多模态模型在技术上取得了显著进展，但在处理敏感内容时，特别是在存在微妙提示或挑战性的现实场景中，模型仍存在漏洞。HarmBench为评估多模态系统的安全性提供了一个全面框架，这对于开发符合社会价值和伦理指南的人工智能系统至关重要。",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "侧重点",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "为红队攻击与防御研究提供一个可比、可扩展、可复现的基准"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "解决的主要问题",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "解决当前自动化红队评估缺乏标准化和可比性的核心问题"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "评测方法与指标",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：HarmBench-Llama-2-13b-cls",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "含义：用于对模型输出结果进行安全性判定与量化统计的评估器。"
+                            },
+                            {
+                                "label": "",
+                                "text": "用法：该评估器负责判断模型在给定测试样本下的输出是否符合安全规范，并为后续ASR（攻击成功率） （如有）等指标的计算提供统一、可复现的判定口径。"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：ASR（攻击成功率）",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "在有害请求/攻击提示下，模型最终给出可执行的有害内容（即拒绝失败）的比例"
+                            },
+                            {
+                                "label": "",
+                                "text": "越高越不安全，越低表示拒绝更鲁棒。"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "en-US": {
+        "bench": {
+            "name": "Harmbench",
+            "desc": "HarmBench is a large‑scale, standardized evaluation framework and benchmark dataset designed to assess automated red‑teaming methods and the robustness of models’ refusal capabilities. It contains 400 carefully constructed harmful‑behavior scenarios, accompanied by both semantic and functional categorizations.",
+            "tags": [
+                "Text"
+            ],
+            "links": [
+                {
+                    "name": "Arxiv Link",
+                    "url": "https://arxiv.org/abs/2402.04249"
+                },
+                {
+                    "name": "Repo Link",
+                    "url": "https://github.com/centerforaisafety/HarmBench"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "Highlight of the Evaluation Set",
+                "content": [
+                    {
+                        "subTitle": "Introduction",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "HarmBench is designed to evaluate multimodal models' ability to avoid harmful outputs in real-world applications. The benchmark focuses on safety and ethical considerations, assessing whether models can prevent generating harmful or biased content in both text and visual inputs.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "The dataset contains carefully curated harmful scenarios to test the models' resistance to producing inappropriate or unethical responses.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "The research indicates that despite significant progress in multimodal models, they still exhibit vulnerabilities when handling sensitive content, particularly in the presence of subtle cues or challenging real-world scenarios.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "HarmBench provides a comprehensive framework for evaluating the safety of multimodal systems, which is crucial for the development of AI systems that adhere to societal values and ethical guidelines.",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Focus",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Red teaming attack and defense research"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Solved Problems",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Solving the core issue of lacking standardization, comparability, and reproducibility in automated red teaming."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Evaluation Methods and Metrics",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：HarmBench-Llama-2-13b-cls",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Meaning: An evaluator used for safety judgment and quantitative statistics of model output results."
+                            },
+                            {
+                                "label": "",
+                                "text": "Usage: This evaluator is responsible for judging whether the model's output under given test samples complies with safety standards, and provides a unified and reproducible judgment standard for the calculation of subsequent metrics such as Attack success rate (ASR) (if any)."
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：Attack success rate (ASR)",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "The proportion of models being induced to generate \"harmful/violating content\" (or bypassing security restrictions) at the attack/jailbreak prompt"
+                            },
+                            {
+                                "label": "",
+                                "text": "Higher values indicate that the attack is more effective and the model is more vulnerable (ASR is usually inversely related to safety rate)."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

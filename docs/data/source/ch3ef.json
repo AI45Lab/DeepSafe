@@ -1,0 +1,197 @@
+{
+    "zh-CN": {
+        "bench": {
+            "name": "Ch3ef",
+            "desc": "Ch3Ef评估多模态模型在人类价值对齐中的表现，尤其是模型如何在复杂的视觉场景中避免社会、伦理或个人伤害。",
+            "tags": [
+                "多模态"
+            ],
+            "links": [
+                {
+                    "name": "Arxiv 链接",
+                    "url": "https://arxiv.org/abs/2403.17830"
+                },
+                {
+                    "name": "Repo 链接",
+                    "url": "https://openlamm.github.io/ch3ef/"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "评测集亮点",
+                "content": [
+                    {
+                        "subTitle": "简介",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Ch3Ef提出了一个基准，旨在评估多模态大模型在真实视觉场景中是否能够以符合人类期望的方式行事。该基准专注于人类价值对齐，探讨模型的回答是否符合人类社会应有的价值观。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "其中，Harmless维度评估模型是否能够在视觉情境中避免引发社会、伦理或个人伤害。",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "与传统的安全基准主要评估明确的恶意提示不同，Ch3Ef更强调真实世界的视觉场景及细粒度的人类价值对齐，因为该基准不仅评估模型的潜在危害，还深入探讨模型在复杂视觉环境中如何与人类的细微期望对齐。",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "侧重点",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "A3 级别，在真实视觉场景中符合人类期望与价值观的选择题"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "解决的主要问题",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "MLLM 是否在真实世界中做到不违法、不伤害"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "评测方法与指标",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：ProGuard-7B",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "含义：用于对模型输出结果进行安全性判定与量化统计的评估器。"
+                            },
+                            {
+                                "label": "",
+                                "text": "用法：该评估器负责判断模型在给定测试样本下的输出是否符合安全规范，并为后续ACC（准确率） （如有）等指标的计算提供统一、可复现的判定口径。"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：ACC（准确率）",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "在真实视觉场景的选择题中，模型是否选对“符合人类期望/价值观的无害选项”的比例"
+                            },
+                            {
+                                "label": "",
+                                "text": "越高表示在现实情境下更能做出不违法、不伤害的判断与回应。"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "en-US": {
+        "bench": {
+            "name": "Ch3ef",
+            "desc": "Ch3Ef evaluates multimodal models’ alignment with human values, especially in how models avoid social, ethical, or personal harm in complex visual scenarios.",
+            "tags": [
+                "Multimodal"
+            ],
+            "links": [
+                {
+                    "name": "Arxiv Link",
+                    "url": "https://arxiv.org/abs/2403.17830"
+                },
+                {
+                    "name": "Repo Link",
+                    "url": "https://openlamm.github.io/ch3ef/"
+                }
+            ]
+        },
+        "desc": [
+            {
+                "title": "Highlight of the Evaluation Set",
+                "content": [
+                    {
+                        "subTitle": "Introduction",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Ch3Ef proposes a benchmark to evaluate whether MLLMs behave in ways that align with human expectations in real-world visual scenarios. The benchmark focuses on human value alignment, assessing whether a model's responses adhere to societal values.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "The Harmless dimension evaluates whether models avoid causing social, ethical, or personal harm in visual contexts.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "Unlike traditional safety benchmarks that primarily assess explicit malicious prompts, Ch3Ef emphasizes the importance of real-world visual scenarios and fine-grained alignment with human values.",
+                                "listTypeStyle": "none"
+                            },
+                            {
+                                "label": "",
+                                "text": "This approach not only evaluates potential harms but also investigates how models align with nuanced human expectations in complex visual environments.",
+                                "listTypeStyle": "none"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Focus",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "A3-level alignment with human expectations and values in real-world visual scenarios"
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Solved Problems",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Ensuring MLLMs adhere to non-violation and non-harm principles in real-world contexts."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Evaluation Methods and Metrics",
+                "content": [
+                    {
+                        "subTitle": "Evaluator：ProGuard-7B",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "Meaning: An evaluator used for safety judgment and quantitative statistics of model output results."
+                            },
+                            {
+                                "label": "",
+                                "text": "Usage: This evaluator is responsible for judging whether the model's output under given test samples complies with safety standards, and provides a unified and reproducible judgment standard for the calculation of subsequent metrics such as ACC (accuracy) (if any)."
+                            }
+                        ]
+                    },
+                    {
+                        "subTitle": "Metrics：ACC (accuracy)",
+                        "content": [
+                            {
+                                "label": "",
+                                "text": "the proportion of whether the model chooses the right \"harmless option that meets human expectations/values\" in the multiple-choice questions of the real visual scene"
+                            },
+                            {
+                                "label": "",
+                                "text": "The higher it is, the more it can make judgments and responses that are not illegal or harmful in real situations."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
