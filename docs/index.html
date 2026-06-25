@@ -147,59 +147,69 @@ evaluator:
         <div>
           <p class="eyebrow">Benchmarks</p>
           <h2><span class="lang-zh">Benchmark Suite</span><span class="lang-en">Benchmark Suite</span></h2>
-          <p><span class="lang-zh">每张卡片进入对应详情页，包含介绍、评测方法、指标和榜单，便于对不同模型的安全表现进行复查。</span><span class="lang-en">Each card opens a detail page with the introduction, evaluation method, metrics, and leaderboard for reviewing model safety behavior.</span></p>
+          <p><span class="lang-zh">每张卡片进入对应详情页，包含介绍、评测方法、指标和榜单。卡片标签标注 benchmark 覆盖的安全风险维度，包括偏见歧视、违规违法/有害内容、恶意指令/越狱攻击、伦理/价值、幻觉/误导、前沿欺骗性风险和交互操控。</span><span class="lang-en">Each card opens a detail page with the introduction, evaluation method, metrics, and leaderboard. Card tags identify the covered safety-risk dimensions, including bias and discrimination, illegal or harmful content, malicious instructions and jailbreaks, ethics and values, hallucination and misleading behavior, frontier deceptive risks, and interaction manipulation.</span></p>
         </div>
       </div>
       <div class="bench-grid"><a class="bench-card" href="benchmarks/salad-bench.html">
     <span class="card-index">01</span>
     <h3>SALAD-Bench</h3>
     <p><span class="lang-zh">构建分层框架与数据集，严格评估模型及攻防机制。</span><span class="lang-en">Build a hierarchical framework and dataset, and rigorously evaluate the model along with its attack‑and‑defense mechanisms.</span></p>
-    <div class="card-footer"><span>文本</span><span>Details →</span></div>
+    <div class="risk-tags" aria-label="Risk tags"><span class="risk-tag"><span class="lang-zh">偏见歧视</span><span class="lang-en">Bias</span></span><span class="risk-tag"><span class="lang-zh">违规违法/有害内容</span><span class="lang-en">Harmful Content</span></span><span class="risk-tag"><span class="lang-zh">恶意指令/越狱攻击</span><span class="lang-en">Jailbreak</span></span></div>
+    <div class="card-footer"><span><span class="lang-zh">文本</span><span class="lang-en">Text</span></span><span><span class="lang-zh">详情</span><span class="lang-en">Details</span> →</span></div>
   </a><a class="bench-card" href="benchmarks/vlsbench.html">
     <span class="card-index">02</span>
     <h3>VLSBench</h3>
     <p><span class="lang-zh">解决视觉安全信息泄露，确保跨模态理解。</span><span class="lang-en">Addresses visual safety information leakage, ensuring cross-modal understanding.</span></p>
-    <div class="card-footer"><span>多模态</span><span>Details →</span></div>
+    <div class="risk-tags" aria-label="Risk tags"><span class="risk-tag"><span class="lang-zh">恶意指令/越狱攻击</span><span class="lang-en">Jailbreak</span></span></div>
+    <div class="card-footer"><span><span class="lang-zh">多模态</span><span class="lang-en">Multimodal</span></span><span><span class="lang-zh">详情</span><span class="lang-en">Details</span> →</span></div>
   </a><a class="bench-card" href="benchmarks/ch3ef.html">
     <span class="card-index">03</span>
     <h3>Ch3EF</h3>
     <p><span class="lang-zh">评估多模态模型在安全场景下人类价值对齐的表现。</span><span class="lang-en">Evaluates MLLMs&#39; alignment with harmless human values.</span></p>
-    <div class="card-footer"><span>多模态</span><span>Details →</span></div>
+    <div class="risk-tags" aria-label="Risk tags"><span class="risk-tag"><span class="lang-zh">偏见歧视</span><span class="lang-en">Bias</span></span><span class="risk-tag"><span class="lang-zh">伦理/价值</span><span class="lang-en">Ethics/Values</span></span></div>
+    <div class="card-footer"><span><span class="lang-zh">多模态</span><span class="lang-en">Multimodal</span></span><span><span class="lang-zh">详情</span><span class="lang-en">Details</span> →</span></div>
   </a><a class="bench-card" href="benchmarks/halueval.html">
     <span class="card-index">04</span>
     <h3>HaluEval-QA</h3>
     <p><span class="lang-zh">评估大型模型的幻觉识别与任务处理能力。</span><span class="lang-en">Evaluates large models&#39; hallucination detection and task handling ability.</span></p>
-    <div class="card-footer"><span>文本</span><span>Details →</span></div>
+    <div class="risk-tags" aria-label="Risk tags"><span class="risk-tag"><span class="lang-zh">幻觉/误导</span><span class="lang-en">Hallucination</span></span></div>
+    <div class="card-footer"><span><span class="lang-zh">文本</span><span class="lang-en">Text</span></span><span><span class="lang-zh">详情</span><span class="lang-en">Details</span> →</span></div>
   </a><a class="bench-card" href="benchmarks/aird.html">
     <span class="card-index">05</span>
     <h3>Uncontrolled-AIRD</h3>
     <p><span class="lang-zh">模拟伪装顺从场景，量化欺骗性对齐风险。</span><span class="lang-en">Simulates compliance camouflage, quantifying deceptive alignment risks.</span></p>
-    <div class="card-footer"><span>文本</span><span>Details →</span></div>
+    <div class="risk-tags" aria-label="Risk tags"><span class="risk-tag"><span class="lang-zh">前沿欺骗性风险</span><span class="lang-en">Deceptive Risk</span></span></div>
+    <div class="card-footer"><span><span class="lang-zh">文本</span><span class="lang-en">Text</span></span><span><span class="lang-zh">详情</span><span class="lang-en">Details</span> →</span></div>
   </a><a class="bench-card" href="benchmarks/flames.html">
     <span class="card-index">06</span>
     <h3>FLAMES</h3>
     <p><span class="lang-zh">构建中文五维价值对齐基准。</span><span class="lang-en">A five-dimensional value alignment benchmark.</span></p>
-    <div class="card-footer"><span>文本</span><span>Details →</span></div>
+    <div class="risk-tags" aria-label="Risk tags"><span class="risk-tag"><span class="lang-zh">偏见歧视</span><span class="lang-en">Bias</span></span><span class="risk-tag"><span class="lang-zh">违规违法/有害内容</span><span class="lang-en">Harmful Content</span></span><span class="risk-tag"><span class="lang-zh">伦理/价值</span><span class="lang-en">Ethics/Values</span></span></div>
+    <div class="card-footer"><span><span class="lang-zh">文本</span><span class="lang-en">Text</span></span><span><span class="lang-zh">详情</span><span class="lang-en">Details</span> →</span></div>
   </a><a class="bench-card" href="benchmarks/manipulation.html">
     <span class="card-index">07</span>
     <h3>Manipulation-Persuasion-Conv</h3>
     <p><span class="lang-zh">揭示LLM在交互过程中存在操控对方观点风险的基准测试。</span><span class="lang-en">Benchmark reveals the risk of LLM manipulating the other party&#39;s viewpoint during the interaction process.</span></p>
-    <div class="card-footer"><span>文本</span><span>Details →</span></div>
+    <div class="risk-tags" aria-label="Risk tags"><span class="risk-tag"><span class="lang-zh">交互操控</span><span class="lang-en">Interaction Control</span></span></div>
+    <div class="card-footer"><span><span class="lang-zh">文本</span><span class="lang-en">Text</span></span><span><span class="lang-zh">详情</span><span class="lang-en">Details</span> →</span></div>
   </a><a class="bench-card" href="benchmarks/sandbagging.html">
     <span class="card-index">08</span>
     <h3>Sandbagging</h3>
     <p><span class="lang-zh">量化模型隐藏智能的能力，评估策略性伪装。</span><span class="lang-en">Quantifies models&#39; ability to hide intelligence, assessing strategic camouflage.</span></p>
-    <div class="card-footer"><span>文本</span><span>Details →</span></div>
+    <div class="risk-tags" aria-label="Risk tags"><span class="risk-tag"><span class="lang-zh">前沿欺骗性风险</span><span class="lang-en">Deceptive Risk</span></span></div>
+    <div class="card-footer"><span><span class="lang-zh">文本</span><span class="lang-en">Text</span></span><span><span class="lang-zh">详情</span><span class="lang-en">Details</span> →</span></div>
   </a><a class="bench-card" href="benchmarks/fake-alignment.html">
     <span class="card-index">09</span>
     <h3>Fake Alignment</h3>
     <p><span class="lang-zh">量化开放式与多选式安全评估性能差异。</span><span class="lang-en">Quantifies performance differences between open-ended and multiple-choice security evaluations.</span></p>
-    <div class="card-footer"><span>文本</span><span>Details →</span></div>
+    <div class="risk-tags" aria-label="Risk tags"><span class="risk-tag"><span class="lang-zh">前沿欺骗性风险</span><span class="lang-en">Deceptive Risk</span></span></div>
+    <div class="card-footer"><span><span class="lang-zh">文本</span><span class="lang-en">Text</span></span><span><span class="lang-zh">详情</span><span class="lang-en">Details</span> →</span></div>
   </a><a class="bench-card" href="benchmarks/harmbench.html">
     <span class="card-index">10</span>
     <h3>HarmBench</h3>
     <p><span class="lang-zh">评估自动化红队攻击及模型的拒绝能力。</span><span class="lang-en">Evaluates automated red-team attacks and models&#39; rejection capabilities.</span></p>
-    <div class="card-footer"><span>文本</span><span>Details →</span></div>
+    <div class="risk-tags" aria-label="Risk tags"><span class="risk-tag"><span class="lang-zh">违规违法/有害内容</span><span class="lang-en">Harmful Content</span></span><span class="risk-tag"><span class="lang-zh">恶意指令/越狱攻击</span><span class="lang-en">Jailbreak</span></span></div>
+    <div class="card-footer"><span><span class="lang-zh">文本</span><span class="lang-en">Text</span></span><span><span class="lang-zh">详情</span><span class="lang-en">Details</span> →</span></div>
   </a></div>
     </div>
   </section>

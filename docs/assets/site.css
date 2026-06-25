@@ -68,11 +68,13 @@ code { padding: 2px 5px; border-radius: 5px; background: rgba(15, 118, 110, .09)
 .code-panel { margin: 14px 0 0; overflow-x: auto; border: 1px solid #263b36; border-radius: 8px; background: #111c19; }
 .code-panel code { display: block; min-width: max-content; padding: 15px; border-radius: 0; background: transparent; color: #eaf4f0; font-size: 13px; line-height: 1.55; }
 .bench-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-.bench-card { position: relative; min-height: 220px; display: flex; flex-direction: column; gap: 14px; padding: 24px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); text-decoration: none; box-shadow: 0 8px 24px rgba(22, 32, 29, 0.04); transition: border-color .18s, box-shadow .18s, transform .18s; }
+.bench-card { position: relative; min-height: 250px; display: flex; flex-direction: column; gap: 14px; padding: 24px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); text-decoration: none; box-shadow: 0 8px 24px rgba(22, 32, 29, 0.04); transition: border-color .18s, box-shadow .18s, transform .18s; }
 .bench-card:hover { border-color: var(--accent); box-shadow: var(--shadow); transform: translateY(-2px); }
 .card-index { color: var(--accent-2); font-weight: 800; font-size: 13px; letter-spacing: .08em; }
 .bench-card h3 { font-size: clamp(20px, 2vw, 25px); overflow-wrap: anywhere; }
-.bench-card p { color: var(--muted); margin-bottom: auto; }
+.bench-card p { color: var(--muted); margin-bottom: 0; }
+.risk-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; }
+.risk-tag { display: inline-flex; min-height: 26px; align-items: center; max-width: 100%; border: 1px solid rgba(15, 118, 110, .2); border-radius: 999px; padding: 4px 9px; background: rgba(15, 118, 110, .07); color: var(--accent); font-size: 12px; font-weight: 750; line-height: 1.25; overflow-wrap: anywhere; }
 .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--muted); font-size: 13px; font-weight: 700; }
 .back-link { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 32px; color: var(--muted); text-decoration: none; font-weight: 700; }
 .back-link:hover { color: var(--accent); }
