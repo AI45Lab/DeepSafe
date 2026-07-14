@@ -1,0 +1,41 @@
+task_name: sosbench
+output_dir: results/sosbench
+
+dataset:
+  type: SOSBenchDataset
+  path: data/sosbench
+
+model:
+  type: APIModel
+  model_name: gpt-4o-mini
+  api_base: https://api.openai.com/v1
+  api_base_env: OPENAI_BASE_URL
+  api_key_env: OPENAI_API_KEY
+  temperature: 0.0
+  mode: chat
+  max_tokens: 2048
+  concurrency: 10
+
+evaluator:
+  type: SOSBenchEvaluator
+  batch_size: 10
+  judge_model_cfg:
+    type: APIModel
+    model_name: gpt-4o-mini
+    api_base: https://api.openai.com/v1
+    api_base_env: OPENAI_BASE_URL
+    api_key_env: OPENAI_API_KEY
+    temperature: 0.0
+    mode: chat
+    max_tokens: 50
+    concurrency: 15
+
+metrics:
+  - type: SOSBenchMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/sosbench

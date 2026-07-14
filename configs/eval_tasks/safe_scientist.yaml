@@ -1,0 +1,41 @@
+task_name: safe_scientist
+output_dir: results/safe_scientist
+
+dataset:
+  type: SafeScientistDataset
+  path: data/safe_scientist
+
+model:
+  type: APIModel
+  model_name: gpt-4o-mini
+  api_base: https://api.openai.com/v1
+  api_base_env: OPENAI_BASE_URL
+  api_key_env: OPENAI_API_KEY
+  temperature: 0.0
+  mode: chat
+  max_tokens: 2048
+  concurrency: 10
+
+evaluator:
+  type: SafeScientistEvaluator
+  batch_size: 10
+  judge_model_cfg:
+    type: APIModel
+    model_name: gpt-4o-mini
+    api_base: https://api.openai.com/v1
+    api_base_env: OPENAI_BASE_URL
+    api_key_env: OPENAI_API_KEY
+    temperature: 0.0
+    mode: chat
+    max_tokens: 300
+    concurrency: 15
+
+metrics:
+  - type: SafeScientistMetric
+
+summarizer:
+  type: StandardSummarizer
+
+runner:
+  type: LocalRunner
+  output_dir: results/safe_scientist
