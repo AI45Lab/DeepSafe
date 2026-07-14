@@ -69,4 +69,3 @@ def test_api_model_can_disable_environment_proxy(monkeypatch) -> None:
     )
 
     assert created["http_client"].kwargs == {"trust_env": False}
-

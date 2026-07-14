@@ -71,4 +71,3 @@ def test_public_default_config_has_no_local_model_path_or_literal_key() -> None:
     assert "/" not in config["model"]["name"]
     assert config["model"]["api_key_env"] == "OPENAI_API_KEY"
     assert "api_key" not in config["model"]
-
