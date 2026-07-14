@@ -1,0 +1,43 @@
+# Core Judge config for Gemini 3.1 Pro Preview Thinking
+# Reuses checklist cache from previous runs
+
+model:
+  name: gemini-3.1-pro-preview-thinking
+  base_url: https://api.openai.com/v1
+  base_url_env: OPENAI_BASE_URL
+  api_key_env: OPENAI_API_KEY
+  temperature: 0.0
+  timeout_seconds: 300.0
+  max_tokens: 4096
+
+pipeline:
+  max_search_queries: 3
+  max_checklist_items: 10
+  max_claims: 10
+  checklist_cache_dir: .checklist_cache
+  e_pass_avg: 3.0
+  e_pass_max: 3.0
+  e_pass_min: 1.0
+  n3_hard_ratio: 0.45
+  n1_hard_ratio: 0.15
+  long_response_chars: 20000
+
+search:
+  enabled: true
+  top_k: 5
+  request_timeout_seconds: 30.0
+  cache_ttl_seconds: 86400
+  artifact_dir: .search_artifacts
+  cache_dir: .search_cache
+  providers:
+    - provider: serper
+      api_key_env: SERPER_API_KEY
+      endpoint: https://google.serper.dev/search
+      rate_limit_rps: 2.0
+
+runtime:
+  show_progress: true
+  show_timing: true
+  workers: 1
+  output_path: output/eval.json
+  output_path_timestamp: true
