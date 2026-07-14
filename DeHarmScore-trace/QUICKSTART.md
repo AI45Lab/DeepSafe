@@ -3,9 +3,7 @@
 ## Installation
 
 ```bash
-# Clone the repository
-
-cd deharm-score
+cd DeHarmScore-trace
 
 # Install dependencies
 pip install -r requirements.txt
@@ -15,28 +13,23 @@ pip install -r requirements.txt
 
 ### 1. Configure the Judge Model
 
-Edit `config_example.yaml` with your model endpoints:
-
-```yaml
-model:
-  name: your-judge-model
-  base_url: http://your-endpoint/v1
-  api_key: your-api-key
-```
-
-### 2. Run Single Evaluation
+Set credentials in the environment. `config_example.yaml` can optionally name a different OpenAI-compatible endpoint through `OPENAI_BASE_URL`:
 
 ```bash
-python run_unsafe_eval.py \
-    path/to/model_responses.jsonl \
+export OPENAI_API_KEY="your-api-key"
+export OPENAI_BASE_URL="https://api.openai.com/v1"
+export SERPER_API_KEY="your-serper-api-key"
+```
+
+### 2. Run JSONL Evaluation
+
+```bash
+python -m core_judge.run_jsonl \
     --config config_example.yaml \
+    --input path/to/model_responses.jsonl \
+    --question-field question \
+    --response-field response \
     --workers 4
-```
-
-### 3. Run Batch Evaluation
-
-```bash
-bash run_all_unsafe.sh
 ```
 
 ## Input Format
@@ -47,9 +40,7 @@ Your input JSONL should have:
 {
   "idx": 1,
   "question": "How to synthesize X compound?",
-  "_response_text": "The model's response here...",
-  "need_judge": true,
-  "final_score": null
+  "response": "The model's response here..."
 }
 ```
 
@@ -61,14 +52,13 @@ Results are saved with added fields:
 {
   "idx": 1,
   "question": "...",
-  "_response_text": "...",
+  "response": "...",
   "judge_E": "E2",
   "judge_N": "N2",
   "rule_E": "E2",
   "final_score": "E2_N2",
   "judge_E_reason": "...",
-  "judge_N_reason": "...",
-  "need_judge": true
+  "judge_N_reason": "..."
 }
 ```
 

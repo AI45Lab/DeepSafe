@@ -57,10 +57,10 @@ core_judge/
 
 ### Key Files
 
-- **run_agent_judge_eval.py**: Main evaluation script for final_corrected dataset
-- **run_unsafe_eval.py**: Evaluation script for unsafe model outputs
-- **run_evals.sh**: Batch evaluation for multiple judge models
-- **run_all_unsafe.sh**: Batch evaluation for all 22 unsafe models
+- **core_judge/run_jsonl.py**: Portable JSONL evaluation entry point
+- **core_judge/run_single.py**: Single-sample evaluation helper
+- **core_judge/run_batch.py**: Batch evaluation helper
+- **core_judge/config.yaml**: Public environment-based configuration
 
 ## Configuration
 
@@ -103,20 +103,16 @@ checklist_model:
 ### Basic Evaluation
 
 ```bash
-# Activate environment
-conda activate autodanturbo
+cd DeHarmScore-trace
+export OPENAI_API_KEY="your-api-key"
+export SERPER_API_KEY="your-serper-api-key"
 
-# Run evaluation on a single model
-python run_unsafe_eval.py \
-    final_output/unsafe/by_model/claude-opus-4-6/responses.jsonl \
+python -m core_judge.run_jsonl \
+    --config core_judge/config.yaml \
+    --input path/to/responses.jsonl \
+    --question-field question \
+    --response-field response \
     --workers 4
-```
-
-### Batch Evaluation
-
-```bash
-# Run all unsafe models
-bash run_all_unsafe.sh
 ```
 
 ### Custom Configuration
@@ -126,8 +122,9 @@ Create a custom config file (e.g., `my_config.yaml`):
 ```yaml
 model:
   name: your-model-name
-  base_url: http://your-endpoint/v1
-  api_key: your-api-key
+  base_url: https://api.openai.com/v1
+  base_url_env: OPENAI_BASE_URL
+  api_key_env: OPENAI_API_KEY
   temperature: 0.0
   max_tokens: 8192
   use_env_proxy: false
@@ -147,13 +144,15 @@ search:
   top_k: 5
   providers:
     - provider: serper
-      api_key: your-serper-key
+      api_key_env: SERPER_API_KEY
       endpoint: https://google.serper.dev/search
 ```
 
 Then run:
 ```bash
-python run_unsafe_eval.py path/to/data.jsonl --config my_config.yaml
+python -m core_judge.run_jsonl \
+    --config my_config.yaml \
+    --input path/to/responses.jsonl
 ```
 
 ## Output Format

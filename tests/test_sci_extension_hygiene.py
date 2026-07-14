@@ -96,6 +96,29 @@ def test_external_science_dataset_payloads_are_not_tracked() -> None:
     assert not any(path.startswith("data/sosbench/") for path in tracked)
 
 
+def test_deharm_docs_do_not_reference_unpublished_experiment_scripts() -> None:
+    unpublished = {
+        "run_agent_judge_eval.py",
+        "run_unsafe_eval.py",
+        "run_direct_llm_judge.py",
+        "run_evals.sh",
+        "run_all_unsafe.sh",
+        "final_output/unsafe",
+    }
+    docs = [
+        ROOT / "DeHarmScore-trace" / "README.md",
+        ROOT / "DeHarmScore-trace" / "QUICKSTART.md",
+        ROOT / "DeHarmScore-trace" / "STRUCTURE.md",
+    ]
+    offenders = {
+        token
+        for path in docs
+        for token in unpublished
+        if token in path.read_text(encoding="utf-8")
+    }
+    assert offenders == set()
+
+
 def test_required_science_components_exist() -> None:
     required = [
         "uni_eval/datasets/scihazard.py",

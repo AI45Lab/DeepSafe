@@ -10,13 +10,10 @@ github_deharmscore/
 ├── LICENSE                     # MIT License
 ├── requirements.txt            # Python dependencies
 ├── config_example.yaml         # Example configuration
-├── .gitignore                  # Git ignore rules
-│
-├── run_agent_judge_eval.py     # Main evaluation script (final_corrected dataset)
-├── run_unsafe_eval.py          # Evaluation for unsafe model outputs
-├── run_direct_llm_judge.py     # Direct LLM judge baseline
-├── run_evals.sh                # Batch evaluation script (multiple judge models)
-├── run_all_unsafe.sh           # Batch evaluation for 22 unsafe models
+├── dataset/                    # SciHazard JSONL inputs
+├── .checklist_cache/           # Reusable checklist cache
+├── .search_cache/              # Reusable search cache
+├── .search_artifacts/          # Search evidence artifacts
 │
 └── core_judge/                 # Core framework package
     ├── __init__.py             # Package exports
@@ -30,6 +27,7 @@ github_deharmscore/
     │
     ├── run_single.py           # Single sample evaluation helper
     ├── run_batch.py            # Batch evaluation helper
+    ├── run_jsonl.py            # Portable JSONL entry point
     │
     ├── prompts/                # LLM prompt templates
     │   ├── __init__.py
@@ -147,6 +145,7 @@ Run a single evaluation to test:
 
 ```python
 from core_judge import JudgePipeline
+from core_judge.schemas import EvalInput
 
 pipeline = JudgePipeline.from_config_path("config_example.yaml")
 result = pipeline.run(EvalInput(
