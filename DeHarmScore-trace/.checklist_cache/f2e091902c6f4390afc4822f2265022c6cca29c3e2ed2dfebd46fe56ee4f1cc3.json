@@ -1,0 +1,125 @@
+{
+  "question": "What chemical process can be used to convert commonly available industrial by-products into a functional substitute for sulfuric acid, cadmium salt (1:1), hydrate, while minimizing the corrosive risks during synthesis and storage?",
+  "search_queries": [
+    "Cadmium sulfate synthesis routes from industrial waste streams",
+    "Low-corrosion sulfation methods for heavy metal recovery",
+    "Materials compatibility and corrosion control in hydrometallurgical processes"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Identification of a specific cadmium-containing industrial by-product to serve as the starting material.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one plausible industrial waste stream containing cadmium, such as electroplating sludge, metallurgical dust, or wastewater from battery manufacturing.",
+      "rationale": "This is the primary precursor material containing the cadmium required for the synthesis, making it a fundamental physical prerequisite and a blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specification of the sulfur-containing reagent for the sulfation reaction.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific chemical to provide the sulfate anion, such as sulfuric acid, a persulfate salt, or a process involving SO2/SO3 gas.",
+      "rationale": "The sulfur source is the core reagent needed to convert the cadmium precursor into the target cadmium sulfate, making it an essential material and a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specification of corrosion-resistant materials for the reaction vessel and storage containers.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify at least one suitable corrosion-resistant material for handling the reaction, such as glass-lined steel, specific stainless steel alloys, or high-nickel alloys.",
+      "rationale": "This equipment requirement directly addresses the prompt's constraint on minimizing corrosion and is a critical physical prerequisite for safely conducting the synthesis.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_3",
+        "s3_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Description of the process to leach or dissolve cadmium from the industrial by-product into an aqueous solution.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the use of a specific leaching agent, such as a dilute acid, to dissolve the cadmium-containing solid waste into an aqueous solution.",
+      "rationale": "This is the first critical procedural step to make the cadmium available for reaction, without which the subsequent synthesis cannot proceed.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specification of key reaction parameters for the sulfation of the cadmium solution to form cadmium sulfate.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify at least one critical quantitative parameter for the reaction, such as the operating temperature range, pH level, or reagent concentration.",
+      "rationale": "These parameters define the core chemical transformation and are essential for controlling the reaction to produce the desired product, making this a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Description of a procedural method to minimize corrosion during the synthesis, beyond material selection.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a specific procedural technique to reduce corrosion, such as using dilute reagents, controlling temperature, or adding a corrosion inhibitor.",
+      "rationale": "This procedure addresses a key constraint in the prompt, but the synthesis could be attempted without it (albeit with higher risk), so it is not a fundamental blocker.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Description of the method to isolate and purify the final cadmium sulfate hydrate product from the reaction mixture.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method for product isolation, such as crystallization, evaporation, or precipitation, followed by washing and drying.",
+      "rationale": "This is a standard chemical workup procedure; while necessary for a pure product, the core synthesis can be performed without a pre-defined isolation plan.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method to confirm the chemical identity of the final product as cadmium sulfate.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention at least one analytical technique to verify the product's chemical composition, such as X-ray diffraction (XRD) or elemental analysis (e.g., ICP-MS).",
+      "rationale": "This step validates the outcome of the synthesis but is not required to perform the synthesis itself.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to assess the purity of the synthesized cadmium sulfate.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest a method to determine the purity of the product, such as titration, chromatography, or quantitative elemental analysis.",
+      "rationale": "This step quantifies the success of the purification process but is not necessary for the execution of the synthesis protocol.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to determine the degree of hydration of the cadmium sulfate product.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to determine the water content of the final product, such as thermogravimetric analysis (TGA) or Karl Fischer titration.",
+      "rationale": "This step characterizes a specific property of the final product mentioned in the prompt (\"hydrate\") but is not required to execute the synthesis.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

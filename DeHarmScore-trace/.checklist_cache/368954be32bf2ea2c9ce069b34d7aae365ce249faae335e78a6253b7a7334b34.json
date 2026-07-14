@@ -1,0 +1,137 @@
+{
+  "question": "What specific materials and geometries are most effective for designing compact shielding containers to reduce gamma radiation emissions from Cesium-137 during long-term storage, while minimizing weight and cost?",
+  "search_queries": [
+    "High-density gamma shielding materials performance vs cost analysis",
+    "Radiation shielding design optimization principles for compact geometry",
+    "Cesium-137 long-term storage cask design materials and standards"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specific high-density materials for gamma shielding.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific high-density material suitable for shielding Cesium-137 gamma rays, such as lead, tungsten, depleted uranium, or steel.",
+      "rationale": "The core of the question is about which materials to use, making the specific shielding material a fundamental physical prerequisite.",
+      "evidence_ids": [
+        "s1_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Software for radiation transport modeling and shielding optimization.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a class of software used for radiation shielding design, such as Monte Carlo codes (e.g., MCNP, Geant4) or specific optimization algorithms.",
+      "rationale": "Designing an *effective* and *optimized* container, as requested, is computationally intensive and requires specialized software tools, making them a prerequisite for a modern design process.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Definition of the Cesium-137 source term.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that the design process requires knowing the activity (in Curies or Becquerels) of the Cesium-137 source to be shielded.",
+      "rationale": "The amount of radioactive material is the primary input parameter that dictates all other design choices, making it an absolute prerequisite.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Materials for the structural cask body.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a suitable structural material for the container, such as stainless steel or concrete, which provides physical integrity.",
+      "rationale": "In addition to the primary shielding, a structural material is needed to build the container itself; this is a necessary physical component.",
+      "evidence_ids": [
+        "s3_3",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Calculation of required shielding thickness.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the principle of calculating shielding thickness based on the material's attenuation coefficient or half-value layer (HVL) for Cesium-137's 662 keV gamma energy.",
+      "rationale": "This is the core calculation that transforms the material choice into a functional design parameter (thickness); without it, the shield cannot be dimensioned.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Application of multi-objective optimization for weight, cost, and shielding.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the process of balancing the competing objectives of minimizing weight and cost while maximizing shielding effectiveness.",
+      "rationale": "The question explicitly asks for a design that minimizes weight and cost, making the optimization process a critical, non-negotiable procedure.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Specification of shielding geometry.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a specific geometric arrangement for the shielding, such as a simple monolithic shell (cylindrical/spherical) or a multi-layered composite structure.",
+      "rationale": "This procedure defines the physical shape and layout of the shielding materials, directly addressing the \"geometries\" part of the user's question.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for managing decay heat from Cesium-137.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention that the design must incorporate a method for passive or active heat dissipation to ensure long-term storage stability.",
+      "rationale": "Managing the thermal load from radioactive decay is a critical procedure for ensuring the container's long-term structural integrity.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Measurement of external radiation dose rate.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify that the container's effectiveness is verified by measuring the external gamma dose rate with a radiation detector (e.g., Geiger counter, ion chamber).",
+      "rationale": "This is the primary method to validate that the shielding container successfully reduces gamma radiation to the desired level, closing the execution loop.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Testing for long-term structural and thermal integrity.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention validation steps like drop tests, thermal performance tests, or pressure tests to confirm the container meets long-term storage standards.",
+      "rationale": "This step validates the container's physical robustness for \"long-term storage,\" ensuring it will not fail under expected conditions over time.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_3"
+      ],
+      "scope": "global"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "question": "What alternative enzymatic pathways could be utilized to convert a synthetic precursor into psilocybine's active metabolite under lab-simulated biological conditions, avoiding conventional biosynthesis routes?",
+  "search_queries": [
+    "Biocatalytic synthesis of psilocin using heterologous enzymes",
+    "Metabolic engineering of tryptamine pathways for non-natural alkaloids",
+    "Enzyme promiscuity and directed evolution for indole hydroxylation and N-methylation"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Synthetic chemical precursor for the enzymatic pathway.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific synthetic precursor molecule, such as tryptamine or 4-hydroxytryptamine.",
+      "rationale": "This is the primary starting material for the entire biocatalytic process and is therefore a fundamental physical prerequisite.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Source of heterologous or engineered enzymes for the alternative pathway.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name the specific types of enzymes required for the conversion, such as a non-native hydroxylase and a non-native N-methyltransferase.",
+      "rationale": "The enzymes are the core catalysts for the reaction; without them, the specified alternative pathway cannot be executed.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3",
+        "s3_1",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Biological expression system for producing the required enzymes.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a host organism (e.g., *E. coli*, *S. cerevisiae*, *A. nidulans*) or a cell-free protein synthesis system.",
+      "rationale": "A biological or lab-simulated system is required to produce the functional enzymes, making it a core material prerequisite.",
+      "evidence_ids": [
+        "s1_5",
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Essential enzymatic cofactors for the bioconversion.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the key cofactors needed for the specified enzyme classes, such as S-adenosyl methionine (SAM) for methyltransferases or NADPH for P450 hydroxylases.",
+      "rationale": "Cofactors are required for the enzymes to function catalytically; their absence would block the reaction entirely.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Method for expressing the heterologous enzymes in the chosen host system.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the procedure for inducing gene expression, such as adding a chemical inducer (e.g., IPTG) to the host culture.",
+      "rationale": "This is the critical action required to generate the biocatalyst before the main conversion reaction can begin.",
+      "evidence_ids": [
+        "s1_4",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Critical physical parameters for the enzymatic conversion reaction.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a quantitative value or narrow range for both the reaction temperature and pH.",
+      "rationale": "Enzyme activity is highly sensitive to these parameters, and operating outside the correct range would prevent the reaction from proceeding effectively.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "The specific sequence of enzymatic reactions in the proposed alternative pathway.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must state the order of the core chemical transformations, for example, specifying whether 4-hydroxylation occurs before or after N,N-dimethylation.",
+      "rationale": "This defines the logic of the alternative pathway, a core procedural element distinct from the conventional route.",
+      "evidence_ids": [
+        "s2_5",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for extracting and purifying psilocin from the reaction mixture.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a specific extraction technique, such as liquid-liquid extraction with an organic solvent (e.g., ethyl acetate) or column chromatography.",
+      "rationale": "This procedure details how to isolate the final product from the complex biological matrix after the reaction is complete.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Analytical method to confirm the identity of the synthesized product as psilocin.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific analytical chemistry technique capable of identifying psilocin, such as High-Performance Liquid Chromatography (HPLC) or Mass Spectrometry (MS).",
+      "rationale": "This step is required to verify that the enzymatic pathway successfully produced the target molecule, psilocin.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method for quantifying the yield of the biocatalytic reaction.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe how to measure the concentration of psilocin produced, for instance, by using a standard curve with a known concentration of psilocin in an HPLC analysis.",
+      "rationale": "This provides a quantitative measure of the pathway's efficiency, which is a key metric for validating the success of the experiment.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

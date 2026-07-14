@@ -1,0 +1,135 @@
+{
+  "question": "What specific temperature control techniques or equipment modifications are recommended to prevent thermal runaway reactions during the midstream synthesis of PMA?",
+  "search_queries": [
+    "thermal runaway prevention strategies for exothermic acrylate polymerization reactors",
+    "reactor design modifications and safety instrumented systems for controlling PMA synthesis",
+    "heat removal techniques and emergency quenching systems for batch polymerization processes"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Reactor with an integrated cooling system for heat removal.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a reactor equipped with a primary cooling system, such as a cooling jacket, external heat exchanger, or internal cooling coils.",
+      "rationale": "This is a core piece of physical hardware required to manage the exothermic heat generated during PMA synthesis.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Emergency quenching or short-stopping system.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a system designed to rapidly inject a chemical inhibitor (e.g., TEMPO) or a cold quenching fluid to halt the PMA polymerization.",
+      "rationale": "This is a critical piece of safety equipment, a physical system required as a last resort to prevent catastrophic thermal runaway.",
+      "evidence_ids": [
+        "s1_1",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Safety Instrumented System (SIS) or Emergency Shutdown (ESD) hardware.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention the use of an automated safety system (SIS or ESD) that links sensors (temperature, pressure) to final control elements (valves, pumps).",
+      "rationale": "This is the essential control hardware that automates the safety response, making it a prerequisite for reliable runaway prevention.",
+      "evidence_ids": [
+        "s1_2",
+        "s2_2",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Pressure relief equipment for the PMA reactor.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the installation of a passive safety device like a safety relief valve or a rupture disk on the reactor.",
+      "rationale": "This is a physical piece of equipment, but it's a passive, secondary safety measure rather than a primary control system, so it is not a blocker.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Definition of critical temperature and pressure setpoints for PMA synthesis.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the need to establish and monitor specific temperature and pressure thresholds that define normal operation versus a runaway condition.",
+      "rationale": "These quantitative parameters are the core of the control procedure; without them, the automated systems have no logic to act upon.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Procedure for active heat removal via the primary cooling system.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the active control of the cooling system, such as modulating the flow rate or temperature of the coolant, to maintain the target reaction temperature.",
+      "rationale": "This is the primary, active procedure used during the synthesis to continuously prevent heat accumulation and is essential for control.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Control of monomer or initiator feed rate.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the procedure of controlling the addition rate of the methyl acrylate monomer or initiator to manage the rate of heat generation.",
+      "rationale": "This is an important process control procedure, but it's a method of managing heat generation rather than the absolutely essential step of removing the heat produced.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Reactor geometry and agitation optimization.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention modifying the reactor's internal geometry or adjusting the agitation (stirring) speed to improve heat transfer.",
+      "rationale": "This procedure involves configuring the system for optimal performance, but it's an optimization step, not a fundamental blocker like the cooling system itself.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Verification of safety system functionality.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method for testing or validating the Safety Instrumented System (SIS), such as by simulating a high-temperature signal to confirm the shutdown sequence activates.",
+      "rationale": "This step validates that the safety equipment works correctly but is not part of the direct synthesis procedure itself.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Analysis of process data to confirm thermal stability.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention reviewing logged data of the reactor's internal temperature and pressure over time to confirm that the control techniques successfully maintained stability.",
+      "rationale": "This is a validation step to confirm the outcome (a stable reaction) by analyzing data after the process is underway or complete.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    }
+  ]
+}

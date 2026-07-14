@@ -1,0 +1,130 @@
+{
+  "question": "What containment materials or shielding configurations are most effective for isolating isotopes in the decay chain of Tellurium-127 to minimize secondary containment requirements during substitution processes?",
+  "search_queries": [
+    "Tellurium-127 decay chain radiation types and energies",
+    "Shielding material effectiveness for mixed beta-gamma emitters",
+    "Radiological contamination control engineering for unsealed sources"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specification of low-atomic number (low-Z) materials for primary beta shielding of Tellurium-127.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific low-Z material suitable for beta shielding, such as plastic, acrylic (Plexiglas/PMMA), or aluminum.",
+      "rationale": "This specifies the core physical material required to stop the primary beta radiation from Te-127, making it a fundamental material prerequisite.",
+      "evidence_ids": [
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specification of high-atomic number (high-Z) materials for secondary gamma/bremsstrahlung shielding.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific high-Z material suitable for attenuating gamma and bremsstrahlung X-rays, such as lead or tungsten.",
+      "rationale": "This specifies the second core physical material needed for a complete shielding configuration, making it a blocker.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Identification of primary containment equipment for handling unsealed Tellurium-127 sources.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one appropriate piece of engineering control equipment for handling unsealed radioactive sources, such as a fume hood, glove box, or hot cell.",
+      "rationale": "The question implies handling unsealed sources, and this equipment is the essential physical setup to prevent contamination spread during the process.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Description of the correct layered shielding configuration for Tellurium-127.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify that the low-Z material must be placed closest to the Te-127 source, with the high-Z material positioned outside the low-Z shield.",
+      "rationale": "The specific order of shielding layers is a critical procedural step that dictates the effectiveness and safety of the entire setup.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Identification of the primary radiation types emitted by Tellurium-127.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must identify that Te-127 is primarily a beta emitter and also produces associated low-energy gamma or X-ray radiation.",
+      "rationale": "This is a core procedural parameter, as knowing the radiation type informs the entire shielding design, but one could state the correct design without first stating the emissions.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Explanation of the need to minimize bremsstrahlung (braking radiation) production.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must explain that using a low-Z material as the primary shield is necessary to minimize the production of secondary X-rays (bremsstrahlung).",
+      "rationale": "This explains the core physical principle behind the shielding configuration, which is a key procedural concept for correct implementation.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Method for determining the required thickness of the shielding materials.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention that the low-Z shield's thickness should be sufficient to stop the maximum energy beta particles from Te-127, while the high-Z shield's thickness is calculated based on the desired dose rate reduction.",
+      "rationale": "This specifies the quantitative parameters needed to construct the shield, which is a critical part of the procedure.",
+      "evidence_ids": [
+        "s1_3",
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for verifying the effectiveness of the implemented shielding.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe using a radiation survey meter (e.g., a Geiger-Muller counter or ion chamber) to measure radiation dose rates on the exterior of the shielding.",
+      "rationale": "This is a validation step to confirm that the shielding performs as designed and the execution was successful.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Procedure for monitoring for radiological surface contamination.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe performing wipe tests (smear tests) on work surfaces and analyzing them with an appropriate radiation counter to check for contamination.",
+      "rationale": "This is a validation and safety procedure to verify that the primary containment was not breached during the substitution process.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Specification of appropriate personnel dosimetry for handling Te-127.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the use of both whole-body dosimeters (for gamma/X-ray) and extremity dosimeters (e.g., ring dosimeters) for beta exposure.",
+      "rationale": "This is a safety validation step to monitor and confirm that personnel exposure is within acceptable limits during the operation.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

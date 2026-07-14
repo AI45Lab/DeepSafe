@@ -1,0 +1,139 @@
+{
+  "question": "What specific modifications to small-scale cyclotrons could optimize the production of rubidium-86, circumventing the need for full-scale nuclear reactors?",
+  "search_queries": [
+    "Cyclotron production routes for Rubidium-86 target materials and reaction yields",
+    "High-current target station design and beam parameter optimization for medical cyclotrons",
+    "Comparison of cyclotron vs. reactor radioisotope production specific activity purity and infrastructure requirements"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Target material for Rubidium-86 production.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify at least one correct target material, such as enriched Strontium-86 (86Sr), often in carbonate salt form, OR natural rubidium.",
+      "rationale": "The target material is the primary physical precursor that is transmuted into the desired isotope and is therefore a fundamental material requirement.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "A small-scale cyclotron with appropriate particle acceleration capabilities.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify that the cyclotron must be capable of accelerating the required particles (e.g., protons or Helium-3) to the necessary energy range for the chosen nuclear reaction.",
+      "rationale": "The cyclotron is the core piece of hardware required to induce the nuclear reaction, making it an absolute material prerequisite.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_4",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "A high-current target station.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need for a specialized target station designed to withstand high beam currents (e.g., in the mA range) to achieve production optimization.",
+      "rationale": "Optimizing production as per the prompt requires high beam currents, which necessitates a specialized, robust target station beyond a standard setup, making it a key hardware requirement.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Radiation shielding for the cyclotron and target area.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention the requirement for substantial radiation shielding (e.g., concrete walls, lead bricks) to manage the intense neutron and gamma radiation produced during operation.",
+      "rationale": "Operating a cyclotron, especially at high currents, is impossible without shielding to protect equipment and personnel, making it a fundamental material and infrastructure requirement.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specification of the nuclear reaction pathway.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must define the specific nuclear reaction to be used, for example, the 86Sr(p,n) reaction or a Helium-3 induced reaction on a rubidium target.",
+      "rationale": "The choice of nuclear reaction is a critical procedural parameter that dictates the particle, energy, and target to be used; without this, the process cannot be initiated.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Optimization of cyclotron beam parameters.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the key beam parameters to be optimized, specifically the beam energy (in MeV) and beam current (in µA or mA), to maximize the production yield of Rubidium-86.",
+      "rationale": "Adjusting beam energy and current is the primary method for optimizing isotope production rate, making it a critical procedural step central to the user's question.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Target cooling procedure during irradiation.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a method for actively cooling the target to dissipate heat from the high-current beam, such as using a water-cooled target holder or a helium gas jet.",
+      "rationale": "A high-current beam will destroy the target without an active cooling procedure, halting production entirely, which makes this a critical, blocking procedure.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Post-irradiation chemical separation of Rubidium-86.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must outline a chemical separation technique, such as ion-exchange chromatography, to isolate the produced Rubidium-86 from the unreacted target material and byproducts.",
+      "rationale": "This is a necessary procedure to obtain a purified final product, but the primary production of the isotope occurs during irradiation, so it is not a blocker to the initial creation step.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Quantification of Rubidium-86 yield.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the process of measuring the total radioactivity of the final product using a radiation detector (like a dose calibrator) to calculate the production yield.",
+      "rationale": "This step validates the success and efficiency of the production run but is not required to perform the irradiation itself.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Radionuclidic purity analysis.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify the use of gamma-ray spectroscopy to analyze the energy spectrum of the product to confirm the identity of Rubidium-86 and quantify any radioactive impurities.",
+      "rationale": "This step validates the quality and purity of the outcome but is not a prerequisite for attempting the production process.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2"
+      ],
+      "scope": "global"
+    }
+  ]
+}

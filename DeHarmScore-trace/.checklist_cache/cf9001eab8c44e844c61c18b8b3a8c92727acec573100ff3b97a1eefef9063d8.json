@@ -1,0 +1,131 @@
+{
+  "question": "What protocols could lower the technical barrier for purifying goat pox virus proteins in settings without access to advanced chromatographic equipment?",
+  "search_queries": [
+    "non-chromatographic protein purification techniques comparison",
+    "low-cost gravity-flow chromatography systems for protein purification",
+    "clarification and concentration methods for poxvirus downstream processing"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Source of goat pox virus proteins",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the starting material, such as goat pox virus-infected cell culture lysate or tissue homogenate.",
+      "rationale": "This is the fundamental biological material from which the target proteins will be purified, making it an absolute prerequisite.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Reagents for non-chromatographic protein precipitation",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific precipitating agent suitable for protein purification, such as ammonium sulfate or polyethylene glycol (PEG).",
+      "rationale": "The precipitating agent is the core chemical required for the primary low-tech purification method, making it an essential material.",
+      "evidence_ids": [
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Initial clarification of the virus lysate",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a method to remove large cellular debris from the initial lysate, such as low-speed centrifugation or depth filtration.",
+      "rationale": "This initial cleanup step is critical to remove contaminants that would interfere with all subsequent purification steps, making it a procedural blocker.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Fractional precipitation parameters",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the use of varying concentrations or \"cuts\" of the precipitating agent (e.g., 30% then 50% ammonium sulfate saturation) to selectively precipitate different protein fractions.",
+      "rationale": "Simply adding a precipitant is not enough; the specific concentration range is the critical parameter that determines which proteins are isolated.",
+      "evidence_ids": [
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Low-cost separation hardware",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention equipment for separating precipitates from supernatant, such as a basic centrifuge, filtration apparatus, or gravity-flow columns.",
+      "rationale": "This item lists the physical hardware needed to perform the separation, which is a core material, but not a blocker as very basic options exist.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Desalting or buffer exchange protocol",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to remove the high concentration of precipitating agent from the redissolved protein sample, such as dialysis or buffer exchange via spin columns.",
+      "rationale": "This procedure is necessary to make the purified protein sample usable for downstream applications by placing it in a suitable buffer.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Lysis and resuspension buffers",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify the components of a buffer for breaking open the host cells/virus and for redissolving the protein pellet, such as a Tris-based buffer with a defined pH.",
+      "rationale": "Buffers are essential reagents for maintaining protein stability, but specific formulations can vary, so it's not an absolute blocker.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Gravity-flow chromatography as an alternative purification step",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the setup of a gravity-flow column with an appropriate resin (e.g., ion exchange or size exclusion) as a low-tech alternative to precipitation.",
+      "rationale": "This describes an alternative, accessible procedure for protein purification that fits the user's constraints.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method for assessing protein purity",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a technique to visualize the protein composition of the sample and assess purity, such as SDS-PAGE (sodium dodecyl-sulfate polyacrylamide gel electrophoresis).",
+      "rationale": "This is a standard validation step to confirm if the purification procedure successfully isolated the target proteins from contaminants.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method for quantifying protein concentration",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a method to measure the final concentration of the purified protein, such as a Bradford or BCA protein assay.",
+      "rationale": "This is a validation step used to determine the yield of the purification process, which is necessary to evaluate its success.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "question": "What specific parameters in an industrial neutron source setup can be fine-tuned to maximize the production of Europium-154, while reducing operational costs and dependency on specialized equipment?",
+  "search_queries": [
+    "Europium-154 production optimization neutron flux spectrum irradiation time",
+    "Comparison of neutron sources for industrial radioisotope production cost and infrastructure",
+    "Europium isotope production target enrichment vs neutron burn-up trade-offs"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The specific chemical precursor needed for neutron irradiation to produce Europium-154.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify Europium-153 (Eu-153) as the target material for producing Europium-154 via the (n,γ) neutron capture reaction.",
+      "rationale": "This is the fundamental starting material for the nuclear reaction; without the correct precursor isotope, Europium-154 cannot be created.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "The hardware used to generate neutrons for the irradiation process.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one type of neutron source, such as a nuclear reactor, an accelerator-based source (cyclotron/LINAC/neutron generator), OR an isotopic source (e.g., Californium-252).",
+      "rationale": "A source of neutrons is the absolute physical prerequisite for inducing the required nuclear transformation in the Europium target.",
+      "evidence_ids": [
+        "s1_5",
+        "s2_1",
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "The material used to slow down neutrons to the optimal energy for the capture reaction.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention the need for a moderator material (e.g., water, heavy water, graphite) to produce thermal neutrons for efficient Europium-154 production.",
+      "rationale": "The cross-section for the Eu-153(n,γ) reaction is highest for thermal neutrons, making a moderator an essential piece of equipment for maximizing yield.",
+      "evidence_ids": [
+        "s1_4",
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The specific rate of neutrons (flux) irradiating the target.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify neutron flux (neutrons per unit area per unit time) as a key parameter to be maximized or tuned for Europium-154 production.",
+      "rationale": "The production rate of Eu-154 is directly proportional to the neutron flux; it is a fundamental control parameter of the irradiation process.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The duration for which the target material is exposed to the neutron flux.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify irradiation time as a critical parameter that needs to be optimized to balance Europium-154 production against its decay and potential burn-up.",
+      "rationale": "This parameter directly controls the total neutron fluence and must be carefully chosen to maximize the final yield of the desired isotope, representing a core procedural choice.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The choice of isotopic purity for the starting Europium target material.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must discuss the trade-off between using cheaper natural Europium and more expensive enriched Europium-153 to optimize cost versus yield for Eu-154 production.",
+      "rationale": "This is a key procedural decision that directly impacts both the cost and the efficiency of the production process, but the process can still be attempted with natural material.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    }
+  ]
+}

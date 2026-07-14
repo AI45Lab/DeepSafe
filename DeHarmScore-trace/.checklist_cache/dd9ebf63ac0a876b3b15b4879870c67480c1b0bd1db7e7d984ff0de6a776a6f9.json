@@ -1,0 +1,90 @@
+{
+  "question": "What engineering techniques could be employed to dynamically lower the radiotoxicity shielding requirements of Dysprosium-166 without affecting its potency or activation potential?",
+  "search_queries": [
+    "Dy-166/Ho-166 generator design principles for ALARA and shielding optimization",
+    "microfluidic radionuclide separation for automated radiopharmaceutical synthesis",
+    "point-of-care radioisotope production methods versus centralized generator systems"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The parent radionuclide, Dysprosium-166 (Dy-166).",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify Dysprosium-166 (Dy-166) as the essential starting material for the generator system.",
+      "rationale": "This is the fundamental physical precursor required for the entire process and is therefore a core material and a blocker.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_5",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Hardware for the Dy-166/Ho-166 generator system.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the core hardware used to contain the Dy-166 and facilitate Ho-166 separation, such as a chromatography column with a specific stationary phase (resin) OR a microfluidic chip designed for radiochemical separation.",
+      "rationale": "This is the physical apparatus required to perform the separation, making it a core piece of equipment and a blocker.",
+      "evidence_ids": [
+        "s1_5",
+        "s2_3",
+        "s2_4",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Chemical reagents for separating Holmium-166 from Dysprosium-166.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a class of chemical reagents, such as an eluent solution or chelating agents, used to selectively remove Ho-166 from the generator matrix.",
+      "rationale": "These specific chemicals are consumed in the process to achieve the separation, making them essential materials and a blocker.",
+      "evidence_ids": [
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The core procedure for separating Ho-166 from the Dy-166 parent.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the fundamental steps of the separation technique, such as eluting the Ho-166 from a chromatography column OR performing a liquid-liquid extraction on a microfluidic chip.",
+      "rationale": "This is the central action of the entire process; without this procedure, the goal cannot be achieved, making it a blocker.",
+      "evidence_ids": [
+        "s1_2",
+        "s2_3",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Implementation of automation or miniaturization to reduce operator dose.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a technique for automation or miniaturization, such as using a robotic system for handling vials OR employing a microfluidic \"lab-on-a-chip\" system for the synthesis.",
+      "rationale": "This procedure directly addresses the \"dynamic lowering of shielding requirements\" by minimizing handling time and source quantity, which is a core part of the question's engineering challenge.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Quantitative parameters for the Ho-166 separation process.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify at least one critical quantitative parameter that controls the separation efficiency, such as the eluent flow rate, pH of the solution, or the operating temperature. WHY_THIS_DIMENSION",
+      "rationale": "",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

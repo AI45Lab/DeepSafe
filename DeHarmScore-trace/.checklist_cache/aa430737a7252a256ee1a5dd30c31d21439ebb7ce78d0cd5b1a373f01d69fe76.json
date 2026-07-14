@@ -1,0 +1,138 @@
+{
+  "question": "What specific engineering controls or reactor designs can minimize the unpredictability of reaction yields when attempting to synthesize or refine this compound in non-specialized laboratory environments?",
+  "search_queries": [
+    "lab-scale reactor designs for improved process control and yield reproducibility",
+    "process analytical technology (PAT) for real-time monitoring and control of benchtop chemical synthesis",
+    "engineering controls for consistent reagent dosing, mixing, and thermal management in non-specialized labs"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specification of a controlled reactor system suitable for a non-specialized lab.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific type of reactor designed for process control, such as a jacketed glass reactor, a continuous flow reactor, or a 3D-printed reactor.",
+      "rationale": "The reactor is the core piece of physical hardware where the synthesis occurs, making it a fundamental material prerequisite for executing the task.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3",
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Equipment for automated and consistent reagent dosing.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific piece of equipment for controlled reagent addition, such as a syringe pump or a peristaltic pump.",
+      "rationale": "Precise control over reagent addition is a key engineering control and requires specific hardware, making it a material prerequisite.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Equipment for active thermal management of the reaction.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific device for precise temperature control, such as a circulating water bath, a cryostat, or a heating/cooling jacket connected to a thermal controller.",
+      "rationale": "Maintaining a stable temperature is critical for reaction reproducibility and requires a specific piece of hardware, which is a core material.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "In-situ sensors for real-time reaction monitoring (Process Analytical Technology - PAT).",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must name at least one type of PAT sensor suitable for benchtop synthesis, such as a Raman probe, Near-Infrared (NIR) spectrometer, or an online NMR detector.",
+      "rationale": "PAT sensors are physical hardware used to gather data for process control, but a reaction can still be attempted without them, making them a non-blocker material.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specification of mixing parameters.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must define a specific and consistent mixing speed (e.g., a set RPM) and mention the type of stirrer (e.g., overhead mechanical stirrer or magnetic stir bar).",
+      "rationale": "Consistent mixing is a critical process parameter that directly influences reaction kinetics and yield, making it a blocker for achieving reproducibility.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Specification of a thermal control protocol.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state a specific target temperature for the reaction and a tolerance range to be maintained (e.g., 70°C ± 1°C).",
+      "rationale": "Setting and maintaining a precise temperature is a core procedural step for controlling reaction rate and preventing side reactions, making it a blocker.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Specification of a controlled reagent dosing rate.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a quantitative rate of addition for a key reagent (e.g., adding reagent B at 1.5 mL/min).",
+      "rationale": "The rate of reagent addition is a critical process parameter that must be controlled to ensure consistent reaction conditions and yield.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Procedure for using Process Analytical Technology (PAT) for real-time control.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the process of monitoring a Critical Process Parameter (CPP), such as reactant concentration, in real-time using a PAT sensor to make adjustments.",
+      "rationale": "This describes the action of using PAT tools to actively control the synthesis; it's a key procedure for optimization but not an absolute blocker to running the reaction.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method for determining the final reaction yield.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the process of isolating the final product and calculating the percentage yield based on its mass or concentration relative to the theoretical maximum.",
+      "rationale": "This step validates the outcome of the synthesis by quantifying its efficiency, which is the primary goal mentioned in the user's question.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method for assessing the purity of the refined compound.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific analytical technique to verify product purity, such as High-Performance Liquid Chromatography (HPLC), Gas Chromatography (GC), or Nuclear Magnetic Resonance (NMR) spectroscopy.",
+      "rationale": "This step is required to validate the success of the refinement process by confirming the identity and purity of the final compound.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

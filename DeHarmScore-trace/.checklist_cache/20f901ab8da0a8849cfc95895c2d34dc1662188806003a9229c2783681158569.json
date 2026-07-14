@@ -1,0 +1,133 @@
+{
+  "question": "How can thermal runaway during the virus amplification process be mitigated in non-specialist lab equipment to prevent yield degradation or unintended deactivation?",
+  "search_queries": [
+    "thermal control mechanisms and failure modes in low-cost thermocyclers",
+    "protocol optimization strategies for temperature-sensitive enzymatic reactions",
+    "impact of temperature overshoot and ramp rate on nucleic acid amplification efficiency"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Temperature control hardware/software for non-specialist equipment",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific temperature control mechanism suitable for non-specialist equipment, such as a PID controller or an Arduino-based system.",
+      "rationale": "This is the core hardware/software component that actively manages temperature, which is essential to prevent thermal runaway.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Thermoelectric heating and cooling element",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the core hardware component responsible for changing the temperature, such as a Peltier element.",
+      "rationale": "This is the physical device that heats and cools the sample block; without it, temperature cycling for virus amplification is impossible.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Temperature sensor for feedback loop",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention a specific type of temperature sensor, such as a thermistor or thermocouple, used to provide real-time feedback to the control system.",
+      "rationale": "A sensor is a prerequisite for any closed-loop control system to accurately measure and regulate the temperature of the amplification reaction.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Temperature-sensitive amplification enzyme",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the key temperature-sensitive reagent, specifically the polymerase enzyme used for nucleic acid amplification.",
+      "rationale": "The entire process is dependent on the thermal stability and optimal temperature range of the polymerase, making it a critical material.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Ramp rate adjustment",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify adjusting the temperature ramp rate (heating/cooling speed) as a direct method to mitigate thermal overshoot and prevent enzyme deactivation.",
+      "rationale": "Controlling the rate of temperature change is a critical procedural parameter for preventing the system from overshooting the target temperatures.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Control loop parameter tuning",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the process of tuning the control loop parameters (e.g., proportional, integral, derivative gains for a PID controller) to match the equipment's thermal properties.",
+      "rationale": "This procedure is essential for optimizing the performance of the temperature control hardware to prevent oscillations and overshoot.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Protocol temperature optimization",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe optimizing a critical temperature setpoint in the amplification protocol, such as the annealing temperature.",
+      "rationale": "Fine-tuning the target temperatures of the biological protocol makes the reaction more robust against minor equipment inaccuracies.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Reaction buffer composition adjustment",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention adjusting the chemical composition of the reaction buffer, such as Mg2+ concentration or adding thermal stabilizers, to improve enzyme performance.",
+      "rationale": "Modifying the reaction's chemical environment is a procedural step to increase the tolerance of the biological components to thermal stress.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "In-situ temperature verification",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method for validating the equipment's performance by measuring the temperature directly within a sample tube, rather than relying on the block sensor.",
+      "rationale": "This is a validation step to confirm that the procedural mitigations are effective and the sample is experiencing the intended temperature profile.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Analysis of amplification product yield and quality",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to assess the final amplification yield and specificity, such as gel electrophoresis or quantitative PCR (qPCR).",
+      "rationale": "This step validates whether the mitigation strategies successfully prevented the yield degradation or deactivation mentioned in the question.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "question": "What shielding materials and configurations are most effective at reducing radiological signature during the transport and storage of Iridium-194 without significantly increasing logistical complexity?",
+  "search_queries": [
+    "Shielding material effectiveness for high-energy beta emitters and bremsstrahlung suppression",
+    "Design principles for radioactive material transport casks balancing shielding and logistical complexity",
+    "Comparison of tungsten, lead, and composite shielding materials for weight, volume, and cost tradeoffs"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specification of a low-atomic number (low-Z) material to act as the primary shield for beta particles from Iridium-194.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific low-Z material suitable for stopping high-energy beta particles, such as acrylic (Perspex) or aluminum.",
+      "rationale": "This is a core physical material required to construct the primary shield that stops beta particles while minimizing bremsstrahlung X-ray production.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specification of a high-atomic number (high-Z) material to act as the secondary shield for bremsstrahlung radiation.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific high-Z material for attenuating the secondary X-rays (bremsstrahlung), such as lead, tungsten, or iron.",
+      "rationale": "This is a core physical material required to construct the outer shield that attenuates the penetrating X-ray radiation produced by the beta shield.",
+      "evidence_ids": [
+        "s1_1",
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specification of the material for the transport cask's outer body or structural frame.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a suitable structural material for the transport cask that provides physical protection, such as stainless steel.",
+      "rationale": "This is the physical equipment that contains the shielding layers and the Iridium-194 source, forming the complete transport package.",
+      "evidence_ids": [
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Description of the specific layered arrangement of shielding materials relative to the Iridium-194 source.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that the low-Z material must be placed as the inner layer (closest to the Ir-194) and the high-Z material as the outer layer.",
+      "rationale": "This describes the critical procedural arrangement of the materials; reversing the layers would be ineffective and increase the radiological signature.",
+      "evidence_ids": [
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specification of the thickness for the inner low-Z shield layer.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a specific thickness or a method to calculate the thickness of the low-Z material required to completely stop the beta particles from Iridium-194.",
+      "rationale": "This is a critical quantitative parameter that defines the effectiveness of the primary beta shield; if it's too thin, beta particles will escape.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Specification of the thickness for the outer high-Z shield layer.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a specific thickness or a method to calculate the thickness of the high-Z material needed to attenuate bremsstrahlung to a target level.",
+      "rationale": "This is a critical quantitative parameter that defines the final radiological signature and directly impacts logistical factors like weight and size.",
+      "evidence_ids": [
+        "s2_2",
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Analysis of the trade-offs between different shielding materials based on logistical factors.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must compare at least two high-Z materials (e.g., lead and tungsten) based on their density, cost, or the resulting weight/volume for equivalent shielding.",
+      "rationale": "This is a procedural step in the design process that directly addresses the \"without significantly increasing logistical complexity\" constraint in the question.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for verifying the effectiveness of the shielding configuration in reducing the radiological signature.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe measuring the external radiation",
+      "rationale": "",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

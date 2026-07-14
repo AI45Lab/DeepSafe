@@ -1,0 +1,131 @@
+{
+  "question": "What purification protocols are most effective at isolating stable African swine fever virus particles without compromising their structural integrity for downstream storage?",
+  "search_queries": [
+    "Comparison of ASFV purification methods for virion stability and structural integrity",
+    "Factors affecting large enveloped virus stability during purification and long-term storage",
+    "Quality control and characterization assays for purified ASFV particles"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Source of African swine fever virus (ASFV)",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify a starting material containing ASFV, such as infected cell culture supernatant or tissue homogenates from infected animals.",
+      "rationale": "This is the fundamental starting material required for any purification protocol; without a source of the virus, the task is impossible.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Density gradient medium",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific medium for density gradient centrifugation, such as Percoll, sucrose, or cesium chloride (CsCl).",
+      "rationale": "The core purification method described in the evidence relies on a density gradient, making the medium a non-negotiable material.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Ultracentrifuge",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the requirement for an ultracentrifuge capable of generating the high g-forces needed for density gradient separation of viral particles.",
+      "rationale": "This is a critical piece of equipment without which the primary purification technique (density gradient centrifugation) cannot be performed.",
+      "evidence_ids": [
+        "s1_1",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Purification and storage buffers/stabilizers",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention a specific buffer system to maintain pH and osmolarity, and a cryoprotectant/stabilizer (e.g., glycerol, sucrose) for long-term storage.",
+      "rationale": "These reagents are essential materials for maintaining the virus's structural integrity and stability throughout the purification and storage process, a key constraint of the question.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Initial clarification of crude virus sample",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a preliminary step involving low-speed centrifugation to remove large cellular debris from the initial virus-containing lysate or supernatant.",
+      "rationale": "This procedure is a critical prerequisite for successful density gradient purification, as cellular debris would otherwise contaminate the final product.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Density gradient ultracentrifugation protocol",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the core procedure of layering the clarified virus sample onto a pre-formed or self-forming gradient (e.g., Percoll) and centrifuging at high speed.",
+      "rationale": "This is the central purification action that separates the ASFV particles from host cell components and other impurities based on their density.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Collection and concentration of purified virus",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the procedure for extracting the visible virus band from the gradient after centrifugation and concentrating it, typically by pelleting.",
+      "rationale": "This procedure is a necessary step to obtain a usable, high-titer stock of the purified virus after the main separation is complete.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Long-term storage conditions",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a quantitative temperature and method for long-term storage, such as freezing at -80°C, cryopreservation in liquid nitrogen, or lyophilization.",
+      "rationale": "This procedure directly addresses the \"downstream storage\" part of the user's question, defining the parameters needed to maintain virus stability over time.",
+      "evidence_ids": [
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Assessment of virion structural integrity",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention using transmission electron microscopy (TEM) with negative staining to visually inspect the purified ASFV particles for correct morphology and intactness.",
+      "rationale": "This validation step is required to directly confirm that the purification protocol did not compromise the virus's structural integrity, a key requirement of the original question.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Confirmation of purity and identity",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a biochemical method to assess purity and confirm identity, such as SDS-PAGE to visualize the viral protein profile or an immunoassay (e.g., Western blot) to detect a specific ASFV protein like p72.",
+      "rationale": "This validation step verifies that the final product is indeed ASFV and is free from significant host cell protein contamination.",
+      "evidence_ids": [
+        "s3_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    }
+  ]
+}

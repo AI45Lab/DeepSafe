@@ -1,0 +1,139 @@
+{
+  "question": "What engineered processes can be implemented to substitute technetium-97 using readily available molybdenum-based industrial by-products, ensuring sufficient isotopic purity for radiological applications?",
+  "search_queries": [
+    "Accelerator production of technetium-97 from molybdenum isotopes reaction cross-sections",
+    "Radiochemical separation and purification of technetium from irradiated molybdenum targets",
+    "Isotopic purity standards for technetium-97 in environmental tracer and reference material applications"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specification of the molybdenum-based starting material (target).",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify a specific molybdenum-based material, such as natural molybdenum (natMo), enriched molybdenum-100 (100Mo), or molybdenum trioxide (MoO3).",
+      "rationale": "This is the primary precursor material that is transformed into the desired product, making it a fundamental physical prerequisite and a blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s2_1",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Identification of the required irradiation equipment.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a type of particle accelerator capable of inducing the required nuclear reaction, such as a cyclotron or a linear accelerator (LINAC).",
+      "rationale": "A particle accelerator is the core piece of capital equipment required to bombard the molybdenum target and is essential for the process, making it a blocker.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_5",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "List of key chemical reagents for the separation and purification of technetium.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific chemical or solvent system used to separate technetium from molybdenum, such as methyl ethyl ketone (MEK) for solvent extraction or specific acids for dissolution/precipitation.",
+      "rationale": "These reagents are the consumable materials required for the critical purification step to achieve the desired isotopic purity, making them a blocker.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Specification of the primary nuclear reaction pathway for producing Technetium-97.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state a specific nuclear reaction that produces Technetium-97 or its parent Ruthenium-97 from a molybdenum isotope, for example, 100Mo(p,4n)97Tc or natMo(α,x)97Ru.",
+      "rationale": "The choice of nuclear reaction is the fundamental principle of the entire process and dictates all other parameters, making it a critical procedural blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Definition of the particle beam irradiation parameters.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the type of particle (e.g., proton, deuteron, or alpha) and a quantitative energy range (in MeV) for the irradiation of the molybdenum target.",
+      "rationale": "The particle type and energy are critical parameters that directly control the reaction cross-section and yield, making them a procedural blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Description of the method for dissolving the irradiated molybdenum target.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the process of dissolving the solid molybdenum target post-irradiation, for instance, by using an acid like nitric acid or a base.",
+      "rationale": "This is a necessary procedural step to prepare the irradiated material for chemical separation, but the specific choice of solvent is a standard radiochemistry technique.",
+      "evidence_ids": [
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Description of the radiochemical separation technique to isolate technetium.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a specific chemical separation method, such as solvent extraction, precipitation, or electrochemical separation, to isolate technetium from the dissolved molybdenum solution.",
+      "rationale": "This procedure details the core action of purification, which is central to achieving the final product.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method to confirm the identity of the produced Technetium-97.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe using gamma-ray spectroscopy to identify the characteristic photon emissions of Technetium-97 or its decay products.",
+      "rationale": "This step is required to validate that the correct radionuclide was produced, which is a key part of execution closure.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to assess the isotopic and radionuclidic purity of the final technetium product.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method, such as gamma spectroscopy, to detect and quantify any radioactive impurities alongside the desired Technetium-97.",
+      "rationale": "This step validates whether the process met the question's requirement for \"sufficient isotopic purity\" for radiological applications.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method for quantifying the yield of Technetium-97.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe how to measure the final activity (e.g., in Becquerels or Curies) of the purified Technetium-97 to determine the overall process yield.",
+      "rationale": "This is a final validation step to measure the efficiency and success of the production and purification process.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

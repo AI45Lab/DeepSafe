@@ -1,0 +1,132 @@
+{
+  "question": "What parameters should be adjusted to clone Nipah virus variants with higher mutation rates while ensuring consistent potency under limited equipment constraints?",
+  "search_queries": [
+    "Nipah virus reverse genetics systems and factors influencing polymerase fidelity",
+    "Assays for measuring RNA virus fitness and virulence stability during in vitro passaging",
+    "Resource and equipment considerations for viral cloning and characterization in BSL-4 laboratories"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Nipah virus reverse genetics system plasmids",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name the essential plasmids for a Nipah virus reverse genetics system, including those encoding the nucleoprotein (N), phosphoprotein (P), large polymerase protein (L), and the full-length viral antigenome.",
+      "rationale": "These plasmids are the fundamental starting materials containing the genetic information required to generate the virus, making them an absolute prerequisite.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_3",
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Permissive host cell line",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify a specific cell line known to be permissive to Nipah virus infection and suitable for reverse genetics, such as Vero or BSR-T7/5 cells.",
+      "rationale": "A compatible host cell line is the biological factory required to assemble and propagate the virus from the plasmids, making it a non-negotiable material.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Agent or system for inducing mutations",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a method to increase the mutation rate, such as using a low-fidelity viral polymerase variant or adding a chemical mutagen like Ribavirin or 5-fluorouracil to the culture medium.",
+      "rationale": "The core goal is to increase the mutation rate, which requires a specific agent or modified biological component; without this, the primary objective cannot be achieved.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Minimal equipment for cell culture and transfection",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must list the absolute minimum equipment required, including a CO2 incubator, a biological safety cabinet (BSC), and a method for transfection (e.g., lipofection reagents or an electroporator).",
+      "rationale": "These pieces of hardware are the basic infrastructure needed to maintain cells and introduce the genetic material, making them essential physical materials for the experiment.",
+      "evidence_ids": [
+        "s3_3",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Transfection and virus rescue protocol",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the core procedure of co-transfecting the Nipah virus plasmids into the host cells to generate the initial recombinant virus (vNiV).",
+      "rationale": "This is the critical action that initiates the entire process of generating infectious virus from inert plasmid DNA, making it a procedural blocker.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_3",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Parameter adjustment for polymerase fidelity",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a quantitative parameter to adjust to increase the error rate, such as the concentration of a chemical mutagen (e.g., µM range for Ribavirin) or altering the divalent cation (Mg2+/Mn2+) concentration in a polymerase reaction.",
+      "rationale": "This procedure is the direct answer to the user's question about what specific parameter to adjust to achieve a higher mutation rate, making it a critical procedural step.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Serial passaging of the virus",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the process of serially passaging the rescued virus on fresh cells to allow for the accumulation and selection of mutations.",
+      "rationale": "This procedure is necessary to evolve the virus and select for desired traits over time, but the exact parameters are less critical than the initial rescue.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Quantification of viral titer",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a standard virological assay to measure the concentration of infectious virus, such as a plaque assay or a TCID50 (50% Tissue Culture Infectious Dose) assay.",
+      "rationale": "This step validates the successful production of infectious virus and is essential for standardizing downstream experiments, but it does not block the initial creation of the virus.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Measurement of mutation rate",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to confirm an increased mutation rate, which involves sequencing the viral genome from passaged populations and comparing it to the original sequence.",
+      "rationale": "This step is required to validate whether the primary goal of increasing the mutation rate was actually achieved.",
+      "evidence_ids": [
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Assay for viral potency or fitness",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe an in vitro assay to assess viral potency/fitness under limited equipment constraints, such as performing a one-step growth curve or a competition assay against the wild-type virus.",
+      "rationale": "This step validates the secondary goal of maintaining \"consistent potency\" by measuring the virus's replicative capacity.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2"
+      ],
+      "scope": "global"
+    }
+  ]
+}

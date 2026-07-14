@@ -1,0 +1,137 @@
+{
+  "question": "Which solvents or excipients can be used to enhance the solubility of chlordiazepoxide for the purpose of aerosolization, while minimizing the risk of premature degradation?",
+  "search_queries": [
+    "chlordiazepoxide solubility and stability in pharmaceutically acceptable solvents",
+    "excipient compatibility and stabilization strategies for benzodiazepine aerosol formulations",
+    "co-solvents and solubilizing agents for poorly water-soluble drugs in inhalation delivery systems"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The active pharmaceutical ingredient, chlordiazepoxide.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify chlordiazepoxide as the drug to be solubilized.",
+      "rationale": "This is the core chemical that the entire process is designed to formulate and deliver, making it an essential material and a blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_3",
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific pharmaceutically acceptable solvents or co-solvents for chlordiazepoxide.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific organic solvent suitable for inhalation, such as ethanol, isopropanol, or propylene glycol.",
+      "rationale": "The choice of solvent is the primary method for solubilization and is a fundamental material prerequisite for creating the formulation.",
+      "evidence_ids": [
+        "s1_5",
+        "s3_1",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Stabilizing excipients to prevent degradation.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest a class of stabilizing excipients, such as antioxidants (e.g., BHT) or chelating agents (e.g., EDTA), to minimize chlordiazepoxide degradation.",
+      "rationale": "These are additional materials used to meet the stability requirement of the question, but a basic formulation could be attempted without them.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Equipment for generating the aerosol.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a specific type of aerosolization device, such as a nebulizer, metered-dose inhaler (MDI), or dry powder inhaler (DPI).",
+      "rationale": "This is the physical hardware required to turn the liquid or solid formulation into an inhalable aerosol, a key material consideration for the end-use.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Control of the formulation's pH to ensure chlordiazepoxide stability.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify maintaining an acidic pH range, such as between 2.5 and 3.5, for the chlordiazepoxide solution.",
+      "rationale": "The pH is a critical parameter that directly impacts the chemical stability and degradation rate of chlordiazepoxide, making it a procedural blocker.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The ratio or proportion of co-solvents in the final formulation.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the need to determine a specific ratio of the primary solvent to a co-solvent (e.g., ethanol to water) to achieve target solubility.",
+      "rationale": "The solvent/co-solvent ratio is the key procedural parameter that governs the solubility of chlordiazepoxide in the system, making it a blocker.",
+      "evidence_ids": [
+        "s1_5",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Method for preparing the final formulation for aerosolization.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a relevant formulation process, such as simple mixing for a solution nebulizer OR spray drying for a dry powder inhaler.",
+      "rationale": "This is the core action of combining the materials into the final product, but different methods exist depending on the desired aerosol type.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method to confirm the enhanced solubility of chlordiazepoxide.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to measure the concentration of dissolved chlordiazepoxide, such as UV-Vis spectroscopy or High-Performance Liquid Chromatography (HPLC).",
+      "rationale": "This step validates that the primary goal of enhancing solubility was achieved, closing the execution loop on the formulation's effectiveness.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to assess the chemical stability of the chlordiazepoxide formulation.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a stability-indicating assay, such as HPLC, to quantify chlordiazepoxide and detect degradation products over time.",
+      "rationale": "This step validates that the formulation meets the critical constraint of minimizing premature degradation, confirming the success of the stabilization strategy.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Characterization of the aerosol properties.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention measuring the aerosol's particle size distribution (e.g., Mass Median Aerodynamic Diameter) to ensure it is suitable for inhalation.",
+      "rationale": "This step validates that the formulation can be successfully aerosolized into particles of a respirable size, confirming its suitability for the intended delivery route.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    }
+  ]
+}

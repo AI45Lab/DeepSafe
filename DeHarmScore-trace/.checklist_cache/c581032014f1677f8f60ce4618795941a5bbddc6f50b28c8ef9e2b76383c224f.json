@@ -1,0 +1,127 @@
+{
+  "question": "What process modifications or material substitutions could be introduced to reduce contamination risks when isolating borate(2-), tetrahydroxybis[μ-(peroxy-κO1:κO2)]di-, sodium (1:2) in small-scale production scenarios?",
+  "search_queries": [
+    "sodium perborate synthesis purification strategies and contaminant sources",
+    "material compatibility and stabilizers for inorganic peroxide synthesis",
+    "quality control standards and impurity profiling for borate compounds"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Core reagents for sodium perborate synthesis",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name the three primary reagents: a boron source (like borax), a peroxide source (like hydrogen peroxide or sodium peroxide), and a base (like sodium hydroxide).",
+      "rationale": "These are the fundamental chemical inputs required for the synthesis, making them a core material prerequisite and a blocker.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Compatible materials for reaction vessel and storage containers",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must suggest specific non-catalytic materials for equipment, such as high-purity aluminum, certain polymers (e.g., HDPE), or properly passivated stainless steel/glass.",
+      "rationale": "Using incompatible materials can introduce metallic contaminants that catalyze peroxide decomposition, making this a critical material choice and a blocker for achieving a pure product.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "High-purity solvent",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the use of deionized or distilled water as the reaction solvent to prevent introducing metallic ion contaminants.",
+      "rationale": "Trace metal impurities in tap water can catalyze the decomposition of the peroxide, making the use of a pure solvent a prerequisite for a successful, low-contamination synthesis.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Stabilizing agents for peroxide species",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the addition of a chemical stabilizer, such as sodium pyrophosphate or an organophosphonate, to the reaction mixture.",
+      "rationale": "Stabilizers are material additives that prevent product decomposition (a form of contamination), but the reaction can be attempted without them, so it is not a blocker.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Temperature control during synthesis and crystallization",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify maintaining a low temperature (e.g., below 25°C or within a specific cool range) during the reaction of borax with the peroxide source.",
+      "rationale": "Peroxide reactions are often exothermic and the product's stability is temperature-dependent; failure to control temperature can lead to rapid decomposition, making this a critical procedural blocker.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "pH control of the reaction medium",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the need to maintain specific alkaline (basic) conditions for the reaction to proceed and for the product to precipitate correctly.",
+      "rationale": "The formation and stability of sodium perborate are highly dependent on pH, making control of this parameter a fundamental requirement for the process to work.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Pre-treatment of equipment to remove catalytic impurities",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a procedure for cleaning glassware or the reactor, such as an acid wash or rinsing with a chelating agent, to remove trace metal residues.",
+      "rationale": "This is a specific procedural modification to reduce contamination risk, but a less pure product could be made without it, so it is not a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Assay for product purity and active oxygen content",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to quantify the purity of the isolated sodium perborate, such as titration with potassium permanganate to determine the active oxygen content.",
+      "rationale": "This step validates the outcome of the synthesis by measuring product quality, which is essential for confirming the success of the contamination reduction efforts.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Analysis of specific impurities",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest an analytical technique to identify and/or quantify potential contaminants, such as atomic absorption for heavy metals or chromatography for organic impurities.",
+      "rationale": "This step validates the effectiveness of the contamination control measures by directly profiling the impurities present in the final product.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Stability testing of the final product",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a method to assess the stability of the isolated sodium perborate, for example, by measuring the loss of active oxygen over time under specific storage conditions.",
+      "rationale": "This step validates the long-term purity of the product, as a product contaminated with catalysts will decompose more quickly.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

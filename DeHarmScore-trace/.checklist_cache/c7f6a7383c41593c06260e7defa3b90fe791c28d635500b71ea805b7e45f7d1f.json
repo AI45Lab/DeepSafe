@@ -1,0 +1,139 @@
+{
+  "question": "How can the criticality risk of Zirconium-93 be minimized during storage when combined with other radiological materials, given its limited natural abundance and low specific activity?",
+  "search_queries": [
+    "Zirconium-93 neutron cross section and impact on nuclear waste criticality",
+    "criticality control strategies for co-storage of fission products and actinides",
+    "burnup credit and fission product poisons in repository safety analysis"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Identification of the specific fissile actinides co-stored with Zirconium-93 that drive criticality risk.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific fissile or fertile actinide isotope of concern in spent nuclear fuel, such as Plutonium-239 or Uranium-235.",
+      "rationale": "This identifies the core fissile materials that create the criticality risk which Zirconium-93 and other controls are meant to mitigate; without them, the problem is undefined.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specification of neutron absorber (poison) materials used for criticality control in storage systems.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific material used as a fixed neutron poison in storage casks or racks, such as boron (in borated stainless steel or Boral) or gadolinium.",
+      "rationale": "These are the engineered materials physically incorporated into storage systems to absorb neutrons and prevent criticality, making them a prerequisite for the solution.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Identification of the specialized computational codes required for criticality safety analysis.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one industry-standard software package for nuclear criticality analysis, such as SCALE (e.g., STARBUCS sequence) or MCNP.",
+      "rationale": "Performing the required safety calculations is impossible without these specific software tools, making them essential equipment for the task.",
+      "evidence_ids": [
+        "s3_3",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Definition of the target value for the effective neutron multiplication factor (k-eff) to ensure subcriticality.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that the calculated k-eff (including uncertainties) must remain below a specific regulatory safety limit, typically 0.95.",
+      "rationale": "This quantitative threshold is the fundamental parameter that defines the safety goal of the entire criticality control procedure.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Description of geometric controls used to maintain subcriticality in a storage configuration.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe at least one method of geometric control, such as maintaining a specific spacing between waste packages or using a fixed geometry within a storage cask basket.",
+      "rationale": "The physical arrangement (geometry) of fissile material is a primary and critical procedure for controlling neutron interaction and preventing a chain reaction.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Application of the \"burnup credit\" methodology in the criticality analysis.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must explain that burnup credit is a procedure that accounts for the reduced reactivity of spent fuel by considering the presence of neutron-absorbing fission products (like Zr-93) and the depletion of fissile actinides.",
+      "rationale": "This is the core analytical procedure that allows for the inclusion of Zirconium-93's properties in the safety case, making it a critical step for an accurate assessment.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s3_1",
+        "s3_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Use of Zirconium-93's specific neutron capture cross-section data in the analysis.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must state the need to use evaluated nuclear data files (e.g., ENDF/B) for the neutron capture cross-section of Zirconium-93 as input for the simulation.",
+      "rationale": "This specific parameter is the key input that determines how Zr-93 behaves in the neutron field and is a central part of the calculation procedure.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Calculation of the effective neutron multiplication factor (k-eff) for the final storage configuration.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must state that the final step is to run the simulation to calculate the k-eff for the specified geometry and material composition.",
+      "rationale": "This is the primary validation step to confirm whether the proposed storage design meets the required safety margin.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Benchmarking of the computational model and nuclear data against integral experiments.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the need to validate the chosen software code and cross-section data against relevant critical benchmark experiments.",
+      "rationale": "This step validates the accuracy of the computational tools and data, ensuring the calculated k-eff is reliable.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Performance of a sensitivity and uncertainty analysis.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe performing an analysis to determine how uncertainties in parameters like isotopic concentrations or cross-section data affect the final calculated k-eff.",
+      "rationale": "This validation step quantifies the confidence in the safety margin and ensures the system remains subcritical under various uncertain conditions.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    }
+  ]
+}

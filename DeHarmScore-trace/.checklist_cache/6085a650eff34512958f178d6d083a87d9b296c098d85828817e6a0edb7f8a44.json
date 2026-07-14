@@ -1,0 +1,132 @@
+{
+  "question": "What engineering techniques can be employed to enrich Promethium-149 from a rare earth mixture, focusing on efficiency and scalability within non-specialized laboratory setups?",
+  "search_queries": [
+    "Promethium separation from rare earth fission products using ion exchange and solvent extraction",
+    "Rapid radiochemical separation techniques for short-lived lanthanide isotopes",
+    "Bench-scale radiolanthanide purification systems efficiency vs scalability trade-offs"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specification of the starting material containing Promethium-149.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the starting material as a mixture of rare earth elements, typically derived from fission products.",
+      "rationale": "This is the primary input material for the entire process and is an absolute prerequisite for beginning the enrichment procedure.",
+      "evidence_ids": [
+        "s1_3",
+        "s2_1",
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Identification of the primary separation medium or system.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific type of separation medium, such as an ion exchange resin (e.g., anion or cation exchange) OR a solvent extraction system (e.g., an organic solvent with a specific extractant).",
+      "rationale": "The choice of separation medium is the core of the chemical process and is a fundamental material requirement without which separation is impossible.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specification of the chemical agents used for elution or extraction.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific class of chemical eluent (e.g., a complexing agent like thiocyanate or citrate) for ion exchange OR the components of a solvent extraction system (e.g., an acidic organophosphorus extractant in a nonpolar solvent).",
+      "rationale": "These chemical agents are the active components that drive the separation; the process cannot be performed without them.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "List of necessary bench-scale laboratory equipment.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must list basic equipment appropriate for the chosen method, such as a chromatography column and pump for ion exchange OR separatory funnels and a shaker for solvent extraction.",
+      "rationale": "This covers the physical apparatus needed to execute the process, but it is considered standard for a non-specialized lab and thus not a hard blocker.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Description of the initial sample preparation step.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the process of dissolving the solid rare earth mixture into an aqueous solution, typically using a strong acid like nitric or hydrochloric acid.",
+      "rationale": "This procedure creates the feed solution, which is the required starting state for loading onto the separation system; without it, the process cannot begin.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Specification of critical solution parameters for the separation process.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need to control a critical parameter like the pH of the aqueous phase OR the concentration of the complexing agent in the eluent.",
+      "rationale": "These parameters directly control the separation efficiency between adjacent lanthanides and are critical for successfully isolating promethium.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Description of the elution or stripping strategy.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the procedure for passing the eluent through the column or contacting the solvent phases, mentioning either a gradient elution or a multi-stage extraction.",
+      "rationale": "This is the core action of the separation process, detailing how the different elements are moved through the system to achieve separation.",
+      "evidence_ids": [
+        "s1_5",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for collecting the target Promethium-149 fraction.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must explain that different fractions are collected over time (for chromatography) or from different stages (for extraction) to isolate the one containing promethium.",
+      "rationale": "This procedure describes how the desired product is physically isolated from the waste and other separated elements at the end of the process.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method for identifying and confirming the presence of Promethium-149.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a suitable radiometric detection method, such as beta counting or gamma spectroscopy, to identify the fraction containing the radioactive Promethium-149.",
+      "rationale": "This step is required to validate that the target isotope has been successfully isolated in a specific fraction.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method for assessing the purity and yield of the enriched Promethium-149.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to determine the separation's success, such as comparing the radioactivity of the final product to the initial sample to calculate yield OR using spectroscopy to check for other rare earth contaminants.",
+      "rationale": "This step provides a quantitative measure of the process's efficiency and success, closing the execution loop by verifying the outcome against the goals.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    }
+  ]
+}

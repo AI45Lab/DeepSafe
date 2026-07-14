@@ -1,0 +1,139 @@
+{
+  "question": "What specific chemical agents or preservatives could be applied to maintain the virus's infectious properties during transport and storage outside a host organism?",
+  "search_queries": [
+    "Viral transport medium (VTM) formulation components and function",
+    "Chemical cryoprotectants and lyoprotectants for virus preservation",
+    "Factors influencing virion stability and infectivity ex vivo"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Core buffer solution for the transport medium.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific balanced salt solution used to maintain pH and osmotic pressure, such as Hank's Balanced Salt Solution (HBSS) or Phosphate-Buffered Saline (PBS).",
+      "rationale": "This is a fundamental chemical ingredient required to create the preservation medium, making it a core material.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Protein stabilizer for the viral transport medium.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific protein-based stabilizer, such as Fetal Bovine Serum (FBS), Bovine Serum Albumin (BSA), or gelatin.",
+      "rationale": "This is a critical chemical agent that stabilizes the virus structure, making it a core material.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_5",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Cryoprotectant agent for frozen storage.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific chemical cryoprotectant used to prevent damage during freezing, such as Dimethyl sulfoxide (DMSO), glycerol, or a sugar like sucrose or sorbitol.",
+      "rationale": "This is a specific chemical agent essential for the cryopreservation method, making it a core material.",
+      "evidence_ids": [
+        "s1_2",
+        "s2_1",
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Antimicrobial agents for the transport medium.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the inclusion of antibiotics or antifungals (e.g., penicillin, streptomycin, amphotericin B) to prevent microbial contamination.",
+      "rationale": "These are chemical materials added to the medium, but they prevent contamination rather than directly preserving the virus, making them non-blocking for the core preservation task.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Control of pH for the preservation medium.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify that the pH of the medium must be maintained within a stable, near-physiological range (e.g., pH 7.2-7.4).",
+      "rationale": "Maintaining the correct pH is a critical parameter that directly affects viral protein stability and infectivity, making it a core procedural step.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Control of temperature during transport and storage.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a quantitative temperature range for either refrigerated transport (e.g., 2-8°C) or long-term frozen storage (e.g., -20°C, -70°C, or colder).",
+      "rationale": "Temperature is a critical physical parameter that must be controlled throughout the process to prevent viral degradation.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Sterilization of the transport medium and equipment.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the need to sterilize the viral transport medium and all associated containers to prevent contamination.",
+      "rationale": "This is a critical procedural step because microbial contamination would destroy the viral sample, making the preservation effort futile.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method of long-term preservation.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a specific method for long-term storage, such as cryopreservation (freezing) or lyophilization (freeze-drying).",
+      "rationale": "This is a high-level procedural choice that dictates which agents to use, but the question focuses on the agents themselves, making the specific method a non-blocking detail.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Assay to measure viral infectivity.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific biological assay to confirm the virus remains infectious after storage, such as a plaque assay or a TCID50 (50% Tissue Culture Infectious Dose) assay.",
+      "rationale": "This is the standard method to validate that the preservation procedure successfully maintained the virus's infectious properties.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Quantification of viral load/titer.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a method to quantify the amount of virus before and after storage to assess the efficiency of the preservation, such as counting plaque-forming units (PFU) or using qPCR.",
+      "rationale": "This step validates the outcome by measuring the quantitative loss or retention of virus, closing the execution loop.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

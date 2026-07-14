@@ -1,0 +1,90 @@
+{
+  "question": "What operational adjustments can enhance the yield of Mercury-197m production using commonly available irradiation equipment while mitigating risks of premature decay?",
+  "search_queries": [
+    "Mercury-197m production reaction cross-sections and yield optimization",
+    "¹⁹⁷Hg isomeric ratio control via irradiation energy and target selection",
+    "Radionuclide production saturation activity vs irradiation time tradeoffs"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specification of the target material for irradiation.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify gold (Au) foil or a gold target as the starting material for producing Mercury-197m.",
+      "rationale": "This is the primary physical material that is transformed into the desired product, making it a core material and a blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s2_2",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specification of the primary irradiation equipment.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify a particle accelerator, such as a cyclotron, as the equipment used to generate the particle beam.",
+      "rationale": "This is the essential hardware required to induce the nuclear reaction, making it a core piece of equipment and a blocker.",
+      "evidence_ids": [
+        "s1_4",
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Identification of reagents for post-irradiation chemical separation.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one valid chemical system for separating mercury from gold, such as solvent extraction agents (e.g., TOA, TBP) OR extraction chromatography resins.",
+      "rationale": "These reagents are necessary to isolate the final product from the target material, making them a prerequisite for obtaining a usable sample.",
+      "evidence_ids": [
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Specification of the nuclear reaction pathway.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the use of a proton beam OR a deuteron beam to irradiate the gold target to induce the ¹⁹⁷Au(p,n)¹⁹⁷Hg or ¹⁹⁷Au(d,2n)¹⁹⁷Hg reaction.",
+      "rationale": "This defines the fundamental process of transformation and is a critical procedural choice that dictates all other parameters.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specification of the particle beam energy range.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a quantitative energy range for the proton or deuteron beam (e.g., 10-20 MeV for protons) to optimize the reaction cross-section for ¹⁹⁷Hg production.",
+      "rationale": "Beam energy is a critical operational parameter that directly controls the reaction yield and the production of impurities.",
+      "evidence_ids": [
+        "s1_1",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Specification of the irradiation time optimization strategy.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must explain that irradiation time should be optimized based on the half-life of Mercury-197m to approach saturation activity without excessive decay.",
+      "rationale": "This parameter is a key operational adjustment for maximizing net yield and directly addresses the \"mitigating premature decay\" part of the prompt.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

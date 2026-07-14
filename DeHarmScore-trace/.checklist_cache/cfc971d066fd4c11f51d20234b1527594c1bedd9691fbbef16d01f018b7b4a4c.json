@@ -1,0 +1,127 @@
+{
+  "question": "What criticality thresholds need to be calculated when substituting arsenic-76 with other isotopes to achieve similar radiation effects without requiring advanced nuclear reactor facilities?",
+  "search_queries": [
+    "Radioisotope substitution criteria for equivalent biological effect and dosimetry",
+    "Non-reactor radioisotope production methods and yields for medical applications",
+    "Regulatory safety thresholds and licensing for unsealed beta-gamma emitting sources"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Identification of specific radioisotopes that can substitute for Arsenic-76 (a beta-gamma emitter with a half-life of ~1.1 days and beta max energy of ~2.9 MeV).",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific beta-gamma emitting isotope with a comparable half-life and emission energy, such as Yttrium-90, Lutetium-177, or Rhenium-188.",
+      "rationale": "The substitute isotope is the core material being produced and used in the proposed scenario, making it a fundamental prerequisite.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specification of the stable isotope target material required for producing the chosen substitute radioisotope via a non-reactor method.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the correct stable target material for the proposed substitute isotope, such as Strontium-90 for a Y-90 generator or enriched Ytterbium-176 for Lu-177 production in a cyclotron.",
+      "rationale": "The target material is the physical precursor that is transformed into the desired radioisotope, making it an essential starting material and a blocker.",
+      "evidence_ids": [
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Identification of the specific type of non-reactor equipment needed to produce the substitute radioisotope.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific non-reactor production method such as a medical cyclotron, a linear accelerator (linac), or a radioisotope generator system.",
+      "rationale": "The question explicitly excludes advanced nuclear reactors, so specifying the alternative production hardware is a core equipment requirement and a blocker.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Specification of the dosimetry formalism or software model used to calculate and compare radiation doses.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a recognized dosimetry schema, such as the MIRD (Medical Internal Radiation Dose) schema or a Monte Carlo-based radiation transport code (e.g., MCNP, Geant4).",
+      "rationale": "This is a required tool (software/model) for performing the necessary calculations, but the calculations could theoretically be done from first principles, so it's not an absolute blocker.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The procedure for calculating the absorbed dose (in Gray, Gy) from the substitute isotope in a target tissue.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the need to calculate the absorbed dose by considering the isotope's activity, decay characteristics (emission type and energy), and the physical properties of the target.",
+      "rationale": "Calculating the absorbed dose is the foundational procedural step for any dosimetric comparison and is essential to determine the radiation effect.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The procedure for determining or applying the Relative Biological Effectiveness (RBE) value for the substitute isotope's emissions compared to a reference radiation.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that the RBE must be determined for the substitute isotope's radiation to normalize its biological effect against the effect of Arsenic-76 or a standard reference radiation.",
+      "rationale": "To achieve \"similar radiation effects,\" the differing biological impacts of different radiation types must be accounted for via the RBE, making this a critical procedural parameter.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "The calculation of the Biologically Effective Dose (BED) to compare the biological effects of Arsenic-76 and the substitute isotope, accounting for dose rate and tissue repair.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the need to calculate the BED using a formula that incorporates the total absorbed dose, dose rate, and tissue-specific parameters (like the alpha/beta ratio).",
+      "rationale": "BED is the specific calculation that directly addresses the question's requirement for \"similar radiation effects\" by modeling the net biological outcome, making it a critical procedure.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Specification of the key quantitative parameters for the nuclear reaction used to produce the substitute isotope in a non-reactor facility.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the required particle beam energy (in MeV) and beam current (in µA) for a cyclotron/linac, or the parent isotope activity for a generator system.",
+      "rationale": "These parameters directly control the nuclear reaction and the resulting yield of the desired isotope, making them critical operational thresholds for the production process.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "The method for measuring the activity of the produced substitute radioisotope.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe using a radiation detection instrument, such as a dose calibrator or a gamma spectrometer, to quantify the activity (in Bq or Ci) of the final product.",
+      "rationale": "This step validates the yield of the production process and provides the primary input for dose calculations, closing the execution loop.",
+      "evidence_ids": [
+        "s3_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    }
+  ]
+}

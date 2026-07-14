@@ -1,0 +1,137 @@
+{
+  "question": "What are the optimal encapsulation techniques to protect T-2 toxin from hydrolysis and environmental degradation while ensuring long-term stability in variable temperature conditions?",
+  "search_queries": [
+    "T-2 toxin encapsulation methods review stability hydrolysis",
+    "evaluation criteria for encapsulated mycotoxin stability under thermal and environmental stress",
+    "comparative analysis of encapsulation techniques for mycotoxins efficiency and controlled release"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "T-2 toxin",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the need for a purified source of T-2 toxin as the core material to be encapsulated.",
+      "rationale": "This is the primary active agent specified in the question and is the absolute physical prerequisite for the entire process.",
+      "evidence_ids": [
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Encapsulating agent (shell material)",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific class of encapsulating agent suitable for protecting a small molecule, such as polymers (e.g., chitosan, alginate, PLA) OR lipids (e.g., phospholipids for liposomes).",
+      "rationale": "The shell material is the physical substance that provides the protective barrier for the T-2 toxin, making it a fundamental material prerequisite.",
+      "evidence_ids": [
+        "s2_3",
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Solvents and buffers",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need for both an appropriate organic solvent to dissolve the T-2 toxin and shell material, and a buffered aqueous solution to control pH during processing.",
+      "rationale": "Solvents are required to bring the core and shell materials into a state where encapsulation can occur, and buffers are critical to prevent premature degradation, making them essential materials.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Encapsulation-specific hardware",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify at least one piece of equipment required for a specific encapsulation technique, such as a spray dryer, freeze dryer, homogenizer, OR microfluidic device.",
+      "rationale": "The physical process of creating microcapsules cannot be performed without specialized hardware, making it a blocking material requirement.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Encapsulation method",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the steps for a specific microencapsulation technique, such as spray drying, emulsion-solvent evaporation, coacervation, OR liposome preparation.",
+      "rationale": "The choice of method is a foundational procedural decision that dictates all subsequent steps, equipment, and parameters; without a method, the task cannot be attempted.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "pH control during processing",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify maintaining the pH of the aqueous phase within a range that minimizes T-2 toxin hydrolysis, such as a neutral or slightly acidic pH (e.g., pH 5-7).",
+      "rationale": "T-2 toxin is susceptible to hydrolysis, and failing to control pH during the encapsulation process will result in the degradation of the core material, making this a critical procedural parameter.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Drying/solidification temperature",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a temperature parameter for the drying process (e.g., inlet/outlet temperature for spray drying) that is low enough to prevent thermal degradation of the T-2 toxin.",
+      "rationale": "As T-2 toxin is thermally labile, using an incorrect temperature during the final solidification step will destroy the payload, rendering the entire process a failure.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Core-to-shell material ratio",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must state the need to define and control the mass ratio between the T-2 toxin (core) and the encapsulating agent (shell).",
+      "rationale": "This ratio is a key parameter that influences encapsulation efficiency and stability, but an attempt can still be made with a suboptimal ratio, so it is not a fundamental blocker.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Measurement of encapsulation efficiency and loading capacity",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to determine the amount of T-2 toxin successfully encapsulated, such as disrupting the capsules and quantifying the toxin using a chromatographic method like HPLC.",
+      "rationale": "This step validates the success of the encapsulation procedure by quantifying the yield, which is necessary to confirm the outcome.",
+      "evidence_ids": [
+        "s2_4",
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Stability testing under variable conditions",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a procedure for testing the long-term stability of the encapsulated T-2 toxin by exposing samples to cycles of varying temperature and humidity and then measuring toxin integrity over time.",
+      "rationale": "This step validates whether the encapsulation meets the specific stability requirements of the question, closing the execution loop.",
+      "evidence_ids": [
+        "s1_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

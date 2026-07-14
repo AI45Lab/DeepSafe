@@ -1,0 +1,129 @@
+{
+  "question": "Which strategies can be used to purify infectious Lumpy skin disease virus particles from a mixed culture, ensuring high concentration while minimizing thermal degradation during scale-up?",
+  "search_queries": [
+    "Downstream processing and purification strategies for poxviruses",
+    "Scalable chromatography vs tangential flow filtration for enveloped virus purification",
+    "Lumpy skin disease virus stability factors during concentration and formulation"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Source of Lumpy Skin Disease Virus (LSDV)",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the starting material as a mixed culture harvest containing LSDV, host cells (e.g., MDBK or lamb testis cells), and cell culture media.",
+      "rationale": "This is the fundamental starting material containing the target virus, making it an absolute prerequisite for the purification process.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Clarification equipment",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one type of equipment for removing large debris, such as a low-speed centrifuge or a depth filtration system.",
+      "rationale": "This equipment is a prerequisite for the initial and essential step of separating the virus from whole cells and large debris before further purification.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Concentration and purification hardware",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the use of a Tangential Flow Filtration (TFF) system OR a liquid chromatography system (e.g., FPLC, HPLC).",
+      "rationale": "This specialized hardware is the core equipment required for the concentration and high-resolution purification steps central to the question.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Stabilization buffers and reagents",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the need for specific buffers (e.g., Tris, HEPES) with defined pH and salt concentrations to maintain LSDV stability during processing.",
+      "rationale": "While buffers are essential, a skilled practitioner could substitute them; however, specifying them is key to a high-quality, executable protocol.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Initial clarification of the viral harvest",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the procedural step of removing host cells and debris from the culture supernatant, for instance, by centrifugation at a specified low g-force.",
+      "rationale": "This initial procedural step is non-negotiable to prevent clogging and fouling of downstream purification equipment like filters and columns.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Virus concentration and buffer exchange parameters",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a key parameter for Tangential Flow Filtration (TFF), such as the molecular weight cut-off (MWCO) of the membrane (e.g., 100-300 kDa).",
+      "rationale": "Using the correct membrane pore size is a critical parameter that determines whether the virus is retained and concentrated or lost, making it a procedural blocker.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Chromatography separation method",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific chromatography technique suitable for large viruses, such as ion-exchange (IEX), size-exclusion (SEC), or affinity chromatography.",
+      "rationale": "This procedure defines the primary method for achieving high purity by separating the virus from soluble contaminants like host cell proteins.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Thermal degradation mitigation strategy",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that all or most purification steps should be performed at a specific low temperature, such as 2-8°C or \"on ice\".",
+      "rationale": "The question explicitly requires minimizing thermal degradation, making temperature control a critical, blocking parameter for maintaining virus infectivity.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Assessment of final product purity",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to verify the purity of the final LSDV sample, such as SDS-PAGE to check for host cell proteins OR electron microscopy to visualize virions.",
+      "rationale": "This step validates the success of the purification process by quantifying the removal of contaminants, which is essential for any final use.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Measurement of viral infectivity",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a cell-based assay to confirm that the purified LSDV is still infectious, such as a plaque assay or a TCID50 (50% Tissue Culture Infectious Dose) assay.",
+      "rationale": "This validation step is required to confirm that the final product meets the \"infectious\" criteria of the original question, closing the execution loop.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

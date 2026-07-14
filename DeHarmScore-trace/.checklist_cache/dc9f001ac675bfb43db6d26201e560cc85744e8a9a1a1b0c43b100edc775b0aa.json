@@ -1,0 +1,124 @@
+{
+  "question": "What specific expression vectors and host systems are most effective for cloning and expressing viscumin with high yield under resource-limited conditions?",
+  "search_queries": [
+    "heterologous expression strategies for viscumin and type II ribosome-inactivating proteins",
+    "comparison of E. coli and Pichia pastoris for low-cost toxic protein production",
+    "optimizing expression vector design for high-yield cytotoxic lectin expression"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specific host system suitable for low-cost toxic protein expression.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name either *E. coli* or *Pichia pastoris* as the recommended host system.",
+      "rationale": "The host organism is the fundamental biological factory for protein production and is a core material prerequisite.",
+      "evidence_ids": [
+        "s1_1",
+        "s2_1",
+        "s2_2",
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific type of expression vector with features for controlled, high-yield expression.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a vector system with a tightly regulated, inducible promoter (e.g., pET vectors with a T7 promoter for *E. coli*, or pPIC vectors with an AOX1 promoter for *Pichia pastoris*).",
+      "rationale": "The expression vector is the essential DNA construct carrying the gene and regulatory elements, making it a critical material.",
+      "evidence_ids": [
+        "s3_3",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "The viscumin gene sequence for cloning.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention the need for the codon-optimized DNA or cDNA sequence encoding the viscumin A and B chains.",
+      "rationale": "The gene sequence is the primary raw material that is being cloned and expressed; without it, the process cannot begin.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Specific, low-cost culture media for the selected host system.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a standard, inexpensive medium appropriate for the recommended host, such as LB medium for *E. coli* or BMGY/BMMY for *Pichia pastoris*.",
+      "rationale": "Culture media are the consumable materials required for growing the host cells.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Method for inducing protein expression from the chosen vector/host system.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the chemical inducer used to activate gene expression, such as IPTG for T7-based systems in *E. coli* or methanol for AOX1-based systems in *Pichia pastoris*.",
+      "rationale": "Inducing expression of a toxic protein at the correct time is a critical procedural step to prevent premature host cell death and achieve high yield.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Specific culture temperature and duration post-induction.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must provide a specific temperature range for protein expression after induction (e.g., 18-25°C for *E. coli* or 28-30°C for *Pichia*) to enhance proper folding and solubility.",
+      "rationale": "Temperature is a key parameter that directly controls the rate of protein synthesis and folding, impacting the final yield of active protein.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Method for introducing the expression vector into the host system.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a standard transformation method suitable for the chosen host, such as chemical transformation (heat shock) for *E. coli* or electroporation for *Pichia pastoris*.",
+      "rationale": "Transformation is the core procedure for getting the genetic material (the vector) into the host cell.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method to confirm the expression and determine the molecular weight of the produced viscumin.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention using SDS-PAGE analysis to visualize a protein band at the expected molecular weight for viscumin (approx. 60-65 kDa).",
+      "rationale": "This is a standard validation step to verify that the target protein has been produced.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to quantify the yield of the expressed protein.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific protein quantification method, such as a Bradford assay, BCA assay, or densitometry of an SDS-PAGE gel.",
+      "rationale": "This validation step is required to measure the outcome against the \"high yield\" requirement of the question.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Assay to confirm the biological activity of the expressed viscumin.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest a functional assay to confirm the protein's toxicity, such as a cell-free translation inhibition assay or a cytotoxicity assay on a sensitive cell line.",
+      "rationale": "This validation step confirms that the expressed protein is not just present but is also correctly folded and functional, which is the ultimate goal of the expression.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

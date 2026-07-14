@@ -1,0 +1,137 @@
+{
+  "question": "How could neutron activation be optimized to increase the yield of Tantalum-182 production under low-resource conditions, while avoiding thermal runaway issues?",
+  "search_queries": [
+    "Tantalum-181 neutron capture resonance integral thermal cross section",
+    "neutron activation target design thermal management yield optimization",
+    "isotope production yield isotopic neutron source vs D-D generator"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Low-resource neutron source",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a suitable low-resource neutron source, such as a portable D-D neutron generator OR an isotopic source like Californium-252 or Americium-Beryllium.",
+      "rationale": "This is the primary piece of equipment required to initiate the neutron activation process; without a source of neutrons, the task is impossible.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Tantalum target material",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the use of Tantalum-181 as the target material, which is readily available as high-purity natural tantalum metal or a tantalum compound (e.g., oxide).",
+      "rationale": "This is the precursor material that is converted into the desired isotope, Tantalum-182, making it an absolute prerequisite.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Neutron moderator material",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a material for slowing down (thermalizing) fast neutrons, such as high-density polyethylene, paraffin wax, graphite, OR water.",
+      "rationale": "To optimize the (n,γ) reaction for Tantalum-181, thermal neutrons are required, making a moderator a critical component for achieving significant yield.",
+      "evidence_ids": [
+        "s1_1",
+        "s2_3",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Target cooling system components",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the components for an active cooling system to prevent target overheating, such as a coolant (e.g., deionized water) and a pump/tubing for circulation.",
+      "rationale": "This equipment is a prerequisite for addressing the \"avoiding thermal runaway\" constraint of the question, which is critical for both yield and safety.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Optimal irradiation geometry configuration",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the physical arrangement of the components, specifically placing the Tantalum target inside the moderator material and positioning the neutron source close to this assembly to maximize the thermal neutron flux on the target.",
+      "rationale": "The geometric configuration is a critical procedure that directly determines the neutron flux reaching the target and is essential for maximizing the production yield.",
+      "evidence_ids": [
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Active thermal management procedure",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the procedure of actively flowing a coolant around the tantalum target assembly throughout the irradiation process to continuously remove heat.",
+      "rationale": "This procedure is the core action required to prevent thermal runaway, a specific constraint in the user's question, making it a critical step for a successful execution.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Calculation of optimal irradiation time",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must state the need to calculate an optimal irradiation duration based on the known neutron flux and the 114-day half-life of Tantalum-182 to maximize yield without wasting time or resources.",
+      "rationale": "This is a key parameter for optimizing the process; while any irradiation will produce some result, achieving an optimal yield requires this specific calculation.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Target shape and form optimization",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe how to shape the Tantalum target, for example as a thin foil or wire, to minimize neutron self-shielding and maximize the surface-area-to-volume ratio for efficient cooling.",
+      "rationale": "This procedural detail about target preparation is a key optimization step for both increasing neutron absorption efficiency and improving heat dissipation.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Quantification of Tantalum-182 yield",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe how to measure the amount of Tantalum-182 produced by using a gamma-ray spectrometer (e.g., HPGe or NaI detector) to identify and quantify its characteristic gamma decay peaks.",
+      "rationale": "This is the standard method to confirm the successful production of the target isotope and measure the final yield, which closes the execution loop.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Verification of thermal stability",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to validate that thermal runaway was avoided, such as by using thermocouples to log the temperature of the target assembly during irradiation.",
+      "rationale": "This step is required to confirm that the critical constraint of avoiding thermal runaway, as specified in the question, was successfully met.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    }
+  ]
+}

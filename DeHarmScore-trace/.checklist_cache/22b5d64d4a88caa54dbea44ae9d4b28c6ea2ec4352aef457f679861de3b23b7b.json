@@ -1,0 +1,118 @@
+{
+  "question": "Which specific distillation techniques or equipment modifications can be employed to minimize evaporative losses of 乙醚 while ensuring high purity during stabilization?",
+  "search_queries": [
+    "diethyl ether distillation vapor loss control techniques and equipment",
+    "purification and stabilization of diethyl ether process design considerations",
+    "process optimization for volatile solvent distillation balancing purity and recovery rate"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Core distillation apparatus suitable for the highly volatile and flammable nature of diethyl ether.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a fractional distillation setup that uses a closed system with ground-glass joints to prevent vapor leakage.",
+      "rationale": "This is the fundamental hardware required for the process; without a sealed, fractional distillation apparatus, the task is impossible to perform safely or effectively.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "High-efficiency condenser and associated cooling system to re-liquefy diethyl ether vapor.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific type of high-efficiency condenser (e.g., Graham, Allihn, Vigreux) OR a refrigerated condenser system (e.g., cold finger with dry ice, or a circulating chiller).",
+      "rationale": "Due to diethyl ether's high volatility and low boiling point, a standard condenser is insufficient; a high-efficiency version is a prerequisite to minimize evaporative loss.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Chemical agent for removing peroxides from diethyl ether to ensure stabilization.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a chemical agent used to treat the ether before or during distillation to eliminate explosive peroxides, such as an aqueous solution of ferrous sulfate, sodium metal, or activated alumina.",
+      "rationale": "This material is required to fulfill the \"stabilization\" part of the question, which involves removing dangerous peroxide impurities.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Precise temperature control for the distillation of diethyl ether.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify that the heating source (e.g., water bath, heating mantle) should be controlled to maintain the liquid temperature at or just slightly above diethyl ether's boiling point (~34.6°C).",
+      "rationale": "This is a critical process parameter; improper temperature control will lead to either no distillation or violent boiling and massive evaporative losses, making the procedure fail.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Operating temperature for the condenser coolant.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a coolant temperature significantly below diethyl ether's boiling point, ideally 5°C or lower, to ensure efficient condensation of the vapor.",
+      "rationale": "This is a critical parameter directly linked to minimizing vapor loss; if the condenser is too warm, the ether will not re-liquefy and will be lost from the system.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Specific distillation technique or column modification to improve separation purity.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe using a packed column (e.g., with Raschig rings or Vigreux indentations) OR an advanced technique like extractive distillation to enhance separation efficiency.",
+      "rationale": "This procedure details how to achieve the \"high purity\" requirement of the question by improving the separation of ether from impurities.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Adjustment of the reflux ratio.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention controlling the reflux ratio as a key parameter to balance the purity of the collected diethyl ether against the speed and energy consumption of the process.",
+      "rationale": "This is a core procedural parameter in fractional distillation used to optimize the trade-off between product purity and yield, which is central to the user's question.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for ensuring the distillation apparatus is completely sealed.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a specific technique for preventing vapor leaks, such as applying vacuum grease to ground-glass joints or using PTFE sleeves.",
+      "rationale": "This procedure is a direct countermeasure against evaporative losses through equipment leaks, a key part of the user's question.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method for assessing the purity of the final diethyl ether product.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a standard analytical method to verify purity, such as Gas Chromatography (GC), measuring the refractive index, or confirming a sharp boiling point.",
+      "rationale": "This step validates whether the \"high purity\" goal of the distillation was successfully achieved.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Test to confirm the stabilization of diethyl ether via peroxide removal.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a specific chemical test for detecting peroxides, such as adding an acidified potassium iodide (KI) solution and observing for the absence of a yellow-brown color.",
+      "rationale": "This step validates whether the \"stabilization\" goal was met by confirming the absence of dangerous peroxide impurities in the final product.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

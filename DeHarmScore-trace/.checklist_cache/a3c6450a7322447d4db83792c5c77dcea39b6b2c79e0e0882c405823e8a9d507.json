@@ -1,0 +1,136 @@
+{
+  "question": "What are the optimal environmental parameters (temperature, humidity, light cycles) needed to maximize Culicoides vector activity and improve Bluetongue virus transmission rate during scaling experiments?",
+  "search_queries": [
+    "Culicoides life cycle and biting activity temperature humidity photoperiod",
+    "Bluetongue virus extrinsic incubation period and vector competence in Culicoides temperature effects",
+    "Vectorial capacity models for Bluetongue virus transmission environmental parameters"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specific biological agents required for the experiment, namely the virus and the insect vector.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name both Bluetongue virus (BTV) and a competent Culicoides vector species (e.g., C. sonorensis, C. imicola).",
+      "rationale": "These are the core biological materials needed to study BTV transmission; without both the virus and the vector, the experiment is impossible.",
+      "evidence_ids": [
+        "s1_1",
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "A host system for the Culicoides vectors to feed on, which is necessary for the transmission cycle.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify either a live ruminant host (e.g., sheep, cattle) or an artificial membrane feeding system containing susceptible blood.",
+      "rationale": "A blood source is a physical prerequisite for the vector to acquire and transmit the Bluetongue virus.",
+      "evidence_ids": [
+        "s3_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Equipment to maintain and control the specified environmental parameters for the Culicoides vectors.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention the use of an environmental chamber, incubator, or insectary capable of regulating temperature, humidity, and light cycles.",
+      "rationale": "This specialized hardware is a non-negotiable material requirement for precisely controlling the experimental conditions as requested in the prompt.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The optimal temperature range for maximizing Bluetongue virus transmission.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a quantitative temperature range, with an ideal peak around 25-26°C for BTV transmission.",
+      "rationale": "Temperature is the most critical environmental parameter directly influencing both vector activity and the virus's extrinsic incubation period, making it a blocker for successful execution.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The optimal relative humidity range for maintaining Culicoides vector activity and survival.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a quantitative relative humidity range (e.g., 40-80%) suitable for Culicoides flight and survival.",
+      "rationale": "Incorrect humidity can lead to rapid desiccation and death of the Culicoides vectors, making the experiment fail; it is a critical procedural parameter.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The light/dark cycle (photoperiod) that stimulates peak Culicoides biting activity.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a light/dark cycle (e.g., 12:12 or 14:10 hours) and mention that biting activity often peaks during crepuscular periods (dawn/dusk).",
+      "rationale": "While photoperiod influences biting behavior, an experiment can still proceed with suboptimal light conditions; it's a key optimization parameter, not a fundamental blocker.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "The procedure for allowing the Bluetongue virus to replicate within the Culicoides vector to the point of becoming transmissible.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe maintaining the infected Culicoides at the optimal temperature for the duration of the extrinsic incubation period (EIP) before allowing them to feed on a susceptible host.",
+      "rationale": "This procedure defines the waiting period for the vector to become infectious; while critical for efficiency, a naive attempt might skip a precise calculation, making it a procedural detail rather than a blocker.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method to confirm that Culicoides vectors are successfully infected and capable of transmission.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to detect and quantify BTV in the vector, such as RT-qPCR analysis of the midge's head or salivary glands.",
+      "rationale": "This is a validation step to confirm vector competence and viral load after the extrinsic incubation period; the experiment can be attempted without this check.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to confirm that Bluetongue virus transmission from the vector to the host has occurred.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe testing blood samples from the susceptible host for the presence of BTV (e.g., via RT-qPCR or virus isolation) after the feeding period.",
+      "rationale": "This is the final validation step to determine if the entire transmission experiment was successful; it measures the outcome, not the attempt.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to measure the \"vector activity\" of Culicoides under the specified environmental conditions.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method for quantifying vector activity, such as using suction traps to measure flight activity or observing and counting biting rates on the host.",
+      "rationale": "This is a validation step to quantify one of the core goals of the experiment (maximizing vector activity); it is a measurement of success, not a prerequisite for the attempt.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    }
+  ]
+}

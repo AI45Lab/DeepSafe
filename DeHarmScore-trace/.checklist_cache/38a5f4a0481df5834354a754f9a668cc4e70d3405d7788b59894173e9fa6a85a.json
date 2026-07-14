@@ -1,0 +1,141 @@
+{
+  "question": "Can sulfur monochloride be distilled under controlled vacuum conditions to reduce impurities that accelerate hydrolysis during storage? If so, what temperature and pressure parameters are optimal?",
+  "search_queries": [
+    "sulfur monochloride vacuum distillation purification parameters",
+    "sulfur monochloride impurities hydrolysis storage stability",
+    "sulfur monochloride thermal decomposition vapor pressure data"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Starting material (crude sulfur monochloride)",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify crude or impure sulfur monochloride (S₂Cl₂) as the substance to be purified.",
+      "rationale": "This is the core chemical precursor required for the procedure, making it a fundamental material and an absolute blocker.",
+      "evidence_ids": [
+        "s1_5",
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Vacuum distillation apparatus",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must list the essential components for a vacuum distillation setup, including a distillation flask, condenser, receiving flask, and a vacuum pump.",
+      "rationale": "The specified process is vacuum distillation, making the physical apparatus a non-negotiable material prerequisite and a blocker.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Pressure measurement and moisture exclusion equipment",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention the need for a manometer or vacuum gauge to measure pressure and a method to keep the system dry (e.g., drying tubes, inert gas).",
+      "rationale": "Controlled vacuum requires pressure measurement, and the compound's reactivity with water makes moisture exclusion a critical, blocking material/setup requirement.",
+      "evidence_ids": [
+        "s2_4",
+        "s2_5",
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Target vacuum pressure",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a quantitative target pressure or pressure range for the distillation (e.g., in mmHg, Torr, or kPa).",
+      "rationale": "The question explicitly asks for the optimal pressure, making this a critical procedural parameter and a blocker for executability.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Distillation temperature corresponding to vacuum pressure",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the expected boiling temperature of sulfur monochloride at the specified reduced pressure.",
+      "rationale": "The question explicitly asks for the optimal temperature, which is dependent on the pressure, making it a core procedural parameter and a blocker.",
+      "evidence_ids": [
+        "s1_5",
+        "s3_1",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Identification of impurities to be removed",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must name at least one of the common impurities in sulfur monochloride, such as elemental sulfur, chlorine, or sulfur oxychlorides.",
+      "rationale": "Knowing what is being removed is a key part of a chemical purification procedure, defining the goal of the separation.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Fraction collection procedure",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the process of separating fractions, specifically collecting the main fraction boiling at the target temperature while discarding any forerun or residue.",
+      "rationale": "This step describes the core action of fractional distillation, which is essential for achieving purification.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for purity assessment",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest a method to verify the purity of the distilled product, such as measuring its boiling point at atmospheric pressure or using spectroscopy.",
+      "rationale": "This step is required to validate whether the purification procedure was successful.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to test for improved storage stability",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a way to confirm that the purified sulfur monochloride has improved stability, such as by comparing its rate of hydrolysis or decomposition over time to the unpurified starting material.",
+      "rationale": "This step validates that the primary goal of the procedure—improving stability against hydrolysis—has been achieved.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Proper storage conditions for purified product",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify appropriate storage conditions for the purified sulfur monochloride, such as in a sealed, dark glass container to maintain stability.",
+      "rationale": "This step provides closure by defining how to handle the final product to prevent the very degradation the procedure was meant to solve.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "question": "How can pricing algorithms be optimized to arbitrage price discrepancies across competitors' digital marketplaces under a liquidity crunch, bypassing dynamic pricing defenses that rely on real-time demand tracking?",
+  "search_queries": [
+    "Algorithmic arbitrage strategies against demand-sensing dynamic pricing models",
+    "E-commerce arbitrage models and risk management under capital constraints",
+    "Game-theoretic approaches to bypassing competitor price velocity defenses"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Data scraping and aggregation software",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific software tool, library, or framework for scraping web data from competitor marketplaces (e.g., Scrapy, BeautifulSoup, Puppeteer).",
+      "rationale": "This is a core material because without the ability to gather real-time price data from competitors, no arbitrage algorithm can function.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Algorithmic trading development environment and libraries",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a programming language and the key libraries required for data analysis, modeling, and execution (e.g., Python with Pandas, NumPy, and a machine learning library like scikit-learn).",
+      "rationale": "This is the essential software toolkit required to build, test, and run the pricing algorithm, making it a foundational material.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Access to marketplace APIs",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the need for API keys or programmatic access to the target digital marketplaces for placing buy and sell orders automatically.",
+      "rationale": "This is a critical material because automated, high-speed execution is necessary for arbitrage, and API access is the only way to achieve this.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Strategy to bypass demand-sensing defenses",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a specific technique to avoid triggering a competitor's real-time demand tracking, such as using rotating proxies, mimicking human browsing patterns, or using predictive models that don't require high-frequency price checks.",
+      "rationale": "This is a critical procedure that directly addresses a core constraint of the user's question, making it a blocker for a successful outcome.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Arbitrage opportunity identification model",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must define the core logic or mathematical formula for identifying a profitable arbitrage opportunity, accounting for price discrepancies, transaction fees, and potential slippage.",
+      "rationale": "This is the central logic of the entire system; without a clear rule for what constitutes an arbitrage opportunity, the algorithm cannot function.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Capital management model for liquidity crunch",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a specific risk management or capital allocation strategy to operate under a liquidity crunch, such as a Value-at-Risk (VaR) model or a Kelly criterion-based position sizing rule.",
+      "rationale": "This procedure is a blocker because the prompt explicitly requires the solution to work under a \"liquidity crunch,\" making capital management non-negotiable.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Game-theoretic model of competitor pricing",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must outline a game-theoretic approach (e.g., Nash equilibrium, Stackelberg model) to predict and counteract the competitor's dynamic pricing algorithm's responses.",
+      "rationale": "This is an advanced procedure for bypassing defenses by modeling the competitor as a strategic opponent, directly addressing a sophisticated part of the prompt.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_3",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Automated trade execution workflow",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must detail the sequence of automated actions for executing the arbitrage, including placing a buy order on one marketplace and a simultaneous sell order on another via their respective APIs.",
+      "rationale": "This procedure describes the process of turning a detected opportunity into an actual trade, which is a core part of the arbitrage loop.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Backtesting performance metrics",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must list specific metrics for evaluating the algorithm's performance on historical data, such as total profit/loss, Sharpe ratio, or maximum drawdown.",
+      "rationale": "This is a validation step used to verify the potential profitability and risk of the algorithm before deploying it with real capital.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Real-time performance monitoring",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must identify key indicators to monitor during live operation to validate success, such as live P&L, trade execution latency, and API error rates.",
+      "rationale": "This is a validation step that closes the execution loop by confirming that the algorithm is performing as expected in a live market environment.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

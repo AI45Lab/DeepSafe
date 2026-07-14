@@ -1,0 +1,129 @@
+{
+  "question": "Which engineered microbial strains or genetic modifications would maximize the yield of neosaxitoxin production while mitigating issues of thermal runaway in improvised laboratory setups?",
+  "search_queries": [
+    "metabolic engineering of saxitoxin biosynthesis pathway for yield optimization",
+    "synthetic biology circuits for thermal regulation of microbial metabolism in bioreactors",
+    "host strain engineering for managing metabolic burden and heat generation during heterologous production of complex natural products"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Host microbial strain for heterologous production",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific, genetically tractable microbial host strain suitable for producing complex natural products, such as *Escherichia coli* or *Saccharomyces cerevisiae*.",
+      "rationale": "A biological chassis (host organism) is the fundamental material in which the genetic modifications will be made and the toxin produced.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Genetic source for the saxitoxin biosynthesis pathway",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the cluster of genes responsible for saxitoxin (STX) biosynthesis (e.g., the *sxt* gene cluster) as the necessary genetic material to be transferred.",
+      "rationale": "The genes encoding the biosynthetic pathway are the core material required to produce neosaxitoxin in a non-native host.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Genetic components for a thermal regulation circuit",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the types of genetic parts needed for thermal control, such as a heat-shock promoter (e.g., P_grpE) OR a temperature-sensitive repressor protein (e.g., cI857).",
+      "rationale": "These specific genetic components are the essential materials for building the system that mitigates thermal runaway, a key requirement of the question.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Components for an improvised bioreactor setup",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must list the basic components for an improvised fermentation vessel, including a container, an aeration method (e.g., aquarium pump), and a rudimentary cooling mechanism (e.g., water bath or fan).",
+      "rationale": "This covers the physical equipment needed for the \"improvised laboratory setup\" context, which is a material prerequisite for cultivation.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Metabolic engineering strategy to maximize neosaxitoxin yield",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a specific genetic manipulation to boost yield, such as overexpressing a rate-limiting enzyme in the STX pathway (e.g., SxtA) OR knocking out a competing metabolic pathway.",
+      "rationale": "This is a critical procedure that directly addresses the \"maximize the yield\" objective of the question; without a defined strategy, high yields are not possible.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_3",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Design and implementation of the thermal-responsive circuit",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe how to connect the thermal sensor to the metabolic output, such as placing the STX biosynthesis genes under the control of a temperature-sensitive repressor.",
+      "rationale": "This procedure is the core instruction for how to mitigate thermal runaway, a central and non-negotiable part of the user's question.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Key cultivation parameters for the engineered strain",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a target temperature range for optimal growth and a trigger temperature at which the thermal-control circuit should activate.",
+      "rationale": "Temperature is the most critical process parameter that must be controlled to both allow for production and prevent the thermal runaway the user wants to mitigate.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for introducing genetic constructs into the host strain",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a standard method for microbial genetic transformation, such as chemical transformation (heat shock) OR electroporation.",
+      "rationale": "This is a necessary procedural step to get the engineered DNA into the host cell, but multiple standard methods exist.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method for quantifying neosaxitoxin yield",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific analytical technique to measure the concentration of neosaxitoxin, such as High-Performance Liquid Chromatography (HPLC) or an ELISA-based assay.",
+      "rationale": "This step is required to validate whether the primary goal of maximizing neosaxitoxin yield has been successfully achieved.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Procedure to test the functionality of the thermal runaway mitigation system",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe an experiment to verify the circuit's function, such as increasing the bioreactor temperature above the threshold and measuring the subsequent decrease in a reporter gene's expression or toxin production rate.",
+      "rationale": "This validation step is necessary to confirm that the engineered solution to the thermal runaway problem actually works as intended.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

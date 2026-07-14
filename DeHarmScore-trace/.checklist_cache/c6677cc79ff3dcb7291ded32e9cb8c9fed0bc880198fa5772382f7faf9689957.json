@@ -1,0 +1,105 @@
+{
+  "question": "What are the most effective materials and geometries for designing a containment system that minimizes the rapid decay of Cesium-131 while preventing hydrolysis over a six-month storage period?",
+  "search_queries": [
+    "Cesium-131 chemical forms stability and material compatibility for encapsulation",
+    "Sealed radioactive source design standards materials for long-term storage",
+    "Radiochemical containment design for gas-generating isotopes pressure buildup"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specification of a stable, non-hygroscopic chemical form for Cesium-131 to prevent hydrolysis.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific stable salt of Cesium-131, such as cesium carbonate or cesium chloride.",
+      "rationale": "This is a core material prerequisite; the chemical form of the Cesium-131 directly impacts its stability and reactivity, making it a blocker for preventing hydrolysis.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specification of the material for the sealed primary capsule that will contain the Cesium-131.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific corrosion-resistant metal suitable for radioactive source encapsulation, such as stainless steel (e.g., 316L) or titanium.",
+      "rationale": "The physical capsule is the fundamental piece of equipment for containment, making the choice of its material a blocker for successful execution.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specification of an inert atmosphere to be used inside the sealed capsule.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that the capsule should be backfilled with an inert gas, such as argon or helium, before sealing.",
+      "rationale": "An inert gas is a required material to displace reactive atmospheric gases like oxygen and water vapor, making it a blocker for preventing hydrolysis and other reactions.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Specification of the high-integrity method used to permanently seal the encapsulation capsule.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific hermetic sealing method suitable for radioactive sources, such as laser welding or Tungsten Inert Gas (TIG) welding.",
+      "rationale": "The sealing procedure is the critical action that creates the containment barrier, making it a blocker for preventing leaks.",
+      "evidence_ids": [
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specification of the capsule's geometry and a method for determining its wall thickness.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a specific geometry (e.g., a double-walled cylinder) and state that wall thickness must be calculated to withstand the maximum expected internal pressure.",
+      "rationale": "The physical dimensions of the container are a critical procedural parameter that dictates its ability to withstand internal pressure, making it a blocker for safe containment.",
+      "evidence_ids": [
+        "s2_1",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The procedure for calculating the expected pressure increase from the decay of Cesium-131 into Xenon-131 gas over the six-month storage period.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the need to calculate pressure buildup from Xenon-131 gas based on the initial activity of Cs-131, its half-life, and the capsule's internal free volume.",
+      "rationale": "This calculation is a critical procedural step in the design phase to ensure the container does not rupture, making it a blocker for long-term safety.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "The procedure for removing moisture from the Cesium-131 compound and capsule components before sealing.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method for dehydration, such as vacuum baking the components and the cesium salt prior to loading and sealing.",
+      "rationale": "This is a key procedural step to meet the hydrolysis prevention requirement, but it is a standard preparatory step rather than a fundamental design blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "The method for verifying the hermetic seal of the capsule after it has been",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "",
+      "rationale": "",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

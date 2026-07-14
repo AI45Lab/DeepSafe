@@ -1,0 +1,132 @@
+{
+  "question": "Which solvent-surfactant systems can be used to increase the solubility of 2,2-Diphenyl-2-hydroxyacetic acid in aqueous formulations without compromising stability for deployment purposes?",
+  "search_queries": [
+    "Synergistic solubilization mechanisms of co-solvents and surfactants for poorly soluble weak acids",
+    "Physical and chemical stability challenges in aqueous formulations with mixed solvent-surfactant systems",
+    "Excipient selection criteria and compatibility for solubilizing hydrophobic APIs in aqueous systems"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The target compound, 2,2-Diphenyl-2-hydroxyacetic acid.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must explicitly name the target compound, 2,2-Diphenyl-2-hydroxyacetic acid (or benzilic acid).",
+      "rationale": "This is the primary active pharmaceutical ingredient (API) whose solubility needs to be enhanced, making it the most fundamental material prerequisite.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific examples of water-miscible organic co-solvents.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific, pharmaceutically acceptable co-solvent such as propylene glycol, ethanol, or a polyethylene glycol (e.g., PEG 400).",
+      "rationale": "Co-solvents are a core component of the requested \"solvent-surfactant system\" and are physically required to create the formulation.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specific examples of surfactants.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one class or specific example of a pharmaceutically acceptable surfactant, such as a Polysorbate (e.g., Tween 80), a Cremophor, or a Pluronic.",
+      "rationale": "Surfactants are the other core component of the requested \"solvent-surfactant system\" and are physically required to create the formulation.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "pH modifying agents (alkalizers).",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a class of agent used to raise pH, such as a base (e.g., sodium hydroxide) or an amine buffer (e.g., triethanolamine).",
+      "rationale": "Since the target is a weak acid, an alkalizing agent is a key material used to ionize it, which is a primary mechanism for increasing aqueous solubility.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_4",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "pH adjustment to increase ionization.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the procedural step of adjusting the formulation's pH to a value above the pKa of 2,2-Diphenyl-2-hydroxyacetic acid to convert it to its more soluble salt form.",
+      "rationale": "For a weak acid, controlling pH is the most critical procedural parameter for achieving and maintaining solubility in an aqueous system.",
+      "evidence_ids": [
+        "s1_4",
+        "s1_5",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Determination of optimal component ratios.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the need to experimentally determine the optimal concentration or ratio of the selected co-solvent and surfactant to achieve maximum solubility.",
+      "rationale": "The interaction between solvents and surfactants can be synergistic or antagonistic, so finding the correct ratio is a critical procedure for success.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Order of addition for formulation components.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a logical mixing procedure, such as dissolving the 2,2-Diphenyl-2-hydroxyacetic acid in the co-solvent first before adding it to the aqueous surfactant solution.",
+      "rationale": "The order in which components are mixed is a key procedural detail that can prevent precipitation and ensure a homogenous final product.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Quantitative measurement of solubility enhancement.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific analytical method to quantify the concentration of dissolved 2,2-Diphenyl-2-hydroxyacetic acid, such as HPLC or UV-Vis spectroscopy.",
+      "rationale": "This step validates whether the primary goal of increasing solubility was successfully achieved.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Assessment of physical stability.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to check for physical instability, such as visual inspection for precipitation or crystallization after storage under specified conditions (e.g., refrigerated, room temperature).",
+      "rationale": "This step validates that the formulation meets the \"without compromising stability\" constraint of the question by ensuring it remains a single phase.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Assessment of chemical stability.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe using a stability-indicating analytical method, such as HPLC, to measure the concentration of 2,2-Diphenyl-2-hydroxyacetic acid over time to detect degradation.",
+      "rationale": "This step validates that the chosen excipients do not cause chemical degradation of the target compound, fulfilling the \"stability for deployment\" requirement.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "question": "What strategies can be employed to optimize the use of flash loans for leveraging arbitrage opportunities in a DeFi protocol where anti-front-running defenses are deployed to mitigate price manipulation?",
+  "search_queries": [
+    "DeFi arbitrage strategies under MEV mitigation and anti-front-running mechanisms",
+    "Flash loan arbitrage optimization techniques for MEV-protected DeFi protocols",
+    "DeFi arbitrage models and risk management with flash loans under transaction ordering constraints"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "A specific DeFi protocol that offers flash loans.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific flash loan provider (e.g., Aave, dYdX, or Uniswap).",
+      "rationale": "A flash loan provider is the source of the primary financial tool (uncollateralized loan) required for the task, making it a core material prerequisite.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Software libraries and node access for interacting with a blockchain.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention both a software library for blockchain interaction (e.g., ethers.js, web3.py) and a method for connecting to the blockchain network (e.g., using a node provider like Infura or Alchemy, or running a local node).",
+      "rationale": "These are the essential software tools and infrastructure access needed to construct and submit transactions to the DeFi protocol, making them material prerequisites.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "A service or tool for private transaction submission to bypass public mempool front-running.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific private transaction relay or MEV service (e.g., Flashbots, MEV-Geth, or a similar private mempool service).",
+      "rationale": "The question specifies operating in an environment with anti-front-running defenses, so a service to bypass these defenses is a critical material component for a successful strategy.",
+      "evidence_ids": [
+        "s1_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The method for detecting price discrepancies between DeFi exchanges.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the process of monitoring and comparing asset prices across at least two different decentralized exchanges (DEXs) to identify a profitable arbitrage opportunity.",
+      "rationale": "This is the core procedural logic for identifying the arbitrage opportunity that the flash loan will be used to exploit.",
+      "evidence_ids": [
+        "s1_5",
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The specific sequence of actions within the atomic transaction.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must outline the correct atomic sequence: borrow from flash loan provider, swap on DEX A, swap on DEX B, and repay the loan plus fee, all within a single transaction.",
+      "rationale": "This defines the fundamental, non-negotiable workflow of a flash loan arbitrage, making it a critical procedure.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Techniques to minimize transaction costs and maximize inclusion speed.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention at least one specific gas optimization technique, such as using a gas token, optimizing smart contract opcodes, or implementing a dynamic gas price bidding strategy.",
+      "rationale": "In the highly competitive environment of DeFi arbitrage, gas optimization is a critical procedural parameter that determines profitability and success, not just an improvement.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "The procedure for structuring transactions to work with private MEV relays to avoid front-running.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the concept of creating a \"bundle\" of transactions to be sent to a private relay or searcher for atomic execution to circumvent anti-front-running defenses.",
+      "rationale": "This is a specific procedure for implementing the strategy of bypassing defenses, which is a key part of the question's \"optimization\" aspect.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "The core logic to be implemented in the smart contract that executes the flash loan.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the necessary functions within the smart contract, including a function to receive the flash loan and another to execute the arbitrage trade logic.",
+      "rationale": "This describes the creation of the software agent that performs the task, which is a core part of the procedure.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to confirm the net profit of a successful arbitrage transaction.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must state that the final token balance must be checked after the transaction, ensuring the profit is greater than the flash loan fee and the transaction gas cost.",
+      "rationale": "This is a validation step to confirm whether the execution of the arbitrage strategy was successful and resulted in a net gain.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Troubleshooting steps for failed or unprofitable transactions.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention at least one method for analyzing a failed transaction, such as using a block explorer to check for revert reasons (e.g., slippage, out of gas) or analyzing if the transaction was front-run.",
+      "rationale": "This step involves analyzing the outcome of a failed attempt to troubleshoot and refine the strategy, which is a key part of the execution loop.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    }
+  ]
+}

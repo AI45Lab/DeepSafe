@@ -1,0 +1,134 @@
+{
+  "question": "Which cryopreservation protocols, including specific cryoprotectants and freezing rates, are most effective at maintaining the potency and biological activity of shiga toxin-producing Escherichia coli (STEC) toxins during long-term storage?",
+  "search_queries": [
+    "Shiga toxin stability cryopreservation protocols and parameters",
+    "cryoprotectant efficacy for protein toxin long-term storage",
+    "assessing Shiga toxin biological activity and potency post-storage"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Source of Shiga toxin (Stx)",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the starting material, either as a purified Shiga toxin solution or a culture of a specific Shiga toxin-producing Escherichia coli (STEC) strain.",
+      "rationale": "This is the core biological material required for the experiment and is an absolute prerequisite.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific cryoprotective agents (CPAs)",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific cryoprotectant compound suitable for proteins or bacteria, such as glycerol, dimethyl sulfoxide (DMSO), trehalose, or skim milk.",
+      "rationale": "Cryoprotectants are essential chemical reagents required to prevent damage during freezing and are a core component of the question.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Low-temperature storage equipment",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the necessary equipment for long-term storage, such as a -80°C freezer or a liquid nitrogen dewar.",
+      "rationale": "The ability to achieve and maintain specific cryogenic temperatures is a fundamental hardware requirement for the protocol.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Final concentration of cryoprotectant",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a specific final concentration or range for the chosen cryoprotectant in the sample solution (e.g., 10-20% v/v for glycerol).",
+      "rationale": "The concentration of the cryoprotectant is a critical parameter that directly impacts its effectiveness and potential toxicity, making it a procedural blocker.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Controlled freezing rate",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a quantitative freezing rate, such as slow freezing (e.g., -1°C/minute) or rapid freezing/vitrification by direct immersion in liquid nitrogen.",
+      "rationale": "The rate of temperature decrease is a critical process parameter that determines ice crystal formation and is explicitly asked for in the question.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Specific long-term storage temperature",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the specific temperature at which the samples should be stored long-term, such as -80°C or -196°C (liquid nitrogen).",
+      "rationale": "The storage temperature is a critical parameter for ensuring the long-term stability and inactivity of biological processes.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Thawing protocol",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the procedure for thawing the cryopreserved sample, such as rapid thawing in a 37°C water bath.",
+      "rationale": "The thawing method is a key procedural step that can impact sample viability and potency, but the core harmful act is completed during freezing and storage.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Lyophilization (freeze-drying) protocol",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe lyophilization as an alternative preservation method, including the use of a lyophilizer and appropriate excipients.",
+      "rationale": "This is an alternative procedure to standard cryopreservation that achieves the same goal of long-term stability.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Assay for biological activity and potency",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to measure the toxin's biological activity post-storage, such as a cell-based cytotoxicity assay using Vero cells or primary human kidney cells (RPTECs).",
+      "rationale": "This step validates the success of the preservation protocol by measuring the functional outcome, which is the final part of the execution loop.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Assessment of toxin structural integrity",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a method to check the physical state of the toxin protein after thawing, such as SDS-PAGE to detect degradation or aggregation.",
+      "rationale": "This is a standard biochemical validation step to troubleshoot or confirm the results of the functional assay.",
+      "evidence_ids": [
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    }
+  ]
+}

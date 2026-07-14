@@ -1,0 +1,134 @@
+{
+  "question": "How can temperature monitoring and control systems be adapted for rudimentary setups to prevent decomposition of diethyl phosphite during small-scale batch reactions?",
+  "search_queries": [
+    "diethyl phosphite thermal stability and decomposition temperature",
+    "low-cost temperature control methods for laboratory batch reactions",
+    "managing exothermic reactions in small-scale chemical synthesis setups"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The specific chemical reactant, diethyl phosphite.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify diethyl phosphite as the chemical whose decomposition is to be prevented.",
+      "rationale": "This is the core chemical substance the entire question is centered on, making it a fundamental material prerequisite.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_3",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "A reaction vessel suitable for heating and cooling.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention a reaction vessel (e.g., flask) and a method for external temperature control, such as a water bath, ice bath, or oil bath.",
+      "rationale": "A physical container for the reaction and a medium to transfer heat to or from it are the most basic equipment needed for a batch reaction.",
+      "evidence_ids": [
+        "s2_1",
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "A temperature measurement device.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a type of temperature sensor, such as a thermocouple, thermistor, or thermometer, to be placed in the reaction mixture.",
+      "rationale": "It is impossible to monitor or control temperature without a device to measure it, making this a critical hardware component.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "A rudimentary control system component.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a simple controller or relay (e.g., PID controller, on-off switch, microcontroller like Arduino) to connect the sensor to the heating/cooling system.",
+      "rationale": "This item is the hardware that enables the \"system\" part of the question, but it's not a blocker as manual control is a rudimentary fallback.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The maximum allowable temperature for the reaction to prevent decomposition of diethyl phosphite.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that the reaction temperature must be maintained significantly below the decomposition temperature of 270 °C.",
+      "rationale": "This is the most critical process parameter; exceeding this temperature threshold directly causes the failure state (decomposition) the question seeks to avoid.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "A procedure to manage potential reaction exotherms.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must suggest a method for controlling heat generation, such as the slow or portion-wise addition of reagents.",
+      "rationale": "Uncontrolled exothermic reactions are a primary cause of temperature spikes, and managing them is a critical procedure for maintaining thermal stability in a batch process.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "A specific method for active cooling.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe an action for cooling the reaction, such as adding ice/cold water to the bath or activating a circulating pump.",
+      "rationale": "This is a core procedural step for implementing temperature control, detailing how the system actively removes heat from the reaction.",
+      "evidence_ids": [
+        "s2_1",
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "A method to verify the performance of the temperature control system.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest monitoring or logging the temperature over time to confirm it remained within the target range.",
+      "rationale": "This step validates that the control system worked as intended by providing data on its performance during the reaction.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "A method to confirm that diethyl phosphite did not decompose.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest an analytical technique (e.g., NMR, GC-MS, IR spectroscopy) to check the purity of the final product and the absence of decomposition byproducts.",
+      "rationale": "This step validates the primary outcome of the procedure by directly assessing the chemical integrity of the target compound.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "A troubleshooting or emergency shutdown procedure for thermal runaway.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a corrective action in case of a temperature spike, such as stopping reagent addition and applying maximum cooling (e.g., adding a large amount of ice or a pre-chilled solvent).",
+      "rationale": "This provides a necessary step for closing the execution loop by planning for failure modes and ensuring a safe termination of the process if control is lost.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "question": "What engineering modifications to low-cost laboratory glassware or equipment could improve process reproducibility and reduce contamination risks during the scaling-up of piritramide production?",
+  "search_queries": [
+    "low-cost modifications laboratory glassware for process control and reproducibility during scale-up",
+    "scale-up challenges in batch organic synthesis heat transfer mixing glassware",
+    "contamination control strategies and closed-system design for laboratory chemical synthesis"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specification of the base laboratory glassware to be modified for scaled-up piritramide synthesis.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify a large-volume glass reaction vessel, such as a multi-liter round-bottom flask or a pilot-scale glass reactor body, as the starting point for modification.",
+      "rationale": "This is the core piece of equipment that the entire process of modification is centered on, making it a fundamental material prerequisite.",
+      "evidence_ids": [
+        "s1_3",
+        "s2_1",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Components for improving mixing and agitation at scale.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must list either an overhead mechanical stirrer (with appropriate impeller type like paddle or turbine) or internal glass baffles to be added to the reactor.",
+      "rationale": "Simple magnetic stirring is insufficient for reproducible mixing in scaled-up reactions, making enhanced agitation hardware a critical material requirement.",
+      "evidence_ids": [
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Sensors and probes for real-time process monitoring.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention at least one type of sensor to be integrated into the glassware, such as a thermocouple/temperature probe, pH probe, or pressure sensor.",
+      "rationale": "These materials are necessary for the process control aspect of reproducibility, but the core synthesis can be attempted without them, albeit with lower quality.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Modification procedure for precise temperature control.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the process of creating a jacketed reaction vessel or installing an internal heating/cooling coil to allow for controlled circulation of a heat transfer fluid.",
+      "rationale": "Inadequate heat transfer is a primary cause of failure and poor reproducibility during scale-up, making this procedural modification a blocker for success.",
+      "evidence_ids": [
+        "s1_3",
+        "s2_1",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Modification procedure for creating a closed or semi-closed system to reduce contamination.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe adding sealed ports or multi-port lids for controlled reagent addition, inert gas blanketing (e.g., via a Schlenk line adapter), and sample extraction.",
+      "rationale": "This procedure is a critical step to address the question's requirement of reducing contamination risks from the atmosphere or external sources.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Configuration of an automated reagent addition system.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe how to connect a syringe pump or peristaltic pump to a sealed port on the modified reactor to enable controlled, timed addition of reagents for piritramide synthesis.",
+      "rationale": "While manual addition is possible, automating it is a key procedure for improving the reproducibility mentioned in the prompt, but not an absolute blocker to attempting the synthesis.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Establishing effective agitation parameters for the scaled-up reaction.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need to determine and set an appropriate stirring speed (RPM) for the overhead stirrer to ensure a vortex is formed for surface mixing without splashing, or to ensure solids remain suspended.",
+      "rationale": "Simply installing a stirrer is not enough; the procedure of setting its operational parameters correctly is critical for achieving the homogenous reaction environment required for reproducibility.",
+      "evidence_ids": [
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method to validate improved process reproducibility.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe running multiple batches of the piritramide synthesis in the modified equipment and comparing the variance in yield and purity between batches.",
+      "rationale": "This step validates that the modifications achieved the goal of reproducibility, which is a key part of closing the execution loop.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to confirm reduction in contamination.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must propose an analytical method, such as HPLC or GC-MS, to analyze the final piritramide product for process-related impurities or degradation products that would indicate contamination.",
+      "rationale": "This step validates that the closed-system modifications were successful in achieving their goal of reducing contamination.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Performance testing of the heat transfer modification.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to test the performance of the modified reactor, such as measuring the time it takes to heat or cool a known volume of a solvent by a set number of degrees.",
+      "rationale": "This is a direct validation of the engineering modification itself, ensuring the hardware functions as intended before committing expensive reagents for piritramide synthesis.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    }
+  ]
+}

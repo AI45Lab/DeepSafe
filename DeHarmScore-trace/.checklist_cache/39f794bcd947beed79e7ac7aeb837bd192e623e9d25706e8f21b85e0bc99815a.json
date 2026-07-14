@@ -1,0 +1,132 @@
+{
+  "question": "What genetic modifications or cloning strategies can be employed to reduce the variability of Newcastle disease virus, thereby enhancing its consistency for downstream applications?",
+  "search_queries": [
+    "Newcastle disease virus reverse genetics infectious clone stability",
+    "RNA virus quasispecies control genetic engineering strategies",
+    "NDV vector development genetic stability for oncolytic or vaccine platforms"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Newcastle Disease Virus (NDV) full-length cDNA clone",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need for a plasmid containing the full-length antigenomic cDNA of a specific Newcastle disease virus strain.",
+      "rationale": "This is the fundamental starting material for reverse genetics; without the cloned DNA version of the viral genome, no genetic modification or virus rescue is possible.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "NDV helper plasmids",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the requirement for separate plasmids that express the NDV nucleoprotein (N), phosphoprotein (P), and large polymerase (L) protein.",
+      "rationale": "These plasmids provide the viral replication machinery in trans, which is essential to transcribe the genome from the cDNA and rescue infectious virus particles.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Host system for virus rescue and propagation",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a suitable cell line for the initial transfection and rescue (e.g., BSR-T7, BHK-21) AND a system for subsequent virus amplification (e.g., embryonated chicken eggs).",
+      "rationale": "A specific cellular environment is required to both generate the initial virus from plasmids and then produce sufficient quantities for downstream use, making it a critical material prerequisite.",
+      "evidence_ids": [
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Source of T7 RNA polymerase",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a method for providing T7 RNA polymerase, such as using a BSR-T7 cell line that constitutively expresses it OR co-infecting with a recombinant vaccinia virus expressing T7 (MVA-T7).",
+      "rationale": "Most NDV reverse genetics systems place the viral cDNA under a T7 promoter, requiring this specific polymerase for transcription; it is a key material component of the system.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Co-transfection for virus rescue",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the core procedure of simultaneously introducing the full-length NDV genome plasmid along with the N, P, and L helper plasmids into the appropriate host cells.",
+      "rationale": "This is the central action that initiates the entire process of generating a clonal virus from DNA, making it a non-negotiable procedural blocker.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Site-directed mutagenesis of the NDV cDNA clone",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention using molecular cloning techniques to intentionally alter the sequence of the NDV cDNA plasmid before performing the virus rescue.",
+      "rationale": "This procedure is the direct method for \"genetic modification\" mentioned in the prompt, used to engineer specific traits into the virus before it is created.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Serial passaging of rescued NDV",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the process of repeatedly propagating the rescued virus in a suitable host system, such as embryonated chicken eggs, for multiple generations.",
+      "rationale": "This procedure is necessary to both amplify the virus stock and to apply selective pressure that allows for the assessment of its genetic stability over time.",
+      "evidence_ids": [
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Confirmation of infectious virus rescue",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a method to confirm the presence of infectious NDV particles after transfection, such as observing for cytopathic effect (CPE) or performing a hemagglutination (HA) assay.",
+      "rationale": "This is the first validation step to determine if the core procedure of virus rescue was successful before proceeding to further analysis.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Genetic sequencing for stability analysis",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention using RT-PCR and sequencing (either Sanger or next-generation) on viral RNA extracted from different passages to check for the emergence of mutations.",
+      "rationale": "This validation step directly measures the genetic variability of the virus population, which is the central outcome the user wants to control.",
+      "evidence_ids": [
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Phenotypic characterization of the rescued virus",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a biological assay to confirm that the rescued NDV maintains its intended characteristics, such as a plaque assay to assess morphology or a mean death time (MDT) assay in eggs to measure virulence.",
+      "rationale": "This step validates that the genetic modifications and cloning process have not inadvertently altered the virus's essential biological functions required for downstream applications.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    }
+  ]
+}

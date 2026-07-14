@@ -1,0 +1,129 @@
+{
+  "question": "What crystallization techniques can be used to stabilize triethyl phosphite in environments with high humidity, reducing its propensity for hydrolysis while maintaining its chemical potency?",
+  "search_queries": [
+    "solid-state stabilization mechanisms for phosphite esters against hydrolysis",
+    "cocrystallization and inclusion complexes for moisture-sensitive organophosphorus compounds",
+    "assessing chemical potency vs hydrolytic stability in crystalline phosphite formulations"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The primary chemical to be stabilized, triethyl phosphite.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must explicitly name triethyl phosphite as the starting material.",
+      "rationale": "This is the core chemical precursor specified in the question, making it an essential material and a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "A stabilizing agent for forming a new crystalline solid with triethyl phosphite.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific class of compound suitable for cocrystallization OR formation of an inclusion complex (e.g., a co-former, or a host molecule like a cyclodextrin).",
+      "rationale": "The formation of a new solid form requires a second component, making this a prerequisite material and a blocker.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Appropriate solvent or solvent system for crystallization.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one suitable organic solvent in which both triethyl phosphite and the chosen stabilizing agent are soluble.",
+      "rationale": "Crystallization is a solution-phase process, so a solvent is a non-negotiable material and a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The stoichiometric ratio of triethyl phosphite to the stabilizing agent.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a starting molar ratio (e.g., 1:1, 1:2) for combining triethyl phosphite and the co-former/host molecule.",
+      "rationale": "The molar ratio is a critical parameter that dictates the structure and formation of the desired cocrystal or inclusion complex, making it a procedural blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "A specific method for inducing crystallization.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a valid crystallization technique, such as slow solvent evaporation, cooling crystallization, OR vapor diffusion.",
+      "rationale": "This is a core action required to transform the materials, defining the procedure.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Temperature control parameters during the crystallization process.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must provide a specific temperature or temperature range (e.g., room temperature, 4°C, or a cooling profile) for the crystallization process.",
+      "rationale": "Temperature is a key parameter that influences crystal growth and quality, making it a critical part of the procedure.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Method for isolating and drying the final crystalline product.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to separate the crystals from the solvent and dry them, such as vacuum filtration followed by drying under vacuum or an inert gas stream.",
+      "rationale": "This procedural step is necessary to obtain the final, solvent-free product for subsequent testing and use.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Structural confirmation of the new crystalline form.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention an analytical technique to verify the formation of the cocrystal or inclusion complex, such as Powder X-ray Diffraction (PXRD) or Single Crystal X-ray Diffraction (SCXRD).",
+      "rationale": "This step validates whether the intended solid-state structure was successfully created.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Assay to measure the hydrolytic stability of the stabilized triethyl phosphite.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to test stability, such as exposing the crystals to a controlled high-humidity environment and quantifying the amount of triethyl phosphite degradation over time (e.g., via NMR or GC).",
+      "rationale": "This step validates whether the primary goal of reducing hydrolysis, as stated in the question, was achieved.",
+      "evidence_ids": [
+        "s1_1",
+        "s3_1",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Assay to confirm the maintained chemical potency of the stabilized triethyl phosphite.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to test the chemical reactivity of the stabilized triethyl phosphite, such as using it in a known reaction (e.g., the Arbuzov reaction) and measuring the product yield.",
+      "rationale": "This step validates the second part of the user's request, ensuring the stabilized compound is still chemically useful.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    }
+  ]
+}

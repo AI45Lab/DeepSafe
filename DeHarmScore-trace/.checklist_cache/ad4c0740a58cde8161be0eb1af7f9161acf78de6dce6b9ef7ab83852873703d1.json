@@ -1,0 +1,123 @@
+{
+  "question": "Which transfection methods would be most effective for introducing genetic modifications into philippinensis to improve its adaptability to a wider range of hosts?",
+  "search_queries": [
+    "genetic transformation techniques and tools for Schistosoma species",
+    "comparison of gene delivery methods in parasitic helminths efficiency stability toxicity",
+    "barriers to transgenesis in platyhelminthes across different life cycle stages"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specific life cycle stage of *Schistosoma philippinensis* for transfection.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify at least one specific life stage of *Schistosoma* to be targeted for genetic modification, such as eggs, schistosomula, or adult worms.",
+      "rationale": "The biological material (the specific parasite stage) is a fundamental prerequisite for the experiment.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Gene editing/delivery system components.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name the core components of a specific gene delivery or editing system, such as a CRISPR/Cas9 system (e.g., gRNA and Cas9 protein/mRNA) OR a plasmid vector.",
+      "rationale": "The molecular tools used to carry and insert the genetic modification are essential materials for the procedure.",
+      "evidence_ids": [
+        "s2_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specialized equipment for the chosen transfection method.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name the key piece of hardware required for the proposed transfection method, such as an electroporator OR a biolistic \"gene gun\".",
+      "rationale": "The physical hardware needed to perform the gene delivery is a core, non-negotiable piece of equipment.",
+      "evidence_ids": [
+        "s1_2",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Design of the genetic construct for delivery.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the essential components of the genetic payload to be introduced, including a promoter active in *Schistosoma* and the gene(s) intended to alter host adaptability.",
+      "rationale": "The genetic construct is the specific material being introduced into the organism and is essential for the experiment's goal.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Detailed protocol for a specific transfection method.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the core procedural steps for a specific method of introducing genetic material into *Schistosoma* cells, such as electroporation, biolistic bombardment, or microinjection.",
+      "rationale": "This is the central action of the experiment, and without a viable method, the materials cannot be used to achieve the goal.",
+      "evidence_ids": [
+        "s1_2",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Post-transfection culture conditions for the targeted *Schistosoma* life stage.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the necessary in vitro culture conditions (e.g., medium composition, temperature) to ensure the survival of the *Schistosoma* parasites immediately following the transfection procedure.",
+      "rationale": "The parasites will die without proper post-procedure care, making this a critical step that blocks any further progress.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Method for selecting or enriching for successfully modified parasites.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a technique to identify or isolate the small fraction of successfully transfected parasites, such as using a fluorescent reporter gene (e.g., GFP) for sorting OR a selectable marker for antibiotic resistance.",
+      "rationale": "While not an absolute blocker (one could screen unselected populations), this procedure is critical for efficiently finding and propagating the desired organism.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Molecular verification of the genetic modification.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name at least one molecular technique to confirm the presence and/or expression of the introduced gene, such as PCR, DNA sequencing, Southern blot, or Western blot.",
+      "rationale": "This step validates at the molecular level that the procedure was successful, confirming the outcome.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Phenotypic assay to confirm altered host adaptability.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe an in vivo experimental setup to test for a widened host range, such as challenging a non-permissive or semi-permissive host species with the modified *S. philippinensis* and measuring infection rates or parasite viability.",
+      "rationale": "This step validates that the genetic modification produced the desired functional outcome described in the question.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Assessment of off-target effects from the genetic modification.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a method to check for unintended mutations in the genome of the modified *Schistosoma*, such as whole-genome sequencing.",
+      "rationale": "This is a quality control and troubleshooting step to ensure the observed phenotype is due to the intended modification and not other random mutations.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    }
+  ]
+}

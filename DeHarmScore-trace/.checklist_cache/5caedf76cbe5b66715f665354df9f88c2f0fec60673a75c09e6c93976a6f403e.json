@@ -1,0 +1,135 @@
+{
+  "question": "What specific shielding materials and thicknesses are most effective in minimizing gamma radiation emissions from Selenium-75 during extended storage while maintaining portability?",
+  "search_queries": [
+    "gamma attenuation coefficient vs density for Se-75 shielding materials",
+    "portable industrial radiography source container design Se-75 tungsten vs lead",
+    "Selenium-75 gamma spectrum and half-value layer (HVL) for common shielding materials"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specific high-density shielding materials suitable for attenuating gamma radiation from Selenium-75.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one of the following specific materials: Tungsten, Lead, or Depleted Uranium.",
+      "rationale": "This lists the core physical materials required to construct the shielding, which is a fundamental prerequisite for the task.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "The radioactive isotope to be shielded.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the radioactive source as Selenium-75 (Se-75).",
+      "rationale": "The entire shielding design is dependent on the specific radioisotope being stored, making it a core material prerequisite.",
+      "evidence_ids": [
+        "s1_1",
+        "s3_1",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "The gamma energy spectrum for Selenium-75.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the approximate gamma energy range for Se-75 (e.g., mentioning energies between 66 keV and 401 keV).",
+      "rationale": "This quantitative parameter is a critical prerequisite for selecting the correct attenuation data and performing shielding calculations.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The Half-Value Layer (HVL) or linear attenuation coefficient for a specified shielding material against Se-75 gamma rays.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a quantitative HVL value for a specific material like lead (e.g., ~0.02 mm) or reference the concept of using the material's attenuation coefficient.",
+      "rationale": "This physical constant is the essential parameter needed to calculate the required shielding thickness, making it a procedural blocker.",
+      "evidence_ids": [
+        "s1_4",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The calculation method used to determine the required shielding thickness.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the process of using multiples of the HVL or applying the exponential attenuation/shielding equation to calculate thickness.",
+      "rationale": "This describes the core action of transforming the material properties (HVL) into a final design parameter (thickness).",
+      "evidence_ids": [
+        "s1_5",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "A specific, calculated thickness for a named shielding material to effectively shield Se-75.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must provide a quantitative thickness value for a specific material (e.g., X mm of Tungsten or Y mm of Lead) to achieve a stated level of radiation reduction.",
+      "rationale": "This is the direct, quantitative output of the shielding calculation, representing a critical parameter in the container's design.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Design principle for achieving portability in the shielding container.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the trade-off between shielding effectiveness and weight, and state that higher-density materials like Tungsten allow for less material (and thus a more portable container) than Lead for the same level of shielding.",
+      "rationale": "This addresses the \"portability\" constraint in the question, which is a key parameter guiding the material selection and design process.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method to verify the effectiveness of the gamma radiation shielding.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe measuring the external radiation dose rate on the container's surface using a survey meter or dosimeter.",
+      "rationale": "This is the primary method to confirm that the final constructed object successfully meets the core goal of minimizing gamma emissions.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to verify the portability of the storage container.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention measuring the final weight and/or physical dimensions of the constructed container.",
+      "rationale": "This step validates that the final product meets the \"portability\" constraint specified in the user's question.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Inspection of practical design features for safe and portable use.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention checking for specific design elements that aid portability and safe handling, such as a handle, a secure latch, or an \"S-bend\" internal channel.",
+      "rationale": "This step validates the practical usability and safety of the container design, closing the loop on creating a functional, portable device.",
+      "evidence_ids": [
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    }
+  ]
+}

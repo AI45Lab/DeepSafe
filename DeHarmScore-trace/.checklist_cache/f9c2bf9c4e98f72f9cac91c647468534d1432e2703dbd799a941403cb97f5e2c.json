@@ -1,0 +1,126 @@
+{
+  "question": "How can fermentation vessel design be optimized to prevent contamination and thermal runaway during batch scaling of Clostridium argentinense cultures in non-specialized environments?",
+  "search_queries": [
+    "Clostridium fermentation vessel design principles for aseptic containment and anaerobic conditions",
+    "bioreactor heat transfer limitations during scale-up and passive cooling strategies",
+    "design criteria for robust field-deployable bioreactors for hazardous microbes"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specification of the fermentation vessel or bioreactor type suitable for sterile, anaerobic cultivation.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a fermenter design that can be sealed and sterilized, such as a stirred-tank bioreactor (STR) or an air-lift fermenter.",
+      "rationale": "The fermentation vessel is the core piece of hardware required to culture the organism.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "System for creating and maintaining an anaerobic atmosphere for Clostridium argentinense.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a method for anaerobiosis, such as an inert gas (e.g., nitrogen) sparging system or an anaerobic chamber.",
+      "rationale": "Clostridium argentinense is a strict anaerobe and requires an oxygen-free environment to grow, making this a fundamental material requirement.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Equipment for sterilizing the fermentation vessel and culture media to prevent contamination.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention the use of an autoclave or an integrated steam-in-place (SIP) system for sterilization.",
+      "rationale": "Sterilization equipment is an absolute prerequisite for preventing contamination, which is a primary goal of the question.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Design features of the vessel that ensure aseptic containment and prevent ingress of contaminants.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe specific design elements like sterile mechanical seals for agitators, aseptic sampling ports, or sterile air filters for gas exchange.",
+      "rationale": "These specific design procedures are critical to achieving the goal of preventing contamination during the fermentation run.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "A specific heat transfer mechanism integrated into the vessel design to manage exothermic heat during scale-up.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a specific active or passive cooling system, such as an external cooling jacket, internal cooling coils, or passive heat fins/radiators.",
+      "rationale": "This procedure is a direct and critical countermeasure to the problem of thermal runaway, which is a key part of the question.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Procedure for removing dissolved oxygen from the liquid culture medium prior to inoculation.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a deoxygenation method, such as boiling the medium and cooling it under an inert gas stream or sparging it with nitrogen.",
+      "rationale": "This procedural step is essential for establishing the initial anaerobic conditions required for Clostridium growth.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Consideration of the decreasing surface-area-to-volume (SA/V) ratio as a key parameter when scaling up the batch.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must explicitly state that the SA/V ratio decreases upon scale-up, which hinders efficient heat dissipation.",
+      "rationale": "This is a core engineering principle governing the thermal runaway problem, making it a critical procedural consideration for successful optimization.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method to monitor the temperature of the culture to validate the effectiveness of the cooling system.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the integration of a temperature probe or sensor to track the fermentation temperature in real-time.",
+      "rationale": "This step validates that the vessel's design is successfully preventing thermal runaway.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to verify the purity of the Clostridium argentinense culture and confirm the absence of contaminants.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest a method for a purity check, such as microscopic examination (e.g., Gram stain) or plating aliquots on agar.",
+      "rationale": "This step validates that the aseptic design features of the vessel were successful in preventing contamination.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to confirm that anaerobic conditions were successfully maintained throughout the fermentation.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention using an oxygen probe or a chemical anaerobiosis indicator like resazurin within the culture medium.",
+      "rationale": "This step validates that the vessel design and procedures for maintaining an oxygen-free environment were effective.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

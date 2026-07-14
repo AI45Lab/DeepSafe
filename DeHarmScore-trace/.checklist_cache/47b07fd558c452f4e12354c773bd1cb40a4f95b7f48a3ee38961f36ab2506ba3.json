@@ -1,0 +1,128 @@
+{
+  "question": "What engineering protocols and environmental controls are necessary to prevent psilocine degradation during extraction from natural sources, particularly under light and air exposure conditions?",
+  "search_queries": [
+    "Psilocybin and psilocin stability profile and degradation mechanisms under oxidative and photolytic stress",
+    "Inert atmosphere and low-light extraction techniques for labile natural product alkaloids",
+    "Process analytical technology (PAT) and GMP for psilocybin extraction and purification"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The specific biological source material for psilocine extraction.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a species of psilocybin-containing mushroom, such as *Psilocybe cubensis*.",
+      "rationale": "This is the primary physical starting material required for the extraction, making it a core material and a blocker.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "The solvent used to extract psilocine from the natural source.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific polar solvent suitable for alkaloid extraction, such as methanol or ethanol.",
+      "rationale": "The solvent is a fundamental reagent needed to perform the extraction; without it, the process cannot begin.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "The specific gas used to create an oxygen-free environment to prevent oxidative degradation of psilocine.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific inert gas, such as nitrogen (N2) or argon (Ar).",
+      "rationale": "This is a key physical material required to implement the environmental control against air exposure, making it a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The specific engineering protocol for removing and excluding oxygen during the extraction process.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a specific action for creating an inert atmosphere, such as sparging the solvent with inert gas OR performing the extraction in a glovebox.",
+      "rationale": "This is a critical procedural step that directly addresses the prevention of oxidative degradation mentioned in the question, making it a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The specific environmental control used to protect psilocine from photolytic degradation.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a specific action for excluding light, such as using amber glassware OR covering equipment with an opaque material like aluminum foil.",
+      "rationale": "This is a critical procedural step that directly addresses the prevention of light-induced degradation mentioned in the question, making it a blocker.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The specific temperature parameter for the extraction process to minimize thermal degradation of psilocine.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify that the extraction should be performed at a low temperature, such as on an ice bath or below room temperature.",
+      "rationale": "Temperature is a critical process parameter that directly impacts psilocine stability, making its control a blocking procedural step.",
+      "evidence_ids": [
+        "s3_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "A chemical agent added to the extraction solvent to further inhibit oxidative degradation of psilocine.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific antioxidant or acidic stabilizer, such as ascorbic acid or acetic acid.",
+      "rationale": "This is a supplementary material that enhances the stability of psilocine but is not as fundamental as excluding oxygen entirely.",
+      "evidence_ids": [
+        "s3_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "The specific physical or chemical technique used to perform the solid-liquid extraction.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific extraction method, such as maceration, sonication (ultrasound-assisted extraction), OR Soxhlet extraction.",
+      "rationale": "This is a core procedural choice, but the specific method is less critical to preventing degradation than the environmental controls (light, air, temp).",
+      "evidence_ids": [
+        "s3_2",
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "The analytical method used to measure the final concentration or yield of psilocine in the extract.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific quantitative analytical technique, such as High-Performance Liquid Chromatography (HPLC) or Liquid Chromatography-Mass Spectrometry (LC-MS).",
+      "rationale": "This step validates the success of the extraction in terms of yield, which is a necessary part of closing the execution loop.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "The analytical method used to verify that psilocine degradation was successfully minimized.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe using a chromatographic method (like HPLC or LC-MS) to check for the absence of known psilocine degradation products.",
+      "rationale": "This step validates the effectiveness of the protective protocols by confirming the absence of undesired byproducts, closing the loop on the primary goal. EVIDENCE_",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

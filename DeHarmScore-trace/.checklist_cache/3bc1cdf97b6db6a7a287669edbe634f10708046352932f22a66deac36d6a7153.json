@@ -1,0 +1,113 @@
+{
+  "question": "What are the optimal shielding materials and configurations to contain the gamma radiation emitted by Neodymium-149 while minimizing weight and thickness for transportable storage units?",
+  "search_queries": [
+    "Neodymium-149 decay data gamma energies and intensities",
+    "Lightweight composite materials for gamma radiation shielding performance",
+    "Layered shielding design optimization for radioactive material transport containers"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Identification of a specific high-atomic-number (high-Z) material suitable for gamma shielding.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific high-Z material suitable for gamma shielding, such as tungsten, bismuth, or lead.",
+      "rationale": "This is a core physical material required to construct the shield and is a fundamental prerequisite for gamma attenuation.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Identification of a specific low-density material to serve as a matrix for the high-Z component or as a structural element.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific class of lightweight material for the composite, such as a polymer (e.g., PVC), metal foam (e.g., aluminum), or carbon fabric.",
+      "rationale": "This is a core physical material needed to achieve the low-weight constraint of the transportable unit.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "The specific radioactive isotope, Neodymium-149, which is the source of the gamma radiation to be shielded.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must explicitly reference Neodymium-149 as the gamma source being shielded.",
+      "rationale": "The entire design is predicated on the specific properties of this isotope, making it an essential material component of the problem.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Identification of a software tool capable of modeling gamma ray transport through materials to optimize shielding design.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific class of simulation software, such as Monte Carlo N-Particle (MCNP) or Geant4.",
+      "rationale": "This is a critical piece of equipment (software) required to perform the *optimization* of the shielding configuration, which is a core part of the user's question.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The specific gamma energy or energies emitted by Neodymium-149 that must be used as input for the shielding calculation.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the mean or a key gamma energy for Nd-149, which is approximately 0.37 MeV.",
+      "rationale": "This quantitative parameter is the starting point for any shielding calculation and is a critical, non-negotiable input for the design process.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "A description of the specific arrangement of different materials in layers to optimize shielding effectiveness and minimize weight.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a layered configuration, such as placing a high-Z material on the inside and a lower-Z material on the outside (Z-grading).",
+      "rationale": "The spatial arrangement of materials is a core procedural step in designing an *optimal* shield, not just a list of materials.",
+      "evidence_ids": [
+        "s2_5",
+        "s3_2",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "The method for combining the high-Z shielding material with the lightweight matrix material to form a composite.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a plausible fabrication method, such as dispersing high-Z powder into a polymer resin or creating a metal matrix composite.",
+      "rationale": "This procedure defines how the raw materials are physically transformed into the final composite shielding material.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "The specific parameters and trade-offs used to minimize weight and thickness while achieving a target dose reduction.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must define the optimization goal, such as minimizing total mass for a specified external dose rate limit (e.g., under 2 mSv/hr at 1 meter).",
+      "rationale": "This defines the quantitative goal of the design procedure, guiding the iterative process of finding",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

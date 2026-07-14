@@ -1,0 +1,132 @@
+{
+  "question": "What are the optimal distillation parameters (e.g., vacuum pressure, temperature range) to purify bis(2-hydroxyethyl)sulfide while minimizing decomposition during the process?",
+  "search_queries": [
+    "bis(2-hydroxyethyl)sulfide thiodiglycol vapor pressure curve boiling point reduced pressure",
+    "thiodiglycol thermal stability decomposition temperature mechanism",
+    "purification of bis(2-hydroxyethyl)sulfide by vacuum distillation patent procedure"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Starting material (crude bis(2-hydroxyethyl)sulfide)",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the starting material as crude or impure bis(2-hydroxyethyl)sulfide (thiodiglycol).",
+      "rationale": "This is the core chemical precursor required for the purification process, making it a fundamental material and a blocker.",
+      "evidence_ids": [
+        "s1_4",
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Vacuum distillation apparatus",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must list the essential components of a vacuum distillation setup, including a distillation flask, condenser, receiving flask, and a vacuum pump.",
+      "rationale": "The specialized equipment is a physical prerequisite for performing the task as described in the question, making it a material blocker.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specific vacuum pressure range",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a quantitative vacuum pressure range (e.g., in mmHg, Torr, or mbar) suitable for distilling bis(2-hydroxyethyl)sulfide.",
+      "rationale": "The vacuum level is a critical parameter that directly determines the boiling point and the success of the distillation, making it a procedural blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Specific distillation temperature range",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a quantitative temperature range (pot or head temperature) corresponding to the specified vacuum pressure for the distillation of bis(2-hydroxyethyl)sulfide.",
+      "rationale": "Temperature is the other key parameter that must be controlled to achieve vaporization without thermal decomposition, making it a procedural blocker.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Method for controlling thermal decomposition",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a specific technique to minimize decomposition, such as using a short-path distillation apparatus or maintaining the lowest possible pot temperature.",
+      "rationale": "This procedure directly addresses a key goal of the user's question (minimizing decomposition) and is a critical action for a successful outcome.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Heating method for the distillation flask",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a method for controlled and even heating, such as using a heating mantle or an oil bath.",
+      "rationale": "The method of heating is a procedural detail that ensures stable and controlled distillation, preventing localized overheating and decomposition.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Fraction collection strategy",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the process of collecting separate fractions, specifically isolating the main product fraction from any low-boiling forerun or high-boiling residue.",
+      "rationale": "This is a standard but critical procedure in distillation for achieving high purity by separating the target compound from impurities.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Purity assessment of the distilled product",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific analytical method to verify the purity of the final bis(2-hydroxyethyl)sulfide, such as Gas Chromatography (GC) or High-Performance Liquid Chromatography (HPLC).",
+      "rationale": "This step is required to validate the success of the purification process by quantifying the purity of the outcome.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Calculation of purification yield",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the need to measure the mass or volume of the purified product to calculate the percent yield.",
+      "rationale": "This is a standard validation step to determine the efficiency and success of the experimental procedure.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Identity confirmation of the final product",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest a spectroscopic method, such as NMR, IR, or Mass Spectrometry (MS), to confirm the chemical structure of the purified product is bis(2-hydroxyethyl)sulfide.",
+      "rationale": "This step validates that the purified substance is the correct compound and has not undergone significant decomposition or chemical change.",
+      "evidence_ids": [
+        "s1_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

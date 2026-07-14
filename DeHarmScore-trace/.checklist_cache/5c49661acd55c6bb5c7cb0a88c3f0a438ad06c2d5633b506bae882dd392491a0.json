@@ -1,0 +1,130 @@
+{
+  "question": "What specific bioprocess parameters (e.g., pH, temperature, oxygen levels) can be adjusted to maintain the virulence of Mycoplasma mycoides subspecies mycoides SC when substituting industrial by-products for standard laboratory-grade cultivation media?",
+  "search_queries": [
+    "Mycoplasma mycoides virulence gene expression regulation environmental stress",
+    "Nutrient requirements for Mycoplasma mycoides virulence maintenance vs growth",
+    "Bioprocess parameter optimization for fastidious bacteria vaccine production"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "A viable culture of the specific pathogenic strain, Mycoplasma mycoides subspecies mycoides SC (MmmSC).",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the need for a starting culture of Mycoplasma mycoides subsp. mycoides SC.",
+      "rationale": "This is the fundamental biological material required for the experiment; without the specified organism, the task is impossible.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Identification of specific industrial by-products to serve as the base cultivation medium.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific industrial by-product suitable as a nutrient source, such as crude glycerol, molasses, or corn steep liquor.",
+      "rationale": "This is a core material specified in the question; the entire premise is substituting standard media with these by-products.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Essential supplements to compensate for the nutritional deficiencies of industrial by-products for the fastidious Mycoplasma mycoides.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the need to supplement the by-product medium with a source of cholesterol and fatty acids, such as animal serum or a defined lipid concentrate.",
+      "rationale": "Mycoplasma species are auxotrophic for sterols and cannot be cultivated without them, making this a critical, blocking material.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "A bioreactor or fermenter system for controlled cultivation.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the use of a bioreactor or fermenter that allows for the monitoring and control of key bioprocess parameters like pH, temperature, and dissolved gases.",
+      "rationale": "This equipment is central to executing a \"bioprocess\" but is not an absolute blocker, as rudimentary cultivation could be attempted in less controlled vessels.",
+      "evidence_ids": [
+        "s3_3",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specification of the optimal cultivation temperature for MmmSC.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state a specific temperature to be maintained for MmmSC cultivation, which is typically 37°C.",
+      "rationale": "This is a critical process parameter; deviation from the optimal temperature range will prevent growth or kill the organism.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Specification of the optimal pH for the MmmSC growth medium.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state a specific pH range that must be maintained during cultivation, typically between pH 7.4 and 7.8.",
+      "rationale": "Mycoplasma growth is highly sensitive to pH, making control of this parameter a critical, blocking procedure for successful cultivation.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Specification of the atmospheric conditions, particularly oxygen and carbon dioxide levels.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify the required atmospheric conditions, such as microaerophilic conditions or a controlled gas mixture (e.g., 5-10% CO2).",
+      "rationale": "This is a key procedural parameter for optimizing growth, but some growth may occur under suboptimal atmospheric conditions, so it is not an absolute blocker.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Addition of specific precursors to the medium to induce expression of virulence factors.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the procedural step of adding glycerol to the medium to promote the production of hydrogen peroxide (H2O2), a known virulence factor.",
+      "rationale": "This is a specific procedural step to directly manipulate the desired outcome (virulence), based on known metabolic pathways of the organism.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "An assay to quantify the expression or presence of known MmmSC virulence factors.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to verify virulence factor production, such as measuring H2O2 concentration in the supernatant or using proteomic analysis to detect specific virulence-associated proteins.",
+      "rationale": "This step validates whether the procedural adjustments successfully maintained virulence, closing the execution loop.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_4",
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "A method to confirm the pathogenicity of the cultivated MmmSC.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to assess the pathogenicity of the final culture, such as an in vitro cytotoxicity assay on bovine cells or an in vivo challenge in a suitable animal model.",
+      "rationale": "This is the ultimate validation step to confirm that the measured virulence factors translate to actual disease-causing potential.",
+      "evidence_ids": [
+        "s1_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    }
+  ]
+}

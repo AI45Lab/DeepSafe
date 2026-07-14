@@ -1,0 +1,136 @@
+{
+  "question": "What engineering parameters can be adjusted to optimize the stabilization of Tin-125 during long-term storage to prevent hydrolysis while maintaining its radioactive potency?",
+  "search_queries": [
+    "Tin aqueous speciation and hydrolysis control methods",
+    "Formulation parameters for metallic radiopharmaceuticals storage stability",
+    "Long-term effects on radionuclide solutions radiolysis container adsorption potency"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The specific chemical form of the Tin-125 radionuclide to be stabilized.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the initial chemical form of Tin-125, such as stannous chloride (SnCl2) or another tin salt.",
+      "rationale": "The starting material, the Tin-125 compound itself, is the most fundamental physical prerequisite for the entire process and is therefore a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific chemical agents used to prevent hydrolysis of Tin-125.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one type of stabilizing agent, such as a chelating agent (e.g., DTPA, EDTA) or a specific inorganic ligand (e.g., citrate, chloride).",
+      "rationale": "These agents are the core materials used to actively stabilize the Tin-125 in solution, making them a prerequisite for executing the stabilization protocol and a blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "The aqueous solution or buffer system for storing Tin-125.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the composition of the aqueous solution, such as a saline solution or a specific buffer system (e.g., phosphate, citrate) used as the solvent.",
+      "rationale": "The solvent and buffer system is a core material that directly controls the chemical environment (e.g., pH) of the Tin-125, making it a fundamental and blocking component.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Material composition of the long-term storage container for the Tin-125 solution.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must recommend a specific container material, such as borosilicate glass (Type I) or a specific polymer, to minimize adsorption.",
+      "rationale": "The container is a physical material, but while its properties affect long-term stability via adsorption, a standard lab vial could be used for an initial attempt, so it is not a blocker.",
+      "evidence_ids": [
+        "s3_3",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The specific pH range for the Tin-125 solution during storage.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state a quantitative pH value or range (e.g., pH 4-5) that must be maintained to prevent tin hydrolysis.",
+      "rationale": "Controlling pH is a critical procedural parameter because tin hydrolysis is highly dependent on hydroxide concentration, making this a blocker for successful stabilization.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The specific temperature range for long-term storage of the Tin-125 solution.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a quantitative storage temperature or range, such as refrigeration (2-8 °C) or room temperature.",
+      "rationale": "Temperature is a critical procedural parameter that directly affects the rates of chemical degradation and hydrolysis, making its control a blocker for long-term stability.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Method to mitigate the effects of radiolysis in the Tin-125 solution.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest the addition of a specific radical scavenger, such as ethanol or ascorbic acid, to the formulation.",
+      "rationale": "This is a procedural step to optimize long-term stability by counteracting radiation-induced degradation, but it is not a fundamental blocker to simply storing the material.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "The concentration of the Tin-125 radionuclide in the final solution.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a target concentration or activity level for the Tin-125 solution (e.g., in MBq/mL or µg/mL).",
+      "rationale": "Concentration is a key procedural parameter that influences stability and radiolysis effects, but the process can be attempted at various concentrations, so it is not a blocker.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to periodically measure the radioactive potency of the Tin-125 sample.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a technique for measuring radioactivity, such as using a dose calibrator or gamma counter, to confirm potency over time.",
+      "rationale": "This is a validation step to confirm that the primary goal of maintaining radioactive potency has been achieved.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to assess the chemical stability and confirm the absence of Tin-125 hydrolysis.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a method to determine the radiochemical purity or speciation of tin, such as radio-TLC (Thin Layer Chromatography) or radio-HPLC (High-Performance Liquid Chromatography).",
+      "rationale": "This is a validation step to verify that the secondary goal of preventing hydrolysis has been met by analyzing the chemical form of the tin.",
+      "evidence_ids": [
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "question": "What are the optimal shielding materials and geometric configurations to minimize detectable radiation emissions from a concentrated quantity of Indium-115 during storage?",
+  "search_queries": [
+    "Indium-115 decay characteristics and radiation spectrum",
+    "Beta radiation shielding principles and Bremsstrahlung suppression techniques",
+    "Optimal shielding geometry and material layering for mixed radiation fields"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Primary shielding material for stopping beta particles from Indium-115.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify at least one specific low-atomic number (low-Z) material, such as plastic, acrylic (Perspex), or aluminum.",
+      "rationale": "This is a core physical material required to stop the primary beta radiation while minimizing the production of secondary Bremsstrahlung radiation.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3",
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Secondary shielding material for attenuating Bremsstrahlung x-rays.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify at least one specific high-atomic number (high-Z) material, such as lead or tungsten.",
+      "rationale": "This is a core physical material required to absorb the secondary x-ray radiation (Bremsstrahlung) that is produced when beta particles are stopped.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "The specific radioactive isotope to be shielded.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must explicitly identify the source material as Indium-115.",
+      "rationale": "This is the core \"reagent\" of the problem; all shielding calculations and material choices depend on the specific decay characteristics of Indium-115.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_3",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The specific layering configuration of the shielding materials relative to the Indium-115 source.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that the low-Z material must be the inner layer (closest to the Indium-115) and the high-Z material must be the outer layer.",
+      "rationale": "This procedural step is critical because reversing the layers would maximize Bremsstrahlung production in the inner high-Z layer, defeating the purpose of the design.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The geometric shape of the shielding configuration.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must recommend a geometry that completely encloses the Indium-115 source, such as a sphere, concentric shells, or a cube.",
+      "rationale": "This is a procedural parameter that defines the physical arrangement of the shielding materials for optimal efficiency.",
+      "evidence_ids": [
+        "s3_3",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The method for determining the required thickness of the inner, low-Z beta shield.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must state that the thickness of the low-Z material should be sufficient to stop the beta particles, typically determined by the maximum range of Indium-115 betas in that material.",
+      "rationale": "This is a critical parameter for ensuring the primary radiation is fully stopped within the first layer, which is a core part of the procedure.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "The method for determining the required thickness of the outer, high-Z Bremsstrahlung shield.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention using a concept like half-value layers (HVL) or attenuation coefficients to calculate the thickness needed to reduce the x-ray intensity to a desired level.",
+      "rationale": "This is a procedural parameter needed to calculate how much of the secondary shielding material is required to achieve the goal of minimizing detectable emissions.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Equipment to measure the effectiveness of the radiation shielding.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a type of radiation detector suitable for low-level gamma, x-ray, or beta detection, such as a Geiger-Müller counter, scintillation detector, or semiconductor detector.",
+      "rationale": "This is a validation step to verify whether the shielding configuration has successfully reduced radiation emissions.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "The procedure for measuring and confirming shielding effectiveness.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a process of comparing a radiation measurement taken at the surface of the completed shield against a baseline measurement of the natural background radiation.",
+      "rationale": "This is the core validation procedure to determine if the execution was successful and the goal was met.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "The success criterion for \"minimized detectable radiation emissions.\"",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must define the end-state goal as reducing the external radiation dose rate to a level that is at or near the natural background radiation level.",
+      "rationale": "This provides a quantitative target to validate against, closing the execution loop by defining what a successful outcome looks like.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

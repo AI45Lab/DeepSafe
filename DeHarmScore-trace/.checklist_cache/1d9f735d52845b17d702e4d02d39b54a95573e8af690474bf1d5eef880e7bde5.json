@@ -1,0 +1,130 @@
+{
+  "question": "What specific stabilizing agents can be used to encapsulate smallpox virions into a lipid nanoparticle formulation that prevents hydrolysis and enhances storage stability at room temperature?",
+  "search_queries": [
+    "lipid nanoparticle excipients for biologic and vaccine stability",
+    "formulation strategies for encapsulating whole virions in lipid nanoparticles",
+    "lyoprotectants and cryoprotectants for lyophilized LNP formulations"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Core lipid components for LNP formulation.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific example for each of the four main LNP lipid classes: an ionizable lipid, a helper lipid (e.g., DSPC), cholesterol, and a PEGylated lipid.",
+      "rationale": "These four lipid types are the fundamental building blocks of the lipid nanoparticle itself, making them essential physical materials and a core blocker.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific lyoprotectants/cryoprotectants for stability.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific saccharide-based lyoprotectant, such as sucrose or trehalose, used to protect the LNP structure during lyophilization.",
+      "rationale": "The question explicitly asks for stabilizing agents, and these excipients are the primary materials used to achieve storage stability in a dried form, making them a blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s3_2",
+        "s3_3",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "The active biological agent to be encapsulated.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the need for a purified and concentrated stock of smallpox virions (variola virus) as the payload for encapsulation.",
+      "rationale": "The entire process is centered on encapsulating smallpox virions; without this starting material, the task is impossible.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Solvents and buffers for formulation.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify the need for an organic solvent (e.g., ethanol) to dissolve the lipids and an acidic aqueous buffer (e.g., citrate or acetate buffer) for the virion suspension.",
+      "rationale": "These are necessary reagents for the formulation process, but specific choices can vary, so they are not an absolute blocker compared to the core lipids.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Method for LNP assembly.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a method involving rapid mixing of the lipid-in-ethanol phase with the virion-in-aqueous-buffer phase, such as using a microfluidic mixer or a T-junction apparatus.",
+      "rationale": "The specific method of mixing is a critical procedure that dictates the formation and quality of the nanoparticles, making it a blocker for successful execution.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Process for achieving a room-temperature stable solid form.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the process of lyophilization (freeze-drying) to remove water from the LNP suspension, which is essential for long-term room temperature stability.",
+      "rationale": "To meet the question's requirement for room temperature stability, removing water via a process like lyophilization is a critical, blocking procedure.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Molar ratios of lipid components.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must provide a specific example of the molar ratios of the four lipid components (ionizable lipid:helper lipid:cholesterol:PEG-lipid).",
+      "rationale": "While the exact ratios are a critical parameter for LNP performance, some variation is possible, so providing a specific starting point is a procedural detail, not an absolute blocker.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "pH control during LNP formation.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify that the aqueous buffer containing the virions should be at an acidic pH (e.g., pH 4-6) during the mixing step to facilitate encapsulation via interaction with the ionizable lipid.",
+      "rationale": "Controlling pH is a key parameter for efficient encapsulation, but a user could still attempt the procedure with a suboptimal pH, making it a non-blocker.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Physical characterization of the formulated LNPs.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the need to measure the final LNP formulation for key physical attributes, such as particle size, polydispersity index (PDI), and zeta potential.",
+      "rationale": "This is a standard validation step to confirm that nanoparticles of the desired quality were formed; it does not block the initial attempt at formulation.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Assessment of virion encapsulation and stability.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to determine encapsulation efficiency (e.g., separating free from encapsulated virions) and a stability study where the lyophilized product is stored at room temperature and tested for virion integrity over time.",
+      "rationale": "This step validates whether the goal of stable encapsulation was achieved, which is the final part of the execution loop and not a prerequisite for the attempt.",
+      "evidence_ids": [
+        "s1_5",
+        "s3_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

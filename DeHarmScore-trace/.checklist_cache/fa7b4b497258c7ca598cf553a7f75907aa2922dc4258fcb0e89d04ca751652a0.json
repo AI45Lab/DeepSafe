@@ -1,0 +1,128 @@
+{
+  "question": "How can the lyophilization process be optimized to prevent degradation of viscumin without requiring cryoprotectants that interfere with its potency upon reconstitution?",
+  "search_queries": [
+    "lyophilization process parameters impact on protein stability aggregation denaturation",
+    "selection criteria for protein lyophilization excipients to preserve biological activity",
+    "viscumin protein stability degradation pathways and structural characteristics"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Identification of the starting biological material.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify that purified viscumin protein solution is the required starting material.",
+      "rationale": "This is the core biological material being processed and is an absolute prerequisite for the procedure.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specification of the primary processing equipment.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify a lyophilizer (freeze-dryer) with programmable shelf temperature and vacuum control as the necessary equipment.",
+      "rationale": "The entire process is defined by the use of this specific piece of hardware, making it a blocking material requirement.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Selection of non-interfering stabilizers or excipients for the viscumin formulation.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one class of non-interfering excipients suitable for protein stabilization, such as non-reducing sugars (e.g., trehalose, sucrose) or specific amino acids (e.g., arginine).",
+      "rationale": "The question requires avoiding interfering cryoprotectants, so selecting appropriate, non-interfering ones is a critical material choice to prevent degradation.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3",
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Definition of the freezing protocol parameters for the viscumin solution.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a target freezing rate (e.g., slow cooling at 1°C/min) and a final shelf temperature for the freezing step.",
+      "rationale": "The freezing rate and temperature directly control ice crystal formation, a primary source of protein stress during lyophilization, making this a critical procedural parameter.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specification of primary drying (sublimation) parameters.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide specific quantitative values for both shelf temperature and chamber pressure (vacuum) for the primary drying phase, ensuring they are below the formulation's collapse temperature.",
+      "rationale": "Incorrect temperature or pressure during primary drying will cause the product to collapse or melt, irreversibly denaturing the viscumin, making these parameters a procedural blocker.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Specification of secondary drying (desorption) parameters.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the temperature ramp and final hold temperature for the secondary drying phase to remove residual moisture from the viscumin cake.",
+      "rationale": "This procedure is crucial for long-term stability by removing bound water, but it is an optimization step rather than a fundamental blocker for the initial process.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Definition of the reconstitution protocol for the lyophilized viscumin.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify the solvent (e.g., sterile water or a specific buffer) and method (e.g., gentle swirling) for reconstituting the viscumin cake.",
+      "rationale": "This procedure defines how the final product is prepared for use and is necessary to avoid aggregation upon reconstitution, but it occurs after the core process is complete.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Methods for physical characterization of the lyophilized viscumin cake.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention at least one method to assess the physical properties of the final product, such as visual inspection for cake collapse or measurement of residual moisture content.",
+      "rationale": "This step validates the physical success of the lyophilization cycle but does not block the attempt to perform the procedure itself.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Analysis of viscumin structural integrity after reconstitution.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name at least one biophysical technique to verify that the reconstituted viscumin has not aggregated or denatured, such as Size Exclusion Chromatography (SEC) or Circular Dichroism (CD) spectroscopy.",
+      "rationale": "This step validates that the protein's physical structure was preserved, a key goal of the optimization, and serves as a method to confirm the outcome.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Assay to confirm the biological potency of reconstituted viscumin.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the need for a specific biological activity or potency assay relevant to viscumin's function to confirm it was preserved.",
+      "rationale": "This is the ultimate validation step to confirm that the core requirement of the user's question—preserving potency—has been met.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

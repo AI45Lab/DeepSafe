@@ -1,0 +1,137 @@
+{
+  "question": "What industrial by-products can be used as substitutes to isolate Tin-125 isotopes, and what enrichment methods would be necessary to compensate for their low specific activity?",
+  "search_queries": [
+    "Tin-125 fission yield and decay chain in spent nuclear fuel",
+    "Radiochemical separation and isotopic enrichment of tin from high-level waste",
+    "Isotope separation techniques for low specific activity radionuclides from complex matrices"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Identification of the specific industrial by-product that serves as a source for Tin-125.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify spent nuclear fuel or high-level radioactive waste (HLW) as the source material for fission-product Tin-125.",
+      "rationale": "This is the primary starting material, without which the entire process cannot begin, making it a critical material and a blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_5",
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Reagents for the dissolution of the source material matrix.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a strong acid suitable for dissolving spent nuclear fuel, such as concentrated nitric acid.",
+      "rationale": "A specific chemical agent is required to process the solid source material into a liquid phase for separation, making it a prerequisite material.",
+      "evidence_ids": [
+        "s2_3",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Chemical agents for the separation of elemental tin from other radionuclides.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific class of chemical agent for separation, such as an ion-exchange resin, a solvent for liquid-liquid extraction (e.g., TBP), or a specific precipitating agent.",
+      "rationale": "These specialized chemicals are the core materials needed to perform the chemical separation of tin from a highly complex mixture.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s3_3",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Description of the initial step to process the source material into a workable form.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the process of dissolving the spent fuel or high-level waste, for example, by digestion in hot, concentrated acid.",
+      "rationale": "This is the first critical procedure that transforms the raw material into a state suitable for subsequent chemical processing, making it a blocker.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "A specific method for the chemical separation of tin from the dissolved waste stream.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a plausible radiochemical separation technique such as solvent extraction, ion-exchange chromatography, or selective precipitation to isolate elemental tin.",
+      "rationale": "This procedure is the core action required to isolate the target element (tin) from the hundreds of other elements present in the source material.",
+      "evidence_ids": [
+        "s2_2",
+        "s3_1",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "A specific method for the isotopic enrichment of Tin-125 from other tin isotopes.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a valid physical isotope separation method, such as electromagnetic isotope separation (EMIS/Calutron), atomic vapor laser isotope separation (AVLIS), or gas centrifugation of a volatile tin compound (e.g., tin tetrachloride).",
+      "rationale": "This is the central procedure required to address the \"enrichment\" part of the question and is a highly specialized, non-trivial step.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "A key quantitative parameter for the chemical separation process.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must provide a specific operational parameter, such as the required pH range, the molarity of the acid eluent, or the type of column/resin used for chromatography.",
+      "rationale": "This item specifies a critical parameter that governs the efficiency and success of a core procedure, moving the instructions from theoretical to practical.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method to confirm the successful chemical separation and purity of the isolated elemental tin.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name an appropriate analytical technique for elemental analysis, such as Inductively Coupled Plasma Mass Spectrometry (ICP-MS) or Atomic Absorption Spectroscopy (AAS).",
+      "rationale": "This is a validation step to verify that the chemical separation procedure successfully isolated the target element before proceeding to isotopic enrichment.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to measure the final isotopic abundance of Tin-125.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify the use of a mass spectrometry technique (e.g., ICP-MS, Thermal Ionization Mass Spectrometry/TIMS) to measure the final ratio of Sn-125 to other tin isotopes.",
+      "rationale": "This is a validation step to confirm that the isotopic enrichment procedure was successful and to quantify the outcome.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to measure the specific activity of the final Tin-125 sample.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a suitable radiation detection technique for a beta emitter like Sn-125, such as liquid scintillation counting or beta/gamma spectrometry.",
+      "rationale": "This is a validation step to quantify the final radioactivity of the product, directly addressing the \"low specific activity\" aspect of the original question.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_5",
+        "s3_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

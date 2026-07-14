@@ -1,0 +1,129 @@
+{
+  "question": "How can one optimize the shielding materials to safely handle Antimony-122 during separation and purification processes, particularly considering its radiation profile and short half-life?",
+  "search_queries": [
+    "Antimony-122 decay data beta gamma energies for shielding calculations",
+    "Shielding material trade-offs for beta-gamma emitters bremsstrahlung production",
+    "ALARA principles for hot cell and glove box design handling short half-life radionuclides"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Primary shielding material to stop beta particles from Antimony-122.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one low-atomic number (low-Z) material suitable for beta shielding, such as acrylic (Perspex), plastic, or aluminum.",
+      "rationale": "This is a core physical material required to construct the primary shielding layer for the beta radiation emitted by Antimony-122.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Secondary shielding material to attenuate gamma rays and bremsstrahlung radiation from Antimony-122.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one high-atomic number (high-Z) material suitable for gamma and X-ray shielding, such as lead, tungsten, or high-density concrete.",
+      "rationale": "This is a core physical material required to construct the secondary shielding layer for penetrating gamma and bremsstrahlung radiation.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Containment equipment for handling Antimony-122 during processing.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the use of a hot cell or a shielded glove box as the primary containment for the separation and purification processes.",
+      "rationale": "This is the essential hardware that provides a controlled environment and structural support for the shielding materials during the handling of unsealed radioactive sources.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Correct configuration of shielding layers for the beta-gamma emissions of Antimony-122.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify that the low-Z material must be placed closest to the Antimony-122 source, with the high-Z material placed on the outside.",
+      "rationale": "This procedural step is critical for optimizing shielding; reversing the layers would dangerously increase the production of bremsstrahlung radiation, making the shielding ineffective.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specification of Antimony-122's radiation profile for shielding calculations.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that shielding calculations must account for both the high-energy beta emissions (up to ~2.0 MeV) and the primary gamma emissions (e.g., ~0.57 MeV) of Antimony-122.",
+      "rationale": "This parameter is a fundamental prerequisite for any calculation or design; without knowing the specific radiation to be shielded, the procedure cannot be executed.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Application of ALARA principles to the handling procedure for Antimony-122.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe applying at least one ALARA principle, such as minimizing handling time due to the short half-life or maximizing distance using remote manipulators.",
+      "rationale": "This describes a core procedural methodology for radiation safety, directly addressing the handling aspect of the question.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Method for calculating the required thickness of the gamma shielding material.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention using the half-value layer (HVL) or tenth-value layer (TVL) for the specific gamma energies of Antimony-122 to determine the necessary thickness of the high-Z material.",
+      "rationale": "This is a key procedural calculation needed to transform the choice of material into a functional and optimized shielding design.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Verification of shielding effectiveness after installation.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe using a radiation survey meter (e.g., an ion chamber or Geiger counter) to measure the dose rate on the exterior of the shielding to confirm it is below required limits.",
+      "rationale": "This is a validation step to confirm that the shielding, as constructed, performs as designed and the primary goal has been achieved.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Monitoring of personnel radiation dose during Antimony-122 handling.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the use of personal dosimeters, such as TLDs, OSLs, or electronic personal dosimeters, worn by personnel.",
+      "rationale": "This is a validation step to ensure that the shielding and handling procedures are effectively protecting the operators during execution.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Post-procedure check for radioactive contamination.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe performing wipe tests or using a contamination probe on work surfaces, equipment, and personnel to check for the spread of Antimony-122.",
+      "rationale": "This is a final validation step to close the execution loop and ensure that the work area is safe after the handling process is complete.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

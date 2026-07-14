@@ -1,0 +1,130 @@
+{
+  "question": "What catalytic pathways are available to maximize the yield of bis(2-hydroxyethyl)sulfide when using industrial by-products as a starting material, and how do these methods affect end-product stability?",
+  "search_queries": [
+    "Thiodiglycol synthesis catalytic pathways from industrial precursors",
+    "Comparison of catalysts for bis(2-hydroxyethyl)sulfide synthesis yield and selectivity",
+    "Thiodiglycol stability degradation pathways impurities from synthesis"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Identification of specific industrial precursor chemicals for the synthesis of bis(2-hydroxyethyl)sulfide.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one of the following precursor pairs: 2-chloroethanol and sodium sulfide, OR ethylene oxide and hydrogen sulfide.",
+      "rationale": "This lists the core chemical inputs, which are the fundamental starting materials required for the synthesis to begin.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specification of the catalyst or catalytic system used to facilitate the reaction and maximize yield.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific catalyst or class of catalysts (e.g., phase-transfer catalyst, acid/base catalyst, specific metal complex) suitable for the chosen precursor pathway.",
+      "rationale": "The question explicitly asks for catalytic pathways, making the catalyst a non-negotiable material prerequisite for the described task.",
+      "evidence_ids": [
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specification of the solvent or reaction medium for the synthesis.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify the solvent used for the reaction, such as water or using the thiodiglycol product itself as a solvent.",
+      "rationale": "The solvent is a necessary material for the reaction to proceed, but an experienced chemist might infer a common one; however, specific choices are needed for high yield.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Specification of the reaction temperature for the synthesis of bis(2-hydroxyethyl)sulfide.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a quantitative temperature or temperature range (e.g., 50-100 °C) for the main synthesis reaction.",
+      "rationale": "Temperature is a critical process parameter that directly controls reaction rate, yield, and the formation of by-products, making it a procedural blocker.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specification of the molar ratio of the starting precursors.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the required stoichiometric or optimized molar ratio between the primary reactants (e.g., ethylene oxide and hydrogen sulfide).",
+      "rationale": "The ratio of reactants is a fundamental procedural parameter that dictates the efficiency of the reaction and is essential for maximizing the yield of the desired product.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Description of the method for purifying the crude bis(2-hydroxyethyl)sulfide product.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a specific, plausible purification technique, such as vacuum distillation or fractional crystallization.",
+      "rationale": "This is a key procedural step to isolate the final product from by-products and unreacted materials, which is necessary for achieving high purity and stability.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Description of procedural steps to control reaction conditions (e.g., pH, atmosphere) to minimize side reactions.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a specific procedural control, such as operating under an inert atmosphere to prevent oxidation or controlling pH to improve selectivity.",
+      "rationale": "These are procedural details that refine the synthesis to maximize yield and stability, moving beyond the basic reaction to an optimized process.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for determining the final yield of bis(2-hydroxyethyl)sulfide.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe how to calculate the percentage yield based on the mass of the purified product relative to the theoretical maximum from the limiting reactant.",
+      "rationale": "This is a validation step to quantify the success of the synthesis, which is essential for answering the question's prompt about maximizing yield.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Analytical technique to confirm the identity and purity of the synthesized bis(2-hydroxyethyl)sulfide.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name at least one standard analytical method for chemical identification, such as Gas Chromatography-Mass Spectrometry (GC-MS) or Nuclear Magnetic Resonance (NMR) spectroscopy.",
+      "rationale": "This is a standard validation step to confirm that the desired chemical was actually produced and to assess its purity.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to assess the stability of the final product and identify degradation products.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to test for degradation, such as storing the product under specific conditions and re-analyzing its purity over time to identify compounds like HETA or BHEDS.",
+      "rationale": "This validation step directly addresses the second part of the user's question concerning how synthesis methods affect end-product stability.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

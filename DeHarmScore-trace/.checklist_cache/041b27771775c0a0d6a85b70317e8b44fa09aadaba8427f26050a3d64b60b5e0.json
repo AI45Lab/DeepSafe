@@ -1,0 +1,130 @@
+{
+  "question": "What specific genetic modification techniques or plasmid construction protocols could be used to clone the Classical Swine Fever virus genome into a surrogate vector for easier culture or expression in non-swine hosts, bypassing species-specific cultivation constraints?",
+  "search_queries": [
+    "Classical Swine Fever Virus reverse genetics infectious clone construction",
+    "Assembly strategies for full-length RNA virus cDNA clones (e.g., BAC, yeast TAR cloning, Gibson)",
+    "Surrogate host systems and host-range determinants for Pestivirus propagation"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Source of Classical Swine Fever Virus (CSFV) genomic RNA.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify that either purified viral RNA from an infected cell culture or a CSFV field isolate is required as the initial template.",
+      "rationale": "This is the fundamental starting material for the entire process and is an absolute prerequisite, making it a blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Key enzymes for reverse transcription and DNA amplification.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention both a reverse transcriptase to create cDNA from the viral RNA and a high-fidelity DNA polymerase for PCR amplification of the genome fragments.",
+      "rationale": "These enzymes are the essential reagents needed to convert the viral RNA genome into a stable DNA format for cloning, making them a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "A suitable cloning vector for assembling the full-length CSFV cDNA.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one suitable vector type, such as a low-copy plasmid (e.g., pBR322), a Bacterial Artificial Chromosome (BAC), or a yeast-based vector.",
+      "rationale": "The vector is the physical DNA molecule that will house the viral genome, and without it, the cloning and replication of the cDNA is impossible, making it a blocker.",
+      "evidence_ids": [
+        "s1_2",
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "A specific non-swine cell line for transfection and potential virus propagation.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a plausible non-swine cell line, such as BHK-21 (baby hamster kidney) or Vero (monkey kidney) cells, which are commonly used for virology.",
+      "rationale": "These cells are the material system for expressing the cloned genome, but the cloning itself can be completed without them, so it's not a primary blocker for the construction phase.",
+      "evidence_ids": [
+        "s3_3",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Method for generating full-length cDNA from the CSFV RNA genome.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the process of using reverse transcriptase and specific primers to synthesize a complete cDNA copy of the viral genome, typically in several overlapping fragments.",
+      "rationale": "This procedure is the core step of converting the unstable RNA genome into a stable, clonable DNA molecule and is a non-negotiable part of the workflow.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "A specific molecular cloning strategy for assembling the full-length CSFV cDNA into the chosen vector.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a valid assembly method, such as Gibson assembly, yeast-based Transformation-Associated Recombination (TAR) cloning, or traditional restriction enzyme-ligation of overlapping fragments.",
+      "rationale": "The assembly strategy is the critical procedure for correctly joining the multiple cDNA fragments into a single, contiguous genomic clone within the vector.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Inclusion of a specific promoter sequence upstream of the CSFV cDNA for transcription.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need to place the cDNA clone under the control of a promoter like T7, SP6, or a cellular Pol I/II promoter (e.g., CMV) to generate viral RNA transcripts.",
+      "rationale": "Without a promoter, the DNA clone cannot be transcribed back into infectious RNA, making the entire construct non-functional and thus a procedural blocker.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for introducing the infectious cDNA clone into the selected non-swine host cells.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a standard transfection method, such as lipofection (e.g., using Lipofectamine) or electroporation, to deliver the plasmid into the cells.",
+      "rationale": "This is a standard laboratory procedure for introducing DNA into cells; while necessary for the final step, the specific method is not a unique or insurmountable hurdle.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to confirm the integrity and sequence accuracy of the full-length CSFV cDNA clone.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention using restriction digest analysis and full-length Sanger or next-generation sequencing to verify the assembled plasmid.",
+      "rationale": "This step validates the correctness of the constructed plasmid before proceeding to expression, which is a crucial part of the scientific process but not a blocker to an attempt.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Assay to confirm the successful rescue of infectious CSFV particles from the transfected surrogate host cells.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to detect viral replication, such as observing cytopathic effect (CPE), performing an immunofluorescence assay (IFA) for viral antigens, or titrating the virus via plaque assay.",
+      "rationale": "This is the final validation step to confirm that the entire process resulted in the desired outcome (infectious virus), closing the execution loop.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

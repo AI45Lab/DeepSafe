@@ -1,0 +1,138 @@
+{
+  "question": "What are the optimal environmental conditions (e.g., temperature, pressure, container composition) needed to stabilize Arsenic-73 and prevent degradation or hydrolysis during long-term storage?",
+  "search_queries": [
+    "Arsenic-73 radiochemical stability hydrolysis and speciation",
+    "storage and handling standards for arsenic radiopharmaceuticals",
+    "radiometal adsorption mechanisms on glass and polymer container surfaces"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The specific chemical form and solution matrix for the Arsenic-73 radioisotope.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the initial chemical form of Arsenic-73 (e.g., arsenite, arsenate) and the composition of the aqueous solution it is dissolved in (e.g., HCl, saline, buffer).",
+      "rationale": "The starting material, Arsenic-73, and its immediate chemical environment are the core physical prerequisites for any storage protocol.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "The specific material composition of the long-term storage container.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must recommend a specific container material, such as borosilicate glass, polypropylene, or polyethylene, for storing the Arsenic-73 solution.",
+      "rationale": "The container material is a critical piece of equipment that directly interacts with the radioisotope, and its properties (e.g., adsorption) are central to the question.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Any additives or carriers used to improve the stability of the Arsenic-73 solution.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the addition of a specific stabilizing agent or non-radioactive arsenic carrier to the solution to prevent adsorption or chemical changes.",
+      "rationale": "These are additional materials used to enable the storage procedure, but a basic attempt could be made without them, albeit with lower stability.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The specific pH range required for the Arsenic-73 storage solution.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a quantitative pH value or range (e.g., pH 1-2, pH 7.4) to maintain the chemical stability of Arsenic-73 and prevent hydrolysis.",
+      "rationale": "pH is a fundamental parameter that dictates the chemical speciation and hydrolysis rate of arsenic compounds in solution, making it a critical procedural control.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The optimal temperature range for long-term storage of Arsenic-73.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a quantitative storage temperature or range, such as room temperature (e.g., 20-25°C), refrigerated (e.g., 2-8°C), or frozen.",
+      "rationale": "Temperature is a core environmental condition explicitly requested in the prompt and is a critical parameter for controlling degradation rates.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The target chemical speciation (oxidation state) of Arsenic-73 to be maintained during storage.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify whether Arsenic-73 should be maintained as arsenite (As(III)) or arsenate (As(V)) for optimal stability.",
+      "rationale": "The oxidation state of arsenic is the most critical factor determining its chemical behavior and stability, making its control a core procedural step.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "The recommended storage atmosphere or pressure conditions.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must provide a recommendation for the atmosphere above the solution, such as ambient air, an inert gas (e.g., argon), or storage under vacuum.",
+      "rationale": "This is a procedural parameter that can influence stability (e.g., by preventing oxidation), but storage can still be attempted under ambient conditions.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "A procedure for pre-treating the storage container to minimize adsorption of Arsenic-73.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method for treating the container surface before adding the Arsenic-73 solution, such as acid washing or silanization.",
+      "rationale": "This is a procedural step to optimize the outcome by preventing loss of material, but it is not an absolute blocker to the act of storage itself.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "A method to periodically measure the radiochemical purity of the stored Arsenic-73.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a technique suitable for verifying the identity and purity of Arsenic-73, such as gamma spectroscopy or radio-TLC/HPLC.",
+      "rationale": "This step validates that the stored material has not degraded into other radioactive species, which is necessary to confirm the success of the storage method.",
+      "evidence_ids": [
+        "s1_2",
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "A method to verify the chemical speciation of arsenic in the solution after a period of storage.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name an analytical technique capable of distinguishing between arsenic oxidation states, such as HPLC-ICP-MS or ion chromatography.",
+      "rationale": "This step validates that the storage conditions successfully prevented chemical changes like hydrolysis or oxidation, confirming the stability of the desired arsenic species.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    }
+  ]
+}

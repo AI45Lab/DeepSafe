@@ -1,0 +1,133 @@
+{
+  "question": "What handling or storage protocols can be designed to shield diethyl sulphate from premature degradation due to humidity exposure during upstream acquisition stages?",
+  "search_queries": [
+    "diethyl sulphate hydrolysis rate storage conditions SDS",
+    "best practices for handling and storing moisture-sensitive liquid chemicals",
+    "chemical packaging and transport standards for water-reactive substances"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Primary container for diethyl sulphate",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a container designed to be airtight and prevent moisture ingress, such as a bottle with a septum-lined cap, a crown-cap bottle, or a Schlenk flask.",
+      "rationale": "This is a core physical item required for storing the chemical, and without a suitable moisture-proof container, the protocol is impossible.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_5",
+        "s2_1",
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Inert gas for atmospheric displacement",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a suitable dry, inert gas, such as nitrogen or argon, to be used for blanketing.",
+      "rationale": "An inert gas is a required material to create the moisture-free atmosphere inside the container, making it a prerequisite for the protocol.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Desiccants for secondary protection",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the use of a desiccant (e.g., silica gel, molecular sieves) in a secondary container or storage cabinet to control ambient humidity.",
+      "rationale": "Desiccants are materials used to maintain a dry environment, but they are a secondary measure, not an absolute prerequisite if the primary container is perfectly sealed.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Inert gas blanketing procedure",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the process of purging the container's headspace with an inert gas to displace air and moisture before sealing.",
+      "rationale": "This is the critical action of applying the inert gas; simply having the gas is insufficient without the procedure to use it correctly.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Container sealing technique",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the action of creating an airtight seal on the primary container, for example, by tightly closing the cap or ensuring a proper fit for a septum or stopper.",
+      "rationale": "This procedure is the critical step that isolates the diethyl sulphate from the external environment, making it a blocker for successful storage.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Environmental storage parameters",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify that the sealed container of diethyl sulphate should be stored in a cool and dry location.",
+      "rationale": "This defines the necessary environmental conditions for storage; incorrect temperature or ambient humidity can compromise the chemical even in a sealed container.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_5",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Specialized transfer equipment",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention equipment for transferring diethyl sulphate without atmospheric exposure, such as a gas-tight syringe with a long needle or a cannula.",
+      "rationale": "This equipment is a material prerequisite for handling the chemical after initial storage, but not strictly for the storage protocol itself.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Use of secondary containment during transport",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe placing the primary container inside a larger, durable secondary container, potentially with absorbent or desiccant material, for transport.",
+      "rationale": "This procedure details how to protect the primary container during the \"upstream acquisition\" phase, which is a key part of the question but not a blocker for the basic act of storage.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to verify the purity of diethyl sulphate",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest an analytical method to confirm the absence of degradation, such as gas chromatography (GC) to check for impurities or titration to detect acidic byproducts.",
+      "rationale": "This is a validation step to confirm the success of the storage protocol by measuring the outcome.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to check container seal integrity",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to check the container's seal, such as a visual inspection for cracks or a simple pressure test (e.g., checking for positive pressure from the inert gas).",
+      "rationale": "This is a validation step to troubleshoot or confirm that a critical part of the procedure (sealing) was performed correctly.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

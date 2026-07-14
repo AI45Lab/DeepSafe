@@ -1,0 +1,131 @@
+{
+  "question": "What is the optimal crystallization temperature and pressure range to enhance the thermal stability of bis(2-chloroethyl)methylamine while preserving its chemical potency over extended periods?",
+  "search_queries": [
+    "bis(2-chloroethyl)methylamine hydrochloride crystallization parameters stability",
+    "Thermal and hydrolytic degradation mechanisms of nitrogen mustards",
+    "Polymorphism and solid-state stability of reactive pharmaceutical compounds"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The specific chemical compound to be crystallized.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify bis(2-chloroethyl)methylamine or its hydrochloride salt as the starting material.",
+      "rationale": "This is the primary chemical precursor required for the procedure, making it a core material and an absolute blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "The solvent or solvent system for crystallization.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific solvent or class of solvents (e.g., alcohols, ethers, hydrocarbons) suitable for crystallizing bis(2-chloroethyl)methylamine hydrochloride.",
+      "rationale": "The solvent is a fundamental physical material required to create the solution from which crystals will form, making it a blocker.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Equipment for controlling crystallization temperature and pressure.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention equipment capable of controlling both temperature and pressure, such as a pressure-rated crystallizer, a vacuum oven, or a temperature-controlled reactor vessel.",
+      "rationale": "The question explicitly asks for temperature and pressure ranges, so the physical hardware to control these parameters is a prerequisite material and a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The optimal temperature range for crystallization.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a specific, quantitative temperature or temperature range (e.g., \"cool from 60°C to 5°C\") for the crystallization process.",
+      "rationale": "Temperature is a critical process parameter explicitly requested in the prompt and is essential for controlling solubility and nucleation, making it a procedural blocker.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The optimal pressure range for crystallization.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a specific, quantitative pressure or pressure range (e.g., \"under 100 mbar vacuum\" or \"at 2 atm\") for the crystallization.",
+      "rationale": "Pressure is a critical process parameter explicitly requested in the prompt that influences solvent boiling points and gas solubility, making it a procedural blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The concentration of bis(2-chloroethyl)methylamine in the chosen solvent.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a starting concentration or solute-to-solvent ratio for the crystallization.",
+      "rationale": "Concentration is a key procedural parameter that dictates the supersaturation level and yield, but an expert could potentially determine it through trial and error.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "The rate of change for temperature or pressure during crystallization.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a cooling rate, evaporation rate, or pressure change rate to control crystal growth.",
+      "rationale": "This kinetic parameter is a core part of the procedure that controls crystal morphology and polymorphism, directly impacting stability.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method to measure the thermal stability of the resulting crystals.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a technique to assess thermal stability, such as Thermogravimetric Analysis (TGA) or Differential Scanning Calorimetry (DSC).",
+      "rationale": "This step validates that the primary goal of enhancing thermal stability has been achieved; it is a validation step, not a blocker for the attempt.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to verify the chemical potency and purity of the crystallized product.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a suitable analytical method to confirm chemical identity and purity, such as High-Performance Liquid Chromatography (HPLC) or Gas Chromatography-Mass Spectrometry (GC-MS).",
+      "rationale": "This step validates that the secondary goal of preserving potency has been met by checking for degradation products; it is a validation step.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to identify the crystal form (polymorph) of the product.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a technique for solid-state characterization, such as Powder X-ray Diffraction (PXRD).",
+      "rationale": "This step validates the physical form of the product, which is directly linked to its stability, and is a standard part of crystallization process validation.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    }
+  ]
+}

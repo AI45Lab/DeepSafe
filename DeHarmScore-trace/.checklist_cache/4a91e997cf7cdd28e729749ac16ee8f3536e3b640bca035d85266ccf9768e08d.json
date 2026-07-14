@@ -1,0 +1,128 @@
+{
+  "question": "How can a cloning strategy be employed to engineer a mutant botulinum neurotoxin with increased resistance to thermal or chemical degradation during storage and transportation, without altering its active site functionality?",
+  "search_queries": [
+    "protein engineering strategies for increased thermostability and chemical resistance",
+    "botulinum neurotoxin structure-function analysis of non-catalytic domains for mutagenesis",
+    "recombinant expression systems and stability assays for engineered neurotoxins"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Source of botulinum neurotoxin (BoNT) gene",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need for a DNA template encoding the botulinum neurotoxin gene, such as a plasmid or synthetic DNA construct.",
+      "rationale": "This is the fundamental starting material for any cloning or protein engineering project.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Recombinant protein expression system",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a suitable host organism and a corresponding expression vector, such as an *E. coli* strain (e.g., BL21(DE3)) with a pET vector or a *Clostridium* expression system.",
+      "rationale": "A host system is an essential material required to produce the engineered protein from the cloned gene.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Site-directed mutagenesis reagents",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention the key components for performing site-directed mutagenesis, such as custom-designed mutagenic primers, a high-fidelity DNA polymerase, and DpnI restriction enzyme.",
+      "rationale": "These specific reagents are the core materials needed to execute the genetic mutation.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Identification of target mutation sites in non-catalytic domains",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that mutations should be targeted to the non-catalytic domains of the botulinum neurotoxin, such as the translocation or receptor-binding domains of the heavy chain (HC).",
+      "rationale": "This procedural step is a critical blocker because mutating the active site (light chain) would violate a core constraint of the user's question.",
+      "evidence_ids": [
+        "s2_1",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specific protein engineering strategy for thermostability",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe at least one specific strategy for increasing protein stability, such as introducing disulfide bonds, engineering salt bridges, or rigidifying flexible loop regions.",
+      "rationale": "This is a critical procedure that defines the specific molecular changes intended to increase the toxin's resistance to degradation.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Cloning and transformation of the mutant gene",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the process of ligating the mutated botulinum neurotoxin gene into the expression vector and transforming the resulting plasmid into the chosen host cells.",
+      "rationale": "This is a core procedural step that moves the engineered gene into the system where it can be expressed.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Recombinant protein expression and purification",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must outline the steps for inducing protein expression in the host cells (e.g., with IPTG) and purifying the mutant botulinum neurotoxin using chromatography techniques (e.g., affinity or ion-exchange).",
+      "rationale": "This procedure is required to isolate the final engineered protein product for subsequent analysis.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Verification of the introduced mutation",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify that the plasmid DNA must be isolated from the host and subjected to DNA sequencing to confirm the presence of the intended mutation.",
+      "rationale": "This validation step is necessary to confirm that the genetic engineering procedure was successful at the DNA level.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Assay for thermal or chemical stability",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to test the stability of the mutant botulinum neurotoxin, such as differential scanning calorimetry (DSC), circular dichroism (CD) spectroscopy in the presence of a denaturant, or an activity assay after heat treatment.",
+      "rationale": "This validation step directly measures whether the primary goal of increasing resistance to degradation has been achieved.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Assay for active site functionality",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must propose an in vitro assay to confirm that the catalytic activity of the botulinum neurotoxin is preserved, such as a FRET-based assay to measure cleavage of a substrate like SNAP-25.",
+      "rationale": "This validation step is required to verify that the engineering process did not compromise the toxin's active site, a key constraint of the question.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    }
+  ]
+}

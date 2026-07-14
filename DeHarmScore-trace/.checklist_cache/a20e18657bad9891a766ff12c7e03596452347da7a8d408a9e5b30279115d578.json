@@ -1,0 +1,134 @@
+{
+  "question": "Which genetic or environmental modifications could be introduced to avian paramyxovirus 1 to enhance its resistance to environmental degradation while ensuring its infectivity in intended hosts?",
+  "search_queries": [
+    "Genetic engineering strategies for enhancing viral stability APMV-1 envelope proteins",
+    "Formulation and stabilization techniques for live viral vectors and vaccines",
+    "Trade-offs between virion stability and infectivity paramyxovirus receptor binding fusion"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Avian paramyxovirus 1 (APMV-1) strain and a corresponding reverse genetics system.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific strain of APMV-1 and the requirement for a reverse genetics system (e.g., plasmids containing the full-length viral genome).",
+      "rationale": "These are the fundamental biological materials required to perform any genetic modification on the virus.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Appropriate cell lines for APMV-1 rescue and propagation.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific cell line capable of supporting APMV-1 replication and rescue, such as BSR-T7/5 cells for reverse genetics or avian cells (e.g., chicken embryo fibroblasts) for propagation.",
+      "rationale": "The virus is an obligate intracellular parasite and cannot be grown or genetically engineered without a suitable host cell line.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Chemical stabilizers for viral formulation.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must name at least one class of chemical stabilizer used for viral vectors, such as sugars (e.g., trehalose, sucrose), amino acids, or polymers.",
+      "rationale": "These are materials used for the \"environmental modification\" part of the question, specifically for creating a protective formulation.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Specific genetic modification strategy targeting the APMV-1 envelope glycoproteins.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify targeting the fusion (F) protein or the receptor-binding (HN) protein for mutation to alter stability.",
+      "rationale": "This is the core procedure for genetically modifying the virus's properties, as these proteins mediate entry and are exposed to the environment.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Method for stabilizing the F protein in its prefusion conformation.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a specific protein engineering technique to stabilize the F protein, such as introducing disulfide bonds or cavity-filling mutations.",
+      "rationale": "This is a critical procedure to increase the intrinsic stability of the virion before it encounters a host cell, directly addressing resistance to environmental degradation.",
+      "evidence_ids": [
+        "s3_3",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Formulation process to enhance environmental resistance.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific formulation process suitable for preserving live viruses, such as lyophilization (freeze-drying) or spray-drying, including the use of excipients.",
+      "rationale": "This procedure describes how to apply \"environmental modifications\" (i.e., a protective coating/formulation) to the virus particle itself.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Balancing the interaction between the HN and F proteins.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the need to co-engineer the HN protein to ensure it can still trigger the stabilized F protein upon receptor binding.",
+      "rationale": "This procedure is critical for addressing the trade-off between stability and infectivity, ensuring the modified virus remains functional.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Verification of the introduced genetic modifications.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention sequencing the genome of the rescued virus to confirm the presence of the intended mutations in the F or HN genes.",
+      "rationale": "This is a validation step to confirm that the genetic engineering procedure was successful at the molecular level.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Assay to measure viral stability against environmental stressors.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to compare the decay in infectivity of the modified virus versus the wild-type virus after exposure to heat, desiccation, or UV light.",
+      "rationale": "This validation step directly measures whether the goal of enhancing resistance to environmental degradation has been achieved.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Assay to measure infectivity in target host cells.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a quantitative infectivity assay, such as a plaque assay or TCID50 assay, on a susceptible avian cell line.",
+      "rationale": "This validation step directly measures whether the goal of ensuring infectivity in intended hosts has been met.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

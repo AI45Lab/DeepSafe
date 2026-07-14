@@ -1,0 +1,130 @@
+{
+  "question": "What specific spectroscopic methods can be employed to distinguish and isolate Europium-154 from its isotopic contaminants during post-synthesis refinement, especially in low-resource environments?",
+  "search_queries": [
+    "Europium isotope shift spectroscopic separation techniques",
+    "low-cost laser isotope separation methods for radiochemicals",
+    "selectivity and efficiency of spectroscopic vs non-spectroscopic lanthanide isotope enrichment"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Source of unrefined Europium",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the starting material as a mixture of Europium isotopes, including Eu-154 and its contaminants, that requires purification.",
+      "rationale": "This is the raw material that the entire process is designed to refine, making it an absolute prerequisite.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Tunable laser system",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a laser system (e.g., a tunable dye laser or diode laser) capable of being precisely tuned to the specific absorption wavelength of the Eu-154 isotope.",
+      "rationale": "The tunable laser is the core piece of equipment for any spectroscopic isotope separation method, making it a fundamental blocker.",
+      "evidence_ids": [
+        "s1_3",
+        "s2_3",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Atomic vapor generation system",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a system for producing a beam of atomic Europium vapor, such as a high-temperature oven or an electron beam evaporator, housed within a vacuum chamber.",
+      "rationale": "Atomic Vapor Laser Isotope Separation (AVLIS) requires the target element to be in a gaseous, atomic state, making this equipment a prerequisite.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Ion collection apparatus",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a mechanism for collecting the selectively ionized Eu-154, such as a set of charged electromagnetic plates or a mass separator.",
+      "rationale": "This equipment is essential for the physical isolation of the target isotope after it has been identified spectroscopically, making it a blocker for the separation goal.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Selective excitation wavelength for Eu-154",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the need to use a specific laser wavelength that corresponds to an electronic transition in Eu-154 but not in its isotopic contaminants, exploiting the isotope shift.",
+      "rationale": "This parameter is the most critical procedural step; without the correct wavelength, selective excitation is impossible and the entire method fails.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Ionization laser parameters",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the second step of the process, using another laser pulse with sufficient energy to photoionize the already-excited Eu-154 atoms.",
+      "rationale": "This is a core action in the two-step photoionization process, defining how the selectively excited atoms are converted into ions for collection.",
+      "evidence_ids": [
+        "s1_3",
+        "s2_1",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Vacuum chamber operating conditions",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify the need to maintain a high vacuum and control the temperature of the Europium source to ensure a stable and collision-free atomic beam.",
+      "rationale": "These environmental parameters are critical for the efficiency and success of the AVLIS process by preventing unwanted interactions and ensuring a clean atomic stream.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Ion extraction field strength",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify the application of an electric or magnetic field of a specific strength to efficiently deflect the positively charged Eu-154 ions toward the collection plate.",
+      "rationale": "This parameter governs the efficiency of the final isolation step, directly impacting the yield of the separated isotope.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Isotopic ratio analysis of the collected product",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to measure the isotopic composition of the collected material, such as mass spectrometry (e.g., ICP-MS or TIMS), to confirm the enrichment of Eu-154.",
+      "rationale": "This is a standard validation step to verify that the isotopic separation was successful and to quantify the final product's purity.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Calculation of enrichment factor and yield",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the need to calculate the enrichment factor (the change in isotopic ratio) and the overall process yield to quantify the separation's effectiveness.",
+      "rationale": "This validation step provides a quantitative measure of the process's success, closing the execution loop by evaluating the outcome against the initial goal.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

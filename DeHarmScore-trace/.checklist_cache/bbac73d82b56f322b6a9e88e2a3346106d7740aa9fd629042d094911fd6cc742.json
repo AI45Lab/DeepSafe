@@ -1,0 +1,131 @@
+{
+  "question": "What are the most efficient methods to enrich Promethium-149 isotopes from mixed rare earth elements using rudimentary chemical processes, considering its scarcity and rapid decay properties?",
+  "search_queries": [
+    "Promethium separation from lanthanides using ion-exchange and solvent extraction techniques",
+    "Rapid chemical separation methods for short-lived rare earth fission products",
+    "Efficiency and selectivity of rudimentary precipitation chromatography for adjacent lanthanide separation"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Source material containing Promethium-149",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the starting material as a mixture of rare earth elements or fission products containing promethium.",
+      "rationale": "This is the fundamental input material required for the entire process; without it, the task cannot begin.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Separation medium or primary reagents",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific type of separation medium or reagent, such as a cation exchange resin, an organic solvent for extraction, or a chemical for selective precipitation.",
+      "rationale": "This is the core physical or chemical medium that enables the separation of different elements.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specific complexing or eluting agent",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific complexing agent or eluent used to create chemical differences between the lanthanides, such as α-hydroxy-isobutyric acid (α-HIBA) or an organophosphate extractant.",
+      "rationale": "This chemical is a critical material because adjacent lanthanides are too chemically similar to separate without an agent that selectively complexes with them.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Rudimentary laboratory apparatus",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention basic chemical processing equipment such as chromatography columns, separatory funnels, beakers, or a filtration setup.",
+      "rationale": "This covers the physical tools needed to handle the materials and perform the procedures, but specific items are not blockers as they are standard in any basic lab.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Core separation methodology",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the fundamental steps for at least one of the following methods: ion-exchange chromatography, solvent extraction, or fractional precipitation.",
+      "rationale": "This is the central procedure that transforms the raw materials into the separated product; the process is defined by this action.",
+      "evidence_ids": [
+        "s1_1",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "pH control of the aqueous solution",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the need to control or adjust the pH of the solution to achieve effective separation of the rare earth elements.",
+      "rationale": "The efficiency and selectivity of lanthanide separation via complexation, precipitation, or ion exchange is critically dependent on pH, making it a blocking procedural parameter.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Elution or extraction parameters for selectivity",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe using a gradient (e.g., changing pH or eluent concentration) or a multi-stage process to sequentially separate the very similar lanthanides.",
+      "rationale": "This procedural detail is crucial for achieving high purity but is not an absolute blocker, as a crude, single-step separation could still be attempted.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Consideration of process speed due to isotope decay",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must acknowledge that the separation method must be performed rapidly to minimize yield loss from the decay of Promethium-149 (half-life ~53 hours).",
+      "rationale": "This parameter addresses a key constraint from the prompt; while a slow process is not impossible, it would be inefficient and fail to meet the question's criteria.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method for fraction identification",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to analyze the collected fractions to locate the promethium, such as using a Geiger counter or other radiation detector to measure beta activity.",
+      "rationale": "This is a validation step to check the output of the procedure and determine which collected sample contains the desired product.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Verification of final product purity",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a technique to confirm the enrichment of Promethium-149 and its separation from other lanthanides, such as gamma or beta spectroscopy.",
+      "rationale": "This is the final validation step to confirm the success and efficiency of the entire enrichment process.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

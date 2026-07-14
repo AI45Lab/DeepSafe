@@ -1,0 +1,136 @@
+{
+  "question": "What specific techniques can be applied to chemically enrich Platinum-191 from naturally occurring isotopic mixtures, ensuring maximal yield and purity while addressing its limited natural abundance?",
+  "search_queries": [
+    "Production routes and radiochemical separation techniques for Platinum-191",
+    "Isotope separation methods for platinum group metals comparison (e.g., electromagnetic, laser, chemical exchange)",
+    "Factors affecting yield and purity in short-lived radioisotope separation and purification"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Starting target material for Platinum-191 production.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify Iridium (Ir) as the target material for producing Platinum-191 via a nuclear reaction.",
+      "rationale": "This is the primary physical precursor required for the production of Platinum-191, making it a core material and an absolute blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Equipment for inducing the nuclear reaction.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify a particle accelerator (e.g., cyclotron) or a nuclear reactor as the necessary equipment for irradiating the Iridium target.",
+      "rationale": "The production of Pt-191 from Iridium requires specialized, large-scale hardware to induce the nuclear transmutation, making it a fundamental material prerequisite.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Reagents for target dissolution and chemical separation.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific class of reagent for either target dissolution (e.g., alkali for fusion) OR chemical separation (e.g., ion-exchange resin, specific solvent for extraction).",
+      "rationale": "Chemical separation is impossible without the specific chemical reagents used to dissolve the target and selectively isolate the desired element, making this a core material blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s2_2",
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Irradiation parameters for the nuclear reaction.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the type of particle beam (e.g., proton, deuteron) used to irradiate the Iridium target to produce Platinum-191.",
+      "rationale": "The choice of particle and its energy determines which nuclear reaction occurs; using the wrong parameters will not produce the desired Pt-191 isotope, making this a critical procedural blocker.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Initial processing of the irradiated target.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the initial chemical processing of the irradiated iridium target, such as alkali fusion, to bring the material into a soluble form for separation.",
+      "rationale": "The solid irradiated target must be dissolved before any chemical separation can occur, making this a non-negotiable first step in the purification procedure.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Chemical separation method to isolate platinum.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a specific chemical separation technique, such as ion-exchange chromatography, solvent extraction, or precipitation, to separate platinum from the bulk iridium target material.",
+      "rationale": "This is the core procedure for separating the target element (Ir) from the product element (Pt), which is the central challenge of the purification process.",
+      "evidence_ids": [
+        "s2_2",
+        "s3_1",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Final purification technique for enhancing purity.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a secondary purification step, such as a specific chromatographic method (e.g., HPLC, radio-TLC), to improve the radiochemical purity of the Platinum-191.",
+      "rationale": "This procedure refines the final product to achieve higher purity but is not a blocker, as the primary separation (c6) already yields a usable, if less pure, product.",
+      "evidence_ids": [
+        "s3_3",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Measurement of radiochemical yield.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method for calculating the radiochemical yield (RCY) of Platinum-191, typically by measuring the radioactivity of the final product and comparing it to the theoretical maximum.",
+      "rationale": "This step validates the \"maximal yield\" aspect of the question by quantifying the efficiency of the production and separation process.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Analysis of radiochemical purity.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a method to determine the radiochemical purity (RCP) of the final Platinum-191 product, such as radio-TLC or radio-HPLC, to check for chemical contaminants.",
+      "rationale": "This step validates the \"purity\" aspect of the question by confirming that the radioactivity is associated with the desired chemical form of platinum.",
+      "evidence_ids": [
+        "s3_3",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Confirmation of isotopic identity and purity.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the use of gamma-ray spectroscopy to confirm the identity of Platinum-191 by its characteristic energy emissions and to quantify any radioactive isotopic impurities.",
+      "rationale": "This is the standard method to validate that the correct",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "question": "What parameters should be adjusted when lyophilizing philippinensis to ensure its stability and activity remain intact after reconstitution?",
+  "search_queries": [
+    "lyophilization critical process parameters for biological stability",
+    "role of cryoprotectants and lyoprotectants in preserving activity during freeze-drying",
+    "post-lyophilization characterization and stability testing of biologics"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The specific biological sample of `philippinensis` to be lyophilized.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the need for a prepared, pre-lyophilization liquid sample of `philippinensis`.",
+      "rationale": "This is the core starting material for the entire process and is therefore a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Cryoprotectant and/or lyoprotectant excipients for the `philippinensis` formulation.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one class of protective excipient (e.g., sugars like sucrose or trehalose, or polymers) used to stabilize the `philippinensis` sample.",
+      "rationale": "These chemical reagents are essential materials for preventing damage to the biological sample during freezing and drying.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "A lyophilizer (freeze-dryer) with controllable shelf temperature and vacuum pressure.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention the requirement for a lyophilizer or freeze-dryer to perform the process.",
+      "rationale": "This is the essential hardware required to perform lyophilization and is a blocker.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Specific parameters for the freezing stage of the `philippinensis` sample.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify at least one critical freezing parameter to control, such as the freezing rate or the target shelf temperature.",
+      "rationale": "Freezing is the first critical procedural stage that determines the ice crystal structure, directly impacting drying efficiency and stability.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specific parameters for the primary drying (sublimation) stage for the frozen `philippinensis` sample.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify at least two critical primary drying parameters to control: shelf temperature and chamber pressure (vacuum level).",
+      "rationale": "Primary drying is the core procedural step where bulk ice is removed, and incorrect parameters can cause product collapse or degradation.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Specific parameters for the secondary drying (desorption) stage for the `philippinensis` sample.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify at least one parameter for secondary drying, such as the final shelf temperature or the duration of the stage.",
+      "rationale": "This procedural step removes residual moisture, which is critical for long-term stability but is an optimization rather than a fundamental requirement for the attempt.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Annealing step during the freezing stage for the `philippinensis` sample.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the process of annealing, which involves raising the temperature after initial freezing and holding it for a period before re-cooling.",
+      "rationale": "Annealing is an optional but often critical procedural step used to control ice crystal size and improve drying efficiency.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Measurement of residual moisture content in the final lyophilized `philippinensis` product.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a method for quantifying the final water content of the lyophilized cake, such as Karl Fischer titration.",
+      "rationale": "This is a validation step to confirm the lyophilization cycle was successful in removing sufficient water for stability.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Characterization of the reconstituted `philippinensis` sample.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention at least one test performed after reconstituting the `philippinensis` sample, such as measuring reconstitution time, checking for visible particulates, or analyzing for aggregation.",
+      "rationale": "This is a validation step to ensure the lyophilized product is physically stable and behaves as expected upon rehydration.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "An assay to measure the biological activity of the `philippinensis` sample after reconstitution.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must state the need to perform a specific biological activity assay relevant to the `philippinensis` sample to confirm its function is preserved.",
+      "rationale": "This is the ultimate validation step to confirm that the entire process successfully preserved the biological function of the `philippinensis` sample.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    }
+  ]
+}

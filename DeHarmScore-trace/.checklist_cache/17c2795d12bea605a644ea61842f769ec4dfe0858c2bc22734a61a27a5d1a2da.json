@@ -1,0 +1,130 @@
+{
+  "question": "What method would optimize the shielding design to minimize radiation leakage while storing Osmium-193 in a highly compact form factor, considering its high toxicity and radiological properties?",
+  "search_queries": [
+    "Osmium-193 radiological properties decay scheme gamma beta energies",
+    "compact shielding and containment design for high-toxicity radioisotopes",
+    "radiation shielding optimization trade-offs weight volume dose rate standards"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Osmium-193 radiological data",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the key decay characteristics of Osmium-193, such as its primary beta and gamma emission energies and intensities.",
+      "rationale": "This is the fundamental input data required for any shielding calculation, making it a prerequisite material and a blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "High-density gamma shielding material(s)",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific high-Z material suitable for shielding Osmium-193's gamma rays, such as lead, tungsten, or depleted uranium.",
+      "rationale": "The physical material used for shielding is a core component of the design, making it a prerequisite material and a blocker.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Radiation transport simulation software",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific Monte Carlo simulation code used for radiation shielding design, such as MCNP, FLUKA, Geant4, or SCALE.",
+      "rationale": "This software is the essential tool for modeling and optimizing the shielding design, making it a prerequisite and a blocker.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Inner containment material for Osmium",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a material for the inner capsule to contain the toxic Osmium-193, considering chemical compatibility and structural integrity.",
+      "rationale": "A material to safely contain the toxic source itself, separate from the shielding, is a critical physical prerequisite and a blocker.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Definition of the Osmium-193 source term in the simulation",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the process of modeling the Osmium-193 source, including its geometry and the energy spectrum of its beta and gamma emissions.",
+      "rationale": "This is the first and most critical procedural step in setting up the simulation; without it, the optimization cannot begin.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Specification of quantitative optimization constraints",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must define the specific numerical targets for the optimization, such as a maximum external dose rate (e.g., in mSv/hr) and a maximum volume or weight.",
+      "rationale": "These quantitative parameters define the goal of the optimization procedure, making them a critical and blocking step.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Optimization methodology or algorithm",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the iterative or algorithmic method used to optimize the shielding, such as running simulations with varying material thicknesses or using a formal optimization algorithm.",
+      "rationale": "This describes the core \"how-to\" of the optimization process itself, making it a critical procedural blocker.",
+      "evidence_ids": [
+        "s3_3",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Layered shielding design for mixed-field radiation",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a multi-layer shielding approach, such as using a low-Z material to stop Osmium-193's beta particles followed by a high-Z material for gamma rays.",
+      "rationale": "This is a specific, advanced procedure for optimizing shielding for a beta-gamma emitter, but a simpler single-material design is still possible.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Measurement of external radiation dose rate",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a method to experimentally measure the radiation leakage from the final shielded container, including the type of detector to be used.",
+      "rationale": "This step validates the performance of the final design, which occurs after the core task is complete.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Verification of containment integrity",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a test to confirm the physical containment of the toxic Osmium-193, such as a helium leak test or a pressure test.",
+      "rationale": "This step validates the safety and integrity of the container, which is a final check on the executed design.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

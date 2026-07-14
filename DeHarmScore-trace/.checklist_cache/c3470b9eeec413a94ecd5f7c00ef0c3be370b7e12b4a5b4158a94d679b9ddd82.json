@@ -1,0 +1,134 @@
+{
+  "question": "What chemical or biological processes can be used to extract palytoxin analogs from commonly available marine organisms while minimizing thermal and photodegradation during the extraction process?",
+  "search_queries": [
+    "Extraction and purification techniques for palytoxin-like compounds from marine sources",
+    "Palytoxin and analogs chemical stability thermal photodegradation pH",
+    "Mild extraction methods for labile marine natural products and polyketides"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The specific biological source material containing palytoxin analogs.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific genus or type of \"commonly available\" marine organism known to contain palytoxin, such as Palythoa zoanthids, Ostreopsis dinoflagellates, or specific types of corals.",
+      "rationale": "This is the primary starting material for the entire process; without the correct organism, no palytoxin can be extracted.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "The primary solvents required for the initial extraction of palytoxin from the biological matrix.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one appropriate polar solvent or solvent mixture for the initial extraction, such as aqueous methanol, aqueous ethanol, or acetone.",
+      "rationale": "The choice of solvent is a critical material prerequisite that directly determines whether the target compound is solubilized and removed from the source material.",
+      "evidence_ids": [
+        "s1_1",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Materials for the cleanup and purification of the crude palytoxin extract.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention at least one material used for post-extraction cleanup, such as solid-phase extraction (SPE) cartridges (e.g., C18) or bulk media for column chromatography (e.g., silica gel).",
+      "rationale": "These materials are used to refine the crude extract, a key step after initial extraction but not an absolute blocker to obtaining an impure product.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The initial procedure for physically processing the biological source material to prepare it for solvent extraction.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a method for homogenizing or lysing the marine organism tissue to increase surface area and release cellular contents, such as grinding, blending, or sonicating the tissue.",
+      "rationale": "This is the critical first procedural step to release the target compound from the biological matrix, without which the solvent cannot effectively extract the palytoxin.",
+      "evidence_ids": [
+        "s1_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specific procedural controls to minimize thermal and photodegradation of palytoxin during extraction.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify at least one explicit method to prevent degradation, such as performing the extraction at low/cold temperatures (e.g., on ice) OR protecting the sample from light (e.g., using amber vials, working in a dark room).",
+      "rationale": "This directly addresses a core constraint of the user's question and is a critical parameter for obtaining the active, non-degraded compound.",
+      "evidence_ids": [
+        "s2_3",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The procedure for separating the palytoxin-containing fraction from other major impurities in the crude extract.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a liquid-liquid partitioning or solid-phase extraction (SPE) procedure, such as washing the aqueous extract with a non-polar solvent (e.g., hexane) to remove lipids.",
+      "rationale": "This procedure is a standard part of natural product isolation for concentrating the target compound and removing major impurities before final purification.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Advanced or alternative extraction methods that are inherently mild and reduce degradation.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention at least one alternative extraction technique suitable for labile compounds, such as supercritical fluid extraction (SFE), pressurized solvent extraction (PSE), or microwave-assisted extraction (MAE).",
+      "rationale": "This procedural dimension offers alternative pathways that directly address the user's constraint of using a mild process to minimize degradation.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "A method to detect and/or quantify the presence of palytoxin analogs in the final extract.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific analytical technique for confirming the presence of palytoxin, such as liquid chromatography-mass spectrometry (LC-MS) or a relevant bioassay (e.g., cell-based cytotoxicity assay).",
+      "rationale": "This is the primary method to validate the success of the extraction by confirming the presence and/or quantity of the target compound.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "A method to assess the purity of the extracted palytoxin.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe using an analytical chromatography method, such as high-performance liquid chromatography (HPLC), to check for the presence of a single major peak corresponding to palytoxin.",
+      "rationale": "This step validates the effectiveness of the purification process by determining the relative amount of the target compound versus impurities.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "The method for determining the overall yield or recovery of the extraction process.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "",
+      "rationale": "",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

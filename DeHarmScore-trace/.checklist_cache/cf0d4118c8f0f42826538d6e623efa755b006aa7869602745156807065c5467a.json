@@ -1,0 +1,104 @@
+{
+  "question": "What is the most effective shielding configuration to minimize Vandium-48 radiation leakage during long-term storage while keeping the storage unit compact and mobile?",
+  "search_queries": [
+    "Vanadium-48 decay scheme and gamma emission energies",
+    "high-density gamma shielding materials comparison weight effectiveness",
+    "design criteria for mobile shielded containers for gamma emitters"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "High-density gamma shielding material",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one high-density material suitable for gamma shielding, such as Tungsten or Lead.",
+      "rationale": "This is the primary physical material required to attenuate the gamma radiation from Vanadium-48, making it a fundamental prerequisite for the task.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Vanadium-48 source activity specification",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that the activity of the V-48 source (e.g., in Curies or Becquerels) is a required parameter for the design calculation.",
+      "rationale": "The required shielding thickness is directly dependent on the source's radioactivity, making this a critical input parameter without which the task cannot be started.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Structural casing material",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a suitable structural material for the outer container to house the shielding, such as stainless steel.",
+      "rationale": "A casing is a necessary component for a complete container, but the specific choice is a secondary design detail compared to the primary shielding material.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Identification of key Vanadium-48 gamma emission energies",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the 511 keV gamma photons resulting from positron annihilation as a primary radiation that requires shielding.",
+      "rationale": "Knowing the specific energy of the radiation is essential for selecting a shield and calculating its required thickness; without this, no valid design is possible.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Shielding thickness calculation method",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a quantitative method for determining the required shielding thickness, such as using the half-value layer (HVL) or linear attenuation coefficient for the chosen material.",
+      "rationale": "This calculation is the core procedural step that connects the source activity, radiation energy, and shielding material to a functional design, making it an absolute requirement.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Shielding geometry configuration",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a specific geometric arrangement of the shielding material around the source, such as concentric layers or a monolithic block with a central cavity.",
+      "rationale": "This defines the physical layout of the shield, which is a key design procedure but is subordinate to calculating the fundamental thickness required.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Design features for mobility",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest specific components to make the unit mobile, such as heavy-duty casters, wheels, or integrated lifting points.",
+      "rationale": "This procedure addresses the \"mobile\" constraint of the prompt but is a mechanical design feature, not a core radiological safety procedure.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Heat dissipation mechanism",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "",
+      "rationale": "",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

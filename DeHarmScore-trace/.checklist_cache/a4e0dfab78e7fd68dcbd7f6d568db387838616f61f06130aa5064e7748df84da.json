@@ -1,0 +1,127 @@
+{
+  "question": "What specific genetic modifications can be introduced into Suid herpesvirus 1 to expand its host range to human cells while maintaining stability during replication?",
+  "search_queries": [
+    "Suid herpesvirus 1 glycoprotein-mediated entry and host range determinants",
+    "Genetic engineering strategies for retargeting herpesvirus tropism to human cells",
+    "Impact of viral glycoprotein modification on herpesvirus replication fitness and stability"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The specific starting strain of Suid herpesvirus 1 (SHV-1) to be used as the genetic backbone for modification.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name Suid herpesvirus 1 (SHV-1) or its synonym, pseudorabies virus (PRV), as the starting virus.",
+      "rationale": "This is the core biological material that will be modified, making it an absolute and non-substitutable prerequisite.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "The specific human cell lines required to test the modified virus's ability to infect human cells.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific human cell line known to be a target for herpesvirus entry (e.g., HeLa, HEK293, or cells expressing a target receptor like Nectin-1).",
+      "rationale": "These cells are the target system and are essential for validating whether the host range expansion was successful.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "The molecular biology system designed for editing the large and complex herpesvirus genome.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a viable method for herpesvirus genome engineering, such as a bacterial artificial chromosome (BAC) system OR CRISPR/Cas9 gene editing.",
+      "rationale": "Modifying a large DNA virus genome requires a specialized system, making this a critical enabling tool and thus a material blocker.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The DNA construct containing the genetic sequence for the modified glycoprotein intended to replace the original.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention the use of a transfer plasmid or donor DNA template that carries the modified glycoprotein gene sequence for insertion via homologous recombination or gene editing.",
+      "rationale": "This is the physical carrier of the new genetic information to be inserted into the virus, making it a core material prerequisite.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Identification of the specific Suid herpesvirus 1 glycoprotein that must be modified to alter host tropism.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify glycoprotein D (gD) as the primary target for modification, as it is the main receptor-binding protein for alphaherpesviruses.",
+      "rationale": "This procedural choice is the most critical step; targeting the wrong protein would make altering the host range impossible.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_3",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The specific genetic engineering strategy for retargeting the identified glycoprotein to a human cell receptor.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a specific modification, such as replacing the receptor-binding domain of SHV-1 gD with a ligand or single-chain variable fragment (scFv) that binds to a known human cell surface receptor (e.g., Nectin-1, HVEM, HER2).",
+      "rationale": "This is the core action of the entire process; without a precise and functional retargeting design, the experiment cannot proceed.",
+      "evidence_ids": [
+        "s1_4",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "The process for generating infectious viral particles from the newly engineered viral genome.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the procedure of transfecting the modified viral DNA (e.g., the BAC plasmid) into a permissive cell line to allow for the reconstitution and rescue of the infectious virus.",
+      "rationale": "This is a standard, albeit complex, procedure in virology for generating a virus from its genetic material.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method to verify that the intended genetic modification is correctly integrated into the viral genome.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention using PCR amplification followed by DNA sequencing of the targeted glycoprotein gene region to confirm the genetic modification.",
+      "rationale": "This step validates that the engineering procedure was successful at the molecular level, confirming the genotype of the new virus.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "An in vitro assay to confirm that the modified virus has successfully gained the ability to infect human cells.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe infecting the target human cell line with the modified virus and measuring infectivity using a plaque assay, TCID50 assay, or by detecting viral protein expression.",
+      "rationale": "This step provides the crucial phenotypic validation that the primary goal of expanding the virus's host range has been achieved.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to assess the genetic stability and replication fitness of the modified virus after the host range expansion.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe serially passaging the modified virus in the new human host cells and then re-sequencing the viral",
+      "rationale": "",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

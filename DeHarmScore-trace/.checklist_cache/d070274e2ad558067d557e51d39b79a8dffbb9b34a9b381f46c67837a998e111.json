@@ -1,0 +1,133 @@
+{
+  "question": "What specific chemical additives or growth media formulations can be used to stabilize Newcastle disease virus against thermal degradation during cultivation and storage in non-controlled settings?",
+  "search_queries": [
+    "Newcastle disease virus thermostabilization excipients and chemical additives",
+    "Thermostable NDV vaccine formulation for field use and storage",
+    "NDV propagation media and downstream processing for enhanced thermal stability"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specific Newcastle disease virus (NDV) strain, preferably a thermostable variant.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific thermostable NDV strain (e.g., I-2, V4, TS09-C) or a class of such strains.",
+      "rationale": "The starting virus strain is the core biological material, and using an inherently thermostable strain is a primary strategy for success.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Host system for propagating the Newcastle disease virus.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a viable host system for NDV propagation, such as specific-pathogen-free (SPF) embryonated chicken eggs OR a specific avian cell line.",
+      "rationale": "The virus cannot be produced without a biological host system, making this a fundamental material prerequisite.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specific chemical stabilizers or excipients added to the virus preparation.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific class of chemical stabilizer (e.g., sugars, polymers, proteins) and provide a concrete example such as trehalose, gelatin, or polyvinylpyrrolidone (PVP).",
+      "rationale": "The chemical additives are the primary non-biological materials required to confer thermal stability to the virus formulation.",
+      "evidence_ids": [
+        "s1_3",
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Base liquid or buffer for the final virus formulation.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must identify the base liquid in which the virus and stabilizers are suspended, such as allantoic fluid or a defined buffer (e.g., phosphate-buffered saline).",
+      "rationale": "This is the medium that carries the active components, making it a core material, but it is less critical than the specific stabilizers themselves.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specific concentrations or ratios for the chemical stabilizers in the formulation.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a specific quantitative concentration for at least one named stabilizer (e.g., 1% w/v gelatin, 5% trehalose).",
+      "rationale": "The correct concentration of an excipient is a critical parameter that determines its effectiveness, making this a crucial procedural detail.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "A specific dehydration method to prepare the virus for storage.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a dehydration process used to create a thermostable solid form, such as lyophilization (freeze-drying) OR vacuum foam drying (VFD).",
+      "rationale": "Removing water is a critical procedure for achieving long-term stability at ambient temperatures, making the choice of method a key step.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Target pH range for the final stabilized virus formulation.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a target pH range (e.g., pH 7.0-7.4) for the final virus formulation to ensure viral protein stability.",
+      "rationale": "Maintaining the correct pH is an important procedural parameter for virus viability, but minor deviations are less likely to cause total failure than omitting a stabilizer.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method to quantify the amount of infectious virus.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a standard virological assay to measure the infectious titer of NDV, such as the Embryo Infectious Dose 50 (EID50) or Tissue Culture Infectious Dose 50 (TCID50) assay.",
+      "rationale": "This is a standard validation step to measure the starting and ending concentration of viable virus to determine if the procedure was successful.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "A thermal challenge assay to test the stability of the formulation.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method for testing stability by incubating the formulation at a specified elevated temperature for a specific duration (e.g., 37°C for 7 days) and then measuring the remaining viral titer.",
+      "rationale": "This validation procedure directly tests whether the primary goal of thermostabilization against thermal degradation has been achieved.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_5",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to confirm the identity and biological activity of the stabilized virus.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a method to confirm either the virus's identity (e.g., hemagglutination assay, PCR) or its immunogenicity in a relevant model.",
+      "rationale": "This is a final validation step to ensure the correct virus was stabilized and that it retains its key biological properties after the process.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    }
+  ]
+}

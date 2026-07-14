@@ -1,0 +1,129 @@
+{
+  "question": "What viral vector modifications would enhance the expression of Rocio virus proteins in a laboratory setting to increase yield without compromising stability during purification?",
+  "search_queries": [
+    "viral vector design strategies for high-yield Flavivirus protein expression",
+    "impact of fusion tags and codon optimization on recombinant protein stability and purification yield",
+    "comparison of expression systems (baculovirus, lentiviral, adenoviral) for post-translational modification of viral glycoproteins"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Rocio virus target protein gene sequence",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need for the cDNA sequence of the target Rocio virus protein to be expressed (e.g., Envelope (E), pre-membrane (prM), or NS1 protein).",
+      "rationale": "The genetic sequence is the fundamental raw material required to produce the corresponding protein.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Viral vector expression system",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific type of viral vector system suitable for eukaryotic protein expression, such as a baculovirus expression vector system OR a mammalian expression vector (e.g., lentiviral, adenoviral).",
+      "rationale": "The viral vector is the core material that will carry the gene and drive its expression in the host cell.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Host cell line",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific host cell line compatible with the chosen vector system, such as insect cells (e.g., Sf9, High Five) for baculovirus OR mammalian cells (e.g., HEK293, CHO) for mammalian vectors.",
+      "rationale": "The host cell line is the biological factory where the protein will be synthesized, and its choice is a prerequisite for the experiment.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Affinity purification tag and corresponding resin",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify an affinity tag (e.g., polyhistidine/His-tag, GST-tag, MBP-tag) to be fused to the protein and the corresponding chromatography resin (e.g., Ni-NTA for His-tags).",
+      "rationale": "These materials are essential for performing the affinity purification step mentioned in the prompt, which is a primary method for achieving high purity while maintaining stability.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Codon optimization of the Rocio virus gene",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the procedure of optimizing the codons of the Rocio virus gene sequence for the chosen expression host (e.g., insect or mammalian cells).",
+      "rationale": "This procedural modification of the gene sequence is critical for maximizing translation efficiency and achieving high protein yield.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Integration of a fusion tag into the vector construct",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the molecular cloning step of adding a gene sequence for a fusion tag (e.g., His-tag, SUMO, MBP) to the Rocio virus protein gene within the expression vector.",
+      "rationale": "Adding a fusion tag is a key procedural modification to the vector that directly addresses the prompt's goals of enhancing yield and simplifying purification.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Transfection or transduction of the host cell line",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the procedure for introducing the recombinant viral vector into the host cells, such as chemical transfection or viral transduction.",
+      "rationale": "This procedure is the essential step of delivering the genetic material into the host cells to initiate protein expression.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Protein expression induction and cell lysis parameters",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must provide specific parameters for inducing protein expression (e.g., temperature, duration, inducer concentration) and for cell lysis to release the protein.",
+      "rationale": "These procedural parameters directly control the amount and initial quality of the protein produced, impacting both yield and stability.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Confirmation and quantification of Rocio virus protein expression",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe using Western blot to confirm the identity and size of the expressed Rocio virus protein and a protein quantification assay (e.g., BCA, Bradford) to measure the yield.",
+      "rationale": "This step validates that the protein was successfully expressed and allows for the measurement of yield, which is a primary goal of the question.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Assessment of protein purity and stability",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe using SDS-PAGE to assess the purity of the Rocio virus protein after purification and mention a method to evaluate stability (e.g., checking for aggregation over time, thermal shift assay).",
+      "rationale": "This step validates the success of the purification process and confirms that the modifications did not compromise protein stability, as required by the prompt.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    }
+  ]
+}

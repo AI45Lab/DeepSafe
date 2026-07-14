@@ -1,0 +1,134 @@
+{
+  "question": "How can thermal runaway during the scaling up of Mycoplasma capricolum subspecies capripneumoniae strain F38 culture production be mitigated using improvised temperature control setups?",
+  "search_queries": [
+    "exothermic microbial culture heat generation and dissipation at scale",
+    "low-cost bioreactor temperature control design principles and limitations",
+    "thermal runaway risk assessment and mitigation strategies in bioprocessing"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The specific bacterial strain and a suitable growth medium.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name both the strain `Mycoplasma capricolum subspecies capripneumoniae strain F38` (or Mccp F38) and a specific, appropriate culture medium for its growth.",
+      "rationale": "These are the fundamental biological materials required to begin the culture production process, making them a core prerequisite.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Components for a large-scale culture vessel (bioreactor).",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must list the essential components for an improvised large-scale vessel, such as a food-grade container, lid with ports for tubing, and an aeration system.",
+      "rationale": "The question specifies \"scaling up,\" which necessitates a vessel larger than a standard lab flask, making it a physical prerequisite.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Components for an improvised cooling system.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must list the components for at least one improvised cooling method, such as a water bath with a pump and tubing to create a cooling jacket OR internal cooling coils connected to a coolant reservoir.",
+      "rationale": "The core of the question is mitigating thermal runaway with an improvised setup, making the physical cooling apparatus an absolute prerequisite.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The target cultivation temperature range for Mycoplasma capricolum.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the optimal growth temperature for `Mycoplasma capricolum`, which is approximately 37°C, and define a narrow control range around it (e.g., +/- 1°C).",
+      "rationale": "Maintaining the correct temperature is the central procedural challenge to prevent thermal runaway and ensure cell viability, making it a critical parameter.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Procedure for operating the improvised cooling system to dissipate heat.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the process of actively circulating a coolant (e.g., cold water) through the improvised setup (e.g., jacket or coils) in response to temperature increases in the culture.",
+      "rationale": "This is the core action required to execute the temperature mitigation strategy described in the question, making it a critical procedure.",
+      "evidence_ids": [
+        "s1_1",
+        "s2_1",
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Agitation or mixing parameters for the culture.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a method and rate for agitation (e.g., using a magnetic stir bar at a specific RPM or intermittent shaking) to ensure even heat distribution within the large-scale culture.",
+      "rationale": "This procedure is crucial for ensuring uniform temperature and preventing localized hotspots, but the exact method can be varied.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Inoculation ratio for scaling up the Mccp F38 culture.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must provide a specific starting inoculum volume or cell density for the scaled-up culture volume to manage the initial rate of exothermic growth.",
+      "rationale": "This parameter influences the kinetics of heat generation, but some variation is tolerable, so it's a non-blocking procedural detail.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for continuous temperature monitoring of the culture.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to continuously measure the internal temperature of the culture broth, such as using a waterproof digital thermometer or thermocouple probe inserted into the vessel.",
+      "rationale": "This step is for validating that the temperature control procedure is working as intended; it does not block the attempt itself.",
+      "evidence_ids": [
+        "s1_5",
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to assess the viability and yield of the Mycoplasma capricolum culture.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to confirm successful growth, such as measuring optical density (OD), performing a colony-forming unit (CFU) count, or using microscopy to check cell morphology.",
+      "rationale": "This step validates that the culture survived and grew under the improvised conditions, confirming the outcome of the process.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Analysis to confirm thermal runaway was mitigated.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe how to analyze the temperature data log from the culture period to verify that the temperature remained within the target range and did not exhibit an uncontrolled exponential increase.",
+      "rationale": "This step provides the final validation that the core goal of the question—mitigating thermal runaway—was successfully achieved.",
+      "evidence_ids": [
+        "s1_5",
+        "s3_1"
+      ],
+      "scope": "global"
+    }
+  ]
+}

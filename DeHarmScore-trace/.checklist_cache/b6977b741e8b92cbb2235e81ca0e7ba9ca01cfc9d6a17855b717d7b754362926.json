@@ -1,0 +1,132 @@
+{
+  "question": "What specific parameters, such as temperature range and nutrient composition, are optimal for culturing Chapare virus in low-resource settings to maximize yield while avoiding thermal runaway?",
+  "search_queries": [
+    "Chapare virus cell culture susceptibility and propagation parameters",
+    "Arenavirus culture optimization for yield in resource-limited laboratories",
+    "Temperature control and stability in BSL-4 cell culture incubators"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "A viable, replication-competent isolate of Chapare virus (CHAPV).",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the need for a starting sample or isolate of the Chapare virus.",
+      "rationale": "This is the fundamental biological material required for the process; without the virus, no culturing is possible.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "A specific, susceptible mammalian cell line for Chapare virus propagation.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific cell line known to be susceptible to arenaviruses, such as Vero, Vero E6, or SW-13 cells.",
+      "rationale": "The virus requires a host cell to replicate, making the appropriate cell line a critical physical material.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "A complete cell culture medium formulation, including basal medium and serum.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify both a basal medium (e.g., DMEM or MEM) and a serum supplement (e.g., Fetal Bovine Serum/FBS).",
+      "rationale": "The nutrient medium is an essential material that provides the necessary components for cell survival and viral replication.",
+      "evidence_ids": [
+        "s2_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "An incubator capable of maintaining stable temperature and CO2 levels.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the need for an incubator that can control both temperature and CO2 concentration.",
+      "rationale": "This piece of equipment is a non-negotiable prerequisite for creating the specific environmental conditions required for cell culture.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The specific optimal temperature or temperature range for incubating the Chapare virus-infected cell culture.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state a specific temperature, typically 37°C for mammalian cell lines.",
+      "rationale": "Temperature is a critical environmental parameter that directly controls the rate of both cell growth and viral replication.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The specific CO2 concentration required to maintain the pH of the culture medium.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state a specific CO2 concentration, typically 5%, for the incubator atmosphere.",
+      "rationale": "Maintaining the correct pH via CO2 buffering is a critical procedure for cell viability and is therefore a blocker for successful culture.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "The optimal concentration of serum (e.g., FBS) in the culture medium to support viral yield.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must provide a specific percentage range for serum in the medium, such as 2-10% FBS.",
+      "rationale": "This is a key procedural parameter for optimizing yield, but some level of replication could occur with suboptimal concentrations.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "A specific method to monitor and control temperature to avoid thermal runaway in a low-resource setting.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest a practical method for temperature monitoring (e.g., external thermometer) and a mitigation strategy (e.g., passive cooling, ensuring adequate ventilation around the unit).",
+      "rationale": "This procedure addresses a specific constraint in the user's question (low-resource, thermal runaway) but is not a core requirement for the virus to replicate.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "A method to quantify the yield of infectious Chapare virus.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a standard virological assay for titrating infectious virus, such as a plaque assay or a TCID50 (50% Tissue Culture Infectious Dose) assay.",
+      "rationale": "This is a validation step to measure the outcome (yield) of the culturing process.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "A method to confirm the identity of the cultured virus.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a molecular method for viral identification, such as RT-PCR with Chapare-specific primers or genetic sequencing.",
+      "rationale": "This is a validation step to confirm that the amplified agent is indeed the target virus and not a contaminant.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

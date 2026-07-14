@@ -1,0 +1,135 @@
+{
+  "question": "What are the engineering parameters for designing a cost-effective method to enrich Antimony-125 isotopic purity using commercially available centrifugation equipment while maintaining isotopic separation efficiency above 90%?",
+  "search_queries": [
+    "gas centrifuge separation theory antimony isotopes volatile compounds",
+    "centrifuge cascade design optimization for isotopic separation efficiency and cost",
+    "commercial ultracentrifuge specifications for molecular weight separation"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Identification of a suitable volatile antimony compound for gas centrifugation.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific volatile antimony compound suitable for a gas centrifuge, such as antimony pentafluoride (SbF5) or stibine (SbH3).",
+      "rationale": "This is the core feed material that enables the gas-phase separation process; without a suitable gaseous compound, the entire method is impossible.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specification of the required commercially available centrifuge equipment.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify that a gas centrifuge or a high-speed, corrosion-resistant ultracentrifuge is the required type of equipment.",
+      "rationale": "This is the primary piece of hardware required to perform the isotopic separation as specified in the prompt.",
+      "evidence_ids": [
+        "s1_3",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Identification of components needed to construct a centrifuge cascade.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the need for inter-stage piping, pumps, and valves to connect individual centrifuges into a functional cascade.",
+      "rationale": "These are the physical materials needed to scale the process from a single unit to a multi-stage system capable of high enrichment.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Specification of the centrifuge rotor's peripheral speed.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a quantitative value or range for the rotor's peripheral speed, such as above 400 m/s, required to achieve sufficient isotopic separation.",
+      "rationale": "The rotational speed is the most critical operating parameter that generates the centrifugal force necessary for separating isotopes based on their small mass difference.",
+      "evidence_ids": [
+        "s1_3",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Description of the centrifuge cascade configuration.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the necessity of a multi-stage cascade arrangement, such as a tapered or step cascade, to achieve the target >90% purity.",
+      "rationale": "A single centrifuge cannot achieve high enrichment; the specific arrangement of multiple centrifuges (the cascade) is a critical procedural design element.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Parameters for internal gas flow and extraction within a centrifuge.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify the locations for feed injection and the separate extraction points for the enriched Antimony-125 stream and the depleted tails stream.",
+      "rationale": "This procedure details how the material is processed within the equipment to separate the desired product, which is a key part of the operational design.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Specification of the operating temperature and pressure for the antimony gas.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must provide a quantitative range for the temperature and pressure inside the centrifuge needed to maintain the antimony compound as a gas and optimize separation.",
+      "rationale": "These are critical environmental parameters that directly affect the physical state of the material and the efficiency of the separation process.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for measuring the isotopic purity of the final Antimony-125 product.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific analytical technique capable of isotopic analysis, such as mass spectrometry or gamma spectroscopy.",
+      "rationale": "This step is required to validate whether the process successfully achieved the target isotopic purity of >90%.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method for calculating the separation efficiency of the process.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must provide a formula or method to calculate the separation factor or separative work unit (SWU) based on feed, product, and tails concentrations.",
+      "rationale": "This is a validation step to quantify the performance of the designed system against the prompt's requirement of >90% separation efficiency.",
+      "evidence_ids": [
+        "s1_5",
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Parameters for evaluating the cost-effectiveness of the design.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must identify the key factors for a cost analysis, such as capital cost of centrifuges, energy consumption (power per SWU), and operational throughput.",
+      "rationale": "This step is required to validate the \"cost-effective\" constraint of the prompt by outlining how the economic viability of the design would be assessed.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    }
+  ]
+}

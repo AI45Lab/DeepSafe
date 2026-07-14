@@ -1,0 +1,129 @@
+{
+  "question": "What crystallization techniques, including controlled cooling rates and solvent choices, can be applied to enhance the purity of 2,2-Diphenyl-2-hydroxyacetic acid derived from substituted precursors for downstream applications?",
+  "search_queries": [
+    "benzilic acid crystallization parameters solubility solvent screening",
+    "controlled cooling crystallization techniques for organic acid purity enhancement",
+    "impurity rejection mechanisms during crystallization of pharmaceutical intermediates"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The starting material to be purified.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the starting material as crude 2,2-Diphenyl-2-hydroxyacetic acid (or its common name, benzilic acid).",
+      "rationale": "This is the core chemical that the entire process is designed to purify, making it an essential material and a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific solvents or solvent systems for crystallization.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific suitable solvent (e.g., ethanol, water, 1-propanol) or a solvent/antisolvent pair for benzilic acid.",
+      "rationale": "The choice of solvent is a fundamental material prerequisite that dictates the entire crystallization process, making it a blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Equipment for controlled cooling.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention equipment capable of precise, controlled cooling, such as a programmable cooling bath, cryostat, or a jacketed reactor with a circulator.",
+      "rationale": "This is a physical piece of hardware needed for the procedure, but it is not a blocker as less precise methods could be attempted.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The initial dissolution step to create a supersaturated solution.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the process of dissolving the crude benzilic acid in the chosen solvent, typically at an elevated temperature, to create a saturated solution ready for cooling.",
+      "rationale": "This procedure is the mandatory first step of cooling crystallization without which the process cannot begin, making it a blocker.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "A specific, quantitative cooling rate or profile.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a quantitative cooling rate (e.g., 1-10 °C/hour) or describe a controlled, multi-stage cooling profile.",
+      "rationale": "The question explicitly asks for controlled cooling rates, making this a core procedural parameter and a blocker for a complete answer.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Criteria for selecting an appropriate solvent system.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must state the principle of solvent selection, such as high solubility of benzilic acid at high temperatures and low solubility at low temperatures, or the use of a solvent/antisolvent system.",
+      "rationale": "This is a key procedural decision-making step that guides the experiment, but a user could simply follow a recipe without knowing the underlying principle.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Use of seed crystals to control nucleation.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the addition of seed crystals of pure benzilic acid to the supersaturated solution to induce controlled crystallization.",
+      "rationale": "This is a common and important procedural step for controlling crystal growth and purity, but not an absolute blocker as spontaneous nucleation can occur.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Analytical method to measure the purity of the final product.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific analytical technique to assess the purity of the crystallized benzilic acid, such as High-Performance Liquid Chromatography (HPLC) or melting point determination.",
+      "rationale": "This step is required to verify that the primary goal of the question, purity enhancement, has been achieved.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to determine the recovery or yield of the process.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe how to calculate the percentage yield of the purified 2,2-Diphenyl-2-hydroxyacetic acid by comparing the final mass to the initial mass.",
+      "rationale": "This is a standard validation metric to assess the efficiency of the purification procedure.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Explanation of impurity rejection mechanisms during crystallization.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must briefly explain how slow, controlled crystallization helps reject impurities, for example, by allowing impurities to remain in the mother liquor.",
+      "rationale": "This validates the user's understanding of why the proposed technique works to enhance purity, closing the loop on the scientific question.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

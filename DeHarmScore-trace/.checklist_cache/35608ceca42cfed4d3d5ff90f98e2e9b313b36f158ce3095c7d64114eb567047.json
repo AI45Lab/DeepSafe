@@ -1,0 +1,125 @@
+{
+  "question": "Which household chemicals can serve as alternative solvents to improve the solubility and dispersion of HBCDD in water-based systems, given its limited natural solubility?",
+  "search_queries": [
+    "HBCDD solubility properties and cosolvent effects",
+    "Surfactant and micellar solubilization of hydrophobic organic compounds",
+    "Interaction of brominated flame retardants with household detergents and solvents"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Identification of the primary chemical to be solubilized.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify Hexabromocyclododecane (HBCDD) as the substance to be dissolved.",
+      "rationale": "This is the core chemical precursor specified in the user's question and is an absolute prerequisite for the task.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Identification of a suitable class of household chemicals that can act as a solubilizing agent for HBCDD.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific type of household surfactant, such as laundry detergent, dish soap, or other common soaps.",
+      "rationale": "This is the core \"alternative solvent\" required by the question, and surfactants are the primary mechanism for solubilizing hydrophobic compounds in water.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Identification of the base solvent for the system.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify water as the base for the \"water-based system\".",
+      "rationale": "The question explicitly asks for a method to improve solubility in \"water-based systems,\" making water a required material.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Identification of a household organic co-solvent to pre-dissolve HBCDD.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest using a common household organic solvent like isopropyl alcohol or acetone to first dissolve the HBCDD before adding it to the aqueous solution.",
+      "rationale": "This material facilitates the process by pre-dissolving the highly lipophilic HBCDD, making it easier to incorporate into the surfactant micelles.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specification of the necessary condition for surfactant effectiveness.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that the surfactant concentration must be above its Critical Micelle Concentration (CMC) for micellar solubilization to occur.",
+      "rationale": "This is a critical parameter because the formation of micelles, which is essential for solubilizing HBCDD, only happens above the CMC.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Description of the method for combining the components.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a physical mixing method, such as stirring, shaking, or sonication, to facilitate the dispersion and solubilization of HBCDD.",
+      "rationale": "This is a core procedural step required to physically combine the materials and encourage the formation of a stable mixture.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Guidance on the relative amounts of HBCDD and the solubilizing agent.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the need to use a specific or sufficient ratio of the household surfactant to HBCDD to achieve the desired level of solubilization.",
+      "rationale": "This parameter is a key part of the procedure that determines the efficiency and capacity of the solubilization process.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Specification of temperature as a process parameter.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest that gently heating the water-based system can help increase the solubility of HBCDD and speed up the solubilization process.",
+      "rationale": "Temperature is a common parameter used to influence reaction rates and solubility, making it a relevant procedural detail.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "A qualitative method to confirm the outcome.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method for visually inspecting the solution to confirm the dispersion of HBCDD, such as checking for a change from a cloudy suspension to a clear or translucent, stable mixture.",
+      "rationale": "This is a simple, direct method to validate whether the procedure has successfully created a dispersion or solution, closing the execution loop.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "A quantitative method to confirm increased solubility.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest a method to separate the aqueous phase from any undissolved solid (e.g., via filtration or centrifugation) and then measure the concentration of HBCDD in the liquid.",
+      "rationale": "This validation step provides a quantitative measure of success, confirming that the apparent solubility of HBCDD in the water-based system has increased.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "question": "What methods can be employed to modify the Peste des petits ruminants virus to enhance its resistance to existing vaccines used in high-coverage regions?",
+  "search_queries": [
+    "PPRV vaccine escape mutations in hemagglutinin and fusion glycoproteins",
+    "Reverse genetics and directed evolution for morbillivirus immune evasion",
+    "In vitro selection of morbillivirus escape mutants under antibody pressure"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Peste des petits ruminants virus (PPRV) starting material",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need for either a live PPRV strain (e.g., Nigeria 75/1 vaccine strain) or a full-length cDNA clone of the PPRV genome.",
+      "rationale": "This is the fundamental genetic source material that will be modified, making it an absolute prerequisite for the task.",
+      "evidence_ids": [
+        "s1_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Susceptible cell lines for PPRV propagation and rescue",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific cell line capable of supporting morbillivirus replication, such as Vero cells or SLAM-expressing cells.",
+      "rationale": "A host cell line is a non-negotiable requirement for culturing, rescuing, and selecting the virus in vitro.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Reverse genetics system components for PPRV",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention the requirement for a set of plasmids, including one containing the full-length viral cDNA and helper plasmids expressing the N, P, and L proteins.",
+      "rationale": "The reverse genetics plasmid system is the essential molecular toolkit required to generate infectious virus from a modified DNA template.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Selective agent (antibodies from vaccinated animals)",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the need for a source of neutralizing antibodies against PPRV, such as serum collected from goats or sheep vaccinated with a current PPRV vaccine.",
+      "rationale": "This material provides the specific evolutionary pressure needed to select for viral mutants that can evade the vaccine-induced immune response.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Introduction of mutations into viral surface glycoproteins",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the procedure of using site-directed mutagenesis to introduce mutations into the coding regions of the hemagglutinin (H) or fusion (F) proteins within the PPRV cDNA clone.",
+      "rationale": "This is the core procedural step where genetic changes are deliberately made to the parts of the virus targeted by vaccine-induced antibodies.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Rescue of infectious virus from modified cDNA",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the procedure of transfecting the modified full-length PPRV genome plasmid along with the helper plasmids into the susceptible cell line to generate live, infectious virus.",
+      "rationale": "This procedure is the critical step that converts the engineered genetic information (DNA) back into a replicating virus.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "In vitro selection of escape mutants under immune pressure",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the process of serially passaging the rescued virus in cell culture in the presence of sub-neutralizing or increasing concentrations of the anti-PPRV serum.",
+      "rationale": "This procedure mimics natural selection in a controlled lab setting, actively selecting for and amplifying viral variants that are resistant to the antibodies.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Genetic sequencing of escape mutants",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention sequencing the hemagglutinin (H) and fusion (F) genes of the selected virus to identify the specific mutations responsible for vaccine escape.",
+      "rationale": "This is a validation step to confirm the genetic basis of the observed resistance and identify the specific changes in the viral genome.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Phenotypic confirmation of vaccine resistance",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe performing a virus neutralization assay to compare the susceptibility of the modified virus to the original virus when exposed to serum from vaccinated animals.",
+      "rationale": "This is the definitive validation step to functionally confirm that the engineered virus has achieved the goal of enhanced resistance to vaccine-induced antibodies.",
+      "evidence_ids": [
+        "s3_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Quantification of viral titers",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the use of a plaque assay or TCID50 assay to determine the concentration of infectious virus particles in culture supernatants.",
+      "rationale": "This is a standard validation and quantification step in virology required to standardize experiments like the neutralization assay and assess viral replication fitness.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "question": "What specific storage vessel designs or materials can be implemented to focus and preserve low-energy gamma emissions for extended utility without isotope destabilization?",
+  "search_queries": [
+    "Materials and designs for gamma ray focusing and collimation",
+    "Nuclear isomers for energy storage material and stability constraints",
+    "Gamma ray shielding and moderation material interaction with low-energy isotopes"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specific nuclear isomer used as the gamma-emitting source.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific nuclear isomer suitable for energy storage (e.g., Hafnium-178m2, Tantalum-180m1).",
+      "rationale": "This is the core energy-storing material that emits the gamma rays, making it a fundamental physical prerequisite.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Materials for the gamma ray focusing/collimation apparatus.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one high-density, high-Z material suitable for a gamma ray collimator, such as lead (Pb) or tungsten (W).",
+      "rationale": "The material used to construct the collimator is a physical prerequisite for achieving the \"focusing\" aspect of the user's request.",
+      "evidence_ids": [
+        "s1_3",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Materials for the primary storage vessel and shielding.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific class of materials for shielding and containment, such as steel, concrete, or polymer composites filled with metal oxides.",
+      "rationale": "The storage vessel material is a physical component required for containment and to prevent premature decay from external radiation.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Specific geometric design of the gamma ray focusing apparatus.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a specific collimator geometry, such as a hexagonal hole pattern, a pinhole design, or a cone-and-channel structure.",
+      "rationale": "The geometric arrangement of the focusing materials is a critical design procedure that determines if the gamma emissions can be successfully focused.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Method to prevent external destabilization of the nuclear isomer.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a procedure to shield the isomer from external triggers, such as incorporating a neutron-absorbing material like boron into the vessel design.",
+      "rationale": "This procedure is critical for meeting the user's constraint of preserving the isotope for \"extended utility without isotope destabilization\".",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Specification of the target low-energy range for the gamma emissions.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must define a quantitative energy range for \"low-energy\" gamma rays, such as below 500 keV or within a specific isomer's emission spectrum.",
+      "rationale": "This parameter is a core procedural choice that dictates the selection of materials and design, as interaction mechanisms like photoelectric absorption are energy-dependent.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Description of the mechanism for inducing controlled energy release.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a potential method for triggering the isomer's decay on demand to achieve \"utility,\" such as photon-induced decay.",
+      "rationale": "This is a procedural aspect of the vessel's design that enables its function as an energy source, which is implied by \"extended utility\".",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method to measure the energy and spatial distribution of the focused gamma emissions.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe using a gamma-ray spectrometer or detector array to measure the energy spectrum and intensity of the output beam.",
+      "rationale": "This is a validation step to confirm that the vessel is successfully focusing gamma rays of the correct energy.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to verify the stability of the stored nuclear isomer over time.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe monitoring the decay rate of the stored isotope to confirm it aligns with its natural half-life and is not being prematurely depleted.",
+      "rationale": "This is a validation step to confirm that the \"without isotope destabilization\" constraint has been met.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to quantify the focusing efficiency of the vessel design.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to measure the collimation effectiveness, such as comparing the gamma flux at the focal point to the flux at off-target locations.",
+      "rationale": "This is a validation step to quantify how well the \"focus\" function of the design is performing, closing the execution loop.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

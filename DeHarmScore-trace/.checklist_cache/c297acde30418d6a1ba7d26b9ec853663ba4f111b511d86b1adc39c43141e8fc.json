@@ -1,0 +1,135 @@
+{
+  "question": "What cryoprotectants or lyophilization parameters are most effective for preserving the functional integrity of shiga toxins without compromising their molecular structure?",
+  "search_queries": [
+    "Shiga toxin lyophilization stability cryoprotectants excipients",
+    "lyophilization cycle optimization for protein toxin structural integrity and functional activity",
+    "analytical methods for protein stability assessment post-lyophilization aggregation structure function"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Purified Shiga toxin (Stx1 or Stx2)",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the starting material is a purified preparation of Shiga toxin (e.g., Stx1 or Stx2).",
+      "rationale": "This is the core biological material that the entire process is designed to preserve, making it an absolute prerequisite.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific cryoprotectant(s) or excipient(s)",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific cryoprotectant or excipient suitable for proteins, such as trehalose, sucrose, mannitol, or glycine.",
+      "rationale": "The question is explicitly about identifying effective cryoprotectants, making them a fundamental material for the experiment.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Lyophilizer (Freeze-Dryer)",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention the requirement of a lyophilizer or freeze-dryer to perform the procedure.",
+      "rationale": "This is the essential piece of equipment required for lyophilization and is therefore a physical prerequisite.",
+      "evidence_ids": [
+        "s1_1",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Formulation buffer composition and pH",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify the composition of the buffer in which the Shiga toxin is dissolved prior to lyophilization, including its pH value.",
+      "rationale": "The buffer system is a key procedural parameter that affects protein stability during the process, but a suboptimal choice doesn't make the attempt impossible.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Freezing parameters (rate and final temperature)",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a quantitative freezing rate (e.g., °C/min) and a specific final freezing temperature (e.g., -40°C or lower).",
+      "rationale": "The freezing step is a critical procedure that dictates ice crystal formation and potential protein damage, making its parameters a blocker for success.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Primary drying parameters (temperature and pressure)",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a quantitative shelf temperature and chamber pressure (e.g., in °C and mTorr/Pa) for the primary drying phase.",
+      "rationale": "These are critical process parameters that must be below the sample's collapse temperature to prevent product loss, making them a blocker for a successful run.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Secondary drying parameters (temperature ramp and final temperature)",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must provide a quantitative temperature ramp and final shelf temperature for the secondary drying phase to remove residual water.",
+      "rationale": "This procedural step optimizes long-term stability by controlling residual moisture, but is less critical for immediate post-lyophilization integrity than primary drying.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Assessment of molecular structure and aggregation",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name at least one analytical method to assess the molecular structure or aggregation state of the Shiga toxin post-lyophilization, such as Size Exclusion Chromatography (SEC), FTIR, or circular dichroism.",
+      "rationale": "This is a validation step to confirm that the toxin's physical structure has been preserved, as requested by the prompt.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Assessment of functional integrity",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific type of bioassay to confirm the functional activity of the rehydrated Shiga toxin, such as a Vero cell cytotoxicity assay or a receptor-binding assay.",
+      "rationale": "This is a validation step to confirm that the toxin's biological function remains intact, directly addressing a key part of the prompt.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Quantification of protein recovery",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a method to quantify the amount of soluble Shiga toxin recovered after rehydration, such as a BCA assay or UV-Vis spectroscopy at 280 nm.",
+      "rationale": "This is a validation step to determine the yield and efficiency of the lyophilization process.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    }
+  ]
+}

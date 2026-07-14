@@ -1,0 +1,130 @@
+{
+  "question": "How can cloning efficiencies for mycoides be improved under non-ideal lab conditions to lower barriers for scalable production?",
+  "search_queries": [
+    "Mycoplasma mycoides transformation efficiency bottlenecks and optimization",
+    "robust synthetic biology workflows for fastidious organisms low-resource settings",
+    "cost-effective cultivation and selection methods for Mycoplasma species"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specific *Mycoplasma mycoides* strain or a synthetic derivative.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific strain of *Mycoplasma mycoides* or a related synthetic minimal cell like JCVI-syn3B.",
+      "rationale": "The specific organism is the primary biological material required for the experiment and is a fundamental prerequisite.",
+      "evidence_ids": [
+        "s1_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Transformation vector (plasmid DNA) with a selectable marker.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need for a plasmid or DNA construct containing the gene of interest and a selectable marker compatible with *Mycoplasma*.",
+      "rationale": "The exogenous DNA is the core material being introduced into the organism, without which cloning is impossible.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specialized growth medium for *Mycoplasma*.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific complex medium (e.g., SP4 medium) or list its critical, non-standard components like serum or specific yeast extracts.",
+      "rationale": "*Mycoplasma* are fastidious and cannot be grown on standard lab media, making the correct medium a prerequisite material.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Protocol for preparing competent *Mycoplasma* cells.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the key steps for making *Mycoplasma* cells competent for DNA uptake, such as specific wash steps or treatments (e.g., with calcium chloride or polyethylene glycol).",
+      "rationale": "Cell competency is a critical procedural state that must be induced for transformation to be possible; without it, the DNA cannot enter the cells.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "DNA delivery method and its key parameters.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a specific transformation method (e.g., electroporation, PEG-mediated fusion) and list at least one critical parameter like voltage, PEG concentration, or incubation time.",
+      "rationale": "The method of introducing DNA is the central procedure, and its parameters are critical for success, making it a procedural blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Post-transformation selection protocol.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the process of plating cells onto selective agar containing a specific antibiotic and incubating them under appropriate conditions to isolate transformants.",
+      "rationale": "This procedure is essential to separate the rare transformed cells from the vast majority of untransformed cells, which would otherwise overgrow the culture.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Adaptations for low-resource or non-ideal conditions.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest at least one specific modification to the standard protocol to reduce cost or complexity, such as using alternative reagents or simplifying equipment needs.",
+      "rationale": "This procedure directly addresses the user's constraint of \"non-ideal lab conditions\" but is an optimization, not a fundamental requirement to attempt the cloning.",
+      "evidence_ids": [
+        "s2_3",
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Verification of successful transformation at the molecular level.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a method to confirm the presence of the introduced DNA in the selected clones, such as colony PCR or sequencing.",
+      "rationale": "This is a standard validation step to confirm the outcome of the procedure and does not block the initial attempt.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method for quantifying transformation efficiency.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe how to calculate transformation efficiency, typically by counting the number of colony-forming units (CFU) per microgram of DNA used.",
+      "rationale": "This validation step is necessary to measure whether the primary goal of \"improving efficiency\" has been achieved.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Cost-effective method for monitoring *Mycoplasma* growth.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest a low-cost method to monitor cell growth or viability, such as using a Resazurin-based fluorescence assay or measuring turbidity.",
+      "rationale": "This validation step provides a practical way to assess culture health and growth kinetics, which is crucial for scalable production in low-resource settings.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    }
+  ]
+}
