@@ -29,6 +29,15 @@ from .xstest import XSTestEvaluator
 from .reason_under_pressure import ReasonUnderPressureEvaluator
 from .evaluation_faking import EvaluationFakingEvaluator
 from .behonest import BeHonestEvaluator
+from .safe_scientist import SafeScientistEvaluator
+from .safe_scientist_judges import (
+    DeeperHarmJudge,
+    EnsembleJudge,
+    KeywordRejectionJudge,
+    LLMSafetyScoreJudge,
+)
+from .scihazard import SciHazardEvaluator
+from .sosbench import SOSBenchEvaluator
 
 __all__ = [
     "BaseEvaluator",
@@ -62,4 +71,11 @@ __all__ = [
     "ReasonUnderPressureEvaluator",
     "EvaluationFakingEvaluator",
     "BeHonestEvaluator",
+    "SafeScientistEvaluator",
+    "DeeperHarmJudge",
+    "EnsembleJudge",
+    "KeywordRejectionJudge",
+    "LLMSafetyScoreJudge",
+    "SciHazardEvaluator",
+    "SOSBenchEvaluator",
 ]

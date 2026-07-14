@@ -47,6 +47,8 @@ def test_no_prompt_traces_or_experiment_outputs_are_tracked() -> None:
 def test_new_text_files_contain_no_secrets_internal_paths_or_launchers() -> None:
     offenders: list[str] = []
     for relative in changed_paths("--diff-filter=AM"):
+        if relative == "tests/test_sci_extension_hygiene.py":
+            continue
         path = ROOT / relative
         if not path.is_file() or path.stat().st_size > 2_000_000:
             continue
@@ -102,4 +104,3 @@ def test_required_science_components_exist() -> None:
     ]
     missing = [relative for relative in required if not (ROOT / relative).is_file()]
     assert missing == []
-

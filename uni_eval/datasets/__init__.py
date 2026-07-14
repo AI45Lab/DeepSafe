@@ -28,6 +28,9 @@ from .xstest import XSTestDataset
 from .reason_under_pressure import ReasonUnderPressureDataset
 from .evaluation_faking import EvaluationFakingDataset
 from .behonest import BeHonestDataset
+from .safe_scientist import SafeScientistDataset
+from .scihazard import SciHazardDataset
+from .sosbench import SOSBenchDataset
 
 __all__ = [
     "BaseDataset",
@@ -60,4 +63,7 @@ __all__ = [
     "ReasonUnderPressureDataset",
     "EvaluationFakingDataset",
     "BeHonestDataset",
+    "SafeScientistDataset",
+    "SciHazardDataset",
+    "SOSBenchDataset",
 ]

@@ -14,13 +14,19 @@ def test_science_datasets_are_exported_and_registered() -> None:
 
 def test_science_evaluators_are_exported_and_registered() -> None:
     import uni_eval.evaluators  # noqa: F401
-    from uni_eval.registry import EVALUATORS
+    from uni_eval.registry import EVALUATORS, JUDGES
 
     assert {
         "SciHazardEvaluator",
         "SafeScientistEvaluator",
         "SOSBenchEvaluator",
     }.issubset(EVALUATORS._module_dict)
+    assert {
+        "KeywordRejectionJudge",
+        "LLMSafetyScoreJudge",
+        "DeeperHarmJudge",
+        "EnsembleJudge",
+    }.issubset(JUDGES._module_dict)
 
 
 def test_science_metrics_are_exported_and_registered() -> None:
@@ -33,4 +39,3 @@ def test_science_metrics_are_exported_and_registered() -> None:
         "DeeperHarmMetric",
         "SOSBenchMetric",
     }.issubset(METRICS._module_dict)
-
