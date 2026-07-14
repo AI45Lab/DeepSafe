@@ -82,6 +82,9 @@ DeepSafe supports major open-source models and commercial APIs, allowing flexibl
 | **Sandbagging** | Measures intentional hiding of model capabilities. |
 | **Evaluation-Faking** | Assessment of cheating/manipulation during evaluation. |
 | **WMDP** | Safety measurement in hazardous knowledge domains (e.g., bio-chemical). |
+| **SciHazard** | Scientific hazard evaluation with checklist, evidence-search, executability, and novelty scoring. |
+| **Safe-Scientist** | Evaluates whether scientific assistants recognize and safely handle risky research requests. |
+| **SOSBench** | Measures scientific over-safety and unnecessary refusal on benign or transformed requests. |
 | **MASK** | Evaluation for model Deceptive Alignment. |
 | **MSSBench** | Multi-stage fine-grained safety standard tests. |
 | **BeHonest** | Honesty and self-knowledge evaluation for LLMs. |
@@ -120,6 +123,30 @@ huggingface-cli download --repo-type dataset --resume-download LibrAI/do-not-ans
 ```
 
 After downloading, please update the `dataset.path` field in the corresponding YAML configuration file (e.g., `configs/eval_tasks/do_not_answer_v01.yaml`) to point to your local path.
+
+### Scientific Benchmarks
+
+DeepSafe includes four science-focused evaluation paths: the existing **WMDP** integration, plus **SciHazard**, **Safe-Scientist**, and **SOSBench**. SciHazard ships with the JSONL inputs and reusable checklist/search caches needed for reproducible evaluation. Safe-Scientist and SOSBench data are not redistributed here; obtain them from their upstream projects and place them at the paths documented in [Benchmark Data](docs/benchmark-data.md).
+
+For OpenAI-compatible APIs, keep credentials outside YAML:
+
+```bash
+export OPENAI_API_KEY="your-api-key"
+# Optional for another OpenAI-compatible endpoint:
+export OPENAI_BASE_URL="https://api.openai.com/v1"
+# Required only when SciHazard performs live Serper searches:
+export SERPER_API_KEY="your-serper-api-key"
+```
+
+Run from the repository root:
+
+```bash
+bash scripts/run_scihazard_local.sh
+bash scripts/run_safe_scientist_local.sh
+bash scripts/run_sosbench_local.sh
+# WMDP continues to use DeepSafe's existing script:
+bash scripts/run_wmdp_local.sh
+```
 
 ### 1.2 Download Salad-Bench Dataset (Special Note)
 

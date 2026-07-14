@@ -90,6 +90,12 @@ def test_only_approved_science_configs_are_added() -> None:
     assert offenders == []
 
 
+def test_external_science_dataset_payloads_are_not_tracked() -> None:
+    tracked = set(git("ls-files").splitlines())
+    assert not any(path.startswith("data/safe_scientist/") for path in tracked)
+    assert not any(path.startswith("data/sosbench/") for path in tracked)
+
+
 def test_required_science_components_exist() -> None:
     required = [
         "uni_eval/datasets/scihazard.py",
