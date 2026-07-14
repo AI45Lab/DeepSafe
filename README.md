@@ -36,6 +36,10 @@ DeepSafe features a modular, configuration-driven elastic architecture, enabling
 - **Streamlined Usability**: Adopts a "Config-as-Execution" paradigm. Simply provide a single YAML file, and the framework automatically completes the full cycle and generates standardized reports.
 - **Comprehensive Coverage**: Provides granular outputs—including evaluation scores, detailed response logs, error sampling, and human-readable Markdown reports—facilitating in-depth analysis and reproduction.
 
+### Scientific Safety Evaluation
+
+DeepSafe extends scientific safety evaluation across four complementary benchmarks: **WMDP** measures hazardous knowledge and capabilities, **SciHazard** evaluates harmful scientific responses through checklist, evidence, executability, and novelty analysis, **Safe-Scientist** examines the safe handling of risky research requests, and **SOSBench** measures over-safety and unnecessary refusal.
+
 ### ProGuard Evaluation Model
 - **Proactive Risk Identification**: Introduces a pioneering proactive detection paradigm capable of reasoning about and describing unknown risks, transcending the rigid constraints of predefined classification systems.
 - **Eradicating Modality Bias**: Implements a hierarchical multimodal safety taxonomy trained on a balanced dataset of 87,000 samples, ensuring fair and precise risk assessment across both text and visual modalities.
@@ -123,30 +127,6 @@ huggingface-cli download --repo-type dataset --resume-download LibrAI/do-not-ans
 ```
 
 After downloading, please update the `dataset.path` field in the corresponding YAML configuration file (e.g., `configs/eval_tasks/do_not_answer_v01.yaml`) to point to your local path.
-
-### Scientific Benchmarks
-
-DeepSafe includes four science-focused evaluation paths: the existing **WMDP** integration, plus **SciHazard**, **Safe-Scientist**, and **SOSBench**. SciHazard ships with the JSONL inputs and reusable checklist/search caches needed for reproducible evaluation. Safe-Scientist and SOSBench data are not redistributed here; obtain them from their upstream projects and place them at the paths documented in [Benchmark Data](docs/benchmark-data.md).
-
-For OpenAI-compatible APIs, keep credentials outside YAML:
-
-```bash
-export OPENAI_API_KEY="your-api-key"
-# Optional for another OpenAI-compatible endpoint:
-export OPENAI_BASE_URL="https://api.openai.com/v1"
-# Required only when SciHazard performs live Serper searches:
-export SERPER_API_KEY="your-serper-api-key"
-```
-
-Run from the repository root:
-
-```bash
-bash scripts/run_scihazard_local.sh
-bash scripts/run_safe_scientist_local.sh
-bash scripts/run_sosbench_local.sh
-# WMDP continues to use DeepSafe's existing script:
-bash scripts/run_wmdp_local.sh
-```
 
 ### 1.2 Download Salad-Bench Dataset (Special Note)
 
