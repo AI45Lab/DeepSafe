@@ -23,6 +23,7 @@ Current safety evaluation for large models lacks comprehensive standardized prot
 
 
 ## 🆕 News
+- **2026-07-15: DeepSafe-Sci is now available on the [`deepsafe-sci`](https://github.com/AI45Lab/DeepSafe/tree/deepsafe-sci) branch.** It provides dedicated evaluation workflows for SciHazard, Safe-Scientist, and SOSBench, covering harmful scientific assistance, safe handling of risky research requests, and over-refusal in scientific settings.
 - 🔥🔥🔥 **2026-02-06: DeepSafe's latest leaderboards and in-depth analyses are out now!**
   Our evaluation comprehensively covers mainstream LLMs and MLLMs, including GPT, Claude, Gemini, DeepSeek, Qwen, Llama, and Mistral, providing a deep dive into the current state of AI safety. Access full results: [**Leaderboard**](https://ai45.shlab.org.cn/deepsafe) | [**Frontier Risk Report**](https://ai45.shlab.org.cn/safety-report#front-risk-report) | [**Content Risk Report**](https://ai45.shlab.org.cn/safety-report#eval-report)
 

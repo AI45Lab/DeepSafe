@@ -24,6 +24,7 @@
 
 ## 🆕 最新进展
 
+- **2026-07-15：科学安全评测分支 [`deepsafe-sci`](https://github.com/AI45Lab/DeepSafe/tree/deepsafe-sci) 已发布。** 该分支提供 SciHazard、Safe-Scientist 和 SOSBench 的专用评测流程，分别考察有害科学协助、高风险科研请求的安全处理，以及科学场景中的过度拒绝。
 - 🔥🔥🔥 2026-02-06：DeepSafe 最新评测榜单与深度分析重磅出炉！
   本次评测全面覆盖 GPT、Claude、Gemini、DeepSeek、Qwen、Llama、Mistral 等主流语言及多模态模型，深度剖析 AI 安全现状。一键获取完整数据：[**榜单详情**](https://ai45.shlab.org.cn/deepsafe) | [**前沿风险报告**](https://ai45.shlab.org.cn/safety-report#front-risk-report) | [**内容风险报告**](https://ai45.shlab.org.cn/safety-report#eval-report)
 ## ✨ Features
