@@ -2,290 +2,118 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./data/deepsafe-logo-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="./data/deepsafe-logo-light.svg">
-    <img alt="DeepSafe Logo" src="./data/deepsafe-logo-dark.svg" width="280">
+    <img alt="DeepSafe 标识" src="./data/deepsafe-logo-dark.svg" width="280">
   </picture>
+
+  <h2>DeepSafe-Sci</h2>
+  <p>面向语言模型的科学安全评测</p>
+  <p><a href="README.md">English</a> · <a href="https://github.com/AI45Lab/DeepSafe">DeepSafe</a></p>
 </div>
-<div style="height: 8px;"></div>
-<div align="center">
-  <h3 style="margin: 0;">面向LLMs与MLLMs的安全评测工具集</h3>
-</div>
-<div style="height: 6px;"></div>
-<div align="center">
-  <a href="https://ai45.shlab.org.cn/deepsight"><img alt="Homepage" src="https://img.shields.io/static/v1?label=&message=%F0%9F%8C%90%20Homepage&color=2F81F7&style=flat"></a>
-  <a href="https://arxiv.org/abs/2602.12092"><img alt="Technical Report (arXiv)" src="https://img.shields.io/static/v1?label=&message=Report&color=B31B1B&style=flat&logo=arxiv&logoColor=FFFFFF"></a>
-  <a href="#quick-start"><img alt="Documentation" src="https://img.shields.io/badge/Documentation-8CA1AF?style=flat-square&logo=readthedocs&logoColor=white"></a>
-</div>
-<div style="height: 18px;"></div>
 
-当前大模型安全评测缺乏全面的标准化方案，且普遍缺失专用评测模型。**DeepSafe** 是首个集成 28+ 主流安全数据集及 [**ProGuard**](https://huggingface.co/yushaohan/ProGuard-7B) 专用评测模型的一体化框架，支持 LLM/VLM 全模态评测。
+## 项目简介
 
-> **DeepSafe** 源自 **DeepSight**，并可与 🔍 [**DeepScan**](https://github.com/AI45Lab/DeepScan)（LLM/MLLM 诊断工具集）联动使用。完整的“评测‑诊断”一体化工作流见 [<img src="https://avatars.githubusercontent.com/u/194484914?s=200&v=4" height="14" alt="AI45"> HomePage](https://ai45.shlab.org.cn/deepsight)。
+DeepSafe-Sci 是 [DeepSafe](https://github.com/AI45Lab/DeepSafe) 的科学安全评测分支。它沿用 DeepSafe 由配置驱动的推理、评估、指标计算和报告流程，并增加面向科学场景的数据适配器与评测器。
 
+科学安全评测需要区分两类问题。一类是模型面对高风险科学请求时，给出了可操作的步骤或难以直接获得的新信息；另一类是模型把正常科研活动误判为危险请求，在没有充分理由的情况下拒绝回答。本分支通过 SciHazard、Safe-Scientist 和 SOSBench 分别考察这些行为。
 
-## 🆕 最新进展
+## 评测基准
 
-- 🔥🔥🔥 2026-02-06：DeepSafe 最新评测榜单与深度分析重磅出炉！
-  本次评测全面覆盖 GPT、Claude、Gemini、DeepSeek、Qwen、Llama、Mistral 等主流语言及多模态模型，深度剖析 AI 安全现状。一键获取完整数据：[**榜单详情**](https://ai45.shlab.org.cn/deepsafe) | [**前沿风险报告**](https://ai45.shlab.org.cn/safety-report#front-risk-report) | [**内容风险报告**](https://ai45.shlab.org.cn/safety-report#eval-report)
-## ✨ Features
+| 基准 | 评测重点 | 主要指标 | 默认配置 |
+| :--- | :--- | :--- | :--- |
+| **SciHazard** | 模型对高风险科学请求所作回答的危害程度 | 可执行性等级、新增风险等级、不安全回答比例和 DeHarm 分数 | [`configs/eval_tasks/scihazard.yaml`](configs/eval_tasks/scihazard.yaml) |
+| **Safe-Scientist** | 模型对不同科学领域高风险研究任务的识别与安全处理 | 拒答率与安全分数，并给出总体和分领域结果 | [`configs/eval_tasks/safe_scientist.yaml`](configs/eval_tasks/safe_scientist.yaml) |
+| **SOSBench** | 模型面对经过转换的科学请求时的安全行为与过度拒绝问题 | safe/unsafe 判定与不安全回答比例，并给出总体和分学科结果 | [`configs/eval_tasks/sosbench.yaml`](configs/eval_tasks/sosbench.yaml) |
 
-DeepSafe 构建模块化解耦+配置驱动的弹性架构，实现从推理生成判断到深度评测报告的全链路自动化闭环。为 AI Safety 研究提供了一个可深度评测、可复现且扩展性强、持续演进的安全基础设施，旨在推动大模型安全评估从结果测试走向深度分析，加速构建可信 AI 的评测进程。🚀
+本分支包含 SciHazard 所需的数据，其中既有 safe、unsafe 内容，也有适合开发和快速检查的较小子集。Safe-Scientist 与 SOSBench 数据由各自的上游项目发布，运行前需要放到本地指定目录。
 
-### 一体化评测框架 (All-in-One Framework)
-- **高扩展性**：基于 **Registry 注册机制**，新组件（数据集、指标等）通过极简注册即可接入，支持 YAML 一键装配，评测链路可按需拆分复用。
-- **极简易用**：遵循“配置即运行”范式，只需提供一份 YAML 配置文件，即可自动完成全链路闭环，生成标准化报告。
-- **全面覆盖**：适配主流模型后端与多维度安全基准，数据输出详尽（包含评分、回复明细、坏例抽样及 Markdown 报告），极大方便了结果分析与复现。
+## 快速开始
 
-### 科学安全评测 (Scientific Safety Evaluation)
+### 1. 安装环境
 
-DeepSafe 通过四个互补基准扩展科学安全评测：**WMDP** 衡量危险知识与能力，**SciHazard** 从清单、证据、可执行性和新颖性等维度评估有害科学响应，**Safe-Scientist** 考察模型对高风险科研请求的安全处理能力，**SOSBench** 衡量过度安全和不必要拒绝。
-
-### 专用评测模型 ProGuard
-- **主动风险识别**：首创主动性检测范式，具备推理并描述未知风险的能力，突破了传统固定分类的限制。
-- **根治模态偏见**：设计分层多模态安全分类体系，基于 8.7 万样本模态平衡数据集训练，确保图文风险评测的公平与精准。
-
----
-
-## 📖 Model Support
-
-DeepSafe 适配了主流的开源模型与商业 API，支持灵活切换评测后端。
-
-| Open-source Models (via vLLM/HF) | API Models |
-| :--- | :--- |
-| • **Llama / Llama3 / Alpaca / Vicuna** | • **OpenAI (GPT-4/3.5)** |
-| • **Qwen / Qwen2 / Qwen2.5 / Qwen3** | • **Gemini** |
-| • **GLM / ChatGLM2 / ChatGLM3** | • **Claude** |
-| • **InternLM / InternLM2.5** | • **ZhipuAI (ChatGLM)** |
-| • **Baichuan / Baichuan2** | • **Baichuan API** |
-| • **Yi / Yi-1.5 / Yi-VL** | • **ByteDance (YunQue)** |
-| • **Mistral / Mixtral** | • **Huawei (PanGu)** |
-| • **Gemma / Gemma 2** | • **Baidu (ERNIEBot)** |
-| • **DeepSeek (Coder/Math)** | • **360 / MiniMax / SenseTime** |
-| • **BlueLM / TigerBot / WizardLM** | • **Xunfei (Spark)** |
-| • ...... | • ...... |
-
-## 📊 Dataset Support
-
-| Name | Description |
-| :--- | :--- |
-| **Salad-Bench** | 多维度、多语言安全评测基准。 |
-| **HarmBench** | 越狱攻击鲁棒性标准化基准。 |
-| **Do-Not-Answer** | 拒绝有害问题能力评估。 |
-| **BeaverTails** | 人类偏好对齐大规模安全集。 |
-| **MM-SafetyBench** | 多模态大模型安全评测。 |
-| **VLSBench** | 视觉-语言图文对齐安全基准。 |
-| **FLAMES** | 细粒度安全对齐评测框架。 |
-| **XSTest** | “过度拒绝”倾向基准测试。 |
-| **SIUO** | 隐藏有害意图辨别测试。 |
-| **Uncontrolled-AIRD** | 非受控场景 AI 风险检测。 |
-| **TruthfulQA** | 内容真实性与抗误导基准。 |
-| **HaluEval-QA** | 问答场景幻觉评测。 |
-| **MedHallu** | 医疗领域幻觉评测。 |
-| **MossBench** | 综合性安全与能力基准。 |
-| **Fake-Alignment** | 真/伪对齐辨别测试。 |
-| **Sandbagging** | 故意隐藏能力倾向测试。 |
-| **Evaluation-Faking** | 评测过程作弊/操纵评估。 |
-| **WMDP** | 危险知识领域（生化/核能）安全性。 |
-| **SciHazard** | 面向科学风险响应的清单、证据检索、可执行性与新颖性评测。 |
-| **Safe-Scientist** | 评估科学助手对高风险科研请求的识别与安全响应能力。 |
-| **SOSBench** | 评估科学场景中的过度安全与不必要拒绝。 |
-| **MASK** | 欺骗性对齐倾向评测。 |
-| **MSSBench** | 多阶段细粒度安全标准。 |
-| **BeHonest** | 诚实性与自我认知评估。 |
-| **Deception-Bench** | 模型欺骗行为专项测试。 |
-| **Ch3EF** | 多层级多维度安全能力评估。 |
-| **Manipulation-Persuasion-Conv** | 抗诱导/抗操纵能力测试。 |
-| **Reason-Under-Pressure** | 高压约束下逻辑推理测试。 |
-
----
-
-<a id="quick-start"></a>
-## 🚀 快速上手 (Quick Start)
-
-DeepSafe 提供了标准化的评测工作流，主要分为四个阶段：**配置 -> 推理 -> 评估 -> 可视化**。
-
-### 1. 环境准备
 ```bash
-# 建议使用虚拟环境
+git clone --branch deepsafe-sci https://github.com/AI45Lab/DeepSafe.git
+cd DeepSafe
+
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
-# 下载数据集需要 huggingface-cli
-pip install -U huggingface_hub
-
-# 验证环境是否安装成功
-python smoke_test.py
 ```
 
-### 1.1 下载评测数据集
+### 2. 配置 API
 
-DeepSafe 支持的评测数据集主要托管在 Hugging Face 上。你可以使用 `huggingface-cli` 统一进行下载。
-
-**下载示例 (以 Do-Not-Answer 为例):**
+默认配置通过兼容 OpenAI 接口的模型完成待测模型推理和裁判模型评估。密钥与接口覆盖项从环境变量读取，不写入 YAML 文件。
 
 ```bash
-# 下载数据集到本地目录
-huggingface-cli download --repo-type dataset --resume-download LibrAI/do-not-answer --local-dir data/do-not-answer --local-dir-use-symlinks False
+export OPENAI_API_KEY="your-api-key"
+
+# 可选：指定其他兼容 OpenAI 的接口。
+export OPENAI_BASE_URL="https://api.openai.com/v1"
+
+# SciHazard 在缓存未命中、需要在线检索证据时使用。
+export SERPER_API_KEY="your-serper-api-key"
 ```
 
-下载完成后，请在对应的 YAML 配置文件（如 `configs/eval_tasks/do_not_answer_v01.yaml`）中修改 `dataset.path` 指向你的本地路径。
+如需修改待测模型、裁判模型、并发数、数据路径或输出目录，请编辑 [`configs/eval_tasks/`](configs/eval_tasks) 下对应的配置文件。运行前应同时检查 `model` 和 `evaluator.judge_model_cfg` 两部分。
 
-### 1.2 下载 Salad-Bench 数据集 (特殊说明)
+### 3. 准备外部数据
 
-Salad-Bench 数据集需从[官方仓库](https://huggingface.co/datasets/OpenSafetyLab/Salad-Data)手动下载。可执行如下命令：
+SciHazard 可直接使用仓库中的默认配置与数据。其余两个基准需要额外准备：
+
+- 将 Safe-Scientist 的六个领域 JSON 文件放到 `data/safe_scientist/`。
+- 将 SOSBench 的 Parquet 文件放到 `data/sosbench/`，并保留上游许可证和 Responsible Use Agreement。
+
+数据字段要求与上游来源见 [`docs/benchmark-data.md`](docs/benchmark-data.md)。
+
+### 4. 运行评测
+
+在仓库根目录执行：
 
 ```bash
-# 下载数据集
-huggingface-cli download --repo-type dataset --resume-download OpenSafetyLab/Salad-Data --local-dir Salad-Data --local-dir-use-symlinks False
+bash scripts/run_scihazard_local.sh
+bash scripts/run_safe_scientist_local.sh
+bash scripts/run_sosbench_local.sh
 ```
 
-随后将 `base_set.json` 移动或复制到你指定的本地目录。并在配置文件 `configs/eval_tasks/salad_judge_local.yaml` 的 `dataset.path` 字段中填入你的本地路径：
+三个脚本会把对应配置交给 `tools/run.py`。本地 runner 在缺少已有预测时先生成模型回答，再调用配置中的裁判进行评估，随后计算指标并生成报告。
 
-```yaml
-dataset:
-  type: SaladDataset
-  path: /你的路径/Salad-Data/base_set.json
-```
+### 5. 查看输出
 
----
-
-### 1.2 下载并配置 mdjudge 评测器
-
-**mdjudge (MD-Judge-v0.1)** 为 Salad-Bench 官方推荐的安全评测器。权重模型可通过 [HuggingFace](https://huggingface.co/OpenSafetyLab/MD-Judge-v0.1) 下载：
-
-```bash
-# 或下载 safetensors 权重文件和 config 文件
-huggingface-cli download --resume-download OpenSafetyLab/MD-Judge-v0.1 --local-dir MD-Judge-v0.1 --local-dir-use-symlinks False
-```
-
-将 `MD-Judge-v0.1` 文件夹（或权重文件等）放在你本地任意指定目录。随后在 `evaluator.judge_model_cfg.model_name` 字段中，替换为本地路径，例如：
-
-```yaml
-evaluator:
-  judge_model_cfg:
-    type: VLLMLocalModel
-    model_name: /你的本地目录/MD-Judge-v0.1
-    # 其它配置不变
-```
-
-> **注意**：第一次使用时，务必确保评测机器可加载权重文件，且本地配置路径与实际下载路径一致，否则评测将报错找不到模型。
-
----
-
-### 1.3 参考配置文件片段（路径需按本地实际情况修改）
-
-```yaml
-dataset:
-  type: SaladDataset
-  path: /your/path/to/Salad-Data/base_set_sample_100.json
-
-evaluator:
-  type: ScorerBasedEvaluator
-  batch_size: 32
-  template_name: md_judge_v0_1
-  judge_model_cfg:
-    type: VLLMLocalModel
-    model_name: /your/path/to/MD-Judge-v0.1
-    tensor_parallel_size: 1
-    gpu_memory_utilization: 0.4
-    trust_remote_code: true
-    temperature: 0.0
-    max_tokens: 64
-```
-
-如有其他依赖或运行报错，建议核对 config 路径以及模型格式（safetensors、bin 均可，推荐使用官方权重文件夹结构保持一致）。
-
-
-
-### 2. 启动评测 (以 Salad-Bench 为例)
-MBEF 提供了本地化一键脚本，只需执行以下命令：
-
-```bash
-# 进入项目根目录执行
-bash scripts/run_salad_local.sh configs/eval_tasks/salad_judge_local.yaml
-```
-
-### 3. 工作流解析 (Workflow)
-- **配置 (Configure)**：在 YAML 中指定待测模型、数据集路径及裁判模型参数。
-- **推理 (Inference)**：脚本自动拉起 vLLM（本地模式）或调用 API，生成模型回答并保存至 `predictions.jsonl`。
-- **评估 (Evaluation)**：启动 ProGuard 或其他裁判模型，对生成回答进行自动化打分与分类。
-- **可视化 (Visualization)**：自动汇总指标，在输出目录生成 `report.md` 实时查看评测结论。
-
----
-
-## ⚙️ 配置文件参数说明 (Configuration Guide)
-
-配置参数以 `salad_judge_v01_qwen1.5-0.5b_vllm_local.yaml` 为参考：
-
-### 1. `model` (待测模型模块)
-- `type`: 加载方式。`APIModel` (标准API接口), `VLLMLocalModel` (本地vLLM), `HuggingFaceModel` (TF驱动)。
-- `model_name`: 模型本地路径或 HF ID。
-- `api_base`: 服务地址（若为 `localhost` 且 `type` 为 APIModel，脚本会尝试拉起本地 vLLM）。
-- `concurrency`: 并发推理请求数。
-- `strip_reasoning`: 是否移除 `<thought>` 等推理过程。
-- `temperature`: 采样温度，`0.0` 为确定性输出。
-- `max_tokens`: 回答生成的最大 Token 数。
-
-### 2. `dataset` (数据集模块)
-- `type`: 数据集类名（如 `SaladDataset`）。
-- `path`: 数据文件本地路径。
-- `limit`: (可选) 随机采样数，用于快速跑通流程。
-
-### 3. `evaluator` (评测与裁判模块)
-- `type`: 评测器类名。`ScorerBasedEvaluator` 需要裁判打分。
-- `template_name`: Prompt 模板 ID（定义在 `uni_eval/prompts.py`）。
-- `judge_model_cfg`: **裁判模型配置**，包含裁判模型的路径、显存占用 (`gpu_memory_utilization`)、TP 数等。
-
-### 4. `metrics` (指标模块)
-- `type`: 指标类名（如 `SaladCategoryMetric`）。
-- `safe_label`/`unsafe_label`: 判定输出中代表安全或危险的关键字。
-
-### 5. `runner` (运行模块)
-- `output_dir`: 推理 JSONL、裁判日志及最终 Markdown 报告的保存路径。
-
----
-
-## 🛠️ 自定义数据集集成 (Custom Dataset)
-
-DeepSafe 约定了极简的数据组织形式，接入新数据集只需三步：
-
-### 1. 组织数据 (JSONL)
-确保你的数据文件每一行为一个 JSON 对象，并包含以下字段：
-`{"id": "001", "prompt": "模型输入内容", "reference": "标准答案", "category": "分类标签"}`
-
-### 2. 实现核心 Python 组件
-- **Dataset** (`uni_eval/datasets/`): 继承 `BaseDataset` 并重写 `load()`，将上述 JSONL 加载为 `List[Dict]`。
-- **Metric** (`uni_eval/metrics/`): 继承 `BaseMetric` 并重写 `compute()`，根据预测结果计算分值。
-- **Evaluator** (可选): 继承 `BaseEvaluator` 实现特定的多阶段判定逻辑。
-
-### 3. 注册运行
-在各模块的 `__init__.py` 中完成注册，创建对应 YAML 配置后即可一键启动。
-
----
-
-## 📁 项目结构
+默认输出目录为：
 
 ```text
-DeepSafe/
-├── uni_eval/                # 核心评测框架
-│   ├── datasets/            # 数据集加载实现
-│   ├── models/              # 模型接口适配 (API/HF/vLLM)
-│   ├── evaluators/          # 评测流程控制器（包含原生 Evaluator 集成）
-│   ├── metrics/             # 评估指标实现
-│   ├── runners/             # 运行任务流管理
-│   ├── summarizers/         # 结果汇总与报告生成
-│   ├── cli/                 # 命令行解析工具
-│   └── registry.py          # 模块注册机制中心
-├── configs/                 # 评测任务配置文件 (YAML)
-├── scripts/                 # 启动脚本 (Shell)
-├── tools/                   # 实用工具脚本
-└── results/                 # 评测结果与报告存储 (JSON/Markdown)
+results/scihazard/
+results/safe_scientist/
+results/sosbench/
 ```
 
----
+一次完整运行通常生成：
 
-## 🤝 贡献与反馈
-欢迎通过 Issue 或 Pull Request 共同构建 **DeepSafe**！🌟
+- `predictions.jsonl`：与评测样本对应的待测模型回答；
+- `result.json`：逐条评估结果和汇总指标；
+- `report.md`：便于阅读的指标摘要。
 
----
+这些文件属于运行产物，不提交到仓库。
 
-## 📬 联系我们
+## 目录结构
 
-- **邮箱**：[`shaojing@pjlab.org.cn`](mailto:shaojing@pjlab.org.cn)
+```text
+configs/eval_tasks/       评测任务的 YAML 配置
+scripts/                  从仓库根目录启动评测的脚本
+uni_eval/datasets/        数据集适配器
+uni_eval/evaluators/      评测器与裁判实现
+uni_eval/metrics/         汇总指标实现
+DeHarmScore-trace/        SciHazard 危害评估器及可复现缓存
+docs/benchmark-data.md    外部数据要求与字段说明
+```
+
+## SciHazard 与 DeHarmScore-trace
+
+SciHazard 使用 [`DeHarmScore-trace`](DeHarmScore-trace/README.md) 判断模型回答的危害程度。该评估器将回答与问题对应的 checklist 进行匹配，必要时检索外部证据，并给出 E1-E4 的可执行性（Executability）等级和 N1-N4 的新增风险（Net-New Risk）等级。组合结果同时反映回答包含多少可操作细节，以及回答是否提供了较难获取的新信息。
+
+仓库中的 checklist、检索结果和检索证据缓存只用于 SciHazard 的可复现运行，不与 Safe-Scientist 或 SOSBench 共用。prompt trace 和已完成的模型回答不包含在仓库中。裁判配置与诊断字段详见 [DeHarmScore-trace 快速上手](DeHarmScore-trace/QUICKSTART.md)。
+
+## 使用边界与项目归属
+
+DeepSafe-Sci 用于受控条件下的模型评估与安全研究。部分评测请求涉及高风险科学操作。运行时应限制生成回答的访问范围，并遵守所在机构的管理要求以及各上游数据集的使用条款。
+
+本分支基于 [DeepSafe](https://github.com/AI45Lab/DeepSafe)，沿用其注册机制、runner、模型接口、结果汇总和报告模块。仓库中的 DeHarmScore-trace 组件采用其[独立许可证](DeHarmScore-trace/LICENSE)；其他数据与组件的适用条款以各上游项目为准。
