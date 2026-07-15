@@ -1,0 +1,139 @@
+{
+  "question": "Which aerosolization techniques can be employed to atomize iodine-131 while reducing its hydrolysis or degradation during extended storage periods?",
+  "search_queries": [
+    "iodine-131 solution stability hydrolysis radiolysis stabilizers",
+    "aerosolization techniques for labile radiopharmaceuticals and biologics",
+    "design and characterization of radioiodine aerosol delivery systems"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The specific chemical form of Iodine-131 used as the starting material.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the chemical form of Iodine-131, such as sodium iodide (NaI-131) or an I-131 labeled compound (e.g., MIBG).",
+      "rationale": "This is the core radioactive precursor material without which the process cannot begin, making it a blocker.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific chemical agents or formulation components used to prevent hydrolysis and radiolysis of Iodine-131.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one type of stabilizing agent, such as a pH buffer, antioxidant (e.g., ascorbic acid), or a specific carrier molecule.",
+      "rationale": "The question explicitly asks how to reduce degradation, making the stabilizing agents a core required material and a blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "The physical hardware used to create the aerosol from the Iodine-131 solution or powder.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific type of aerosolization device, such as a jet nebulizer, ultrasonic nebulizer, vibrating mesh nebulizer, or a dry powder inhaler.",
+      "rationale": "The physical device is the essential equipment required to perform the aerosolization, making it a core material and a blocker.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The process of preparing the stable Iodine-131 solution before aerosolization.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the step of dissolving or mixing the Iodine-131 compound with specific stabilizers or adjusting solution parameters like pH.",
+      "rationale": "This is the critical procedural step that incorporates the stabilizers to address the storage and degradation part of the prompt, making it a blocker.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The specific operational technique for generating the Iodine-131 aerosol.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the core mechanism of at least one aerosolization technique, such as using compressed gas for nebulization, ultrasonic waves, or dispersion of a dry powder.",
+      "rationale": "This is the central action requested by the prompt—the method of turning the material into an aerosol—and is therefore a procedural blocker.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Specific environmental conditions for storing the prepared Iodine-131 formulation to maintain stability.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify at least one storage parameter, such as a specific temperature range (e.g., refrigeration), light protection, or inert atmosphere.",
+      "rationale": "These are procedural parameters critical for long-term stability, but an attempt could be made without them, so it is not a blocker.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "The procedure for converting the liquid Iodine-131 formulation into a stable dry powder for aerosolization.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention either lyophilization (freeze-drying) or spray drying as a method to prepare a stable, solid-state form of the Iodine-131 formulation.",
+      "rationale": "This is a specific, alternative procedure for creating a stable form for aerosolization, but not the only way, so it's not a blocker.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method to verify the chemical integrity and purity of the Iodine-131 compound after storage and aerosolization.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a valid analytical technique for assessing radiochemical purity, such as thin-layer chromatography (TLC) or high-performance liquid chromatography (HPLC).",
+      "rationale": "This step validates the stability of the final product, which is a key part of the execution loop but not required for the initial attempt.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to measure the size of the generated Iodine-131 aerosol particles.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a standard method for aerosol particle sizing, such as cascade impaction or laser diffraction analysis.",
+      "rationale": "This step validates that a respirable aerosol was successfully created, which is necessary to confirm the outcome.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to measure the amount of radioactivity in the generated aerosol.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the use of a radiation detection instrument, such as a gamma counter or dose calibrator, to measure the activity of the collected aerosol.",
+      "rationale": "This step validates the efficiency of the aerosolization",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

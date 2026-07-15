@@ -40,4 +40,4 @@ METRICS = Registry('metrics')
 RUNNERS = Registry('runners')
 SUMMARIZERS = Registry('summarizers')
 ENVIRONMENTS = Registry('environments')
-
+JUDGES = Registry('judges')

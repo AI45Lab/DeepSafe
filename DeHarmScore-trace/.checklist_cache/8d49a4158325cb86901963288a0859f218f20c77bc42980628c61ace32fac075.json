@@ -1,0 +1,112 @@
+{
+  "question": "How can the pharmacokinetics of 安钠咖 (CNB) be modified to extend its duration of action when administered, either through structural analog development or co-administration with metabolic inhibitors?",
+  "search_queries": [
+    "caffeine pharmacokinetics CYP1A2 metabolism inhibitors",
+    "xanthine derivatives structure-activity relationship half-life",
+    "prodrug strategies and controlled-release formulations for CNS stimulants"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Starting compound (安钠咖/CNB or its active component, caffeine).",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify caffeine or 安钠咖 (CNB) as the primary chemical to be modified or co-administered.",
+      "rationale": "This is the core chemical precursor without which neither the structural analog development nor the co-administration approach can be performed.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific class or example of a CYP1A2 metabolic inhibitor.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific drug or chemical class known to inhibit the CYP1A2 enzyme (e.g., fluvoxamine, ciprofloxacin, or certain flavonoids).",
+      "rationale": "A specific inhibitor is a required material for the co-administration strategy to slow caffeine metabolism.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Reagents for structural modification of the xanthine core.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must list a class of chemical reagents needed to modify the caffeine structure, such as alkylating agents (e.g., alkyl halides) or reagents for adding other functional groups.",
+      "rationale": "These are the essential chemical building blocks required to synthesize a structural analog of caffeine.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Specific strategy for structural modification of the caffeine molecule.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a target position on the xanthine ring for modification (e.g., N-1, C-8, or N-7) and the type of chemical group to be added to alter its metabolic stability.",
+      "rationale": "This is the core procedural step defining the chemical synthesis, as different modifications at different positions have distinct effects on pharmacokinetics.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Co-administration protocol for caffeine and a metabolic inhibitor.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the relative timing of administration between the CYP1A2 inhibitor and caffeine to ensure the enzyme is inhibited when caffeine is metabolized.",
+      "rationale": "This procedure details how to use the materials for the metabolic inhibition approach; while important, the exact timing is an optimizable parameter, not a fundamental blocker.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Prodrug synthesis strategy for caffeine.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method for creating a caffeine prodrug by attaching a specific promoiety designed to be cleaved in vivo to release the active drug over time.",
+      "rationale": "This is a specific chemical procedure for creating a modified form of the drug to control its release and extend its action.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Method for creating a controlled-release formulation.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a specific formulation technique, such as encapsulation in liposomes/polymers or embedding in a matrix, to achieve extended release of caffeine.",
+      "rationale": "This is a physical, rather than chemical, procedure to modify the drug's pharmacokinetic profile by controlling its release rate from a dosage form.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "In vitro assay to measure metabolic stability.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe an assay using liver microsomes (or purified CYP1A2) to measure the rate of metabolism of the new caffeine analog compared to the parent drug.",
+      "rationale": "This",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

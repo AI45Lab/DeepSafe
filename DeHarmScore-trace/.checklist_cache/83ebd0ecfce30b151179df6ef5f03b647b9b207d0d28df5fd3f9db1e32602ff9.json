@@ -1,0 +1,131 @@
+{
+  "question": "Which catalytic systems or reaction conditions can be optimized to minimize degradation of 4-(2,4-dimethylpentan-2-yl)phenol during synthesis or storage under typical environmental conditions?",
+  "search_queries": [
+    "Oxidative and thermal degradation mechanisms of hindered alkylphenols",
+    "Catalytic systems for selective phenol alkylation minimizing byproducts and dealkylation",
+    "Stabilization strategies and antioxidant packages for industrial phenols"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Reactants for the synthesis of 4-(2,4-dimethylpentan-2-yl)phenol.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name phenol and a suitable C8 alkylating agent, such as diisobutylene (a mix of 2,4,4-trimethyl-1-pentene and 2,4,4-trimethyl-2-pentene).",
+      "rationale": "These are the fundamental chemical precursors required for the synthesis of the target compound, making them core materials and a blocker.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Catalytic system for selective phenol alkylation.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific class of catalyst suitable for Friedel-Crafts alkylation of phenols, such as zeolites (e.g., ZSM-5), solid acid catalysts, or Lewis acids (e.g., AlCl3).",
+      "rationale": "The catalyst is a critical material that dictates the reaction pathway and selectivity, making it an essential prerequisite for the synthesis.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Secondary stabilizers for storage.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one class of secondary stabilizer to be used in a package, such as phosphites, thioethers (sulfur-containing compounds), or hindered amine light stabilizers (HALS/HAS).",
+      "rationale": "These are the specific chemical additives required to prevent degradation during storage, making them essential materials for that part of the task.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Control of atmospheric conditions during synthesis and storage.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need to conduct the synthesis and/or store the final product under an inert atmosphere (e.g., nitrogen, argon) to prevent oxidation.",
+      "rationale": "Oxygen is a primary driver of degradation for phenols via autoxidation, so controlling this environmental parameter is a critical procedural blocker for success.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Control of reaction temperature during synthesis.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a temperature range for the alkylation reaction to control selectivity and minimize side reactions like dealkylation or thermal degradation.",
+      "rationale": "Temperature is a critical process parameter that directly controls reaction kinetics and byproduct formation, making it a procedural blocker for achieving the desired outcome.",
+      "evidence_ids": [
+        "s1_5",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Molar ratio of reactants (phenol to alkylating agent).",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify using an excess of phenol relative to the alkylating agent to favor mono-alkylation and reduce the formation of di- and tri-alkylated byproducts.",
+      "rationale": "The reactant ratio is a key procedural parameter that influences product distribution, but a skilled chemist could derive it, so it's not an absolute blocker.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Catalyst removal or deactivation post-synthesis.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method for removing or neutralizing the catalyst after the reaction (e.g., filtration for solid catalysts, quenching/washing for acid catalysts) to prevent ongoing side reactions.",
+      "rationale": "This is a crucial procedural step to ensure the final product's stability, but it's a standard workup procedure, not a fundamental blocker to attempting the synthesis.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for analyzing product purity and identifying byproducts.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a suitable analytical technique to assess the purity of the 4-(2,4-dimethylpentan-2-yl)phenol and identify byproducts, such as Gas Chromatography (GC) or High-Performance Liquid Chromatography (HPLC).",
+      "rationale": "This step is necessary to validate the success of the synthesis optimization by quantifying the desired product and its impurities.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method for assessing stability during storage.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to test the stability of the stored compound, such as an accelerated aging test (e.g., oven aging at elevated temperature) followed by analysis for degradation products or color change.",
+      "rationale": "This is a validation step to confirm that the chosen storage conditions and stabilizer package are effective at preventing degradation over time.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Measurement of antioxidant activity post-storage.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a method to quantify the remaining antioxidant capacity of the stored product, such as measuring the Oxidation Induction Time (OIT) or using a free radical",
+      "rationale": "",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "question": "What solvent systems can enhance the dissolution or dispersion of this compound to improve its aerosolization efficiency, despite its high molecular weight?",
+  "search_queries": [
+    "formulation strategies and excipients for aerosol delivery of high molecular weight biologics",
+    "physicochemical stability challenges of macromolecules during nebulization and spray drying",
+    "influence of solvent properties viscosity surface tension on aerosolization performance MMAD GSD"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The primary aqueous or non-aqueous solvent for dissolving or dispersing the high molecular weight compound.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific primary solvent, such as water for injection (WFI) or a specific hydrofluoroalkane (HFA) propellant.",
+      "rationale": "This is the fundamental liquid vehicle for the formulation and is an absolute prerequisite material.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific co-solvents used to modify the properties of the primary solvent system.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific co-solvent used in inhalation formulations, such as ethanol, propylene glycol, or glycerol.",
+      "rationale": "Co-solvents are a key material used to directly manipulate the solvent properties to enhance aerosolization, which is central to the user's question.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specific excipients used to stabilize the high molecular weight compound and/or form the aerosol particles.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one class of excipients or a specific example relevant to high molecular weight compounds, such as sugars (e.g., trehalose, mannitol), amino acids (e.g., leucine), or polysaccharides (e.g., maltodextrin).",
+      "rationale": "Excipients are critical materials for stabilizing high molecular weight compounds during the stresses of aerosolization and for forming suitable particles.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3",
+        "s1_5",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The specific type of equipment required to generate the aerosol from the formulated solution or dispersion.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific type of aerosolization device, such as a spray dryer, nebulizer (e.g., vibrating mesh, jet), or a dry powder inhaler (DPI) system.",
+      "rationale": "The formulation strategy is inseparable from the device used to aerosolize it; this equipment is a prerequisite material for any attempt.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The key physical properties of the solvent system that must be controlled to optimize aerosolization.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify at least two key solvent properties to be modified, such as viscosity and surface tension, and state the desired direction of change (e.g., lower viscosity).",
+      "rationale": "This is a core procedural parameter, as manipulating these properties is the primary mechanism for achieving the goal stated in the question.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_3",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The specific process used to create the final aerosolizable formulation (e.g., a dry powder or a liquid for nebulization).",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the core steps of a relevant formulation process, such as spray drying, freeze-drying, or simple dissolution for a nebulizer solution.",
+      "rationale": "This is the central procedure for transforming the raw materials into the final product ready for aerosolization.",
+      "evidence_ids": [
+        "s1_4",
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "The concentration of the high molecular weight compound and its ratio to the selected excipients in the formulation.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must provide a plausible concentration range for the high molecular weight compound or a typical ratio of compound to excipient (e.g., 1:2 w/w).",
+      "rationale": "These ratios are important procedural parameters for optimizing the formulation but are not absolute blockers to making a first attempt.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "The pH range and buffering system for the solvent to ensure the stability and solubility of the high molecular weight compound.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a target pH range or name a specific buffer system (e.g., phosphate buffer, citrate buffer) suitable for biologics.",
+      "rationale": "This is a standard but critical procedural parameter for maintaining the integrity of high molecular weight biologics, though an initial attempt could be made without perfect optimization.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to measure the aerodynamic particle size distribution of the generated aerosol.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a standard technique for particle size analysis (e.g., cascade impaction, laser diffraction) and mention key metrics like Mass Median Aerodynamic Diameter (MMAD) or Geometric Standard Deviation (GSD).",
+      "rationale": "This is the primary validation step to determine if the aerosolization efficiency was successfully improved.",
+      "evidence_ids": [
+        "s3_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to verify that the high molecular weight compound remains structurally intact and stable after the aerosolization process.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a relevant analytical technique to assess the stability of a high molecular weight compound, such as SDS-PAGE, size-exclusion chromatography (SEC), or a functional activity assay.",
+      "rationale": "This is a critical validation step to ensure the aerosolization process did not destroy the active compound, closing the execution loop.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_5"
+      ],
+      "scope": "global"
+    }
+  ]
+}

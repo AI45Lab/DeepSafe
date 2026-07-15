@@ -1,0 +1,105 @@
+{
+  "question": "What engineering adjustments to polymerase chain reaction (PCR) protocols can optimize the amplification of the reconstructed 1918 influenza virus gene segments under conditions of limited thermal stability and suboptimal reagents?",
+  "search_queries": [
+    "PCR additives and co-solvents for enhancing polymerase thermostability and processivity",
+    "Low-temperature and touchdown PCR protocol optimization for degraded reagents",
+    "PCR buffer components and concentration effects on amplification with suboptimal enzymes"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Identification of the essential starting materials for the PCR, including the DNA template for the 1918 influenza virus gene segments.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must list the DNA template (1918 influenza gene segments), a thermostable DNA polymerase, primers specific to the target segments, and dNTPs.",
+      "rationale": "These are the fundamental physical reagents required to begin the PCR experiment, making them a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specification of chemical additives used to counteract suboptimal reagents and improve polymerase stability.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one PCR enhancer suitable for improving amplification under suboptimal conditions, such as Betaine, DMSO, Trehalose, OR Formamide.",
+      "rationale": "These additives are key materials for the specific optimization task described in the prompt, making them a blocker for success under the stated constraints.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3",
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Identification of critical inorganic salts in the PCR buffer that must be optimized.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify Magnesium Chloride (MgCl2) as a key component of the PCR buffer to be optimized.",
+      "rationale": "Magnesium ions are an essential cofactor for DNA polymerase, and their concentration is a critical material parameter to adjust for optimization.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Providing a quantitative concentration range for the specified PCR enhancers.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a specific starting concentration or range for at least one named PCR enhancer (e.g., 1-3.5 M for Betaine, 1-10% for DMSO).",
+      "rationale": "The correct concentration of an additive is a critical procedural parameter; an incorrect amount can inhibit the reaction, making this a blocker.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Describing the process of optimizing the concentration of magnesium ions in the reaction.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that the concentration of MgCl2 should be titrated, typically within a range of 1.5 to 4.0 mM, to find the optimal level for amplification.",
+      "rationale": "Titrating Mg2+ concentration is a core procedural step for optimizing any PCR, especially with suboptimal reagents, making it a blocker for achieving a good yield.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Description of the specific thermal cycling program adjustments needed to compensate for limited thermal stability.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the principle of touchdown PCR, which involves setting the initial annealing temperature above the primer Tm and incrementally decreasing it in subsequent cycles.",
+      "rationale": "This is a specific, critical procedure designed to enhance specificity and yield under challenging conditions, making it a blocker for this optimization problem.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Specification of design parameters for primers targeting the 1918 influenza virus gene segments.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention at least one critical primer design parameter, such as target specificity for the 1918 flu strain, optimal length (e.g., 18-25 bp), or GC content (e.g., 40-60%).",
+      "rationale": "Primer design is a foundational procedure that dictates the success of amplifying a specific target, but it's not a blocker as a user might be provided with pre-made primers.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Guidance on adjusting the amount of DNA polymerase to compensate for suboptimal enzyme quality.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest adjusting the concentration of the",
+      "rationale": "",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

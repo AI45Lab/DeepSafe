@@ -1,0 +1,113 @@
+{
+  "question": "How can reverse genetics systems be optimized to stabilize the incorporation of SARS-CoV virulence factor coding sequences into the SARS-CoV-2 genome without compromising the viability of the recombinant virus during storage?",
+  "search_queries": [
+    "strategies for stabilizing large heterologous inserts in coronavirus reverse genetics systems",
+    "impact of foreign gene expression on recombinant coronavirus particle integrity and storage viability",
+    "mitigating negative selection pressure on virulence gene inserts in chimeric viral genomes"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The specific set of plasmids or DNA constructs for the SARS-CoV-2 reverse genetics system.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify using either a Bacterial Artificial Chromosome (BAC) containing the full-length SARS-CoV-2 genome or a set of plasmids representing partitioned fragments of the genome.",
+      "rationale": "This is the fundamental genetic backbone required to build the recombinant virus, making it a core material and a blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "The specific genetic material for the SARS-CoV virulence factor to be inserted.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name or describe the source of the SARS-CoV virulence factor coding sequences, such as a synthesized DNA fragment or a sequence cloned into a donor plasmid.",
+      "rationale": "This is the core genetic payload being inserted into the SARS-CoV-2 genome, without which the experiment is impossible.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "The biological system for virus assembly and propagation.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a susceptible cell line for coronavirus replication (e.g., Vero E6, Calu-3) and a method for introducing DNA/RNA into them (e.g., electroporation, lipid-based transfection reagents).",
+      "rationale": "The virus cannot be assembled or grown without the correct host cells and a method to get the genetic material inside them, making this a core material and a blocker.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Selection of the insertion site for the SARS-CoV virulence factor within the SARS-CoV-2 genome.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that the SARS-CoV virulence sequence should be inserted into a region known to be non-essential for SARS-CoV-2 viability, such as by replacing an accessory gene like ORF7a or ORF8.",
+      "rationale": "The insertion site is a critical procedural parameter that directly impacts viral viability and insert stability, making it a blocker for success.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Method for assembling the chimeric SARS-CoV-2 genome.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a valid coronavirus assembly method, such as in vitro ligation of DNA fragments followed by T7 transcription, or co-transfection of overlapping DNA fragments for in-cell assembly.",
+      "rationale": "This is the core procedural step that transforms the separate genetic parts into a functional viral genome ready for rescue, making it a blocker.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Stabilization of the viral cDNA construct during bacterial cloning.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention using a low-copy-number plasmid or BAC (e.g., one containing an F-factor) in the E. coli host to minimize toxicity and instability.",
+      "rationale": "This procedure addresses the instability of large viral sequences in bacteria, a common problem before the virus rescue stage, but not an absolute blocker to an attempt.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Conditions for long-term storage of the final recombinant virus stock.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify storing the purified virus stock at ultra-low temperatures (e.g., -80°C or in liquid nitrogen) and mention the use of a cryoprotectant (e.g., fetal bovine serum or glycerol).",
+      "rationale": "This procedure directly addresses the \"viability of the recombinant virus during storage\" part of the question, defining a key parameter for the final product.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Confirmation of successful recombinant virus rescue.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe observing for cytopathic effect (CPE) in the transfected cell culture supernatant when passaged onto fresh susceptible cells.",
+      "rationale": "This is the first and most basic validation step to see if the entire process resulted in a viable, replicating virus.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Genetic verification of the inserted SARS-CoV virulence",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "",
+      "rationale": "",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

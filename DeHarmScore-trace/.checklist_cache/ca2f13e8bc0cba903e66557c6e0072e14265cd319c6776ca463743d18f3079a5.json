@@ -1,0 +1,139 @@
+{
+  "question": "How can advanced isotope separation techniques be optimized to increase the enrichment yield of Rhenium-186, given its low natural abundance and known technical bottlenecks?",
+  "search_queries": [
+    "Rhenium-186 production routes and subsequent radiochemical separation techniques from target materials",
+    "Advanced isotope separation methods (AVLIS, plasma, chromatography) for transition metals performance comparison and selectivity",
+    "Technical bottlenecks and optimization parameters for high specific activity Rhenium-186 purification yield"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specification of the target material for Rhenium-186 production.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify Tungsten (W) as the target material, preferably mentioning enriched Tungsten-186 (186W) or a specific chemical form like Tungsten(VI) oxide (WO3) or Tungsten disulfide (WS2).",
+      "rationale": "This is the primary precursor material that is transmuted into Rhenium-186, making it an essential physical prerequisite for the entire process.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_4",
+        "s3_1",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Identification of the required irradiation facility.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that a particle accelerator (such as a cyclotron) for proton irradiation or a nuclear reactor for neutron irradiation is required.",
+      "rationale": "The transmutation of the target material requires a source of high-energy particles, which is a fundamental piece of hardware and thus a core material/equipment requirement.",
+      "evidence_ids": [
+        "s1_4",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Listing of key chemical reagents for the separation process.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific chemical system for separation, such as methyl ethyl ketone (MEK) for solvent extraction or an anion exchange resin for chromatography.",
+      "rationale": "These chemical agents are the physical substances used to perform the chemical separation of Rhenium-186 from the bulk target material, making them a core material prerequisite.",
+      "evidence_ids": [
+        "s1_4",
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Description of the irradiation process to produce Rhenium-186.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the nuclear reaction, specifying the bombardment of a Tungsten target with either protons (e.g., 186W(p,n)186Re) or neutrons (e.g., 185Re(n,γ)186Re).",
+      "rationale": "This is the core procedural step where the starting material is transformed into the desired isotope; without this transmutation, there is no Rhenium-186 to separate.",
+      "evidence_ids": [
+        "s1_2",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specification of a primary chemical separation technique.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the steps for at least one valid separation method, such as solvent extraction using MEK OR an ion exchange chromatography process to separate perrhenate from the tungsten target.",
+      "rationale": "This is the critical procedure for isolating the produced Rhenium-186 from the irradiated target material, which is fundamental to achieving any yield.",
+      "evidence_ids": [
+        "s1_4",
+        "s1_5",
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Optimization parameters for chromatographic separation of Rhenium-186.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention at least one specific parameter to optimize for chromatography, such as the choice of eluent, eluent concentration, pH, or the type of stationary phase (resin).",
+      "rationale": "This item details the specific variables that are adjusted to improve the efficiency of the core chromatographic procedure, which is a key part of process optimization.",
+      "evidence_ids": [
+        "s2_3",
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Optimization parameters for solvent extraction of Rhenium-186.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention at least one specific parameter to optimize for solvent extraction, such as adjusting the pH of the aqueous phase, the phase volume ratio, or the choice of organic solvent.",
+      "rationale": "This item details the specific variables that are adjusted to improve the efficiency of the core solvent extraction procedure, which is a key part of process optimization.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Description of an advanced, non-standard separation technique applicable to Rhenium.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe an advanced isotope separation method beyond standard solvent extraction or column chromatography, such as counter-current electrophoresis, plasma separation, or Atomic Vapor Laser Isotope Separation (AVLIS).",
+      "rationale": "This addresses the \"advanced techniques\" part of the prompt, detailing a specific procedure that represents a more novel approach to isotope separation.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method for quantifying the yield of Rhenium-186.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a method to measure the amount of Rhenium-186 produced, such as using gamma-ray spectroscopy to detect its characteristic energy peaks (e.g., at 137 keV).",
+      "rationale": "This is a validation step to confirm the outcome of the process by measuring the \"enrichment yield,\" which is the primary goal stated in the question.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method for assessing the purity and specific activity of the final Rhenium-186 product.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe how to measure the specific activity (radioactivity per unit mass) and check for radionuclidic impurities (e.g., other rhenium or tungsten isotopes).",
+      "rationale": "This is a validation step to determine the quality and concentration of the final product, which is critical for its intended use and a key metric for optimization success.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_3"
+      ],
+      "scope": "global"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "question": "What are the optimal catalytic conditions (e.g., temperature, pressure, pH) for converting industrial by-products into intermediate compounds necessary for Zipeprol synthesis?",
+  "search_queries": [
+    "Zipeprol synthesis pathways and key intermediates",
+    "Catalytic upgrading of industrial by-products to N-heterocycle precursors",
+    "Optimization parameters and constraints for catalytic reactions in pharmaceutical synthesis"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specific industrial by-product(s) to be used as the starting material for the synthesis.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific industrial by-product (e.g., glycerol, lignin-derived phenols, furfural) that can serve as a precursor.",
+      "rationale": "This is the primary starting material for the entire process; without it, the synthesis cannot begin.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific intermediate compound(s) in the Zipeprol synthesis pathway that are the target of the catalytic conversion.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one known chemical intermediate in a plausible Zipeprol synthesis pathway.",
+      "rationale": "This defines the target product of the reaction and is a core material required to understand the process.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specific catalyst or class of catalysts required for the conversion.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific catalyst (e.g., Palladium on carbon, a specific zeolite) or a specific class of catalysts (e.g., transition metal-based heterogeneous catalysts).",
+      "rationale": "The catalyst is the central component enabling the specified chemical transformation; the process is impossible without it.",
+      "evidence_ids": [
+        "s2_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Reaction solvent(s) suitable for the catalytic conversion.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify at least one suitable solvent or solvent system for the proposed catalytic reaction.",
+      "rationale": "The solvent is a necessary medium for the reaction to occur, but alternative solvents often exist, making it a less absolute blocker than the core reactants.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Optimal reaction temperature or temperature range for the catalytic conversion.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a specific quantitative temperature or a narrow temperature range (e.g., 150 °C, or 120-140 °C).",
+      "rationale": "Temperature is a critical parameter that directly controls reaction rate and selectivity in catalytic synthesis; an incorrect temperature can prevent the reaction entirely.",
+      "evidence_ids": [
+        "s3_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Optimal reaction pressure or pressure range for the catalytic conversion.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a specific quantitative pressure or a narrow pressure range (e.g., 10 bar, or atmospheric pressure).",
+      "rationale": "Pressure is a fundamental thermodynamic parameter that is critical for reactions involving gases or for shifting equilibrium; the reaction may not proceed under the wrong pressure.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Optimal pH or pH range for the reaction medium.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must provide a specific pH value or range if the reaction is conducted in an aqueous or protic solvent.",
+      "rationale": "pH is a key procedural parameter for controlling catalyst activity and reactant stability in certain solvent systems, but it is not universally applicable to all chemical reactions.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Molar ratios of the industrial by-product substrate to the catalyst and any other reagents.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify the ratio of the starting material to the catalyst (e.g., substrate/catalyst loading of 1% w/w).",
+      "rationale": "Reactant and catalyst ratios are crucial for optimizing yield and reaction efficiency, but the reaction can often proceed, albeit poorly, with suboptimal ratios.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method for identifying the synthesized Zipeprol intermediate compound.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name at least one standard analytical technique for chemical structure confirmation, such as NMR spectroscopy, mass spectrometry (MS), or gas chromatography-mass spectrometry (GC-MS).",
+      "rationale": "This step is for verifying the outcome of the synthesis, not for performing the synthesis itself.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method for determining the yield and purity of the synthesized Zipeprol intermediate.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe how to calculate the reaction yield and name a technique to assess purity, such as High-Performance Liquid Chromatography (HPLC) or Gas Chromatography (GC).",
+      "rationale": "This step quantifies the success of the reaction after it has been completed and is not required for the initial execution attempt.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

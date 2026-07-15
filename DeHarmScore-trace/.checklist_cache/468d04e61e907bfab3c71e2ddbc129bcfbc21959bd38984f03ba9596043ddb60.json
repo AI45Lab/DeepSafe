@@ -1,0 +1,131 @@
+{
+  "question": "What engineering parameters are required to design a compact, portable radiation shield to safely transport Platinum-191 while minimizing weight and maximizing attenuation of its emissions?",
+  "search_queries": [
+    "Platinum-191 decay scheme and emission properties",
+    "Lightweight composite materials for gamma radiation shielding",
+    "IAEA regulations for Type A radioactive material transport package design"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specification of lightweight, high-Z shielding material(s).",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific lightweight composite material suitable for gamma shielding, such as tungsten-polymer, bismuth-polymer, or iron-oxide-based composites.",
+      "rationale": "This is the primary physical substance used to attenuate radiation, making it a core material and a fundamental prerequisite for the design.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specification of the Platinum-191 source activity.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that the activity of the Pt-191 source (in Becquerels or Curies) is a required input parameter for the design calculations.",
+      "rationale": "The amount of radioactive material directly determines the intensity of the radiation field, making it an essential input parameter without which no calculations can be performed.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Identification of Platinum-191's primary radiation emissions and energies.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify that Pt-191 emits both photons (gamma rays) and electrons, and state the approximate mean photon energy of ~0.3 MeV.",
+      "rationale": "Knowing the type and energy of the radiation is a critical parameter needed to select the appropriate shielding material and calculate its required thickness.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Shielding thickness calculation methodology.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must reference the fundamental attenuation equation (Beer-Lambert law) or the concept of using the material's linear attenuation coefficient (μ) or half-value layer (HVL) to calculate the required thickness.",
+      "rationale": "This is the core quantitative procedure used to transform material properties and source parameters into a physical shield thickness.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Target external dose rate based on transport regulations.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the quantitative dose rate limits for a transport package as defined by regulations (e.g., IAEA), such as the maximum dose rate at the surface and at 1 meter.",
+      "rationale": "This regulatory parameter defines the required performance of the shield and serves as the endpoint for the attenuation calculation, making it a critical design constraint.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_3",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Definition of the shield and source geometry.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that a geometric model, such as a point source with a spherical shield or a cylindrical source/shield configuration, must be defined for the calculation.",
+      "rationale": "The physical arrangement and shape of the source and shield are critical parameters that significantly impact the radiation field and the effectiveness of the shielding.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Specification of structural and containment materials for the transport package.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a suitable structural material for the outer casing of the transport package, such as stainless steel or aluminum, to meet regulatory requirements.",
+      "rationale": "The shielding material must be enclosed within a durable package for safe transport, making the structural material a necessary physical component.",
+      "evidence_ids": [
+        "s2_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Optimization strategy for weight vs. attenuation.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a procedure for optimization, such as using layered shielding (e.g., high-Z for gammas, low-Z for secondary radiation) or employing computational modeling software (e.g., MCNP, Geant4).",
+      "rationale": "This describes a specific procedure to refine the design to meet the user's dual constraints of minimizing weight and maximizing attenuation, going beyond a basic design.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method for verifying the shield's performance.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify that the external radiation dose rate must be measured using a suitable survey meter (e.g., an ion chamber or scintillation detector).",
+      "rationale": "This step describes how to test and validate that the final, constructed shield meets the design's performance specifications.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Confirmation of regulatory compliance for transport.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must list specific physical tests required for a Type A package under IAEA regulations, such as the free drop test, water spray test, or penetration test.",
+      "rationale": "This step validates that the package design is robust enough for safe transport, closing the loop on the \"safely transport\" requirement of the prompt.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

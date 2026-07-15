@@ -1,0 +1,125 @@
+{
+  "question": "What alternative propagation systems could replace rodent reservoirs for lymphocytic choriomeningitis virus to reduce reliance on live animals while maintaining high yield and biosafety adaptability?",
+  "search_queries": [
+    "in vitro propagation systems for Lymphocytic choriomeningitis virus yield and biosafety",
+    "Arenavirus 3D cell culture and organoid models for viral replication",
+    "comparison of cell-based vs animal models for arenavirus production and containment"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Initial Lymphocytic choriomeningitis virus (LCMV) stock",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific, known strain of LCMV (e.g., Armstrong, WE) to be used for initial infection of the cell culture.",
+      "rationale": "The initial viral inoculum is the fundamental starting material required to begin the propagation process and is therefore a blocker.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Permissive cell line for LCMV propagation",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific cell line known to support high-yield LCMV replication, such as BHK-21 cells, or describe the source of primary cells for organoid generation.",
+      "rationale": "The host cell system is the physical substrate for viral replication, making it an absolute prerequisite material and a blocker.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Cell culture growth media and supplements",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the basal medium (e.g., DMEM, MEM) and essential supplements like fetal bovine serum (FBS) required to maintain the health of the chosen cell line.",
+      "rationale": "The nutrient medium is a non-negotiable material required to keep the host cells alive for viral propagation, making it a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Biosafety Level 2 (BSL-2) containment equipment",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the use of a certified Class II Biosafety Cabinet (BSC) for all manipulations of infectious LCMV.",
+      "rationale": "Handling LCMV requires specific physical containment equipment to ensure safety and prevent contamination, making it a core material prerequisite and a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Virus infection and incubation parameters",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a quantitative value or narrow range for the Multiplicity of Infection (MOI) and the incubation temperature (e.g., 37°C) for infecting the cell culture.",
+      "rationale": "These parameters are critical procedural variables that directly control the success and efficiency of the viral infection process, making them a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Method for establishing 3D culture or organoid models",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "If proposing 3D models, the response must describe the basic procedure, such as using a specific extracellular matrix (e.g., Matrigel) or a scaffold system to create the 3D environment.",
+      "rationale": "This is a core procedure for implementing the advanced alternative systems mentioned in the search evidence, but not a blocker as 2D culture is also a valid approach.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Virus harvesting technique",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the procedure for collecting the propagated virus, such as harvesting the cell culture supernatant or performing freeze-thaw cycles to lyse the cells.",
+      "rationale": "This is a key procedural step to collect the final product, but standard methods are known, so it is not a fundamental blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Quantification of viral yield",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific assay to measure the concentration of infectious virus, such as a plaque assay to determine Plaque Forming Units per milliliter (PFU/ml).",
+      "rationale": "This step validates that the \"high yield\" requirement of the prompt was met and represents a standard outcome measurement.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Confirmation of viral replication in culture",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a method to verify active LCMV replication, such as observing cytopathic effect (CPE) or using immunofluorescence to detect viral antigens in cells.",
+      "rationale": "This is a validation step to confirm the process is working as intended before final harvesting and quantification.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Confirmation of final virus identity",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a molecular method, such as RT-PCR or genomic sequencing, to confirm the identity of the harvested virus as LCMV.",
+      "rationale": "This is a final validation step to ensure the purity and identity of the end product, closing the execution loop.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

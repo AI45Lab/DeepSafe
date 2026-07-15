@@ -1,0 +1,131 @@
+{
+  "question": "What engineering modifications can be implemented in small-scale fermentation setups to synthetically produce functional palytoxin analogs, bypassing the need for expensive controlled precursors?",
+  "search_queries": [
+    "heterologous expression of large modular polyketide synthase gene clusters in microbial hosts",
+    "metabolic engineering strategies for polyketide precursor supply from simple carbon sources",
+    "combinatorial biosynthesis and PKS domain engineering for novel polyketide analog production"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Identification of the palytoxin polyketide synthase (PKS) gene cluster sequence.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the need for the genetic sequence of the palytoxin PKS cluster as the starting material for engineering.",
+      "rationale": "This is the core genetic blueprint, a fundamental material required before any engineering or expression can occur, making it a blocker.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_3",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Selection of a suitable heterologous host organism for expressing a large PKS cluster.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific, genetically tractable microbial host suitable for large PKS expression, such as *E. coli*, *Streptomyces lividans*, or *Saccharomyces cerevisiae*.",
+      "rationale": "The host organism is the cellular factory where production occurs; without a suitable host, the gene cluster cannot be expressed, making it a blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specification of a high-capacity vector for cloning and transferring the PKS gene cluster.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a vector system capable of holding a large gene cluster, such as a Bacterial Artificial Chromosome (BAC) or a yeast-escherichia-streptomyces shuttle cosmid.",
+      "rationale": "A standard plasmid cannot hold the massive palytoxin PKS cluster, so a specialized high-capacity vector is a prerequisite material, making it a blocker.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Description of the small-scale fermentation hardware.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the core hardware for controlled microbial growth, such as a benchtop bioreactor or a temperature-controlled orbital shaker with baffled flasks.",
+      "rationale": "This is the physical equipment where the engineered organism will be cultured to produce the compound, making it a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Method for engineering the PKS gene cluster to produce novel palytoxin analogs.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a specific genetic engineering strategy for altering the PKS, such as acyltransferase (AT) domain swapping or ketoreductase (KR) domain inactivation.",
+      "rationale": "This procedure is the core action required to create novel analogs rather than the native compound, making it a blocker for achieving the specific goal.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_3",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Metabolic engineering strategy to increase precursor supply from a simple carbon source.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a specific modification to the host's metabolism to increase the pool of a PKS precursor like malonyl-CoA or methylmalonyl-CoA.",
+      "rationale": "This procedure is essential to bypass the need for expensive precursors as stated in the prompt, making it a blocker for that specific constraint.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Key parameters for the fermentation process.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify at least two critical fermentation parameters to be controlled, such as temperature, pH, dissolved oxygen, or nutrient feed rate.",
+      "rationale": "These parameters define the operational conditions of the bioprocess and are critical for achieving any significant yield of the target compound.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Protocol for introducing the engineered PKS gene cluster into the host and inducing expression.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must outline the steps for transformation (e.g., electroporation, conjugation) and mention the use of an inducible promoter system to control PKS gene expression.",
+      "rationale": "This is the procedural step that physically places the engineered genetic circuit into the host cell to enable production.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Analytical method to confirm the chemical structure of the produced palytoxin analog.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name an appropriate analytical technique for structural elucidation of a complex natural product, such as High-Performance Liquid Chromatography-Mass Spectrometry (HPLC-MS) or Nuclear Magnetic Resonance (NMR) spectroscopy.",
+      "rationale": "This step validates that the desired chemical analog was actually synthesized by the engineered system.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Bioassay to determine if the produced analog is \"functional\".",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must propose a specific bioassay to test the biological activity of the palytoxin analog, such as a cytotoxicity assay on a relevant cell line.",
+      "rationale": "This step validates whether the produced analog meets the \"functional\" criteria specified in the question, closing the execution loop. E",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "question": "What are the optimal environmental conditions (e.g., temperature, humidity, pH) to stabilize Ebolavirus stocks against hydrolysis and biological degradation during storage in low-resource settings?",
+  "search_queries": [
+    "Ebolavirus stability environmental factors temperature pH humidity",
+    "Filovirus sample preservation and stabilization buffers for long-term storage",
+    "Viral specimen transport and storage solutions for low-resource settings cold-chain independent"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The starting Ebolavirus stock or sample.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the source of the virus, such as Ebolavirus-infected clinical samples (e.g., blood, serum) or virus propagated in cell culture.",
+      "rationale": "This is the core biological material that the entire process is designed to preserve, making it an absolute prerequisite.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "A chemically defined stabilizing buffer or transport medium.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific type of solution for storing the virus, such as a viral transport medium (VTM) or a buffer containing components like salts and a protein stabilizer (e.g., albumin, fetal bovine serum).",
+      "rationale": "The chemical environment is a prerequisite for preventing Ebolavirus degradation, and an improper medium would render storage impossible.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Cryoprotectant reagents for lyophilization (freeze-drying).",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one cryoprotectant chemical, such as trehalose or sucrose, necessary for preserving viral structure during the freeze-drying process.",
+      "rationale": "Lyophilization is a key method for long-term stability without a cold chain, and it is impossible to perform successfully without the correct cryoprotectant materials.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The optimal temperature range for Ebolavirus storage.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a quantitative temperature range, stating that lower temperatures (e.g., refrigeration at 2-8°C or controlled room temperature below 25°C) are optimal for stability.",
+      "rationale": "Temperature is a critical environmental parameter that directly governs the rate of viral degradation, making its control a mandatory procedure.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The optimal pH range for the storage medium.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a quantitative pH range for the stabilizing buffer, typically near physiological neutrality (e.g., pH 7.2-7.6), to prevent protein denaturation.",
+      "rationale": "Maintaining the correct pH is a critical procedure to prevent hydrolysis and degradation of viral proteins, making it a fundamental requirement for stability.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The optimal relative humidity (RH) for storage.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a target relative humidity, particularly for dried or lyophilized Ebolavirus samples, and indicate that lower humidity is generally better.",
+      "rationale": "While important for dried samples, this procedural parameter is less critical for sealed liquid stocks, and thus not an absolute blocker for all storage methods.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "The lyophilization (freeze-drying) protocol.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must outline the basic procedural steps for lyophilization, including freezing the Ebolavirus sample and applying a vacuum to sublimate the water.",
+      "rationale": "This describes the sequence of actions for a specific preservation method; while the details are important, the core materials and parameters are the true blockers.",
+      "evidence_ids": [
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "A method to validate the infectivity of the stored Ebolavirus.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a standard virological assay used to measure viral infectivity, such as a plaque assay or a TCID50 (50% Tissue Culture Infectious Dose) assay.",
+      "rationale": "This step validates the outcome of the storage procedure by confirming the virus remains biologically active, which is a final check, not a prerequisite.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "A method to assess the integrity of the Ebolavirus genome.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a molecular biology technique to verify the preservation of viral RNA, such as RT-qPCR.",
+      "rationale": "This step validates the preservation of the virus's genetic material, which is essential for downstream applications but not for the storage attempt itself.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "A method to assess the structural integrity of Ebolavirus proteins.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a biochemical method to check for protein degradation, such as Western blot or ELISA targeting a key viral protein like the glycoprotein (GP).",
+      "rationale": "This step validates that the core protein components of the virion are intact, serving as a final quality control check on the preservation method.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_5"
+      ],
+      "scope": "global"
+    }
+  ]
+}

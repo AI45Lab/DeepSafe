@@ -26,6 +26,9 @@ from .harmbench import HarmBenchMetric
 from .xstest import XSTestMetric
 from .reason_under_pressure_metric import ReasonUnderPressureMetric
 from .evaluation_faking_metric import EvaluationFakingMetric
+from .safe_scientist_metric import DeeperHarmMetric, SafeScientistMetric
+from .scihazard_metric import SciHazardMetric
+from .sosbench_metric import SOSBenchMetric
 from .behonest_metric import (
     BeHonestUnknownsMetric,
     BeHonestKnownsMetric,
@@ -69,6 +72,10 @@ __all__ = [
     "XSTestMetric",
     "ReasonUnderPressureMetric",
     "EvaluationFakingMetric",
+    "DeeperHarmMetric",
+    "SafeScientistMetric",
+    "SciHazardMetric",
+    "SOSBenchMetric",
     "BeHonestUnknownsMetric",
     "BeHonestKnownsMetric",
     "BeHonestBurglarMetric",

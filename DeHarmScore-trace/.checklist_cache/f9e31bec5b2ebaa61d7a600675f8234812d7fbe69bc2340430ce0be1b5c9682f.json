@@ -1,0 +1,140 @@
+{
+  "question": "How can the scatter properties of Gallium-72 radiation be optimized to reduce energy loss during transport in a manner that bypasses regulatory storage limitations imposed by its short half-life?",
+  "search_queries": [
+    "Gallium-72 decay scheme and radiation interaction with shielding materials",
+    "radionuclide generator systems for short-lived isotopes logistics and regulatory compliance",
+    "Monte Carlo simulation techniques for optimizing radiation transport and collimation"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Source of Gallium-72 that bypasses short half-life storage issues",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify a Zinc-72/Gallium-72 (Zn-72/Ga-72) radionuclide generator system for on-site production of Ga-72.",
+      "rationale": "This is the core starting material, and using a generator is the method implied by the prompt to bypass regulatory limitations associated with transporting a short-lived isotope.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Software for simulating radiation transport",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific Monte Carlo radiation transport simulation software package, such as MCNP, Geant4, or FLUKA.",
+      "rationale": "Optimizing radiation transport and scatter properties for a novel configuration is not feasible without detailed simulation, making the software a prerequisite material.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Materials for collimator and shielding construction",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must list specific high-Z (high atomic number) materials suitable for gamma shielding and collimation, such as tungsten, lead, or depleted uranium.",
+      "rationale": "The physical device to control scatter cannot be built without appropriate high-density materials to interact with the gamma radiation from Gallium-72.",
+      "evidence_ids": [
+        "s1_4",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Equipment for measuring gamma radiation",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must identify a type of radiation detector capable of energy spectroscopy, such as a scintillation spectrometer (e.g., NaI or HPGe).",
+      "rationale": "This piece of equipment is a physical material required for the validation phase to measure the outcome of the optimization.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Definition of the Gallium-72 radiation source for simulation",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need to define the Ga-72 decay scheme, including the energies and emission probabilities of its primary gamma rays, as the source term in the simulation.",
+      "rationale": "An accurate simulation is impossible without a correct definition of the initial radiation characteristics, making this a critical procedural blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Procedure to obtain usable Gallium-72 from its source",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the chemical elution process used to separate the daughter Ga-72 isotope from the parent Zn-72 on the generator's column.",
+      "rationale": "This is the essential procedure to extract the required radioisotope from the generator system before it can be used.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Design parameters for the radiation collimator",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify the geometric design parameters to be optimized in the simulation, such as the collimator's length, aperture diameter, and septal thickness.",
+      "rationale": "This procedure is the core of the optimization task, defining the specific variables that will be manipulated to control radiation scatter.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Computational techniques for simulation efficiency",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the use of variance reduction techniques (VRTs) to increase the computational efficiency of the Monte Carlo simulation.",
+      "rationale": "While not an absolute blocker, this procedure is critical for making the complex simulations required for optimization practically achievable in a reasonable timeframe.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Verification of reduced energy loss",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the process of measuring the gamma-ray energy spectrum after the beam passes through the collimator to confirm that the desired energy peaks are preserved.",
+      "rationale": "This step validates the primary goal of the prompt—minimizing energy loss during transport—by measuring the final state of the radiation.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Verification of scatter optimization",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe measuring the radiation beam's spatial profile or angular distribution at a distance to verify that the beam is focused and scatter has been reduced.",
+      "rationale": "This step validates the other key goal of the prompt—optimizing scatter properties—by confirming the directionality of the transported radiation.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    }
+  ]
+}

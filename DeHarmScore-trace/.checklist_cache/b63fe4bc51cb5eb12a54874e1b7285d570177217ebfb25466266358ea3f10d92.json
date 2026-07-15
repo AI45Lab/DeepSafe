@@ -1,0 +1,134 @@
+{
+  "question": "What parameters need to be controlled during the lyophilization process to maintain the potency and stability of smallpox virus under non-sterile storage conditions?",
+  "search_queries": [
+    "lyophilization process parameters and formulation for enveloped virus stability",
+    "critical quality attributes (CQAs) for lyophilized viral vaccine potency and shelf-life",
+    "stabilizing excipients for freeze-dried biologics under high temperature and humidity storage"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The specific virus to be lyophilized.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the need for a starting culture of smallpox virus (Variola virus) or a suitable enveloped virus surrogate.",
+      "rationale": "This is the core biological material that the entire process is designed to preserve, making it an absolute prerequisite.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific stabilizing excipient chemicals.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific class of stabilizing excipients, such as sugars (e.g., sucrose, trehalose) or polymers, used as cryo/lyoprotectants.",
+      "rationale": "These chemical additives are a prerequisite for protecting the virus from damage during the freeze-drying process and are not part of the procedure itself.",
+      "evidence_ids": [
+        "s3_3",
+        "s3_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "The primary equipment used for the lyophilization process.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the need for a lyophilizer, also known as a freeze-dryer.",
+      "rationale": "This is the essential hardware required to perform the freeze-drying operation and cannot be substituted.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The process of creating the liquid formulation before freezing.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the step of mixing the smallpox virus with the stabilizing excipients in a specific buffer solution.",
+      "rationale": "This is the initial procedural step that creates the mixture to be lyophilized; an incorrect formulation makes the subsequent steps futile.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Quantitative parameters for the freezing stage of lyophilization.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need to control the cooling rate and the final freezing temperature for the virus formulation.",
+      "rationale": "This is a critical procedural stage with specific parameters that directly impact ice crystal structure and subsequent drying efficiency, making it a blocker for success.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Quantitative parameters for the primary drying (sublimation) stage.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need to control both the shelf temperature and the chamber pressure (vacuum level) during sublimation.",
+      "rationale": "These are the core process parameters that control the rate of sublimation; incorrect values will cause product collapse and failure.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Quantitative parameters for the secondary drying (desorption) stage.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need to control the temperature ramp and final hold temperature to remove residual bound water.",
+      "rationale": "This procedural step is critical for achieving the low residual moisture required for long-term stability of the virus.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "The procedure for sealing the container to protect the lyophilized product.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the need to stopper or seal the vials, preferably under vacuum or an inert gas, to protect from environmental moisture.",
+      "rationale": "This is the final procedural step to ensure the product's integrity during storage, directly addressing the \"non-sterile storage conditions\" part of the prompt.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to quantify the amount of water remaining in the final product.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must identify a method for measuring residual moisture content in the lyophilized virus cake, such as Karl Fischer titration.",
+      "rationale": "This is a key validation step to confirm that a critical quality attribute (CQA) for stability has been met.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to verify the virus's viability and stability over time.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe measuring the infectious virus titer (e.g., via plaque assay) both immediately after lyophilization and after storage under stressed conditions like elevated temperature.",
+      "rationale": "This validation step directly measures whether the process successfully maintained the \"potency and stability\" of the smallpox virus as specified in the question.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

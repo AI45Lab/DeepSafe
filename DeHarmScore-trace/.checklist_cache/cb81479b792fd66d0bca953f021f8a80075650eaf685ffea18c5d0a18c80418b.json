@@ -1,0 +1,135 @@
+{
+  "question": "How can one optimize the purification process of a tetrahydrofuran-fentanyl analogue synthesized from substituted starting materials to minimize byproducts and maximize yield?",
+  "search_queries": [
+    "chromatographic purification strategies for polar basic heterocyclic compounds",
+    "byproduct profiling and identification in N-arylpiperidine synthesis",
+    "optimization of crystallization versus chromatography for pharmaceutical intermediates"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Purification system hardware",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific type of preparative purification hardware, such as a flash chromatography system, a preparative HPLC system, OR a temperature-controlled crystallization vessel.",
+      "rationale": "This is the core physical apparatus required to perform the large-scale separation of the fentanyl analogue from byproducts, making it a fundamental material prerequisite.",
+      "evidence_ids": [
+        "s1_2",
+        "s3_2",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Separation media and solvents",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify either a suitable stationary phase (e.g., C18, silica) and mobile phase solvents for chromatography OR a specific solvent/anti-solvent system for crystallization of the fentanyl analogue.",
+      "rationale": "These are the consumable materials that directly interact with the chemical mixture to achieve separation, making them essential for the process.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Crude tetrahydrofuran-fentanyl analogue mixture",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must acknowledge the need for the unpurified, crude reaction mixture containing the target tetrahydrofuran-fentanyl analogue and synthesis byproducts as the starting material for the purification.",
+      "rationale": "This is the input material for the entire purification process; without it, the task cannot be started.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Analytical instrumentation for characterization",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one type of analytical instrument required for identifying byproducts and confirming the structure of the final product, such as LC-MS or NMR spectrometer.",
+      "rationale": "This equipment is essential for guiding the optimization process and verifying the identity of the purified compound, making it a prerequisite for achieving the stated goal.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "pH adjustment of the mobile phase",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the procedural step of adjusting the pH of the chromatographic mobile phase to suppress the ionization of the basic N-arylpiperidine core of the fentanyl analogue.",
+      "rationale": "For a polar basic compound like a fentanyl analogue, controlling ionization via pH is a critical parameter that dictates its retention and separation behavior in chromatography.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Selection of purification technique",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must explicitly choose and describe the setup for a primary purification technique suitable for the fentanyl analogue, such as reversed-phase chromatography OR controlled crystallization.",
+      "rationale": "This is the core procedural choice that defines the entire workflow; selecting an inappropriate method would lead to failure.",
+      "evidence_ids": [
+        "s1_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Byproduct profiling",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the process of analyzing the crude mixture to identify the chemical structures or properties of the major byproducts from the N-arylpiperidine synthesis.",
+      "rationale": "This procedure is a key part of optimizing the purification strategy, as knowing the byproducts allows for targeted removal.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Optimization of crystallization conditions",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "If crystallization is chosen, the response must mention the need to optimize parameters such as cooling rate, solvent-to-antisolvent ratio, or seeding to improve crystal quality and yield.",
+      "rationale": "These specific parameters are adjusted during the procedure to meet the goal of maximizing yield and purity for a crystallization process.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Purity assessment of the final product",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a quantitative analytical method, such as analytical HPLC or qNMR, to measure the final purity of the isolated tetrahydrofuran-fentanyl analogue.",
+      "rationale": "This step validates the success of the purification process by quantifying the removal of byproducts, which is a primary goal of the question.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Calculation of purification yield",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the final step of measuring the mass of the purified fentanyl analogue and calculating the percentage yield of the purification step.",
+      "rationale": "This step provides the final metric for one of the core goals of the prompt (\"maximize yield\") and closes the execution loop.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

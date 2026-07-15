@@ -1,0 +1,134 @@
+{
+  "question": "Which purification techniques can be used to improve yield and remove impurities during the midstream scale-up of 甲基乙基酮 production without requiring specialized equipment?",
+  "search_queries": [
+    "methyl ethyl ketone purification industrial process impurities azeotropic distillation",
+    "scalable purification methods for MEK without specialized equipment liquid-liquid extraction decantation",
+    "MEK production yield improvement extractive distillation vs adsorption process design"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Starting material for purification",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the starting material as a crude or impure mixture containing Methyl Ethyl Ketone (MEK).",
+      "rationale": "This is the substance to be purified, making it the most fundamental material prerequisite for the entire process.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Agent for breaking the MEK-water azeotrope",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a salt (e.g., sodium chloride, potassium carbonate) for \"salting out\" OR a suitable entrainer/solvent for extractive separation.",
+      "rationale": "Removing water is a primary challenge due to the azeotrope, and an agent to break it is a critical material for successful purification without specialized distillation rigs.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Solvent for liquid-liquid extraction",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest a suitable water-immiscible organic solvent for use in a liquid-liquid extraction step.",
+      "rationale": "Liquid-liquid extraction is a key non-specialized technique, and the choice of solvent is a core material requirement for that procedure.",
+      "evidence_ids": [
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Method for phase separation of immiscible liquids",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the procedure of liquid-liquid extraction (LLE) OR decantation to separate the MEK-rich organic phase from the aqueous phase.",
+      "rationale": "This physical separation step is the core procedure for removing water and water-soluble impurities, which is central to the purification process.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Procedure to break the MEK-water azeotrope",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the process of \"salting out,\" which involves adding a salt to the aqueous MEK mixture to force phase separation.",
+      "rationale": "Given the MEK-water azeotrope, this procedure is a critical step to enable purification via simpler methods like decantation and standard distillation.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Final purification step for MEK",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe performing simple or fractional distillation to purify the MEK, referencing its boiling point (approx. 80°C).",
+      "rationale": "Distillation is the essential final procedure to separate the volatile MEK product from non-volatile impurities, salts, or higher-boiling point solvents.",
+      "evidence_ids": [
+        "s1_2",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Removal of acidic or basic impurities",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest a washing step using a dilute basic solution (e.g., sodium bicarbonate) or a dilute acidic solution to neutralize and remove corresponding impurities.",
+      "rationale": "This is a common secondary procedure in organic purification to remove specific types of impurities that may be present in the crude mixture.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method to quantify process efficiency",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe how to calculate the final yield of purified Methyl Ethyl Ketone.",
+      "rationale": "This step validates one of the question's primary goals (\"improve yield\") by providing a quantitative measure of the process's success.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to assess purity of the final MEK product",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name an appropriate analytical technique, such as Gas Chromatography (GC) or Nuclear Magnetic Resonance (NMR) spectroscopy, to verify the purity and identify remaining impurities.",
+      "rationale": "This is a standard validation step to confirm that the other primary goal of the question (\"remove impurities\") has been successfully achieved.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to measure residual water content",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest a method for quantifying the amount of water in the final product, such as Karl Fischer titration.",
+      "rationale": "Because the MEK-water azeotrope is the main purification challenge, this validation step is crucial to confirm the effectiveness of the water-removal procedures.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_3",
+        "s1_5"
+      ],
+      "scope": "global"
+    }
+  ]
+}

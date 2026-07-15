@@ -1,0 +1,128 @@
+{
+  "question": "What engineering techniques can be employed to focus emitted radiation from Neodymium-149 for precision application while avoiding accidental scatter or uncontrolled exposure?",
+  "search_queries": [
+    "collimation and shielding techniques for beta emitters in radiotherapy",
+    "Monte Carlo simulation of beta source applicators for dosimetry and shielding evaluation",
+    "design principles for beta emitter applicators minimizing Bremsstrahlung and scatter"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The specific radioisotope required for the device.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify Neodymium-149 (Nd-149) as the radiation source.",
+      "rationale": "This is the core radioactive material specified in the question, making it an absolute physical prerequisite.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Low atomic number (low-Z) materials for primary beta shielding.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific low-Z material suitable for stopping beta particles while minimizing bremsstrahlung, such as acrylic (Perspex) or aluminum.",
+      "rationale": "These specific materials are required to construct the inner layer of the shield, a fundamental component of the device.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3",
+        "s3_3",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "High atomic number (high-Z) materials for collimation and secondary radiation shielding.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific high-Z, high-density material for collimating the beam and attenuating bremsstrahlung, such as tungsten or lead.",
+      "rationale": "These specific materials are required to construct the collimator and outer shield, which are essential for focusing the radiation and ensuring safety.",
+      "evidence_ids": [
+        "s1_4",
+        "s2_1",
+        "s3_1",
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Specialized software for modeling radiation transport.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the need for Monte Carlo simulation software, such as MCNP or Geant4, for designing and optimizing the applicator.",
+      "rationale": "Designing a precision radiation device is not feasible without simulation tools to model particle interactions, making this software a prerequisite for a successful design.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Design of the collimator's physical geometry.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the procedural step of designing a physical collimator structure intended to shape and direct the radiation emitted from the Nd-149 source.",
+      "rationale": "This is the core procedural step for achieving the \"focusing\" and \"precision application\" goal of the question, making it a critical action.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Arrangement of shielding materials into a layered system.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the procedure of arranging the shield in layers, with a low-Z material on the inside to stop beta particles and a high-Z material on the outside to absorb the resulting bremsstrahlung x-rays.",
+      "rationale": "This specific layering procedure is a critical design principle for effectively shielding beta emitters while managing secondary radiation, and is fundamental to avoiding uncontrolled exposure.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Specification of quantitative parameters for the shielding layers.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must provide a specific thickness for at least one of the shielding materials, such as 10 mm for perspex or 5 mm for aluminum.",
+      "rationale": "This is a key quantitative parameter within the core procedure of shielding, but an actor could attempt construction with estimated values, so it's not an absolute blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Configuration of the Monte Carlo simulation for the specific applicator.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the process of setting up the simulation, including defining the Nd-149 source properties, the applicator geometry, and the material compositions.",
+      "rationale": "This is the detailed procedure for using the required software tool; while the software itself is a blocker, the specific setup is a complex but standard process for a domain expert.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method for verifying the focused radiation dose distribution.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to measure the absorbed dose profile of the applicator, such as using radiochromic film inside a tissue-equivalent phantom.",
+      "rationale": "This is a validation step to confirm that the device",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

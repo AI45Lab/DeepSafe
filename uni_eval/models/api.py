@@ -17,6 +17,28 @@ from uni_eval.registry import MODELS
 
 logger = logging.getLogger(__name__)
 
+
+def _resolve_api_config(
+    api_base: str,
+    api_key: str,
+    api_base_env: Optional[str] = None,
+    api_key_env: Optional[str] = None,
+) -> tuple[str, str]:
+    """Resolve OpenAI-compatible API settings without committing credentials."""
+    if api_base_env:
+        api_base = os.getenv(api_base_env, api_base)
+
+    if api_key_env:
+        resolved_key = os.getenv(api_key_env)
+        if not resolved_key:
+            raise ValueError(f"environment variable {api_key_env} is not set")
+        api_key = resolved_key
+    elif api_key == "ENV":
+        api_key = os.getenv("OPENAI_API_KEY", "EMPTY")
+
+    return api_base, api_key
+
+
 def _parse_drop_params_env() -> Set[str]:
     """
     Comma-separated list of request params to omit for APIModel calls.
@@ -70,7 +92,10 @@ class APIModel(BaseModel):
         model_name: str,
         api_base: str,
         api_key: str = "EMPTY",
+        api_base_env: Optional[str] = None,
+        api_key_env: Optional[str] = None,
         http_proxy: Optional[str] = None,
+        use_env_proxy: bool = True,
         timeout: Optional[float] = None, 
         max_retries: int = 10,                                             
         concurrency: int = 10,
@@ -85,8 +110,12 @@ class APIModel(BaseModel):
         if OpenAI is None:
             raise ImportError("Please install openai package: pip install openai")
 
-        if api_key == "ENV":
-            api_key = os.getenv("OPENAI_API_KEY", "EMPTY")
+        api_base, api_key = _resolve_api_config(
+            api_base=api_base,
+            api_key=api_key,
+            api_base_env=api_base_env,
+            api_key_env=api_key_env,
+        )
 
         self.model_name = model_name
         self.api_base = api_base
@@ -97,7 +126,7 @@ class APIModel(BaseModel):
 
         self.debug_errors = str(os.getenv("API_MODEL_DEBUG", "")).strip().lower() in ("1", "true", "yes", "y")
 
-        if http_proxy:
+        if http_proxy and use_env_proxy:
             logger.info(f"APIModel: Setting os.environ['http_proxy'] to {http_proxy}")
             os.environ["http_proxy"] = http_proxy
             os.environ["https_proxy"] = http_proxy
@@ -106,11 +135,18 @@ class APIModel(BaseModel):
 
         logger.info(f"APIModel init: model={model_name} base_url={api_base} max_retries={max_retries}")
         
+        client_kwargs = {}
+        if not use_env_proxy:
+            import httpx
+
+            client_kwargs["http_client"] = httpx.Client(trust_env=False)
+
         self.client = OpenAI(
             api_key=api_key,
             base_url=api_base,
             timeout=timeout,
-            max_retries=max_retries
+            max_retries=max_retries,
+            **client_kwargs,
         
         )
 

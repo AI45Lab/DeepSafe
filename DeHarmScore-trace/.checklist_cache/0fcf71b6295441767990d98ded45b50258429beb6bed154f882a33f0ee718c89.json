@@ -1,0 +1,129 @@
+{
+  "question": "How could modifications to the molecular structure of 呋芬雷司 (Furfennorex) increase its bioavailability and extend its metabolic half-life in humans without compromising the simplicity of the synthesis process?",
+  "search_queries": [
+    "Furfennorex metabolism and structure-pharmacokinetic relationships of phenethylamine analogues",
+    "Medicinal chemistry strategies for metabolic stabilization and bioavailability enhancement",
+    "Synthetic accessibility of metabolically stable bioisosteres for phenethylamine scaffolds"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Starting materials for the synthesis of Furfennorex analogues.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name the core chemical precursors for a simple synthesis of Furfennorex or its analogues, such as amphetamine (or phenyl-2-propanone) and furfural.",
+      "rationale": "These are the fundamental chemical building blocks required to begin the synthesis, making them a core material and an absolute blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Reagents for blocking metabolic pathways of Furfennorex.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific class of reagent used to modify the N-alkyl or N-furfuryl groups, such as a bulky alkylating agent (e.g., t-butyl bromide) OR a deuterated reagent (e.g., deuterated methyl iodide).",
+      "rationale": "These specific chemical reagents are the physical materials needed to execute the proposed modifications to prevent metabolism, making them a prerequisite.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Reagents for bioisosteric replacement of the furan ring.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must name at least one specific heterocyclic aldehyde or ketone (e.g., thiophene-2-carboxaldehyde, pyridine-2-carboxaldehyde) to be used in a reductive amination reaction to replace the furfuryl group on the Furfennorex scaffold.",
+      "rationale": "These are the specific materials needed to perform a bioisosteric replacement, a key strategy for modifying the molecule's properties.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Strategy to block N-dealkylation metabolic pathways.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a specific chemical modification to the nitrogen atom of Furfennorex to hinder N-demethylation or N-defurfurylation, such as replacing the N-methyl group with a bulkier group (e.g., tert-butyl) or replacing the furfuryl group entirely.",
+      "rationale": "This procedure directly addresses the primary metabolic liabilities of Furfennorex identified in the evidence, making it a critical step to achieve the goal of extending half-life.",
+      "evidence_ids": [
+        "s1_1",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Strategy for bioisosteric replacement of the furan moiety.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must propose replacing the furan ring of Furfennorex with another aromatic heterocycle (e.g., thiophene, thiazole, or pyridine) to alter its metabolic profile and physicochemical properties.",
+      "rationale": "This is a core medicinal chemistry procedure for rationally designing new analogues with improved properties, directly addressing the question's prompt.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Application of the kinetic isotope effect to slow metabolism.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the procedure of replacing specific hydrogen atoms on the Furfennorex molecule with deuterium, specifically at metabolically labile positions like the N-methyl group, to slow down enzymatic cleavage.",
+      "rationale": "This is a specific, actionable procedure for extending the metabolic half-life of the compound, directly addressing a key part of the user's question.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Specification of a synthetically simple reaction method.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a high-yield, simple reaction for forming the amine, such as one-pot reductive amination, to connect the phenethylamine backbone to the desired (hetero)aromatic aldehyde.",
+      "rationale": "This procedure addresses the user's constraint of maintaining a \"simplicity of the synthesis process,\" which is a key parameter for execution.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Confirmation of the modified molecular structure.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must state the need to use analytical techniques such as Nuclear Magnetic Resonance (NMR) spectroscopy or Mass Spectrometry (MS) to confirm the identity and purity of the synthesized Furfennorex analogue.",
+      "rationale": "This is a standard validation step to verify that the intended chemical synthesis procedure was successful and produced the correct molecule.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "In vitro assay to measure metabolic half-life.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe measuring the metabolic stability of the new Furfennorex analogue by incubating it with human liver microsomes (HLM) and quantifying its concentration over time to calculate the in vitro half-life (t1/2).",
+      "rationale": "This validation step is required to determine if the primary goal of extending the metabolic half-life of Furfennorex has been successfully achieved.",
+      "evidence_ids": [
+        "s1_1",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "In vitro assay to estimate bioavailability.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must propose using an in vitro permeability assay, such as a Caco-2 or PAMPA assay, to predict the oral absorption and potential bioavailability of the modified Furfennorex compound.",
+      "rationale": "This validation step is necessary to test whether the modifications successfully increased the compound's ability to cross biological membranes, a key component of bioavailability.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

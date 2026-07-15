@@ -1,0 +1,126 @@
+{
+  "question": "What recombinant protein expression systems are most effective for producing stabilized envelope proteins of the Far Eastern subtype of tick-borne encephalitis virus for downstream encapsulation or storage purposes?",
+  "search_queries": [
+    "comparison of expression systems for flavivirus envelope glycoproteins",
+    "stabilization strategies for recombinant TBEV E protein ectodomain",
+    "recombinant TBEV E protein yield and stability for vaccine formulation"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specific recombinant expression host system(s) for producing the TBEV E protein.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific recombinant expression host system, such as E. coli, insect cells (e.g., Sf9), yeast (e.g., Pichia pastoris), or mammalian cells (e.g., HEK293).",
+      "rationale": "The choice of host system is the foundational material upon which the entire protein production process is built, making it a core material and a blocker.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Gene construct for the Far Eastern subtype of TBEV envelope (E) protein, optimized for stable expression.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify that the genetic material should encode a truncated form of the TBEV E protein (e.g., the ectodomain or Domain III) or a fusion protein to enhance stability.",
+      "rationale": "The specific DNA sequence and construct design is the primary raw material that dictates what protein is made, making it a fundamental prerequisite and a blocker.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_5",
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Reagents for affinity purification of the recombinant TBEV E protein.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention a specific affinity chromatography resin, such as Nickel-NTA (Ni-NTA) or Strep-Tactin, corresponding to an affinity tag on the recombinant protein.",
+      "rationale": "Purification requires specific chromatography materials to isolate the target protein from the host cell lysate; without them, a pure product is impossible.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Specific buffer components for stabilizing and storing the purified TBEV E protein.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must name at least one specific chemical component or condition for a storage buffer designed to stabilize the TBEV E protein, such as a specific pH, salt concentration, or cryoprotectant (e.g., glycerol).",
+      "rationale": "These are the specific materials needed to fulfill the \"storage purposes\" part of the user's request, but different formulations are possible, so it's not an absolute blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specific conditions for inducing expression of the recombinant TBEV E protein in the chosen host.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state a specific induction parameter, such as the chemical inducer (e.g., IPTG for E. coli) or a key culture condition like a specific temperature for protein expression.",
+      "rationale": "This is the critical action that initiates protein production; without the correct induction procedure, no target protein will be synthesized.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Procedure for solubilizing and refolding the TBEV E protein if expressed in bacterial inclusion bodies.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the use of a specific denaturant (e.g., urea or guanidine hydrochloride) for solubilizing TBEV E protein from inclusion bodies, followed by a refolding step.",
+      "rationale": "For the common E. coli expression pathway, the protein is often insoluble, and this procedure is a non-negotiable step to obtain functional protein, making it a blocker.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Implementation of a specific protein engineering strategy to stabilize the TBEV E protein.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a specific method for engineering stability into the TBEV E protein, such as introducing specific point mutations or creating a fusion protein (e.g., with HSP70).",
+      "rationale": "This procedure directly addresses the \"stabilized\" requirement of the question, detailing the action taken to modify the protein for better storage.",
+      "evidence_ids": [
+        "s2_3",
+        "s2_5",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method to verify the expression, size, and purity of the recombinant TBEV E protein.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a method to confirm the size and purity of the purified TBEV E protein, such as SDS-PAGE or Western Blot.",
+      "rationale": "This is a standard validation step to confirm that the correct protein was produced and purified before further analysis.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Biophysical assay to assess the conformational stability of the purified TBEV E protein.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a biophysical method to measure the stability of the final TBEV E protein, such as differential scanning fluorimetry (DSF), circular dichroism (CD), or differential scanning calorimetry (DSC).",
+      "rationale": "This validation step is required to confirm that the \"stabilized\" goal of the protocol was successfully achieved by measuring a relevant physical property.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to quantify the final yield of the purified TBEV E protein.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a method for quantifying the final yield of the purified TBEV E protein, such as a BCA assay or measuring UV absorbance at 280 nm.",
+      "rationale": "This validation step is necessary to evaluate which expression system is \"most effective\" by measuring the amount of protein produced.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "question": "How can thermal runaway be mitigated during the scale-up of Mycoplasma capricolum culture processes in improvised lab environments without access to advanced temperature control systems?",
+  "search_queries": [
+    "microbial culture metabolic heat generation and dissipation principles during scale-up",
+    "low-cost and passive temperature control strategies for bioreactors",
+    "bioprocess parameter optimization to mitigate exothermic reactions in fermentation"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specific biological materials for the culture process.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name both the `Mycoplasma capricolum` strain and a suitable growth medium for it.",
+      "rationale": "These are the fundamental biological starting materials required for the culture; without them, the process cannot begin.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Improvised culture vessel(s) suitable for scaled-up growth and heat dissipation.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must suggest a type of container suitable for an improvised lab that facilitates heat exchange, such as wide, shallow pans or multiple smaller bottles instead of one large carboy.",
+      "rationale": "The physical container (bioreactor) is a core piece of equipment, and its geometry is critical for passive heat management in a scaled-up process.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "A device for measuring the temperature of the culture.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention the need for a basic thermometer (e.g., a digital probe, alcohol thermometer, or temperature strips).",
+      "rationale": "It is impossible to mitigate thermal runaway without the basic equipment to measure the temperature of the culture.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Materials for a low-cost or passive cooling system.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must list at least one specific material or setup for passive cooling, such as a water bath, ice, a fan for evaporative cooling, or wet cloths.",
+      "rationale": "The question requires mitigation without advanced systems, making these low-cost cooling materials an essential physical component of the proposed solution.",
+      "evidence_ids": [
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Procedure for maximizing the surface-area-to-volume ratio of the culture.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the procedure of splitting the total culture volume into multiple smaller, or wider/shallower, containers to increase the relative surface area for heat dissipation.",
+      "rationale": "This procedure is a critical, non-negotiable principle for managing heat dissipation in scaled-up cultures without active cooling systems.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Procedure for controlling the metabolic rate of `Mycoplasma capricolum` to reduce heat generation.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a method to slow down metabolic heat production, such as using a fed-batch strategy to limit nutrients (carbon/nitrogen source) or reducing aeration.",
+      "rationale": "This procedure directly addresses the source of the problem (metabolic heat generation) and is a primary strategy for preventing thermal runaway.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Procedure for applying a specific low-cost cooling method to the culture vessel.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the steps for actively using a passive cooling method, such as placing the vessel in a cool water bath and replacing the water periodically, or directing a fan over a cloth-draped vessel.",
+      "rationale": "This is the core action of heat removal, transforming the passive cooling materials into a functional mitigation system.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "A staged scale-up strategy for the `Mycoplasma capricolum` culture.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest scaling the culture up in sequential steps (e.g., from 1L to 5L, then 5L to 20L) rather than inoculating the final large volume all at once.",
+      "rationale": "This is a procedural optimization that makes heat management more controllable at each stage, but it is not an absolute blocker if other methods are sufficiently effective.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Protocol for monitoring culture temperature to confirm mitigation is successful.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a schedule for checking the temperature (e.g., every hour during peak growth) and define a target temperature range for `Mycoplasma capricolum`.",
+      "rationale": "This step is required to validate that the mitigation procedures are working and that thermal runaway is being prevented.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to assess the viability and growth of `Mycoplasma capricolum` after applying mitigation techniques.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a way to check if the culture is still healthy, such as measuring optical density (OD), performing a plate count, or using basic microscopy.",
+      "rationale": "This step validates that the mitigation strategies did not kill the culture, ensuring the overall process was successful and not just cooled.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

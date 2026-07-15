@@ -1,0 +1,142 @@
+{
+  "question": "What specific temperature control engineering measures can be implemented to stabilize substituted p-isononylphenol precursors during storage and prevent thermal degradation?",
+  "search_queries": [
+    "thermal stability and degradation mechanisms of alkylphenols",
+    "temperature control systems and design for reactive chemical storage tanks",
+    "thermal hazard analysis and runaway reaction prevention for chemical precursors"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specification of the storage tank designed for reactive chemicals.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a storage tank equipped with features for temperature control, such as a cooling jacket, internal coils, or external heat exchangers.",
+      "rationale": "This is the primary piece of equipment required to contain the chemical and is a physical prerequisite for implementing any engineering controls.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Identification of the active temperature control hardware.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify an active cooling or heating system, such as a chiller, refrigeration unit, or steam/hot oil heat exchanger.",
+      "rationale": "This is the core hardware needed to actively manage the temperature of the chemical, making it an essential material prerequisite.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specification of the temperature monitoring and control system.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention the use of temperature sensors (e.g., thermocouples, RTDs) connected to a control system (e.g., PLC, DCS) for monitoring and automation.",
+      "rationale": "A system to measure and control temperature is a fundamental hardware requirement without which \"temperature control\" is impossible.",
+      "evidence_ids": [
+        "s2_1",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Determination of the safe storage temperature range for p-isononylphenol precursors.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the need to perform a thermal hazard analysis (e.g., using calorimetry) to define the specific upper and lower temperature limits for storage.",
+      "rationale": "This is a critical procedural parameter; without knowing the target temperature range, any control measures are arbitrary and potentially dangerous.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_3",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Configuration of the control logic for the temperature management system.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the basic procedure of setting temperature setpoints and alarms in the control system to automatically activate cooling or heating.",
+      "rationale": "This is the core action of implementing the control strategy, transforming the physical equipment into a functioning system.",
+      "evidence_ids": [
+        "s2_1",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Application of thermal insulation to the storage tank.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the installation of insulation material around the tank to buffer against ambient temperature changes and reduce energy consumption.",
+      "rationale": "This is a standard engineering procedure that complements active temperature control but is not an absolute prerequisite for it.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Implementation of an inert atmosphere within the tank.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the procedure of blanketing the chemical with an inert gas, such as nitrogen, to prevent oxidative degradation.",
+      "rationale": "This is a procedural step to enhance chemical stability, often used with temperature control, but is not a direct temperature control measure itself.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Design and installation of emergency pressure relief systems.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the inclusion of safety features like rupture discs or pressure relief valves to manage overpressure from a potential thermal runaway.",
+      "rationale": "This is a critical safety procedure for managing the failure of temperature control, not a primary method for achieving it.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to verify the performance of the temperature control system.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe reviewing temperature logs from the monitoring system to confirm that the temperature remained within the specified safe range over time.",
+      "rationale": "This step validates that the implemented control system is functioning as intended, closing the execution loop for the engineering task.",
+      "evidence_ids": [
+        "s2_4",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to confirm the stability of the stored p-isononylphenol precursors.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe taking periodic samples of the chemical and using an analytical technique (e.g., HPLC, GC-MS) to test for the presence of degradation products.",
+      "rationale": "This step validates the ultimate outcome of the entire process, confirming that the engineering controls successfully prevented chemical degradation.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

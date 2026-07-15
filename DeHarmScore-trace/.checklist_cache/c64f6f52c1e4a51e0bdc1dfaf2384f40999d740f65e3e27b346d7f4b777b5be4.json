@@ -1,0 +1,135 @@
+{
+  "question": "Which chemical process parameters can optimize the atomization of Zinc-65 for isotope separation when stable zinc isotopes are present?",
+  "search_queries": [
+    "laser isotope separation of zinc principles and methods",
+    "parameters for generating zinc atomic vapor for selective photoionization",
+    "zinc isotope shift and spectral line broadening in atomization processes"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Source of zinc material containing the target isotope, Zinc-65, along with stable zinc isotopes.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the need for a starting sample of zinc that includes the radioactive isotope Zinc-65.",
+      "rationale": "This is the fundamental starting material required for the isotope separation process, making it a prerequisite and a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Atomic vapor generation apparatus.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a method or apparatus for creating zinc atomic vapor, such as a high-temperature furnace with a nozzle, a laser ablation system, or a chemical vapor generation setup.",
+      "rationale": "The entire process relies on having zinc in a gaseous, atomic state for the lasers to interact with, making the equipment to achieve this a blocker.",
+      "evidence_ids": [
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Tunable laser system for selective photoionization.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention a laser system that can be precisely tuned to the specific absorption wavelength of the Zinc-65 isotope.",
+      "rationale": "The laser is the core piece of equipment that enables the selective excitation and ionization of the target isotope, making it an absolute blocker.",
+      "evidence_ids": [
+        "s1_4",
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Ion collection and separation system.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a system for separating the ionized Zinc-65 from the neutral stable isotopes, such as an electromagnetic field collector or a mass spectrometer.",
+      "rationale": "This equipment is essential for physically separating and collecting the enriched isotope after ionization, which is the goal of the process.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Control of vapor generation parameters (temperature and pressure).",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need to control the temperature and pressure of the zinc source to produce a stable and optimal atomic beam or vapor.",
+      "rationale": "Incorrect temperature or pressure will fail to produce the necessary atomic vapor or will create conditions unsuitable for selective ionization, making this a critical procedural blocker.",
+      "evidence_ids": [
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Laser tuning and operational parameters.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need to tune the laser's wavelength precisely to the isotope shift of Zinc-65 and control parameters like laser power/fluence and pulse timing.",
+      "rationale": "This procedure is the core of the selective separation; without precise tuning to the target isotope's unique spectral line, no separation will occur.",
+      "evidence_ids": [
+        "s2_2",
+        "s3_1",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Parameters to minimize spectral line broadening.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention controlling factors that cause spectral line broadening, such as collisional/pressure broadening or Stark broadening, to improve selectivity.",
+      "rationale": "While the process can be attempted without optimizing this, controlling line broadening is a critical procedure for achieving high enrichment, as requested by the question's focus on \"optimization\".",
+      "evidence_ids": [
+        "s3_2",
+        "s3_3",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Isotopic analysis of the collected material.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to measure the isotopic composition of the final product, such as Inductively Coupled Plasma Mass Spectrometry (ICP-MS), to determine the enrichment factor of Zinc-65.",
+      "rationale": "This step validates the success and efficiency of the entire separation process but is not required to attempt the procedure itself.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "In-process monitoring of ion signal.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention monitoring the ion current corresponding to Zinc-65 in real-time to provide feedback for optimizing laser and vapor parameters during the separation run.",
+      "rationale": "This is a validation and optimization step used during execution to confirm that the target isotope is being ionized, but the process can be run \"blind\" without it.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Characterization of the atomic vapor beam.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention measuring properties of the zinc atomic vapor, such as its density, temperature, or velocity distribution, to ensure it meets the requirements for efficient laser interaction.",
+      "rationale": "This step validates that the initial atomization stage is working correctly before proceeding to the expensive and complex laser ionization step.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    }
+  ]
+}

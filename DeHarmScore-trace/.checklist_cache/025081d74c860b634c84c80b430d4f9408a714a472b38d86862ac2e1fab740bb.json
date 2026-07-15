@@ -1,0 +1,121 @@
+{
+  "question": "What specific purification methods, such as fractional distillation or column chromatography, effectively remove trace water and impurities to prevent premature hydrolysis of O-Ethyl S-2-diisopropylaminoethyl methyl phosphonothiolate during storage?",
+  "search_queries": [
+    "Organophosphorus thiolate hydrolysis mechanisms and stabilization techniques",
+    "Purification methods for organophosphonates to remove protic impurities",
+    "Comparative analysis of distillation and chromatography for high-purity phosphonothiolate synthesis"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The starting material, crude O-Ethyl S-2-diisopropylaminoethyl methyl phosphonothiolate.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the need for the crude, unpurified form of O-Ethyl S-2-diisopropylaminoethyl methyl phosphonothiolate as the input for the purification process.",
+      "rationale": "This is the core substance to be purified and is an absolute prerequisite for the procedure, making it a blocker in the materials dimension.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "The primary purification apparatus, such as a fractional distillation setup or a column chromatography system.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the core equipment for either fractional distillation (e.g., vacuum pump, distillation column, condenser) OR column chromatography (e.g., column, pump, fraction collector).",
+      "rationale": "The physical hardware for purification is a fundamental material prerequisite without which the process cannot be attempted, making it a blocker.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "The specific purification media, such as the stationary phase and mobile phase for chromatography or a drying agent.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific stationary phase (e.g., silica gel, C18) and a corresponding mobile phase solvent system for chromatography OR a suitable chemical drying agent (e.g., molecular sieves, sodium sulfate) for removing water.",
+      "rationale": "The choice of media directly enables the separation or water removal and is a non-obvious, essential material, making it a blocker.",
+      "evidence_ids": [
+        "s2_5",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "A pre-treatment procedure to remove bulk water from the crude O-Ethyl S-2-diisopropylaminoethyl methyl phosphonothiolate before fine purification.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a method for pre-drying the crude product, such as azeotropic distillation with a solvent like toluene or treatment with a chemical drying agent.",
+      "rationale": "Removing bulk water is a critical first step to prevent hydrolysis during subsequent heating (distillation) or processing, making it a procedural blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specific parameters for fractional distillation of the phosphonothiolate.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a quantitative boiling point at a specific reduced pressure (vacuum) for O-Ethyl S-2-diisopropylaminoethyl methyl phosphonothiolate.",
+      "rationale": "Distillation without the correct temperature and pressure parameters will either fail to purify the compound or cause it to decompose, making these parameters a procedural blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Specific parameters for column chromatography of the phosphonothiolate.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a complete eluent system (solvent or solvent mixture) and the type of stationary phase (e.g., normal-phase silica, reverse-phase C18) for the separation.",
+      "rationale": "The choice of solvent and stationary phase determines if any separation occurs, making these parameters a critical procedural blocker for chromatography.",
+      "evidence_ids": [
+        "s2_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Procedure for handling the phosphonothiolate under an inert atmosphere.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the use of an inert gas, such as nitrogen or argon, during purification and storage to prevent reaction with atmospheric oxygen or moisture.",
+      "rationale": "While critical for high purity and long-term stability, a crude attempt could be made without it, so it is a non-blocker procedural step.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for adding a stabilizer to the purified O-Ethyl S-2-diisopropylaminoethyl methyl phosphonothiolate for long-term storage.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific class of chemical stabilizer (e.g., a carbodiimide, amine base) used to inhibit hydrolysis in organophosphates.",
+      "rationale": "This procedure directly addresses the \"storage\" part of the user's question, but the primary goal of purification can be achieved without it, making it a non-blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Analytical method to assess the chemical purity of the final product.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific analytical technique suitable for purity assessment of an organophosphate, such as Gas Chromatography-Mass Spectrometry (GC-MS) or Nuclear Magnetic Resonance (NMR) spectroscopy.",
+      "rationale": "This step is for verifying the outcome of the purification, which is the definition of the validation dimension; it is not required for the attempt itself.",
+      "evidence_ids": [
+        "s3_3",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to quantify trace water content in the purified phosphonothiolate.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a quantitative method for measuring low levels of water in an organic liquid, such as Karl Fischer titration.",
+      "rationale": "This step validates whether the specific goal of removing trace water was achieved and is not a prerequisite for performing the purification procedure.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

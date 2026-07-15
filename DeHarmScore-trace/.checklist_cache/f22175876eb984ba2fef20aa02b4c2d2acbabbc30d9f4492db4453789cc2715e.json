@@ -1,0 +1,137 @@
+{
+  "question": "What technical parameters are necessary to optimize synthetic substitutes for the proteins involved in tick-mediated replication of the Kyasanur Forest disease virus to overcome geographic prevalence restrictions?",
+  "search_queries": [
+    "Kyasanur Forest disease virus and tick vector host-pathogen protein interactome",
+    "design parameters for protein-protein interaction (PPI) inhibitors targeting flavivirus replication",
+    "thermostability and broad-spectrum activity constraints for peptide-based antiviral therapeutics"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Target proteins from Kyasanur Forest disease virus (KFDV) and its tick vector.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name or describe how to obtain the specific KFDV and tick proteins that form the protein-protein interaction (PPI) targeted for inhibition.",
+      "rationale": "These proteins are the fundamental raw materials upon which the entire design and testing process for a synthetic substitute is based, making them a blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s2_1",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "A biological system for testing KFDV replication in its tick vector.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need for either a relevant tick-derived cell line (e.g., from *Haemaphysalis spinigera*) or live tick vectors for infectivity studies.",
+      "rationale": "An appropriate biological system is a prerequisite for testing the efficacy of any designed inhibitor against KFDV replication in its natural vector, making it a blocker.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_3",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Peptide synthesis platform and associated reagents.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention a method for synthesizing the protein substitutes, such as a solid-phase peptide synthesis (SPPS) synthesizer and the required chemical reagents.",
+      "rationale": "The physical creation of the synthetic substitutes requires specialized chemical synthesis equipment and reagents, which is a fundamental material prerequisite.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Computational software for protein modeling and inhibitor design.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must name at least one type of software for predicting protein-protein interactions or designing peptide inhibitors (e.g., AlphaFold, Rosetta, AutoDock).",
+      "rationale": "While not an absolute blocker (experimental screening is possible), computational tools are a standard and critical part of the modern workflow for designing targeted protein substitutes.",
+      "evidence_ids": [
+        "s2_3",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Identification of the specific KFDV-tick PPI target.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a procedure for mapping the critical protein-protein interactions essential for KFDV replication within the tick vector (e.g., yeast two-hybrid, co-immunoprecipitation).",
+      "rationale": "This procedure is the first and most critical action; without knowing which specific interaction to disrupt, no effective inhibitor can be designed.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Definition of structural and chemical design parameters for the synthetic substitute.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify key design parameters for the peptide, such as targeting a specific binding interface on the KFDV or tick protein and aiming for a high binding affinity (e.g., in the nanomolar range).",
+      "rationale": "This core procedure translates the identified PPI target into a concrete set of instructions for creating an effective synthetic molecule, making it a blocker for success.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Optimization parameters for thermostability and broad-spectrum activity.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention at least one specific strategy to enhance stability or broaden activity, such as targeting conserved protein regions or using chemical modifications like cyclization or D-amino acid substitution.",
+      "rationale": "This procedure directly addresses the prompt's goal of overcoming geographic restrictions but is an optimization step, not a prerequisite for creating a basic inhibitor.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "In vitro assay to quantify the inhibition of KFDV replication.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific assay to measure the reduction in viral replication in tick cells, such as a plaque reduction neutralization test (PRNT) or RT-qPCR to measure viral load.",
+      "rationale": "This is a standard validation step to confirm whether the designed substitute actually works as an antiviral in the target system.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Biophysical assay to measure binding affinity.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a quantitative method to confirm the synthetic substitute binds to its target protein, such as Surface Plasmon Resonance (SPR), Isothermal Titration Calorimetry (ITC), or Bio-Layer Interferometry (BLI).",
+      "rationale": "This is a validation step used to confirm the molecular mechanism of action by measuring the direct interaction between the inhibitor and its target.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Cytotoxicity assay for the synthetic substitute.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a method to assess whether the synthetic substitute is toxic to the host tick cells (e.g., an MTT or LDH assay).",
+      "rationale": "This is a critical validation and safety check to ensure that any observed reduction in viral replication is due to specific inhibition and not simply because the compound is killing the host cells.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    }
+  ]
+}

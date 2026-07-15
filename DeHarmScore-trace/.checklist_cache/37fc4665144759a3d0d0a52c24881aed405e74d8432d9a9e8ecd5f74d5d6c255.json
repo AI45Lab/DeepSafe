@@ -1,0 +1,137 @@
+{
+  "question": "What are the material engineering options for creating low-temperature storage systems that prevent the decomposition of 1,2-diethoxyethane during extended storage periods?",
+  "search_queries": [
+    "1,2-diethoxyethane decomposition pathways and stabilization methods",
+    "material selection criteria for cryogenic ether storage chemical compatibility",
+    "design principles for inert atmosphere long-term chemical containment systems"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specific class of container material compatible with 1,2-diethoxyethane at low temperatures.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific class of material suitable for cryogenic and chemical containment, such as stainless steel (e.g., 304L/316L), specific polymers (e.g., PEEK, PTFE), or composites.",
+      "rationale": "The primary container is the most fundamental piece of equipment required for storage, making it a core material and an absolute blocker.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific inert gas for creating a non-reactive atmosphere.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific inert gas suitable for displacing oxygen and moisture, such as nitrogen (N2) or argon (Ar).",
+      "rationale": "An inert gas is a required material to prevent oxidative decomposition of 1,2-diethoxyethane, making it a blocker for long-term stability.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Equipment for achieving and maintaining low storage temperatures.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify a specific type of refrigeration system, such as a cryogenic freezer, liquid nitrogen dewar, or a mechanical cryocooler.",
+      "rationale": "The question specifies \"low-temperature storage,\" so the equipment to create that environment is a prerequisite material and a blocker.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Gasket or sealing material compatible with both 1,2-diethoxyethane and cryogenic conditions.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific type of sealing material known for chemical resistance and low-temperature performance, such as PTFE, Kalrez, or metallic seals.",
+      "rationale": "While the container is the primary material, the specific seal is a secondary but critical component for ensuring long-term containment.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Procedure for inerting the storage container to remove reactive gases.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the basic steps of an inerting process, such as performing multiple vacuum-purge cycles with the specified inert gas.",
+      "rationale": "The action of creating the inert atmosphere is a critical procedure without which the chemical will decompose via oxidation, making it a blocker.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Specific quantitative storage temperature range for 1,2-diethoxyethane.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a target low-temperature range (e.g., below -80°C) to minimize thermal decomposition of 1,2-diethoxyethane.",
+      "rationale": "The storage temperature is the most critical quantitative parameter of the entire procedure and is a fundamental blocker for success.",
+      "evidence_ids": [
+        "s1_4",
+        "s1_5",
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Procedure for preparing or passivating the internal surfaces of the storage container.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a surface treatment method to reduce reactivity, such as electropolishing, acid passivation, or silanization.",
+      "rationale": "This is a procedural step that enhances long-term stability by minimizing catalytic decomposition at the container wall, but storage is still possible without it.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Analytical method to verify the purity of 1,2-diethoxyethane and detect decomposition products.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific analytical technique suitable for separating and identifying organic compounds, such as Gas Chromatography (GC) or GC-Mass Spectrometry (GC-MS).",
+      "rationale": "This step validates the success of the storage method by checking the final chemical purity, which is part of outcome verification.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to test the integrity and leak-tightness of the sealed storage system.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method for leak detection, such as a pressure decay test or using a helium leak detector.",
+      "rationale": "This is a validation step to confirm that the containment system is functioning as designed and maintaining its inert atmosphere.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "System for monitoring the internal conditions of the storage container over time.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the use of sensors to monitor key parameters within the container, such as temperature and pressure.",
+      "rationale": "This step involves monitoring the system to ensure it remains within the required parameters, which is a form of ongoing validation.",
+      "evidence_ids": [
+        "s2_4",
+        "s3_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

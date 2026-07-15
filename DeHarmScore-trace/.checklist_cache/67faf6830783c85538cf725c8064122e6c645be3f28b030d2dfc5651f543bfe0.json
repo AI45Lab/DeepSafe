@@ -1,0 +1,107 @@
+{
+  "question": "What is the most effective shielding material and configuration to minimize radiation leakage from Platinum-197m during stabilization, considering its high-energy gamma emission and metastable state characteristics?",
+  "search_queries": [
+    "Platinum-197m decay scheme and gamma emission energies",
+    "High-energy gamma ray attenuation coefficients for lead tungsten and depleted uranium",
+    "Layered shielding design principles for gamma and Bremsstrahlung radiation"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Identification of primary high-density, high-Z shielding materials suitable for attenuating gamma rays from Platinum-197m.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one of the following high-Z materials: lead (Pb), tungsten (W), or depleted uranium (DU).",
+      "rationale": "This specifies the core physical materials required for constructing the shield, making it a fundamental material prerequisite.",
+      "evidence_ids": [
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Identification of a low-Z material for a layered shielding configuration to manage Bremsstrahlung radiation.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a suitable low-Z material (e.g., aluminum, plastic, or acrylic/plexiglass) for an inner layer to stop beta particles.",
+      "rationale": "This specifies an additional material for an optimized, layered shield design, which is a material requirement for a more effective solution.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specification of the key decay characteristics of Platinum-197m needed for shielding calculations.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the primary gamma emission energy from the isomeric transition of Pt-197m, which is approximately 0.399 MeV (399 keV).",
+      "rationale": "This is prerequisite input data, analogous to a material, without which no meaningful calculation or design can be performed.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Description of the calculation method to determine the required shielding thickness for Platinum-197m gamma emissions.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe using the concept of Half-Value Layers (HVL) or the linear attenuation equation (I = I₀e^(-μx)) to calculate the necessary thickness.",
+      "rationale": "This is the core procedural step for designing the shield's dimensions, making it a critical action.",
+      "evidence_ids": [
+        "s2_1",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specification of the arrangement of materials in a layered shielding configuration for the Platinum-197m source.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify that the low-Z material should be placed as the inner layer (closer to the source) and the high-Z material as the outer layer.",
+      "rationale": "This describes the specific arrangement or assembly process, which is a core procedural detail for an effective design.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Description of the geometric configuration of the shield relative to the Platinum-197m source.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must state that the shield should be designed to completely enclose the source (e.g., as a sphere or a box) to prevent leakage from gaps or radiation \"shine\".",
+      "rationale": "This defines the physical layout and shape of the shield, a key parameter in the design procedure.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Identification of the physical property used to compare the gamma shielding effectiveness of different materials for the Pt-197m energy range.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must reference the mass attenuation coefficient (MAC) or linear attenuation coefficient (μ) at the relevant gamma energy (~0.4 MeV) as the basis for comparison.",
+      "rationale": "This specifies the quantitative parameter needed to execute the procedural step of selecting the optimal material.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Identification of the equipment needed to measure the effectiveness of the radiation shield.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response",
+      "rationale": "",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

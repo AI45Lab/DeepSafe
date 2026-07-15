@@ -1,0 +1,117 @@
+{
+  "question": "What are the optimal crystallization parameters (e.g., solvent choice, temperature, seeding techniques) for ensuring high-purity methyldesorphine derived from non-traditional raw materials?",
+  "search_queries": [
+    "What are the optimal crystallization parameters (e.g., solvent choice, temperature, seeding techniques) for ensuring high-purity methyldesorphine derived from non-traditional raw materials?"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The crude starting material containing methyldesorphine that requires purification.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify crude methyldesorphine as the input material for the crystallization process.",
+      "rationale": "This is the core physical substance that the entire process is designed to purify, making it a prerequisite material and a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific solvent or solvent system for dissolving crude methyldesorphine and allowing pure crystals to form upon cooling.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific organic solvent or solvent mixture (e.g., ethanol, acetone, isopropanol, ethyl acetate) suitable for crystallizing methyldesorphine.",
+      "rationale": "The solvent is the medium in which crystallization occurs and its selection is critical for success, making it a prerequisite material and a blocker.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "A small quantity of pre-existing, high-purity methyldesorphine crystals to initiate controlled crystallization.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the need for pure methyldesorphine seed crystals to implement the seeding technique mentioned in the prompt.",
+      "rationale": "Seeding, a technique specified in the prompt, requires a physical seed material, making it a prerequisite material and a blocker for that specific procedure.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The physical equipment needed to contain the solution and control the process.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the basic laboratory glassware required, such as an Erlenmeyer flask or beaker, and a means for filtration like a Büchner funnel.",
+      "rationale": "This item lists the physical hardware needed to perform the procedure, placing it in the materials dimension.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The quantitative procedure for dissolving the crude methyldesorphine in the chosen solvent to create a saturated solution.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the process of adding a minimal amount of hot solvent to just dissolve the crude methyldesorphine.",
+      "rationale": "This is a critical procedural parameter that determines if a supersaturated solution can be formed, making it a core action and a blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The specific temperatures and cooling rates for the crystallization process.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a temperature for dissolving the methyldesorphine and a procedure for cooling the solution (e.g., slow cooling to room temperature, followed by an ice bath).",
+      "rationale": "Temperature is a fundamental parameter controlling solubility and crystal growth, making this a critical procedural step and a blocker.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "The specific action of introducing seed crystals into the supersaturated solution.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe when and how to add the seed crystals to the cooled, supersaturated methyldesorphine solution.",
+      "rationale": "This is a specific action or technique mentioned in the prompt that is part of the overall process, placing it in the procedures dimension.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "The procedure for separating the purified methyldesorphine crystals from the impure solvent (mother liquor).",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the steps of filtering the crystals and washing them with a small amount of cold solvent.",
+      "rationale": "This is the final set of actions required to physically obtain the purified product, making it a core part of the procedure.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "A method to confirm that the resulting methyldesorphine crystals are of high purity.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name at least one analytical method to assess the purity of the final methyldesorphine product, such as melting point analysis or chromatography (TLC, HPLC, GC).",
+      "rationale": "This step verifies the outcome of the process against the stated goal of \"high-purity,\" making it a validation item.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "A method to quantify the efficiency of the crystallization process.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the process of weighing the dried, pure methyldesorphine crystals to calculate the percentage yield.",
+      "rationale": "This step measures the success of the execution in terms of quantity, which is a key part of validating any chemical purification.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

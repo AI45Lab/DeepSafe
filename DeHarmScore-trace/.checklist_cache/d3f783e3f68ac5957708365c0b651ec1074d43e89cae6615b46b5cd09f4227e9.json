@@ -1,0 +1,133 @@
+{
+  "question": "What specific shielding geometries and materials can be optimized to minimize thorium radiation detectability without compromising its long-term stability during storage?",
+  "search_queries": [
+    "Thorium-232 decay chain gamma ray shielding materials effectiveness and properties",
+    "Optimization of radiation shielding geometry and mass for minimum external dose rate",
+    "Long-term stability and material compatibility of thorium storage with high-Z shielding alloys"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specific high-Z materials for primary gamma ray shielding.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific high-Z material suitable for shielding thorium's gamma emissions, such as lead, tungsten, or depleted uranium.",
+      "rationale": "This specifies the core physical material needed to block the most penetrating radiation from thorium, making it a fundamental prerequisite for the task.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific material for shielding secondary radiation (neutrons).",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific low-Z material for absorbing neutrons produced by (alpha,n) reactions or secondary processes, such as borated polyethylene or high-density polyethylene.",
+      "rationale": "Effective shielding to minimize detectability requires managing secondary radiation, not just primary gammas, making this a necessary material component.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specific chemical form of thorium for long-term storage.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify that thorium should be in a chemically stable form, such as thorium dioxide (ThO2), to ensure long-term stability.",
+      "rationale": "The chemical form of the radioactive material is critical for long-term stability and compatibility with storage containers, making it a core material prerequisite.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Specific alloy for the inner storage container compatible with thorium.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific corrosion-resistant alloy for the container in direct contact with the thorium compound, such as stainless steel 316L or Inconel.",
+      "rationale": "This specifies the material for the primary containment vessel, which is essential for ensuring long-term stability and preventing leaks.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specific shielding geometry.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a specific geometric arrangement for the shielding, such as a multi-layered sphere or a nested cylinder configuration.",
+      "rationale": "The question explicitly asks for \"shielding geometries,\" and the physical arrangement of materials is as critical as the materials themselves for effective shielding.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Layering sequence of shielding materials.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify the order of the shielding layers, such as placing the high-Z material closer to the source and the low-Z neutron absorber on the outside.",
+      "rationale": "This is a critical procedural step that defines how the materials are assembled to create an optimized shielding configuration.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Method for optimizing shielding mass and geometry.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific computational method or software, such as MCNP/MCNPX or Geant4, used to model radiation transport and optimize the shielding design.",
+      "rationale": "The question asks for an \"optimized\" solution, which requires a specific quantitative procedure or simulation tool to achieve.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Quantitative parameter to be minimized during optimization.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must state the specific goal of the optimization process, which is to minimize the external dose rate or radiation flux for a given mass or volume constraint.",
+      "rationale": "This defines the quantitative target for the optimization procedure, transforming a general goal into a specific calculation parameter.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to measure shielding effectiveness.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method for measuring the radiation outside the shield to verify its performance, such as using a gamma spectrometer or a Geiger-Müller counter.",
+      "rationale": "This is a necessary step to validate that the shielding assembly successfully reduces the detectability of the thorium radiation to the desired level.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to assess long-term material stability.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to verify the long-term stability of the storage system, such as performing accelerated aging tests or post-storage analysis for corrosion and material degradation.",
+      "rationale": "This is a validation step to confirm that the second part of the prompt's requirement, \"long-term stability,\" has been met.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    }
+  ]
+}

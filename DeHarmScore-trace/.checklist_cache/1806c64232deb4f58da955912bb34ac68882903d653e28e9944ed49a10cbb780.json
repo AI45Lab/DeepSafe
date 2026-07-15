@@ -1,0 +1,132 @@
+{
+  "question": "Which cloning vectors are suitable for expressing Peste-des-petits-ruminants viral proteins in alternative hosts that circumvent its restricted host range primarily affecting small ruminants?",
+  "search_queries": [
+    "Peste-des-petits-ruminants virus recombinant protein expression systems",
+    "Comparison of prokaryotic vs eukaryotic expression systems for viral glycoproteins",
+    "Baculovirus insect cell and Pichia pastoris expression vector characteristics"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Source of Peste-des-petits-ruminants virus (PPRV) genetic material for the target protein.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the need for the specific gene sequence (cDNA) of a PPRV protein, such as the Nucleocapsid (N) or Haemagglutinin (H) protein.",
+      "rationale": "The specific viral gene is the fundamental starting material that will be cloned and expressed.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific cloning and expression vectors suitable for the chosen alternative host system.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific type of expression vector, such as a bacterial pET vector (e.g., pET33b), a baculovirus transfer vector for insect cells, or a yeast expression vector for Pichia pastoris.",
+      "rationale": "The vector is the essential vehicle for carrying the PPRV gene into the host and driving its expression.",
+      "evidence_ids": [
+        "s1_2",
+        "s3_3",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specific alternative host cell strains for expressing the recombinant PPRV protein.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific host strain compatible with the chosen vector, such as E. coli (e.g., BL21(DE3)), insect cells (e.g., Sf9), or Pichia pastoris.",
+      "rationale": "The host cell is the biological factory required to produce the protein, making it a core material prerequisite.",
+      "evidence_ids": [
+        "s1_2",
+        "s2_3",
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Method for cloning the PPRV gene of interest into the expression vector.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the general process of ligating the target PPRV gene into the chosen expression vector, for example by using restriction enzymes and DNA ligase.",
+      "rationale": "This procedure is the critical step of creating the recombinant DNA molecule, without which expression is impossible.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Method for introducing the recombinant vector into the chosen alternative host cells.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the correct method for introducing the vector into the host, such as chemical transformation/heat shock for E. coli, transfection for insect cells, or electroporation for yeast.",
+      "rationale": "This procedure is the essential step of getting the genetic blueprint for the PPRV protein inside the cellular factory.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Specific induction agent or condition to trigger PPRV protein expression from the vector's promoter.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific inducer appropriate for the chosen vector/host system, such as IPTG for pET systems in E. coli or methanol for AOX1-based Pichia pastoris systems.",
+      "rationale": "Protein expression from inducible promoters is not automatic; this specific procedural step is required to initiate protein production.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Method for purifying the expressed recombinant PPRV protein from host cell lysate.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a relevant protein purification technique, such as affinity chromatography (e.g., using a His-tag).",
+      "rationale": "This procedure describes how to isolate the final product, which is a key part of the overall process but not a blocker to attempting expression.",
+      "evidence_ids": [
+        "s3_3",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Verification that the PPRV gene was correctly inserted into the expression vector.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a method to confirm the successful cloning step, such as plasmid DNA sequencing or diagnostic restriction digest.",
+      "rationale": "This is a quality control step to validate that the materials were prepared correctly before proceeding to expression.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Confirmation of recombinant PPRV protein expression in the alternative host.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a standard protein detection method, such as SDS-PAGE to check for a protein of the correct size or a Western blot using an antibody against the PPRV protein.",
+      "rationale": "This step validates whether the core objective—protein expression—was successfully achieved.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Assessment of post-translational modifications for complex PPRV proteins like glycoproteins.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the need to check for proper modifications like glycosylation when expressing viral glycoproteins in eukaryotic systems like insect cells or yeast.",
+      "rationale": "This validation step is crucial for confirming the biological authenticity of complex proteins, which is key to their function.",
+      "evidence_ids": [
+        "s2_4",
+        "s3_1",
+        "s3_2"
+      ],
+      "scope": "global"
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "question": "How can a short-selling strategy be optimized to exploit differing capital reserve requirements across jurisdictions, considering trading latency and real-time monitoring mechanisms?",
+  "search_queries": [
+    "cross-jurisdictional short selling margin requirements and regulatory arbitrage",
+    "low latency trading infrastructure and co-location for global arbitrage strategies",
+    "real-time risk and collateral management systems for multi-broker cross-border trading"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Low-latency trading infrastructure",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the use of co-located servers in exchange data centers OR direct market access (DMA) infrastructure to minimize trading latency.",
+      "rationale": "This is a core hardware/infrastructure prerequisite for executing the time-sensitive trading strategy mentioned in the question.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Multi-jurisdictional brokerage accounts",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the need for established and funded trading accounts with brokers in each of the targeted legal jurisdictions.",
+      "rationale": "Access to markets in different jurisdictions is a fundamental material requirement to execute a cross-jurisdictional strategy.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Real-time risk and collateral management system",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a type of software or platform designed for real-time, cross-asset risk and collateral management.",
+      "rationale": "This is a specific software tool required to manage the complex, real-time financial monitoring aspect of the question.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Consolidated real-time market data feeds",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the need for a low-latency data feed that aggregates real-time price and order book data from all targeted international exchanges.",
+      "rationale": "This is a fundamental input (material) for the trading algorithm to identify and act on arbitrage opportunities.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Identification of specific capital reserve requirement disparities",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify and compare specific short-selling margin or capital reserve requirements in at least two different jurisdictions (e.g., Regulation T in the U.S. vs. rules in the UK or Japan).",
+      "rationale": "This procedure is the core of the regulatory arbitrage strategy; without identifying a specific exploitable difference, the plan is not viable.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Algorithmic trading logic for arbitrage execution",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must outline the core logic of the trading algorithm, specifying the conditions for entering and exiting short positions based on price discrepancies and margin differences.",
+      "rationale": "This is the central procedural step that defines how the materials are used to actively exploit the identified market inefficiency.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Process for locating securities to borrow",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the procedure for complying with securities lending rules, such as the \"locate\" requirement under Regulation SHO, before executing a short sale.",
+      "rationale": "This is a critical, legally-mandated procedural step required to execute a short sale in many jurisdictions, making it essential for a functional strategy.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Cross-border collateral mobility process",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method for moving collateral between different brokers or clearing houses across jurisdictions to meet margin calls in real-time.",
+      "rationale": "This procedure details how to manage capital, a key operational aspect of the strategy, but a general description is sufficient to attempt the core trade.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Backtesting the trading strategy",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method for testing the proposed algorithm against historical market data from the target jurisdictions to assess its viability.",
+      "rationale": "This is a standard validation step to verify the potential success of a trading strategy before deploying it with real capital.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Real-time performance monitoring metrics",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must define specific key performance indicators (KPIs) for the live strategy, such as Profit and Loss (P&L), Sharpe ratio, or latency measurements.",
+      "rationale": "This step involves measuring the outcome of the executed strategy, which is a core component of validation and execution closure.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    }
+  ]
+}

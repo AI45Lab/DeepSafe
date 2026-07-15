@@ -1,0 +1,129 @@
+{
+  "question": "What engineering controls or methods can be implemented to ensure precise temperature and pH regulation during the substitution phase to prevent contamination or degradation of the intermediate compounds for pethidine synthesis?",
+  "search_queries": [
+    "Process control systems for temperature and pH in pharmaceutical chemical synthesis reactors",
+    "Impact of pH and temperature deviations on reaction selectivity and impurity formation in fine chemical synthesis",
+    "Quality by Design (QbD) principles for controlling critical process parameters in active pharmaceutical ingredient (API) synthesis"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specification of the chemical reactor system.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a jacketed chemical reactor equipped with ports for sensors and reagent addition.",
+      "rationale": "This is the core physical vessel where the synthesis occurs, and its features (jacket, ports) are essential hardware for implementing the required controls.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specification of the temperature control hardware.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a temperature control unit (TCU) or a system that pumps heat-transfer fluid through the reactor jacket.",
+      "rationale": "This is the essential equipment required to actively heat or cool the reactor to maintain the target temperature for the pethidine synthesis.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specification of the pH measurement and control hardware.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the use of in-situ pH probes connected to an automated dosing pump or system for adding acid/base.",
+      "rationale": "This hardware is the fundamental prerequisite for both measuring and adjusting the pH within the reactor during the substitution phase.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Specification of the process control and automation system.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a Programmable Logic Controller (PLC), Distributed Control System (DCS), or a similar integrated automation system to monitor sensors and control hardware.",
+      "rationale": "This system is the essential \"brain\" that integrates sensor data and automates the hardware's response, making precise, real-time control possible.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The specific target temperature and pH range for the substitution phase of pethidine synthesis.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a quantitative setpoint or a narrow range for both temperature (e.g., in °C) and pH for the specific reaction step.",
+      "rationale": "These are the critical process parameters (CPPs) that the entire engineering control system is designed to maintain; without these values, the process cannot be executed correctly.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Description of the feedback control loop logic.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the process where sensors continuously measure pH/temperature, the controller compares this to the setpoint, and actuators (pumps/TCU) make adjustments.",
+      "rationale": "This describes the core operational logic of the control system, a key procedural aspect for ensuring stability during the synthesis.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Method for controlled reagent addition to manage pH.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a specific dosing strategy, such as temperature-dependent dosing or feedback-controlled titration, to prevent pH overshooting.",
+      "rationale": "This procedure is critical for preventing localized pH spikes that can cause degradation of the pethidine intermediates, even if the bulk pH is correct.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for controlling the reactor atmosphere.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the use of an inert gas (e.g., nitrogen or argon) blanket or sparging to prevent oxidative degradation of intermediate compounds.",
+      "rationale": "This is a standard chemical engineering procedure to prevent unwanted side reactions and degradation, which is a key goal of the prompt.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "In-process monitoring of intermediate compound stability and purity.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a Process Analytical Technology (PAT) method, such as in-situ FTIR or Raman spectroscopy, to monitor the reaction progress and detect impurity formation in real-time.",
+      "rationale": "This is a validation step to confirm that the engineering controls are successfully preventing degradation of the pethidine intermediates during the reaction.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Post-synthesis analysis of the intermediate compound.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific analytical chemistry technique, such as HPLC or GC-MS, to quantify the purity of the isolated intermediate and identify any degradation products.",
+      "rationale": "This is the final validation step to verify that the entire process, including the temperature and pH controls, yielded a product of the required quality.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

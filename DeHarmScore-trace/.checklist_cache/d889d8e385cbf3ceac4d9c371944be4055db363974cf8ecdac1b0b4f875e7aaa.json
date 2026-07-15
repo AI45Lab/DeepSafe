@@ -1,0 +1,129 @@
+{
+  "question": "Which expression systems can be optimized to clone Vibrio cholerae proteins in a manner that enhances their stability under fluctuating environmental conditions such as temperature and salinity?",
+  "search_queries": [
+    "recombinant expression systems for protein thermostability and halotolerance",
+    "protein engineering strategies for stability under temperature and salinity stress",
+    "heterologous expression of Vibrio cholerae proteins optimization and challenges"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specific microbial host strains for heterologous expression of *Vibrio cholerae* proteins.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific host strain suitable for expressing *Vibrio cholerae* proteins, such as *E. coli* or *Vibrio natriegens*.",
+      "rationale": "The host organism is the fundamental biological factory (material) required for protein production and is an absolute prerequisite.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "A specific type of expression vector (plasmid) designed to enhance protein stability.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific vector system or a key feature of one, such as a Thermostable Tag (TST) or a Maltose-Binding Protein (MBP) fusion tag.",
+      "rationale": "The vector is the core genetic tool (material) used to carry the gene into the host, and its design is critical for achieving enhanced stability.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_4",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "The DNA sequence or physical DNA of the target *Vibrio cholerae* protein to be cloned.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the need for the specific gene sequence of the target *Vibrio cholerae* protein.",
+      "rationale": "The gene is the fundamental raw material that encodes the protein of interest; without it, the process cannot begin.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "A specific molecular biology strategy for modifying the *Vibrio cholerae* protein sequence to improve stability.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe at least one specific protein engineering technique, such as introducing disulfide bonds, engineering salt bridges, or using short-loop engineering.",
+      "rationale": "This is the core \"optimization\" procedure that directly alters the protein to meet the stability requirements, making it a critical action.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The procedure for inserting the target *Vibrio cholerae* gene into the chosen expression vector.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention the procedural step of cloning the gene into the plasmid, for example, using restriction enzymes and ligase or Gibson assembly.",
+      "rationale": "This is a critical procedural step that physically combines the gene of interest with the expression vector, without which no expression is possible.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The method for introducing the recombinant expression vector into the selected host cells.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention the procedure of transforming the host cells (e.g., *E. coli*) with the recombinant plasmid, for instance, via heat shock or electroporation.",
+      "rationale": "This procedure is the essential step of getting the genetic material into the cellular factory, making it an absolute prerequisite for expression.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Specific conditions for growing the transformed host cells and inducing protein expression.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify key parameters for culture and induction, such as the growth temperature, the chemical inducer (e.g., IPTG), and its concentration.",
+      "rationale": "These are key procedural parameters that must be controlled to successfully produce the protein, though standard starting points exist.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "The technique used to isolate the expressed *Vibrio cholerae* protein from the host cell components.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a relevant protein purification technique, such as affinity chromatography that corresponds to a fusion tag (e.g., Ni-NTA for His-tags).",
+      "rationale": "Purification is a standard but necessary procedure to obtain the final, isolated protein for stability analysis.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "A method to confirm that the target *Vibrio cholerae* protein has been successfully expressed by the host system.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a standard biochemical method for confirming protein expression and checking its size, such as SDS-PAGE or Western blot.",
+      "rationale": "This is a validation step to confirm the success of the expression procedure before moving on to more complex characterization.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "An assay to quantitatively measure the stability of the purified protein under temperature and salinity stress.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a biophysical or functional assay to measure protein stability, such as differential scanning fluorimetry (DSF), circular dichroism (CD), or an activity assay after stress exposure.",
+      "rationale": "This is the final validation step that directly measures whether the goal of enhancing stability against temperature and salinity was achieved.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

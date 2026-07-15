@@ -1,0 +1,130 @@
+{
+  "question": "What targeted genetic modifications or cloning techniques could improve the expression of stable viral components for optimized purification and prolonged shelf life without deactivation?",
+  "search_queries": [
+    "Protein engineering strategies for viral antigen thermostability and expression yield",
+    "Recombinant expression system selection criteria for viral-like particle (VLP) stability and assembly",
+    "Genetic modifications to improve viral component purification, formulation, and long-term stability"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Recombinant expression host system",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific type of host system for expressing viral components, such as bacterial (e.g., E. coli), yeast (e.g., Pichia pastoris), insect (e.g., Sf9 cells), or mammalian (e.g., HEK293) cells.",
+      "rationale": "The host cell line or organism is the fundamental biological factory for producing the recombinant viral component, making it an essential material and a blocker.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Expression vector or plasmid",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify a specific type of vector used to carry the modified gene into the host, such as an episomal plasmid or a vector for chromosomal integration.",
+      "rationale": "The vector is the physical DNA molecule required to introduce and maintain the genetic modification in the host system, making it a prerequisite material and a blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Target viral component gene sequence",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the starting genetic material, which is the DNA sequence of the viral protein or component that will be modified.",
+      "rationale": "The gene sequence is the core raw material that is being engineered; without it, no modifications can be made, making it a blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Affinity or stability-enhancing tags",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific type of genetic tag to be fused to the viral component, such as a His-tag for purification or a thermostable tag (TST) for stability.",
+      "rationale": "Tags are genetic materials added to the core gene to facilitate downstream processing, directly addressing the \"optimized purification\" part of the question.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Genetic modification strategy for stability",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a specific protein engineering strategy to enhance stability, such as site-directed mutagenesis to introduce disulfide bonds, proline substitutions, or cavity-filling mutations.",
+      "rationale": "This is the core procedure of the user's question, detailing the \"how\" of the genetic modification, making it a critical, blocking step.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Cloning or gene delivery method",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the procedure for introducing the expression vector into the host cell, such as chemical transformation, electroporation, or viral transduction.",
+      "rationale": "This procedure is the essential action of transferring the engineered genetic material into the production host, making it a blocker.",
+      "evidence_ids": [
+        "s1_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Protein expression and culture conditions",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify key parameters for inducing protein expression, such as the chemical inducer (e.g., IPTG), culture temperature, or media composition.",
+      "rationale": "These parameters are critical procedural variables that directly control the yield and proper folding of the expressed viral component.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Purification method for the viral component",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific purification technique, such as affinity chromatography (e.g., IMAC for His-tags), ion-exchange chromatography, or size-exclusion chromatography.",
+      "rationale": "This procedure is the method for isolating the target viral component from the host cell lysate, directly addressing the \"optimized purification\" goal.",
+      "evidence_ids": [
+        "s3_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Assay to quantify expression yield",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a method to measure the amount of viral component produced, such as SDS-PAGE with densitometry, Western Blot, or ELISA.",
+      "rationale": "This is a validation step to confirm whether the genetic modifications successfully improved the expression level of the viral component.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Assay to assess thermostability and shelf life",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a specific biophysical method to test stability, such as a thermal shift assay, differential scanning calorimetry (DSC), or an activity assay after prolonged storage.",
+      "rationale": "This is a validation step to verify that the modifications achieved the goal of creating a more stable protein with a longer shelf life.",
+      "evidence_ids": [
+        "s1_5",
+        "s3_2"
+      ],
+      "scope": "global"
+    }
+  ]
+}

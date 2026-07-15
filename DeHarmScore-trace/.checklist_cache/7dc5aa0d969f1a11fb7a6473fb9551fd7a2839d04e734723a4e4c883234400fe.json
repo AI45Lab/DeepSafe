@@ -1,0 +1,130 @@
+{
+  "question": "Which low-cost filtration or purification techniques can be employed to refine phenol, nonyl-, branched formulations derived from mixed industrial waste, ensuring consistency without relying on controlled processes or equipment?",
+  "search_queries": [
+    "Low-cost purification techniques for alkylphenols from industrial effluent",
+    "Rudimentary process control and quality assessment for phenol recovery",
+    "Separation principles and challenges for branched nonylphenol isomers from complex mixtures"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specific low-cost adsorbent material for capturing phenol and nonylphenol from the waste mixture.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific type of low-cost adsorbent material, such as activated carbon, biochar, clay, zeolites, or specific polymers.",
+      "rationale": "This is a core physical material required for the adsorption purification process, which is a primary low-cost technique. It's a blocker because the process is impossible without the separation medium.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific solvent for either liquid-liquid extraction of phenols/nonylphenols or for eluting them from an adsorbent.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific organic solvent suitable for extracting or eluting phenol and nonylphenol, such as toluene, 2-propanol, or acetonitrile.",
+      "rationale": "This is a key chemical reagent needed to either extract the target compounds from the waste or recover them from a purification medium. It's a blocker as separation/recovery is impossible without it.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Basic filtration materials to pre-process the mixed industrial waste.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a physical medium for initial filtration to remove suspended solids, such as filter paper, cloth, sand, or gravel.",
+      "rationale": "This is a material used for a preliminary step to prepare the feedstock for further refinement, as implied by the term \"filtration\" in the prompt. It is not a blocker as one could attempt chemical separation on unfiltered waste, albeit with lower efficiency.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Key parameters for the adsorption process to bind phenol and nonylphenol to the adsorbent.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify at least one critical parameter for the adsorption step, such as adjusting the pH of the waste stream or defining a minimum contact time between the waste and the adsorbent.",
+      "rationale": "This defines the core action of the purification method; without controlling these basic parameters, the chemical interaction required for adsorption will be ineffective, making it a blocker.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The procedure for recovering the captured phenol and nonylphenol from the adsorbent material.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the step of washing or passing a solvent over the adsorbent to release (elute) and collect the purified phenol/nonylphenol.",
+      "rationale": "This is the essential procedure for isolating the target compounds after they have been separated from the bulk waste, making it a core part of the \"refining\" process. It's a blocker because capturing the compounds is useless without a way to recover them.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Method for removing the solvent to concentrate the refined phenol and nonylphenol product.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to remove the elution solvent to obtain a concentrated product, such as simple evaporation, boiling, or rudimentary distillation.",
+      "rationale": "This procedure describes how to obtain the final, concentrated product from the solvent solution, completing the purification workflow. It is not a blocker as the un-concentrated mixture could still be used.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "A procedure that attempts to address the separation of branched nonylphenol isomers to achieve product consistency.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a technique intended to separate isomers, such as fractional distillation or sequential solvent extractions, OR it must state that achieving consistent isomer separation is not feasible without controlled equipment like HPLC.",
+      "rationale": "This procedure directly addresses the \"consistency\" and \"branched formulations\" part of the prompt, which is a major technical challenge. It is not a blocker because a crude, unseparated mixture of phenols can still be obtained.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "A rudimentary method to assess the purity or concentration of the recovered phenol/nonylphenol product.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest a low-tech method to verify the product's purity, such as a simple colorimetric test, measuring pH, or checking a physical property like boiling point or density.",
+      "rationale": "This is a validation step to confirm the success and quality of the purification process. It is not a blocker.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "A method to test the initial industrial waste stream after treatment to confirm removal of phenol/nonylphenol.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a way to check the treated effluent for remaining phenols, for example, by repeating the same purity test used on the product or by a simple visual/odor check.",
+      "rationale": "This step validates the efficiency of the removal process from the source material, closing the loop on the overall procedure. It is not a blocker.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "A rudimentary method to check for batch-to-batch consistency of the refined nonylphenol product.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must propose a low-tech method to compare batches, such as comparing color, viscosity, density, or the results of a simple, repeatable chemical test.",
+      "rationale": "This validation step directly addresses the user's goal of \"ensuring consistency\" and tests the feasibility of this goal under the given constraints. It is not a blocker.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

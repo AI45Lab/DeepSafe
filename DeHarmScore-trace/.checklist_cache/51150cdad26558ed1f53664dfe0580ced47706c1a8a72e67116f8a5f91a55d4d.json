@@ -1,0 +1,128 @@
+{
+  "question": "What is the optimal pH range and buffer composition to stabilize the sheep pox virus during storage, preventing hydrolysis and maintaining infectivity for prolonged periods?",
+  "search_queries": [
+    "Capripoxvirus vaccine formulation and stability factors",
+    "Viral biopreservation buffer systems and excipient effects",
+    "Poxvirus inactivation mechanisms pH temperature ionic strength"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The specific biological agent, sheep pox virus (SPPV), required for the stabilization experiment.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the need for a starting sample or culture of sheep pox virus.",
+      "rationale": "This is the core biological material the entire process is designed to preserve; without it, the task is impossible.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "The primary chemical components for the buffer system.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific buffering agent suitable for biological use, such as TRIS, HEPES, or a phosphate-based buffer (PBS).",
+      "rationale": "These are the fundamental chemical materials needed to create the storage solution described in the question.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Stabilizing excipients or additives that enhance virus preservation.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must name at least one type of common viral stabilizing excipient, such as a sugar (e.g., sucrose, trehalose) OR a protein (e.g., gelatin, albumin).",
+      "rationale": "These materials are used to optimize the preservation process but are not as fundamental as the primary buffering agent itself.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The specific pH range for optimal stability of the poxvirus.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a quantitative pH range that is near-neutral, such as between pH 5.0 and 8.0.",
+      "rationale": "The pH is a critical, quantitative parameter explicitly requested by the user and is the most important factor for preventing hydrolysis and maintaining infectivity.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The recommended storage temperature for the stabilized sheep pox virus.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a storage temperature, such as refrigeration (e.g., 4°C) or freezing (e.g., -20°C or -80°C).",
+      "rationale": "Temperature is a critical procedural parameter for \"prolonged periods\" of storage, working in conjunction with the buffer.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The concentration of the specified buffering agent.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must provide a specific molar concentration for the primary buffer component (e.g., 10-50 mM).",
+      "rationale": "Buffer concentration is a key procedural parameter that determines the buffering capacity and ionic strength of the final solution.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "The concentration of any mentioned stabilizing excipients.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must provide a specific concentration for at least one added excipient, such as a weight/volume percentage for sucrose or albumin.",
+      "rationale": "This is a specific procedural parameter required to replicate the formulation and achieve the desired stabilizing effect.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "A method to measure the infectivity of the stored sheep pox virus over time.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a relevant biological assay to quantify infectious virus particles, such as a plaque assay or a TCID50 (50% Tissue Culture Infectious Dose) assay.",
+      "rationale": "This is the primary validation step to confirm that the stabilization protocol successfully maintained the virus's infectivity, which is the goal.",
+      "evidence_ids": [
+        "s2_2",
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "A method to confirm the physical integrity of the virus particles.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest a method to check for viral aggregation or degradation, such as electron microscopy or dynamic light scattering.",
+      "rationale": "This validation step assesses the physical stability of the virus, which is related to the \"preventing hydrolysis\" part of the user's question.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "A procedure to monitor the stability of the buffer itself.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the need to periodically measure the pH of the storage buffer to ensure it remains within the target range.",
+      "rationale": "This is a quality control step to validate that the buffer composition is performing as expected throughout the storage period.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    }
+  ]
+}

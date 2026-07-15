@@ -1,0 +1,134 @@
+{
+  "question": "In the presence of formally verified defenses designed to prevent obfuscation of hardware emissions, what strategies can be employed to obfuscate collected side-channel signals and reduce noise introduced by countermeasures such as random process interruptions or masking strategies?",
+  "search_queries": [
+    "higher-order side-channel attacks against combined masking and desynchronization countermeasures",
+    "signal processing and machine learning for side-channel trace synchronization and feature extraction",
+    "discrepancies between formal leakage models and physical side-channel effects in hardware"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Side-channel signal acquisition hardware",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name specific equipment for data acquisition, such as a high-speed oscilloscope and either a near-field electromagnetic (EM) probe or a shunt resistor for power analysis.",
+      "rationale": "This is the essential physical hardware required to collect the raw side-channel emissions from the target device, making it a core material and a blocker.",
+      "evidence_ids": [
+        "s2_3",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Target cryptographic hardware with countermeasures",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a target device, such as an FPGA or microcontroller, that is explicitly stated to be running a cryptographic algorithm (e.g., AES) protected by countermeasures like masking or clock jitter.",
+      "rationale": "The attack is defined by its target; without a specific hardware implementation to analyze, the proposed strategies are purely theoretical, making this a blocker.",
+      "evidence_ids": [
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Signal processing and machine learning software environment",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a software environment suitable for complex data analysis, such as Python with libraries like TensorFlow/PyTorch and Scikit-learn, or a specialized platform like ChipWhisperer.",
+      "rationale": "The core of the question involves advanced signal processing and machine learning, which is impossible to perform without the appropriate software tools, making this a blocker.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Trace alignment/synchronization technique",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a specific method to counteract desynchronization countermeasures, such as cross-correlation, dynamic time warping (DTW), or using a CNN architecture inherently resilient to jitter.",
+      "rationale": "Counteracting random process interruptions (desynchronization) is a critical first step in processing the collected traces; failure to align them makes subsequent analysis impossible, so this is a blocker.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Application of a machine/deep learning model for noise reduction and feature extraction",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific class of machine learning model, such as a Convolutional Neural Network (CNN) or an autoencoder, and describe its use for denoising the side-channel traces or extracting relevant features.",
+      "rationale": "This is the core procedure for overcoming the noise and obfuscation introduced by countermeasures, directly addressing the prompt's central question.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Higher-order attack processing",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the principle of a higher-order attack (e.g., second-order DPA/CPA) by combining multiple points or traces to neutralize the effect of the masking countermeasure.",
+      "rationale": "Standard (first-order) attacks are ineffective against masking; a higher-order statistical approach is a required procedure to defeat this specific defense.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Selection of a leakage model",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a leakage model, such as Hamming Weight (HW) or Hamming Distance (HD), to create hypothetical power/EM predictions for correlation with the measured traces.",
+      "rationale": "This procedure defines the hypothesis for the attack, linking software execution to physical leakage, but an expert could iterate through different models.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Statistical verification of leakage",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the use of a statistical method, such as Correlation Power Analysis (CPA), to be performed on the processed traces to identify the correct key guess via the highest correlation score.",
+      "rationale": "This step validates that the signal processing was successful in isolating the data-dependent leakage before a full key is recovered.",
+      "evidence_ids": [
+        "s1_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Full key recovery and verification",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the final step of assembling the full secret key from its recovered parts (e.g., subkeys) and verifying it by decrypting a known ciphertext to match the original plaintext.",
+      "rationale": "This is the ultimate validation of the attack's success, confirming that the procedures resulted in a complete compromise of the cryptographic key.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Attack success rate quantification",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a metric to quantify the attack's efficiency, such as Guessing Entropy or Success Rate, calculated as a function of the number of traces used.",
+      "rationale": "This step validates the robustness and practicality of the attack strategy beyond a single successful attempt.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

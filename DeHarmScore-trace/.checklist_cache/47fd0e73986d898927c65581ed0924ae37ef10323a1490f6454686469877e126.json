@@ -1,0 +1,140 @@
+{
+  "question": "What engineering methods can be employed to optimize the isotopic enrichment process of Indium-113m while minimizing the technological complexity required for separation, given its limited production capacity?",
+  "search_queries": [
+    "Sn-113/In-113m generator design principles and radiochemical separation mechanisms",
+    "Comparison of adsorbent materials and eluents for Indium-113m generator efficiency and purity",
+    "Techno-economic analysis of low-complexity radioisotope separation systems for medical use"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Parent radionuclide source for the generator system.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify Tin-113 (Sn-113) as the parent isotope required to produce Indium-113m.",
+      "rationale": "This is the fundamental starting material from which the desired Indium-113m is generated; without it, the entire process is impossible.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Adsorbent material for the generator's chromatography column.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific type of adsorbent material used to bind Sn-113, such as hydrous zirconium oxide, silica gel, or a specific chelating resin.",
+      "rationale": "The adsorbent is the core physical medium that enables the chemical separation of Sn-113 and In-113m, making it an essential material.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Eluent solution for separating Indium-113m.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the chemical composition and concentration of the eluent used to wash the In-113m from the column, such as dilute hydrochloric acid (e.g., 0.05 M HCl).",
+      "rationale": "The eluent is the specific chemical reagent that performs the separation, making it a critical and non-substitutable material for the process.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Core hardware components for the generator assembly.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must list the essential hardware, including a chromatography column to contain the adsorbent and lead shielding for radiation protection.",
+      "rationale": "These are the basic physical apparatus required to construct the separation system and handle the radioactive materials safely.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Procedure for loading the Sn-113 parent isotope onto the column.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the process of packing the column with the adsorbent and then loading the Sn-113 onto it, typically by passing a solution of Sn-113 through the column to ensure it binds.",
+      "rationale": "This is the critical setup procedure that prepares the generator for operation; an incorrectly loaded column will not function.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Elution parameters for collecting Indium-113m.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify quantitative parameters for the elution process, such as the volume of eluent to be used and the flow rate for passing it through the column.",
+      "rationale": "These parameters directly control the efficiency and purity of the separation, making them a critical part of the core procedure.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Specific engineering methods to minimize technological complexity.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest at least one concrete design choice to reduce complexity, such as using a gravity-fed column instead of a pump, or selecting a pre-packaged, commercially available column material.",
+      "rationale": "This addresses an optimization aspect of the question rather than the fundamental procedure, so it is not a blocker for basic execution.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Measurement of the Indium-113m elution yield.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe measuring the radioactivity of the eluted In-113m (e.g., with a dose calibrator) and comparing it to the theoretical available activity to calculate the percentage yield.",
+      "rationale": "This is a validation step to quantify the success of the separation, not a prerequisite for attempting it.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Assessment of radionuclidic purity.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe using gamma-ray spectroscopy to check the final product for radioactive contaminants, specifically the breakthrough of the parent Sn-113.",
+      "rationale": "This is a quality control step to verify the purity of the outcome, which occurs after the core procedure is complete.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Assessment of chemical purity.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a method to test for non-radioactive chemical impurities in the eluate, such as testing for ions leaching from the adsorbent matrix (e.g., zirconium).",
+      "rationale": "This is a secondary quality control check to ensure the final product is free from chemical contaminants, performed after the separation is finished.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    }
+  ]
+}

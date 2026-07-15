@@ -1,0 +1,134 @@
+{
+  "question": "How can scattering techniques be engineered to maximize the area of radiation coverage from low-energy emissions of Gold-199?",
+  "search_queries": [
+    "low-energy photon scattering mechanisms and materials for radiation beam shaping",
+    "brachytherapy source design principles for shaping isodose distributions",
+    "Monte Carlo methods for optimizing scatterer geometry in radiotherapy dose delivery"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The specific radioisotope required for the process.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify Gold-199 (Au-199) as the radiation source.",
+      "rationale": "This is the core radioactive material specified in the question, making it an absolute prerequisite for any attempt.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Material used to scatter the low-energy photons from the Gold-199 source.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one suitable high-atomic-number (high-Z) material for scattering low-energy photons, such as lead, tungsten, cadmium, or indium.",
+      "rationale": "The scattering material is the primary physical component used to engineer the radiation field, making it a fundamental material requirement.",
+      "evidence_ids": [
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Software for modeling and optimizing the scatterer design.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the use of Monte Carlo radiation transport simulation software (e.g., MCNP, Geant4, EGSnrc).",
+      "rationale": "\"Engineering\" the scattering technique as requested implies a design and optimization process, for which Monte Carlo simulation is the standard tool and a prerequisite for a non-trivial design.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2",
+        "s3_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Shielding materials for the Gold-199 source and experimental setup.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention the need for radiation shielding materials, such as lead or concrete, to collimate the beam and ensure operator safety.",
+      "rationale": "Handling a radioactive source and shaping its output requires shielding, making this a critical piece of equipment for executing the task.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Definition of the Gold-199 source characteristics for simulation.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the need to define the low-energy photon emission spectrum of Gold-199 as an input for the simulation.",
+      "rationale": "The accuracy of the entire design process depends on correctly modeling the initial radiation source, making this a critical input parameter.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Specification of the physical principles governing the radiation interaction.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the relevant low-energy photon interaction mechanisms to be modeled in the simulation, such as the photoelectric effect and Compton scattering.",
+      "rationale": "The simulation's ability to predict the scattering outcome is entirely dependent on using the correct physics models, making this a critical procedural parameter.",
+      "evidence_ids": [
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Design parameters for the scattering object.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the process of defining and optimizing the scatterer's geometry (e.g., shape, thickness, density) and its position relative to the Gold-199 source.",
+      "rationale": "This procedure is the core of the \"engineering\" task, as the scatterer's geometry directly determines the final radiation coverage area.",
+      "evidence_ids": [
+        "s3_1",
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Assembling the physical device.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the step of physically constructing the scattering device and placing the Gold-199 source within it according to the optimized design.",
+      "rationale": "This is a necessary action to translate the theoretical design into a functional physical object.",
+      "evidence_ids": [
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Measurement of the resulting radiation field.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe using radiation detectors (e.g., dosimeters, ionization chambers, film) to measure the spatial dose distribution or map the isodose curves of the radiation field produced by the device.",
+      "rationale": "This is the primary method to validate whether the engineered device successfully maximized the radiation coverage area.",
+      "evidence_ids": [
+        "s2_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Comparison of experimental results with simulation.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention comparing the measured dose distribution with the results predicted by the Monte Carlo simulation to validate the design model.",
+      "rationale": "This step closes the execution loop by confirming that the simulation accurately predicted the real-world outcome, thereby validating the engineering process.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    }
+  ]
+}

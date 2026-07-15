@@ -1,0 +1,141 @@
+{
+  "question": "What are the optimal culture medium compositions and growth conditions to scale up the production of Avian paramyxovirus 1 while minimizing mutation rates that could lead to decreased potency?",
+  "search_queries": [
+    "Newcastle Disease Virus large-scale production optimization in bioreactors cell culture conditions",
+    "Factors affecting Avian paramyxovirus 1 genetic stability and mutation rates during serial passage",
+    "Correlation between viral culture medium composition and NDV quasispecies evolution potency"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specific starting strain of Avian paramyxovirus 1 (APMV-1) / Newcastle Disease Virus (NDV).",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific, recognized strain of Avian paramyxovirus 1, such as the LaSota or F strain.",
+      "rationale": "A specific viral strain is the fundamental biological material required for replication and production, making it a core material and a blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "A suitable host cell line for large-scale culture.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific cell line suitable for NDV production, such as Vero, DF-1, or a specific avian cell line like CCX.E10.",
+      "rationale": "The virus requires a host cell line for replication, making the cells a non-negotiable physical prerequisite for the process.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specific culture medium formulation for the host cells and virus.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a basal medium (e.g., DMEM, MEM) and key supplements required for cell growth and viral production.",
+      "rationale": "The culture medium provides the necessary nutrients for both cell growth and viral replication, making it a core material and a blocker.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Equipment for scaled-up production.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the use of a bioreactor, such as a stirred-tank bioreactor, for large-scale cultivation.",
+      "rationale": "The question specifies \"scale up,\" which requires specialized equipment beyond lab flasks, making a bioreactor a core hardware prerequisite.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Quantitative physical parameters for bioreactor operation.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide specific quantitative values for at least two key growth conditions, such as temperature, pH, dissolved oxygen (DO), or agitation speed.",
+      "rationale": "These parameters define the environment for viral replication and are critical procedural variables that directly determine the success of the culture.",
+      "evidence_ids": [
+        "s1_4",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Parameters for infecting the cell culture.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a quantitative Multiplicity of Infection (MOI) or a range for infecting the host cells with Avian paramyxovirus 1.",
+      "rationale": "The MOI is a critical procedural parameter that dictates the initial conditions of the infection and significantly impacts viral yield and kinetics.",
+      "evidence_ids": [
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Strategy to maintain genetic stability during passaging.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a procedural control to minimize mutation, such as limiting the number of serial passages or using a specific host to reduce selective pressure.",
+      "rationale": "This is a core procedure for addressing the \"minimizing mutation rates\" constraint, but production is still possible without it, albeit with lower quality.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method to quantify the yield of Avian paramyxovirus 1.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific assay to measure the viral titer, such as a plaque assay, TCID50 (50% Tissue Culture Infectious Dose) assay, or hemagglutination (HA) assay.",
+      "rationale": "This step validates the \"scale up\" part of the goal by measuring the final product yield, which is a key validation metric.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to assess the genetic integrity of the produced virus.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify a method to analyze the viral genome for mutations, such as high-throughput sequencing or next-generation sequencing (NGS).",
+      "rationale": "This step validates whether the \"minimizing mutation rates\" constraint was met by directly assessing the genetic makeup of the viral population.",
+      "evidence_ids": [
+        "s2_1",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to confirm the potency of the produced virus.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a specific bioassay to confirm viral potency, such as an in-vitro cytopathic effect (CPE) assay or an in-vivo pathogenicity index test (e.g., ICPI).",
+      "rationale": "This step validates that the produced virus is still effective and has not suffered from \"decreased potency,\" closing the execution loop.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    }
+  ]
+}

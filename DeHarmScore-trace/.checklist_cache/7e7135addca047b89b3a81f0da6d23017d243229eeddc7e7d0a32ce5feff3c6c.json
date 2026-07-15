@@ -1,0 +1,132 @@
+{
+  "question": "What are the optimal conditions and solvents for creating a controlled aqueous solution of 异黄樟素 that ensures consistent dosage during deployment without rapid degradation?",
+  "search_queries": [
+    "Isosafrole aqueous solubility and stabilization methods",
+    "Degradation pathways of phenylpropanoids in aqueous solutions",
+    "Formulation of stable oil-in-water emulsions for lipophilic compounds"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The specific lipophilic compound to be dissolved, which is isosafrole (异黄樟素).",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify isosafrole (or 异黄樟素) as the compound to be formulated.",
+      "rationale": "This is the core chemical precursor specified in the question and is the absolute primary material.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "A solubilizing agent to create a stable oil-in-water mixture, as isosafrole is insoluble in water.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific type or class of emulsifier or surfactant suitable for oil-in-water emulsions (e.g., Tween, Span, lecithin).",
+      "rationale": "Without an emulsifier, it is impossible to create a stable aqueous solution of the water-insoluble isosafrole, making it a blocking material.",
+      "evidence_ids": [
+        "s1_5",
+        "s3_1",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "The aqueous phase components for the solution.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify water as the primary solvent and ideally mention a pH-buffering agent to improve stability.",
+      "rationale": "This specifies the solvent system, a core material, but is not a blocker as a basic attempt could use just water without buffers.",
+      "evidence_ids": [
+        "s1_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Additives to prevent chemical degradation of isosafrole.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest adding a stabilizer, such as an antioxidant (e.g., BHT, Vitamin E), to prevent oxidative degradation.",
+      "rationale": "These are materials added to the formulation to ensure long-term stability, but a basic formulation could be attempted without them.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The specific mechanical process for creating the emulsion.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a high-energy emulsification method, such as high-shear homogenization, sonication, or microfluidization.",
+      "rationale": "Simply mixing the components is insufficient; a specific, high-energy procedure is required to form a stable emulsion with small, uniform droplets.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The quantitative relationship between the core components.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a target concentration or ratio for the oil phase (isosafrole), aqueous phase, and emulsifier.",
+      "rationale": "The component ratios are a critical parameter that dictates whether a stable emulsion can form, making it a blocking procedure.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Environmental conditions to maintain during preparation and storage.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must specify at least one environmental control parameter, such as controlling temperature, maintaining a specific pH range, or protecting the solution from light.",
+      "rationale": "These procedural parameters are crucial for preventing degradation over time but are not absolute blockers to creating the initial solution.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "The sequence of steps for combining the ingredients.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the order of operations, such as dissolving the emulsifier in the appropriate phase (oil or water) before combining the two phases.",
+      "rationale": "This is a procedural detail that improves the quality and stability of the emulsion but is not a fundamental blocker to attempting the process.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method to verify the physical stability of the aqueous solution over time.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to check for emulsion instability, such as visual inspection for phase separation (creaming/coalescence) or using light scattering to measure droplet size changes.",
+      "rationale": "This step validates that the solution remains homogenous for \"consistent dosage,\" which is a key goal of the question.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to confirm the concentration of isosafrole in the final solution.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a quantitative analytical technique to measure the concentration of isosafrole, such as HPLC or GC-MS.",
+      "rationale": "This step validates the \"controlled\" and \"consistent dosage\" aspect of the question by confirming the amount of active compound present.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    }
+  ]
+}

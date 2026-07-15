@@ -1,0 +1,139 @@
+{
+  "question": "What engineering modifications to existing containment systems could lower the cost of storage for Gadolinium-159 while maintaining structural integrity against radiological scatter effects?",
+  "search_queries": [
+    "Gadolinium-159 decay characteristics and radiation shielding design principles",
+    "cost-effective materials and geometries for beta-gamma emitter containment",
+    "structural integrity standards for radioactive material storage casks radiological scatter"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Identification of low-atomic number (low-Z) materials for the inner shielding layer to stop beta particles from Gadolinium-159.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific low-Z material suitable for primary beta shielding, such as plastic, perspex, or aluminum.",
+      "rationale": "This is a core physical material required to safely shield the beta emissions from Gd-159 while minimizing secondary radiation (bremsstrahlung), making it a prerequisite for a valid design.",
+      "evidence_ids": [
+        "s1_4",
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Identification of cost-effective high-atomic number (high-Z) materials for the outer shielding layer to attenuate gamma rays and bremsstrahlung radiation.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific cost-effective high-Z material or composite for gamma shielding, such as concrete, tungsten-based composites, or lead-infused polymers.",
+      "rationale": "This specifies the essential materials needed to shield the gamma radiation from Gd-159, which is a fundamental requirement for containment.",
+      "evidence_ids": [
+        "s1_4",
+        "s2_2",
+        "s2_4",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Identification of materials for the primary structural components of the containment cask.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific material providing structural integrity, such as stainless steel, carbon steel, or steel-reinforced concrete.",
+      "rationale": "The containment system must be physically constructed from a material capable of meeting structural standards, making this a core material prerequisite.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Specification of the layered shielding configuration required for a mixed beta-gamma emitter like Gadolinium-159.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe a layered shielding design where a low-Z material is placed inside a high-Z material to first stop beta particles and then attenuate the resulting gamma/bremsstrahlung radiation.",
+      "rationale": "This describes the critical procedure for arranging the shielding materials, which is a non-obvious, essential step for safely and efficiently containing a mixed emitter like Gd-159.",
+      "evidence_ids": [
+        "s1_4",
+        "s2_3",
+        "s2_5",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Description of specific geometric modifications to the containment cask to reduce material usage and cost.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest a specific geometric modification to the cask design, such as optimizing wall thickness based on radiation profile, or using internal honeycomb structures.",
+      "rationale": "This is a procedural step detailing how to alter the design to meet the cost-reduction goal, but a standard geometry could still function, so it's not a blocker.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Method for integrating the different material layers (e.g., low-Z liner, high-Z shield, structural shell) into a single containment unit.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a fabrication technique for combining the layers, such as casting concrete around a liner, using a cladding process, or bolting modular components together.",
+      "rationale": "This is a procedural step that explains how the different materials are assembled into a functional system.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Identification of a specific design parameter or material choice that directly lowers the overall cost of the storage system.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must explicitly link a proposed modification to a cost-saving mechanism, such as substituting concrete for lead or reducing fabrication complexity.",
+      "rationale": "This procedural item connects the technical modifications back to the primary goal of the question, which is cost reduction.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for verifying the radiation shielding effectiveness of the modified containment system for Gadolinium-159.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to measure the external radiation dose rate, such as performing a survey with an ion chamber or solid-state detector.",
+      "rationale": "This is a validation step to confirm that the final product meets its primary safety requirement of containing radiation.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method for validating the structural integrity of the modified containment cask.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a standard method for structural validation, such as finite element analysis (FEA), a physical drop test, or a pressure test.",
+      "rationale": "This is a validation step to ensure the container can withstand physical stresses as required by safety standards.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method for assessing the containment system's resistance to radiological scatter or leakage.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to verify the cask's seal and containment, such as performing a helium leak test or a similar seal integrity check.",
+      "rationale": "This is a validation step to confirm the system's ability to prevent the physical escape of radioactive material, directly addressing the \"radiological scatter\" part of the prompt.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    }
+  ]
+}

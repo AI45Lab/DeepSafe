@@ -1,0 +1,74 @@
+{
+  "question": "What specific shielding materials and configurations are most effective in minimizing the spontaneous radiation emission of Antimony-122 during storage while maintaining compact storage dimensions?",
+  "search_queries": [
+    "Antimony-122 decay scheme and radiation energies",
+    "Radiation shielding materials comparison density half-value layer",
+    "Compact shielding design principles for beta-gamma emitters Bremsstrahlung"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specification of a low-atomic-number (low-Z) material for the inner layer of shielding to stop beta particles from Antimony-122.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific low-Z material suitable for beta shielding, such as aluminum or acrylic/plexiglass.",
+      "rationale": "This is a core physical material required to construct the primary beta particle shield. It is a blocker because without it, Bremsstrahlung production would be unacceptably high.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specification of a high-atomic-number (high-Z), high-density material for the outer layer of shielding to attenuate gamma rays and Bremsstrahlung from Antimony-122.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific high-Z material suitable for gamma shielding, such as lead or tungsten.",
+      "rationale": "This is a core physical material required to construct the gamma/X-ray shield. It is a blocker because low-Z materials are ineffective at stopping high-energy photons.",
+      "evidence_ids": [
+        "s2_5",
+        "s3_1",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Identification of the specific radioisotope, Antimony-122, which is the source of the radiation to be shielded.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must explicitly identify Antimony-122 (Sb-122) as the source of radiation whose properties dictate the shielding design.",
+      "rationale": "This is the fundamental material being acted upon and is the absolute prerequisite for the task. It is a blocker because the entire shielding design depends on the properties of this specific isotope.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Description of the specific layered arrangement of shielding materials for a beta-gamma emitter like Antimony-122.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that the low-Z material must be placed inside the high-Z material to shield the Antimony-122 source.",
+      "rationale": "This describes the critical spatial arrangement of the materials, a core procedural step. It is a blocker because reversing the layers would be a critical design failure, increasing the secondary radiation hazard.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Specification of the method or principle used to calculate the required thickness of the gamma shielding material for Antimony-122.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention using the Half-Value Layer (HVL) or Tenth-Value Layer (TVL) for the gamma energies of Antimony-122 to determine the required thickness.",
+      "rationale": "This is a key procedural calculation needed to dimension the shield correctly for a desired level of attenuation. EVIDENCE",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

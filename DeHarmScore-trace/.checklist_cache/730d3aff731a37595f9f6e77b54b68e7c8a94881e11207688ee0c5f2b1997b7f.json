@@ -1,0 +1,140 @@
+{
+  "question": "What shielding materials and thickness parameters would effectively minimize beta particle emissions from Silicon-31 during its storage while maintaining accessibility for immediate use?",
+  "search_queries": [
+    "Silicon-31 decay characteristics and maximum beta energy",
+    "Beta particle shielding principles low-Z materials and Bremsstrahlung suppression",
+    "Design criteria for laboratory beta emitter storage containers balancing shielding and accessibility"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Identification of appropriate low-Z materials for primary beta shielding of Silicon-31.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific low-Z material suitable for primary beta shielding, such as acrylic (Plexiglas), polystyrene, or aluminum.",
+      "rationale": "This specifies the core physical material required to stop the beta particles from Silicon-31, making it a fundamental material prerequisite.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Identification of appropriate high-Z materials for secondary Bremsstrahlung shielding.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific high-Z material for shielding secondary X-rays (Bremsstrahlung), such as lead or tungsten.",
+      "rationale": "This specifies the material needed to shield against the secondary radiation hazard produced by beta interaction, which is a critical safety component.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specification of the key decay characteristic of Silicon-31 needed for shielding calculations.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the maximum beta energy (E_max) of Silicon-31 as the critical parameter for determining the required shielding thickness.",
+      "rationale": "This is the essential quantitative parameter of the Silicon-31 source that dictates all subsequent shielding design calculations, making it a critical procedural input.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Specification of the required thickness for the primary low-Z shield for Silicon-31.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a specific thickness value for a given low-Z material or provide a formula/rule-of-thumb to calculate it based on Silicon-31's maximum beta energy.",
+      "rationale": "This is a critical quantitative parameter; without the correct thickness, the primary shield will fail to stop the beta particles from Silicon-31.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Description of the correct layering of shielding materials for Silicon-31.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state that the low-Z material must be placed closest to the Silicon-31 source, with any high-Z material placed outside the low-Z shield.",
+      "rationale": "The order of operations (layering) is critical; incorrect placement generates more secondary radiation, making this a crucial procedural step.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Description of a storage container design that balances shielding with accessibility for Silicon-31.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a practical container design that allows for easy access to the Silicon-31 source, such as a lidded box, interlocking bricks, or a vial holder with a removable shield.",
+      "rationale": "This relates to the \"accessibility\" part of the user's query, defining the procedural assembly and use of the shielding components.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_4",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Identification of a radiation survey meter for dose measurement.",
+      "dimension": "materials",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a type of radiation detector suitable for measuring beta-gamma fields, such as a Geiger-Muller (GM) survey meter.",
+      "rationale": "This is the key piece of equipment needed to perform validation measurements to confirm the shield's effectiveness.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for verifying the effectiveness of the Silicon-31 shielding.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention using a radiation survey meter to measure dose rates at the external surface of the constructed shield.",
+      "rationale": "This is the primary validation step to confirm that the shielding assembly is performing as designed and reducing radiation levels.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method for specifically assessing Bremsstrahlung X-ray leakage.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest using a detector sensitive to photons/X-rays (e.g., a scintillation detector) or taking measurements with and without the high-Z shield to assess Bremsstrahlung contribution.",
+      "rationale": "This is a specific validation step to troubleshoot or confirm the effectiveness of the secondary, high-Z shielding layer.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Procedure for confirming the shielded dose rate is at an acceptable level.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must state that the measured dose rate outside the shield should be compared against background radiation levels or established regulatory limits.",
+      "rationale": "This step closes the execution loop by comparing the measured outcome against a defined success criterion (safety).",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    }
+  ]
+}

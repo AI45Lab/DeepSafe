@@ -1,0 +1,137 @@
+{
+  "question": "What storage conditions or chemical stabilizers inhibit the hydrolysis of Lutetium-177 compounds and extend shelf life without increasing handling complexity?",
+  "search_queries": [
+    "Lutetium-177 radiopharmaceutical formulation stability hydrolysis radiolysis",
+    "Lu-177 shelf life extension storage conditions pH buffers radioprotectants",
+    "Chemical stabilizers for radiometal-labeled peptides and antibodies handling simplicity"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The specific Lutetium-177 radiopharmaceutical compound being stabilized.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific class of Lu-177 compounds, such as Lu-177 labeled peptides (e.g., PSMA ligands) or antibodies.",
+      "rationale": "This is the core material being acted upon; without the Lu-177 compound, the task is impossible.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "A pH buffering agent for the formulation.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific type of buffer suitable for pharmaceutical use, such as an acetate or phosphate buffer.",
+      "rationale": "A pH buffer is a fundamental chemical required to control hydrolysis and maintain the stability of the Lu-177 compound.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "A radioprotectant or radical scavenger to mitigate radiolysis.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one common radioprotectant used in radiopharmaceuticals, such as ascorbic acid (Vitamin C), gentisic acid, or ethanol.",
+      "rationale": "Radiolysis is a primary degradation pathway for Lu-177 compounds, and a scavenger is a necessary material to counteract it.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_5",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The specific pH range for storing the Lutetium-177 formulation.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a weakly acidic pH range, such as pH 4.5 to 5.5, for the final formulation.",
+      "rationale": "Maintaining the correct pH is a critical procedural parameter to prevent both hydrolysis and radiometal dissociation from the chelator.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "The specific temperature range for storing the Lutetium-177 formulation.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a storage temperature, such as refrigeration (2-8 °C), room temperature, or frozen (e.g., -20 °C).",
+      "rationale": "Temperature is a critical parameter that directly affects the rate of chemical degradation and is a core part of the storage conditions.",
+      "evidence_ids": [
+        "s2_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "A procedure for adding stabilizers that does not increase handling complexity.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a simple addition method, such as adding a pre-formulated buffer or a soluble antioxidant directly to the Lu-177 solution.",
+      "rationale": "This procedure addresses the user's specific constraint about handling complexity, focusing on the method of incorporating the stabilizers.",
+      "evidence_ids": [
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Control of the radioactive concentration in the final formulation.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention that diluting the final product or limiting the initial radioactive concentration can reduce the effects of radiolysis.",
+      "rationale": "This is a key procedural parameter for managing radiolysis, as higher concentrations accelerate degradation.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Measurement of Radiochemical Purity (RCP) over time.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method for measuring RCP, such as radio-TLC (thin-layer chromatography) or radio-HPLC (high-performance liquid chromatography).",
+      "rationale": "This is the standard method to validate the stability of the radiopharmaceutical and quantify the extent of degradation.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Determination of the extended shelf life.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a process of testing the Lu-177 compound's RCP at multiple time points (e.g., 24, 48, 72 hours) to establish its stability over time.",
+      "rationale": "This validation step directly measures the success of the stabilization methods in achieving the primary goal of extending shelf life.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "An in vitro stability test in a biological medium.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention assessing the stability of the stabilized Lu-177 compound after incubation in human serum or plasma.",
+      "rationale": "This validation step verifies that the compound remains stable under conditions that mimic its in-vivo environment, ensuring it remains effective.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    }
+  ]
+}

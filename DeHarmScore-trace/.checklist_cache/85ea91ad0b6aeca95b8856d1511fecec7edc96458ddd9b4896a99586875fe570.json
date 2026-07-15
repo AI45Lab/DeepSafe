@@ -1,0 +1,138 @@
+{
+  "question": "What specific purification techniques would allow the removal of high-volatility byproducts during the scale-up process of 黄樟素 synthesis while maintaining yield efficiency?",
+  "search_queries": [
+    "Industrial safrole synthesis routes and byproduct impurity profiles",
+    "Fractional distillation vs. steam distillation for purification of high-boiling point natural products at scale",
+    "Optimizing distillation column parameters for purity-yield tradeoff in fine chemical manufacturing"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "The starting material for the purification process.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the starting material as a crude mixture resulting from Safrole synthesis, which contains the desired product along with byproducts.",
+      "rationale": "This is the input material for the entire purification process and is therefore a fundamental prerequisite.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "The primary apparatus for large-scale separation based on volatility.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the use of a fractional distillation column or a packed column suitable for industrial or pilot-scale chemical separation.",
+      "rationale": "This is the core piece of hardware required to perform the separation of Safrole from its byproducts at scale.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_4",
+        "s3_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Equipment to lower the boiling point of the mixture.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention a vacuum pump or an integrated vacuum system to achieve the reduced pressure necessary for Safrole distillation.",
+      "rationale": "Distilling a high-boiling point compound like Safrole at atmospheric pressure is inefficient and risks degradation, making a vacuum system an essential piece of equipment.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "The specific type of distillation technique to be used for separating Safrole from high-volatility impurities.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify fractional distillation (under vacuum) as the appropriate method to separate components with different boiling points, such as Safrole and its more volatile byproducts.",
+      "rationale": "The choice of purification technique is the central procedural decision that dictates how the separation will be achieved.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Key operational parameters for the distillation column that control the purity-yield tradeoff.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must mention the need to set and optimize the reflux ratio to control the efficiency of the separation of Safrole.",
+      "rationale": "The reflux ratio is a critical parameter in fractional distillation that directly determines the degree of separation and thus the final purity and yield; without setting it, the procedure is not executable.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "The operating pressure condition for the distillation of Safrole.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify that the distillation must be conducted under reduced pressure (vacuum) to lower Safrole's boiling point.",
+      "rationale": "This is a critical safety and efficiency parameter, as distilling high-boiling compounds like Safrole at atmospheric pressure can lead to thermal decomposition and is highly energy-intensive.",
+      "evidence_ids": [
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "The strategy for collecting the purified product and separating it from impurities.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe collecting the distillate in separate parts, specifically isolating and removing an initial fraction (forerun) containing the high-volatility byproducts before collecting the main Safrole fraction.",
+      "rationale": "This describes the hands-on execution of the separation process, which is a core part of the procedure.",
+      "evidence_ids": [
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Temperature management during the distillation process.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention the need to control the temperature of the heating source (reboiler) and/or monitor the vapor temperature at the distillation head.",
+      "rationale": "Temperature control is a key procedural variable that ensures a stable and effective separation of Safrole from its byproducts.",
+      "evidence_ids": [
+        "s3_1"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method for assessing the purity of the final Safrole product.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name a specific analytical technique, such as Gas Chromatography (GC) or GC-MS, to confirm the removal of byproducts and determine the purity of the collected Safrole.",
+      "rationale": "This is a standard method to validate the outcome of the purification process by analyzing the chemical composition of the result.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method for quantifying the efficiency of the purification process as requested in the prompt.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe how to calculate the process yield by comparing the amount of purified Safrole obtained against the amount present in the initial crude mixture.",
+      "rationale": "This step validates whether the goal of \"maintaining yield efficiency\" was met, closing the execution loop.",
+      "evidence_ids": [
+        "s3_4"
+      ],
+      "scope": "global"
+    }
+  ]
+}

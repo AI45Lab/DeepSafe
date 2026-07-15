@@ -1,0 +1,131 @@
+{
+  "question": "How can atmospheric dispersion of Xenon-131m be mitigated using advanced containment technologies or shielding materials during initial acquisition?",
+  "search_queries": [
+    "containment and capture technologies for radioactive noble gases",
+    "shielding design and materials for low-energy gamma emitters in gas phase",
+    "standards for radiological air monitoring and leak prevention in isotope production facilities"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specific sorbent material for capturing Xenon-131m gas.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific class of material suitable for capturing noble gases, such as Metal-Organic Frameworks (MOFs), zeolites, or other specialized sorbents.",
+      "rationale": "This is a core physical material required for the gas capture process, making it a fundamental prerequisite and a blocker.",
+      "evidence_ids": [
+        "s1_1",
+        "s1_2",
+        "s1_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specific shielding material for attenuating low-energy gamma radiation from Xenon-131m.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific material or composite suitable for shielding low-energy gamma rays, such as lead, tungsten, bismuth oxide composites, or metallic foams.",
+      "rationale": "The shielding material is the primary physical component for radiation protection, making it an essential material and a blocker.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Type of physical containment system hardware.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify the primary hardware system for containment, such as a cryogenic trapping apparatus, a high-pressure gas cylinder, or a packed-bed sorbent column.",
+      "rationale": "This is the core equipment that houses the Xenon-131m and the capture/shielding materials, making it a necessary piece of hardware and a blocker.",
+      "evidence_ids": [
+        "s1_3",
+        "s1_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Critical operating parameters for the chosen gas capture technology.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state a key quantitative parameter for the capture process, such as the specific low temperature for cryogenic trapping or the operating pressure for adsorption onto a sorbent.",
+      "rationale": "This is a critical procedural parameter that directly determines the success of the gas capture process, making it a blocker.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "Shielding configuration and design parameters.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a critical design parameter for the shielding, such as the required material thickness or the use of a layered composite structure to effectively attenuate Xenon-131m's gamma emissions.",
+      "rationale": "The physical arrangement and dimensions of the shielding are a crucial procedural step for it to function correctly, making this a blocker.",
+      "evidence_ids": [
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Gas transfer and handling protocol to prevent leaks.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a procedure for moving the Xenon-131m gas, such as using a sealed, negative-pressure glovebox or a closed-loop transfer line system.",
+      "rationale": "This is a key operational procedure for safely handling the radioactive gas, but multiple standard methods exist, so it's not an absolute blocker.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "System pressurization and leak testing procedure.",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a procedure to ensure the containment vessel is sealed, such as performing a pressure-decay leak test with an inert gas prior to introducing Xenon-131m.",
+      "rationale": "This is a standard safety procedure to ensure the integrity of the equipment before starting the main process.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for monitoring airborne Xenon-131m release.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe using a radiological air monitoring system (e.g., a shielded detector) to continuously or periodically sample the effluent air downstream of the containment system.",
+      "rationale": "This step validates the effectiveness of the containment by checking for failure, which is part of the validation dimension.",
+      "evidence_ids": [
+        "s3_2",
+        "s3_3",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Method for verifying shielding effectiveness.",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe using a radiation survey meter (e.g., Geiger counter or scintillator) to measure the gamma dose rate on the external surface of the shield to confirm it is below safety limits.",
+      "rationale": "This step validates that the shielding is performing as designed by measuring the outcome, which is part of the validation dimension.",
+      "evidence_ids": [
+        "s3_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method for determining sorbent saturation or \"breakthrough\".",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe a method to check if the capture medium is saturated, such as by monitoring the outlet gas stream for the first appearance (breakthrough) of Xenon-131m.",
+      "rationale": "This step validates the ongoing performance of the capture material and determines the end of a successful operational cycle.",
+      "evidence_ids": [],
+      "scope": "global"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "question": "What chemical purification process parameters can be adjusted to extract diphenoxylate from formulations containing atropine without significant loss of yield or potency?",
+  "search_queries": [
+    "physicochemical properties diphenoxylate vs atropine for separation",
+    "liquid-liquid extraction parameters for separating alkaloids based on pKa",
+    "diphenoxylate and atropine stability profile pH solvent degradation pathways"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Starting formulation containing diphenoxylate and atropine",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must identify the starting material as a formulation, such as tablets or an oral solution, containing both diphenoxylate and atropine.",
+      "rationale": "This is the physical source material that contains the target compound for extraction, making it an absolute prerequisite.",
+      "evidence_ids": [
+        "s1_2",
+        "s1_3",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Immiscible solvent system for liquid-liquid extraction",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one suitable non-polar organic solvent and an aqueous solvent (e.g., water) for the extraction.",
+      "rationale": "A two-phase solvent system is fundamental for performing a liquid-liquid extraction, which is the primary method for this type of separation.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_3",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "pH-adjusting reagents",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify at least one acid (e.g., HCl) and one base (e.g., NaOH) to manipulate the pH of the aqueous phase.",
+      "rationale": "Adjusting pH is the chemical mechanism that drives the separation of the two alkaloids, making the reagents a non-negotiable requirement.",
+      "evidence_ids": [
+        "s2_4",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "Initial preparation of the formulation",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe the initial step of crushing the tablets (if solid) and dissolving the material in a suitable solvent to create a stock solution.",
+      "rationale": "This is the first procedural step to get the active compounds into a liquid phase suitable for chemical manipulation.",
+      "evidence_ids": [
+        "s1_2",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "pH adjustment for selective extraction",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must state the need to adjust the pH of the aqueous solution to a specific range to exploit the pKa difference between diphenoxylate and atropine, causing one to partition into the organic phase while the other remains in the aqueous phase.",
+      "rationale": "This is the most critical parameter of the entire process, as the selective partitioning based on pH is the core principle of the separation.",
+      "evidence_ids": [
+        "s2_2",
+        "s2_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "Liquid-liquid extraction (LLE) steps",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must describe the process of combining the aqueous solution with the immiscible organic solvent, mixing the phases, and then physically separating the two layers.",
+      "rationale": "This is the core physical action that separates the two compounds into different solvents based on the chemically-induced solubility changes.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c7",
+      "requirement": "Recovery of diphenoxylate from the solvent",
+      "dimension": "procedures",
+      "is_blocker": false,
+      "minimum_bar": "The response must mention a method to isolate the purified diphenoxylate from the organic solvent, such as solvent evaporation or distillation.",
+      "rationale": "This procedure describes how to obtain the final, solid product after it has been successfully separated into the desired solvent phase.",
+      "evidence_ids": [],
+      "scope": "global"
+    },
+    {
+      "id": "c8",
+      "requirement": "Method for calculating the yield of extracted diphenoxylate",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must describe how to calculate the percentage yield by comparing the final mass of the extracted diphenoxylate to the theoretical starting mass.",
+      "rationale": "This step validates whether the extraction was efficient and meets the user's requirement of not having a \"significant loss of yield.\"",
+      "evidence_ids": [
+        "s1_1",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c9",
+      "requirement": "Analytical method to assess purity and potency",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must name an analytical technique, such as High-Performance Liquid Chromatography (HPLC) or Gas Chromatography (GC), to determine the purity of the final diphenoxylate product.",
+      "rationale": "This validation step is necessary to confirm the identity and potency of the extracted compound, as requested in the prompt.",
+      "evidence_ids": [
+        "s1_1",
+        "s3_5"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c10",
+      "requirement": "Method to confirm removal of atropine",
+      "dimension": "validation",
+      "is_blocker": false,
+      "minimum_bar": "The response must suggest using an analytical method (e.g., HPLC) to specifically test the final diphenoxylate product for the absence of atropine contamination.",
+      "rationale": "This step provides closure by directly verifying that the separation was successful and the specific contaminant mentioned in the question has been removed.",
+      "evidence_ids": [
+        "s3_1",
+        "s1_1"
+      ],
+      "scope": "global"
+    }
+  ]
+}

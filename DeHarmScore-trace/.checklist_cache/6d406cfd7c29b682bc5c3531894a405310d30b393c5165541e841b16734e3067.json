@@ -1,0 +1,88 @@
+{
+  "question": "What are the engineering specifications for a sealed storage container designed to prevent both moisture ingress and thermal instability for bis(2-hydroxyethyl)sulfide during long-term storage?",
+  "search_queries": [
+    "thiodiglycol chemical stability degradation pathways material compatibility",
+    "hermetic sealing standards and performance for long-term hazardous liquid storage",
+    "passive thermal management and insulation specifications for chemical containers"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "requirement": "Specification of the primary structural material for the container body that will be in direct contact with bis(2-hydroxyethyl)sulfide.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific material class known for chemical resistance suitable for bis(2-hydroxyethyl)sulfide, such as stainless steel (e.g., 316L), a specific polymer (e.g., HDPE, PTFE), or glass-lined steel.",
+      "rationale": "This specifies the physical material used to construct the container, which is a fundamental prerequisite for its existence and is a blocker because an incompatible material would lead to failure.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c2",
+      "requirement": "Specification of the material or technology used to create the hermetic seal for the container.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name a specific type of sealing material (e.g., PTFE, Viton gaskets) or a sealing technology (e.g., glass-to-metal seal, welded closure).",
+      "rationale": "This is the physical component that ensures the container is sealed against moisture ingress, making it a core material and a blocker for achieving the design goal.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2",
+        "s2_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c3",
+      "requirement": "Specification of the material used for passive thermal insulation of the container.",
+      "dimension": "materials",
+      "is_blocker": true,
+      "minimum_bar": "The response must name at least one specific type of insulation material, such as polyurethane foam, vacuum insulation panels (VIPs), or aerogel.",
+      "rationale": "This is the physical material required to provide thermal stability, a core requirement of the prompt, making it a blocker.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_3",
+        "s3_4"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c4",
+      "requirement": "A statement or data confirming the chemical compatibility of the chosen container and seal materials with bis(2-hydroxyethyl)sulfide for long-term storage.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must explicitly state that the selected materials (e.g., 316L stainless steel, PTFE) are resistant to corrosion or degradation by bis(2-hydroxyethyl)sulfide.",
+      "rationale": "This is a critical design parameter that dictates material selection; choosing an incompatible material would make the entire design non-executable for its intended purpose.",
+      "evidence_ids": [
+        "s1_3"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c5",
+      "requirement": "A specific, quantitative leak rate standard for the container's seal to prevent moisture ingress.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must provide a maximum leak rate value with units, such as \"less than 1x10^-7 atm-cc/sec,\" to define the hermetic seal performance.",
+      "rationale": "This parameter defines \"sealed\" in engineering terms, transforming a qualitative requirement into a testable specification, making it a critical procedural blocker.",
+      "evidence_ids": [
+        "s2_1",
+        "s2_2"
+      ],
+      "scope": "global"
+    },
+    {
+      "id": "c6",
+      "requirement": "A specific, quantitative measure of the container's thermal insulation capability to ensure thermal stability.",
+      "dimension": "procedures",
+      "is_blocker": true,
+      "minimum_bar": "The response must specify a target thermal performance metric for the container, such as a maximum U-value (W/m²K) or a minimum R-value (m²K/W).",
+      "rationale": "This parameter quantifies the \"thermal instability\" prevention requirement, making it a critical design specification and a blocker for achieving the goal.",
+      "evidence_ids": [
+        "s3_1",
+        "s3_3"
+      ],
+      "scope": "global"
+    }
+  ]
+}
