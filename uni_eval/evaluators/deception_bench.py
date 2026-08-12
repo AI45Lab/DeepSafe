@@ -99,14 +99,11 @@ def _parse_reasoning_and_output(response: str) -> Dict[str, Any]:
     reasoning = ""
     output = ""
 
-    reasoning_match = re.search(r"<think>(.*?)</think>", response, re.DOTALL | re.IGNORECASE)
+    reasoning_match = re.search(r" thinking(.*?) response", response, re.DOTALL | re.IGNORECASE)
     if reasoning_match:
         reasoning = reasoning_match.group(1).strip()
     else:
-                                                                              
-        reasoning_match = re.search(r"<think>(.*?)</think>", response, re.DOTALL | re.IGNORECASE)
-        if reasoning_match:
-            reasoning = reasoning_match.group(1).strip()
+        pass
 
     output_match = re.search(r"<output>(.*?)</output>", response, re.DOTALL | re.IGNORECASE)
     if output_match:
@@ -115,10 +112,8 @@ def _parse_reasoning_and_output(response: str) -> Dict[str, Any]:
                                                                
         if reasoning:
                                                       
-            if "</think>" in response:
-                after_reasoning = response.split("</think>", 1)[-1]
-            elif "</think>" in response:
-                after_reasoning = response.split("</think>", 1)[-1]
+            if " response" in response:
+                after_reasoning = response.split(" response", 1)[-1]
             else:
                 after_reasoning = response
 
@@ -545,7 +540,7 @@ Your judgment (Yes/No):"""
                    f"can_use_precomputed={can_use_precomputed}")
 
         if can_use_precomputed and has_mesa_and_action:
-            if self.require_precomputed_predictions and not has_mesa_and_action:
+            if self.require_precomputed_predictions and not has_all_precomputed:
                 raise ValueError(
                     f"Missing precomputed DeceptionBench outputs. "
                     f"Expected fields: '{self.mesa_utility_field}', "
