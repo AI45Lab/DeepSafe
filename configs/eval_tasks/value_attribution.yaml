@@ -1,0 +1,46 @@
+module_profile: value
+model:
+  type: ValueQAServiceModel
+  connection: null  # 必填：api（远程接口）或 local（本地模型服务）。
+  api:
+    model_name: null  # 填写 API 的完整模型名称。
+    api_base: null  # 填写服务的兼容接口地址（通常以 /v1 结尾）。
+    api_key: ENV  # 读取 OPENAI_API_KEY。
+    temperature: 0
+    max_tokens: 2048
+    timeout: 180
+    max_retries: 0
+    concurrency: 10
+  local:
+    model_name: null  # 填写本地服务发布的模型名称，如 Ollama 标签或 vLLM served-model-name。
+    api_base: null  # Ollama 示例 http://127.0.0.1:11434/v1；vLLM 示例 http://127.0.0.1:8000/v1。
+    api_key: EMPTY  # 服务要求鉴权时填写相应密钥或 ENV。
+    temperature: 0
+    max_tokens: 2048
+    timeout: 180
+    max_retries: 0
+    concurrency: 1
+dataset:
+  type: ValueQADataset
+  path: data/valueqa/evaluation_samples.jsonl
+  references_path: data/valueqa/reference_annotations.jsonl
+evaluator:
+  type: ValueQAFrameworkEvaluator
+  state_dir: results/valueqa_framework/state
+  workers: 10
+  attempts: 2
+  recovery_passes: 3
+  use_precomputed_predictions: false
+metrics:
+- type: ValueQAMetric
+  method: framework
+summarizer:
+  type: StandardSummarizer
+runner:
+  model_connection_subdirs: true
+  prediction_policy: strict
+  type: LocalRunner
+  stage: all
+  output_dir: results/valueqa_framework
+  use_evaluator_gen: true
+  badcase_unknown_samples: 0

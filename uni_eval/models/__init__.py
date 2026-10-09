@@ -1,23 +1,32 @@
-"""
-Import model modules so they register into `uni_eval.registry.MODELS`.
+from uni_eval import _module_profile
+from .valueqa_service import ValueQAServiceModel
 
-`tools/run.py` calls `uni_eval.load_all_modules()`, which imports `uni_eval.models`.
-Without these imports, `MODELS.build({...})` won't find model types like `APIModel`.
-"""
+if _module_profile == "value":
+    from .api import APIModel
+    from .noop import NoOpModel
+    __all__ = ['APIModel', 'NoOpModel', 'ValueQAServiceModel']
+else:
+    """
+    Import model modules so they register into `uni_eval.registry.MODELS`.
 
-from .huggingface import HuggingFaceModel 
-from .flames_scorer import FlamesScorerModel 
-from .noop import NoOpModel
+    `tools/run.py` calls `uni_eval.load_all_modules()`, which imports `uni_eval.models`.
+    Without these imports, `MODELS.build({...})` won't find model types like `APIModel`.
+    """
+
+    from .huggingface import HuggingFaceModel 
+    from .flames_scorer import FlamesScorerModel 
+    from .noop import NoOpModel
                              
-from .api import APIModel  
-from .argus import ArgusBase
+    from .api import APIModel  
+    from .argus import ArgusBase
 
-__all__ = [
-    "HuggingFaceModel",
-    "VLLMLocalModel",
-    "FlamesScorerModel",
-    "APIModel",
-    'NoOpModel',
-    "ArgusBase"
-]
+    __all__ = [
+        "HuggingFaceModel",
+        "VLLMLocalModel",
+        "FlamesScorerModel",
+        "APIModel",
+        'NoOpModel',
+        "ArgusBase",
+        "ValueQAServiceModel"
+    ]
 

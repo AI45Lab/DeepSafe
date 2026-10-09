@@ -21,7 +21,7 @@ class ScorerBasedEvaluator(BaseEvaluator):
                  judge_prompt_template: Optional[str] = None,
                  batch_size: int = 1,
                  prediction_field: str = "prediction",
-                 use_precomputed_predictions: bool = False,
+                 use_precomputed_predictions: Optional[bool] = None,
                  require_precomputed_predictions: bool = False,
                  skip_missing_predictions: bool = False,
                  mode: str = "full",
@@ -67,10 +67,10 @@ class ScorerBasedEvaluator(BaseEvaluator):
         results = []
 
         precomputed = [item.get(self.prediction_field) for item in dataset]
-        can_use_precomputed = (
-            self.use_precomputed_predictions
-            or all(not _is_missing_prediction(x) for x in precomputed)
-        )
+        # None preserves legacy auto-detection; explicit False always generates.
+        can_use_precomputed = self.use_precomputed_predictions
+        if can_use_precomputed is None:
+            can_use_precomputed = all(not _is_missing_prediction(x) for x in precomputed)
 
         if self.mode == "judge_only":
                                                                 
@@ -130,8 +130,12 @@ class ScorerBasedEvaluator(BaseEvaluator):
             for i in tqdm(range(0, len(prompts), self.batch_size), desc="Target Generation"):
                 batch_prompts = prompts[i : i + self.batch_size]
                 batch_responses = model.generate(batch_prompts)
+                if len(batch_responses) != len(batch_prompts):
+                    raise ValueError("Model returned a different number of outputs than inputs in a batch")
                 responses.extend(batch_responses)
 
+        if len(responses) != len(dataset):
+            raise ValueError("Model returned a different number of outputs than inputs")
         if self.mode == "generate_only":
             for item, response in zip(dataset, responses):
                 result_item = item.copy()

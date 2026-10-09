@@ -32,7 +32,6 @@ def main():
     import uni_eval              
     from uni_eval.registry import RUNNERS              
     from uni_eval.cli.parse_eval_config import _set_nested             
-    uni_eval.load_all_modules()
 
     args, unknown_args = parse_args()
     
@@ -64,6 +63,7 @@ def main():
             
             _set_nested(cfg, key, val)
 
+    uni_eval.load_all_modules(cfg.get("module_profile", "full"))
     runner_type = cfg.get('runner', {'type': 'LocalRunner'})
     if isinstance(runner_type, str):
         runner_type = {'type': runner_type}
