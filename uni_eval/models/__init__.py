@@ -1,11 +1,10 @@
 from uni_eval import _module_profile
-from .valueqa_service import ValueQAServiceModel
 from .qwen_evidence import QwenEvidenceModel
 
 if _module_profile == "value":
     from .api import APIModel
     from .noop import NoOpModel
-    __all__ = ['APIModel', 'NoOpModel', 'ValueQAServiceModel']
+    __all__ = ['APIModel', 'NoOpModel']
 else:
     """
     Import model modules so they register into `uni_eval.registry.MODELS`.
@@ -27,8 +26,7 @@ else:
         "FlamesScorerModel",
         "APIModel",
         'NoOpModel',
-        "ArgusBase",
-        "ValueQAServiceModel"
+        "ArgusBase"
     ]
 
 

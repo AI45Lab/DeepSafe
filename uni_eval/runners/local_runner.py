@@ -80,8 +80,6 @@ def _input_fingerprint(item):
     # Ground truth deliberately excluded: corrected labels can be rescored,
     # but the text sent to the model must still match exactly.
     value = {"id": str(item["id"]), "answer": item.get("answer"), "prompt": item.get("prompt")}
-    if "valueqa_input" in item:
-        value["valueqa_input"] = item["valueqa_input"]
     if "qwen_input" in item:
         value["qwen_input"] = item["qwen_input"]
     return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()
@@ -266,13 +264,11 @@ class LocalRunner(BaseRunner):
         require_predictions: bool = False,
         badcase_unknown_samples: int = 5,
         prediction_policy: str = "legacy",
-        model_connection_subdirs: bool = False,
         **kwargs,
     ):
         super().__init__(**kwargs)
         self.output_dir = output_dir
         self.base_output_dir = output_dir
-        self.model_connection_subdirs = bool(model_connection_subdirs)
         self.stage = stage
         self.predictions_path = predictions_path
         self.prediction_field = prediction_field
@@ -304,17 +300,6 @@ class LocalRunner(BaseRunner):
             raise ValueError(f"Invalid runner.stage={stage!r}, expected one of: all, gen, eval")
 
         runner_cfg = config.get("runner", {}) if isinstance(config.get("runner", {}), dict) else {}
-        if runner_cfg.get("model_connection_subdirs", self.model_connection_subdirs):
-            from uni_eval.models.valueqa_service import select_service
-            model_cfg = config["model"]
-            if model_cfg.get("type") != "ValueQAServiceModel":
-                raise ValueError("model_connection_subdirs requires ValueQAServiceModel")
-            connection = model_cfg.get("connection")
-            select_service(connection, model_cfg.get("api"), model_cfg.get("local"))
-            self.output_dir = os.path.join(self.base_output_dir, connection)
-            runner_cfg["output_dir"] = self.output_dir
-            config["evaluator"]["state_dir"] = os.path.join(config["evaluator"]["state_dir"], connection)
-            _ensure_dir(self.output_dir)
         policy = runner_cfg.get("prediction_policy", self.prediction_policy)
         if policy not in ("legacy", "strict"):
             raise ValueError(f"Unknown prediction_policy: {policy}")
