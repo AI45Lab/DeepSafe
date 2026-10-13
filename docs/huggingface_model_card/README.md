@@ -77,7 +77,7 @@ hf download Qwen/Qwen3.5-4B --revision 851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a 
 
 本 adapter 通过训练时提示词、tokenizer 和类别 token logits 进行初判，使用三个类别 logits 的 softmax 作为置信度。使用 DeepSafe 中的 `initial_protocol.py` 与 `LocalBackend`；任意聊天提示词或通用生成 pipeline 不保证复现同一分类行为。
 
-Windows与Linux统一安装DeepSafe中的 `valueqa_classification_review/requirements.txt`，其中直接包含Transformers 5.19.0、PEFT 0.21.2及NF4量化所需的bitsandbytes，CUDA PyTorch需匹配显卡驱动。框架运行说明位于 `valueqa_classification_review/README.md`。下载adapter不需要安装vLLM；可选本地复核由setup_vllm.sh在独立Linux环境安装vLLM。
+Windows与Linux统一安装DeepSafe中的 `ValueQA_Classification/requirements.txt`，其中直接包含Transformers 5.19.0、PEFT 0.21.2及NF4量化所需的bitsandbytes，CUDA PyTorch需匹配显卡驱动。框架运行说明位于 `ValueQA_Classification/README.md`。下载adapter不需要安装vLLM；可选本地复核由setup_vllm.sh在独立Linux环境安装vLLM。
 
 ## 训练协议
 

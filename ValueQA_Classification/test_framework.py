@@ -11,6 +11,7 @@ import unittest
 import contextlib
 import io
 import subprocess
+import zipfile
 from urllib.error import URLError
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -18,6 +19,7 @@ from unittest.mock import patch
 
 if __package__:
     from . import backend as backend_module, check_env as check_env_module
+    from . import build_server_package as package_module
     from . import gate as gate_module, run as run_module
     from .backend import APIBackend, BackendError, ReviewAPIBackend, ReviewVLLMBackend
     from .common import (Checkpoint, ROOT, blind, digest, load_samples, model_directory_identity,
@@ -31,6 +33,7 @@ if __package__:
                       load_config, main, process_rows, process_phased)
 else:
     import backend as backend_module
+    import build_server_package as package_module
     import check_env as check_env_module
     import gate as gate_module
     import run as run_module
@@ -719,6 +722,9 @@ class ParallelAPIReviewTests(unittest.TestCase):
     def test_current_rule_revision_preserves_archive_provenance_and_hides_lora_schema(self):
         source = read_json(ROOT / "review_prompt_source.json")
         self.assertEqual(file_hash(ROOT / "classification_prompt_strict.txt"), source["prompt_sha256"])
+        self.assertEqual(file_hash(ROOT / "review_prompt.txt"), source["review_prompt_sha256"])
+        for name in ("classification_prompt_strict.txt", "review_prompt.txt"):
+            self.assertNotIn(b"\r", (ROOT / name).read_bytes())
         # The historical archive is not distributed or required on a new machine.
         self.assertNotIn("archive_path", source)
         self.assertEqual(source["archive_name"], "DeepSafe.zip")
@@ -1099,6 +1105,43 @@ class EnvironmentCheckTests(unittest.TestCase):
             self.assertFalse(inspect_dependencies(cfg)["dependencies_ready"])
             with patch.dict(sys.modules, {"transformers": None}):
                 self.assertFalse(inspect_dependencies(cfg)["dependencies_ready"])
+
+
+class ServerPackageTests(unittest.TestCase):
+    def test_extracted_entrypoint_and_relative_model_data_paths_are_usable(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            project = Path(tmp) / "project"
+            module = project / ROOT.name
+            module.mkdir(parents=True)
+            for name in package_module.FILES:
+                (module / name).write_bytes((ROOT / name).read_bytes())
+            adapter = project / "models/qwen35_4b_lora/best_adapter"
+            adapter.mkdir(parents=True)
+            for name in package_module.ADAPTER_FILES:
+                (adapter / name).write_bytes(b"mock artifact; never loaded")
+            for name in package_module.DATA_FILES:
+                path = project / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("{}\n", encoding="utf-8")
+            with patch.object(package_module, "ROOT", module), \
+                 patch.object(package_module, "ADAPTER", adapter), \
+                 contextlib.redirect_stdout(io.StringIO()):
+                package_module.main([])
+            destination = module / (module.name + "_server.zip")
+            unpacked = Path(tmp) / "unpacked"
+            with zipfile.ZipFile(destination) as archive:
+                archive.extractall(unpacked)
+                manifest = json.loads(archive.read(module.name + "/package_manifest.json"))
+            for name, metadata in manifest.items():
+                self.assertEqual(file_hash(unpacked / name), metadata["sha256"])
+            extracted = unpacked / module.name
+            cfg = read_json(extracted / "config.current.server.json")
+            self.assertTrue((extracted / cfg["input"]).is_file())
+            self.assertTrue((extracted / cfg["references"]).is_file())
+            self.assertTrue((extracted / cfg["adapter_path"] / "adapter_config.json").is_file())
+            result = subprocess.run([sys.executable, "-B", str(extracted / "run.py"), "--help"],
+                                    capture_output=True, timeout=20)
+            self.assertEqual(result.returncode, 0, result.stderr.decode("utf-8", errors="replace"))
 
 
 class PortableConfigTests(unittest.TestCase):

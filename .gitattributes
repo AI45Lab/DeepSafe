@@ -2,5 +2,9 @@
 *.sh text eol=lf
 *.ps1 text eol=crlf
 
+# Prompt provenance uses raw-byte hashes; keep checkout bytes identical on both OSes.
+ValueQA_Classification/classification_prompt_strict.txt text eol=lf
+ValueQA_Classification/review_prompt.txt text eol=lf
+
 # This LoRA is larger than GitHub's ordinary Git single-file limit.
 models/qwen35_4b_lora/best_adapter/adapter_model.safetensors filter=lfs diff=lfs merge=lfs -text

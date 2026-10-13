@@ -3,7 +3,7 @@
 import json
 from pathlib import Path
 
-from valueqa_classification_review.common import LABELS, FIELDS, blind
+from ValueQA_Classification.common import LABELS, FIELDS, blind
 from uni_eval.datasets.base import BaseDataset
 from uni_eval.registry import DATASETS
 

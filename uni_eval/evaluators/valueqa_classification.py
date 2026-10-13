@@ -4,16 +4,16 @@ from contextlib import contextmanager, ExitStack
 import os
 import threading
 
-from valueqa_classification_review.common import (Checkpoint, LABELS, blind, digest, file_hash,
+from ValueQA_Classification.common import (Checkpoint, LABELS, blind, digest, file_hash,
                                        output_lock, read_json, write_json, write_jsonl)
-from valueqa_classification_review.gate import decide, gate_identity, validate_policy
-from valueqa_classification_review.run import (engine_identity, freeze_outputs, import_initials,
+from ValueQA_Classification.gate import decide, gate_identity, validate_policy
+from ValueQA_Classification.run import (engine_identity, freeze_outputs, import_initials,
                                      load_config, process_phased)
 from uni_eval.evaluators.base import BaseEvaluator
 from uni_eval.registry import EVALUATORS
 
 ROOT = Path(__file__).resolve().parents[2]
-METHOD = "valueqa_classification_review"
+METHOD = "ValueQA_Classification"
 
 
 def project_path(value):

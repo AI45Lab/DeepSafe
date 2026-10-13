@@ -13,7 +13,7 @@ import requests
 ROOT = Path(__file__).resolve().parents[1]
 REVISION = "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a"
 REPO = "Qwen/Qwen3.5-4B"
-MODEL = ROOT / "valueqa_classification_review/models_cache/models--Qwen--Qwen3.5-4B/snapshots" / REVISION
+MODEL = ROOT / "qwen_evidence_review/models_cache/models--Qwen--Qwen3.5-4B/snapshots" / REVISION
 OUT = ROOT / "results/qwen_deepseek_flash_1533_20261011"
 CHUNK = 8 * 1024**2
 

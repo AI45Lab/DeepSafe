@@ -1,5 +1,5 @@
 """Paired classification metrics; evidence quotations are not span localization predictions."""
-from valueqa_classification_review.evaluate import report
+from ValueQA_Classification.evaluate import report
 from uni_eval.metrics.base import BaseMetric
 from uni_eval.registry import METRICS
 

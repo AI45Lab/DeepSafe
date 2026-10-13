@@ -19,8 +19,8 @@ import uni_eval
 uni_eval.load_all_modules("value")
 from uni_eval.registry import DATASETS, EVALUATORS, METRICS, MODELS, RUNNERS
 from uni_eval.models.valueqa_classification import ValueQAClassificationModel
-from valueqa_classification_review.common import output_lock, read_json, read_jsonl, write_json, write_jsonl
-from valueqa_classification_review.boundary_test_support import certify_review, stage_response, visible_sample
+from ValueQA_Classification.common import output_lock, read_json, read_jsonl, write_json, write_jsonl
+from ValueQA_Classification.boundary_test_support import certify_review, stage_response, visible_sample
 
 ROOT = Path(__file__).resolve().parents[1]
 ROW = {"sample_id": "one", "original_context": "台风导致会议延期，最终改到周五。",
@@ -75,7 +75,7 @@ class QwenIntegrationTests(unittest.TestCase):
         self.directory = Path(self.temp.name)
         adapter = self.directory / "adapter"
         adapter.mkdir()
-        config = read_json(ROOT / "valueqa_classification_review/config.current.server.json")
+        config = read_json(ROOT / "ValueQA_Classification/config.current.server.json")
         config.update(adapter_path=str(adapter), review_backend="api", local_files_only=True,
                       review_api_base="http://127.0.0.1:1/v1", review_api_model="mock-review", review_api_workers=1,
                       review_api_warmup_models=False, quantization="none")
@@ -123,7 +123,7 @@ class QwenIntegrationTests(unittest.TestCase):
             RUNNERS.build(cfg["runner"]).run(cfg)
 
     def test_registry_construction_is_lazy(self):
-        with patch("valueqa_classification_review.backend.LocalBackend", side_effect=AssertionError("eager load")):
+        with patch("ValueQA_Classification.backend.LocalBackend", side_effect=AssertionError("eager load")):
             MODELS.build(self.cfg["model"])
             self.evaluator()
             METRICS.build({"type": "ValueQAClassificationMetric"})
@@ -139,7 +139,7 @@ class QwenIntegrationTests(unittest.TestCase):
                            review_local_model="mock-local-review")
             settings={"config_path":cfg["evaluator"]["config_path"],"runtime":runtime}
             with patch.dict(os.environ,{"QWEN_LORA_PATH":str(adapter),"QWEN_BASE_PATH":"","VLLM_PYTHON":""}), \
-                 patch("valueqa_classification_review.run.sys.platform", "linux"):
+                 patch("ValueQA_Classification.run.sys.platform", "linux"):
                 config=self.evaluator(**settings).prepare(list(self.dataset()))[0]
                 self.assertEqual(config["adapter_path"],str(adapter))
                 runtime["adapter_path"]=str(explicit_adapter)
@@ -233,7 +233,7 @@ class QwenIntegrationTests(unittest.TestCase):
             model = ValueQAClassificationModel()
             runtime = {"review_backend": selected, "review_api_model": "mock",
                        "review_local_model": "mock-local-review"}
-            with patch("valueqa_classification_review.run.sys.platform", "linux"), \
+            with patch("ValueQA_Classification.run.sys.platform", "linux"), \
                  patch.object(model, "initial_backend", side_effect=lambda cfg: FakeBackend(calls, "initial")), \
                  patch.object(model, "review_backend", side_effect=lambda cfg, path: FakeBackend(calls, "review")):
                 self.evaluator(runtime=runtime, state_dir=str(self.directory / selected)).evaluate(model, self.dataset())
@@ -243,16 +243,16 @@ class QwenIntegrationTests(unittest.TestCase):
     def test_factory_routes_review_backend(self):
         model = ValueQAClassificationModel()
         for selection, name in (("api", "ReviewAPIBackend"), ("vllm", "ReviewVLLMBackend")):
-            with patch("valueqa_classification_review.backend." + name) as factory:
+            with patch("ValueQA_Classification.backend." + name) as factory:
                 model.review_backend({"review_backend": selection}, self.directory)
                 self.assertEqual(factory.call_count, 1)
-        with patch("valueqa_classification_review.backend.LocalBackend", side_effect=AssertionError("same-model fallback")):
+        with patch("ValueQA_Classification.backend.LocalBackend", side_effect=AssertionError("same-model fallback")):
             with self.assertRaisesRegex(ValueError, "api or vllm"):
                 model.review_backend({"review_backend": "transformers"}, self.directory)
 
     def test_native_windows_vllm_rejected_before_initial_loading(self):
         model = ValueQAClassificationModel()
-        with patch("valueqa_classification_review.run.sys.platform", "win32"), \
+        with patch("ValueQA_Classification.run.sys.platform", "win32"), \
              patch.object(model, "initial_backend", side_effect=AssertionError("initial model loaded")):
             with self.assertRaisesRegex(ValueError, "requires Linux"):
                 self.evaluator(runtime={"review_backend": "vllm", "review_local_model": "different-reviewer"}).evaluate(
@@ -341,7 +341,7 @@ class QwenIntegrationTests(unittest.TestCase):
         cfg = copy.deepcopy(self.cfg)
         cfg["runner"].update(stage="eval", output_dir=str(self.directory / "offline"), predictions_path=str(snapshot))
         cfg["evaluator"]["runtime"]["mode"] = "experimental"
-        with patch("valueqa_classification_review.backend.LocalBackend", side_effect=AssertionError("offline load")):
+        with patch("ValueQA_Classification.backend.LocalBackend", side_effect=AssertionError("offline load")):
             self.run_runner(cfg)
         result = read_json(self.directory / "offline/result.json")
         self.assertEqual(result["metrics"]["initial_acc"], 0)

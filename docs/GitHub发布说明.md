@@ -19,7 +19,7 @@ git lfs ls-files
 
 所有入口必须显式选择配置。基础模型不随 Git 仓库发布：设置 `QWEN_BASE_PATH` 为基础权重目录，或在独立 Windows 配置中使用固定 revision 的 Hugging Face 模型 ID 下载权重。两种配置已包含 LoRA 相对路径，无需再设置个人桌面路径。
 
-API复核使用环境变量 `LLM_REVIEW_API_KEY`。配置文件中只保存变量名。Windows与Linux共用 `valueqa_classification_review/requirements.txt`，其中直接包含Transformers、PEFT及NF4配置必需的bitsandbytes；CUDA PyTorch需预先匹配驱动安装。框架README集中在valueqa_classification_review目录。可选vLLM由setup_vllm.sh安装到独立Linux/WSL2环境。
+API复核使用环境变量 `LLM_REVIEW_API_KEY`。配置文件中只保存变量名。Windows与Linux共用 `ValueQA_Classification/requirements.txt`，其中直接包含Transformers、PEFT及NF4配置必需的bitsandbytes；CUDA PyTorch需预先匹配驱动安装。框架README集中在ValueQA_Classification目录。可选vLLM由setup_vllm.sh安装到独立Linux/WSL2环境。
 
 ## 缓存复核
 

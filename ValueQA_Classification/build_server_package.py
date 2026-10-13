@@ -27,9 +27,10 @@ def main(argv=None):
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, help="Archive destination; generated archives are not Git source")
     args=parser.parse_args(argv)
-    destination=args.output or ROOT/"valueqa_classification_review_server.zip"
+    module_name=ROOT.name
+    destination=args.output or ROOT/(module_name+"_server.zip")
     manifest={}
-    entries=[(ROOT/name,"valueqa_classification_review/"+name) for name in FILES]
+    entries=[(ROOT/name,module_name+"/"+name) for name in FILES]
     entries.extend((ROOT.parent/name,name) for name in DATA_FILES)
     entries.extend((ADAPTER/name,"models/qwen35_4b_lora/best_adapter/"+name)
                    for name in ADAPTER_FILES)
@@ -52,7 +53,7 @@ def main(argv=None):
             info.compress_type=zipfile.ZIP_DEFLATED
             archive.writestr(info,content)
             manifest[name]={"sha256":hashlib.sha256(content).hexdigest(),"bytes":len(content)}
-        archive.writestr("valueqa_classification_review/package_manifest.json",
+        archive.writestr(module_name+"/package_manifest.json",
                          json.dumps(manifest,ensure_ascii=False,indent=2)+"\n")
     print(json.dumps({"package":str(destination),"files":len(entries)+1,
                       "bytes":destination.stat().st_size},ensure_ascii=False))

@@ -9,11 +9,11 @@ class ValueQAClassificationModel(BaseModel):
         raise RuntimeError("ValueQAClassificationModel requires ValueQAClassificationEvaluator, not generic text generation")
 
     def initial_backend(self, config):
-        from valueqa_classification_review.backend import LocalBackend
+        from ValueQA_Classification.backend import LocalBackend
         return LocalBackend(config)
 
     def review_backend(self, config, state_dir):
-        from valueqa_classification_review.backend import ReviewAPIBackend, ReviewVLLMBackend
+        from ValueQA_Classification.backend import ReviewAPIBackend, ReviewVLLMBackend
         if config["review_backend"] == "api":
             return ReviewAPIBackend(config)
         if config["review_backend"] == "vllm":

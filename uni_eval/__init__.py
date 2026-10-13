@@ -6,7 +6,7 @@ _loaded_profile = None
 
 
 def load_all_modules(profile="full") -> None:
-    """The optional value profile imports only the text-classification/evidence tasks."""
+    """The optional value profile imports only the Qwen evidence text task and shared components."""
     global _module_profile, _loaded_profile
     if profile not in ("full", "value"):
         raise ValueError(f"Unknown module profile: {profile}")
