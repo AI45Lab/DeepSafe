@@ -2,13 +2,13 @@ import os
 import json
 import logging
 import hashlib
-from typing import Dict, Any, Set
+from typing import Dict, Any, Set, Optional
 from uni_eval.registry import SUMMARIZERS
 from uni_eval.summarizers.base import BaseSummarizer
 
 logger = logging.getLogger(__name__)
 
-def _json_sanitize(obj: Any, *, _seen: Set[int] | None = None) -> Any:
+def _json_sanitize(obj: Any, *, _seen: Optional[Set[int]] = None) -> Any:
                                                                       
     if obj is None or isinstance(obj, (bool, int, float, str)):
         return obj
@@ -79,6 +79,10 @@ class StandardSummarizer(BaseSummarizer):
         md_file = os.path.join(output_dir, 'report.md')
         with open(md_file, 'w', encoding='utf-8') as f:
             f.write(f"# Evaluation Report\n\n")
+            if results.get("run_info"):
+                f.write("## Actual Run Information\n\n```json\n")
+                json.dump(results["run_info"], f, ensure_ascii=False, indent=2)
+                f.write("\n```\n\n")
             f.write(f"## Metrics\n\n")
             f.write("| Metric | Value |\n")
             f.write("| :--- | :--- |\n")
@@ -91,4 +95,3 @@ class StandardSummarizer(BaseSummarizer):
             f.write("\n```\n")
             
         print(f"Report saved to {md_file}")
-

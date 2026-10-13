@@ -1,0 +1,240 @@
+{
+  "verified": true,
+  "sample_count": 1500,
+  "complete_count": 1488,
+  "invalid_or_incomplete": 12,
+  "correct_count": 1163,
+  "full_1500_denominator": true,
+  "api_request_attempts": 3859,
+  "returned_responses": 3858,
+  "request_failures": 1,
+  "response_models": {
+    "deepseek-flash": 3858
+  },
+  "actual_request_messages_payloads_and_raw_responses_verified": true,
+  "reference_labels_and_annotations_excluded_from_model_inputs": true,
+  "agent3_trigger_and_direct_decision_rules_verified": true,
+  "agent1_recheck_calls": 0,
+  "promotion_evidence_guard_verified": true,
+  "independent_metric_recalculation_matches": true,
+  "credential_leak_scan_passed": true,
+  "matching_data_and_rules_with_previous": {
+    "evaluation_samples.jsonl": true,
+    "reference_annotations.jsonl": true,
+    "classification_rubric.md": true,
+    "dimension_rubric.yaml": true,
+    "classification_prompt_strict.txt": true,
+    "quality_scoring_rubric.md": true
+  },
+  "framework_core_matches_evaluated_source": true,
+  "engine_sha256": "ecdb0d844962b1d38237230ffa2198307160a98e98ce6de7fb35579b3cc36acb",
+  "same_api_and_parameters_as_current_single_llm": true,
+  "same_dataset_as_current_single_llm": true,
+  "current_metrics": {
+    "accuracy": 0.7753333333333333,
+    "macro_f1": 0.7754457625686658,
+    "low_span_exact_f1": 0.17100371747211895,
+    "low_span_char_f1": 0.45604649759668564
+  },
+  "previous_framework_metrics": {
+    "accuracy": 0.774,
+    "macro_f1": 0.7757260228233998,
+    "low_span_exact_f1": 0.17375455650060756,
+    "low_span_char_f1": 0.45399896492694775
+  },
+  "current_single_llm_metrics": {
+    "accuracy": 0.442,
+    "macro_f1": 0.35693104589912156,
+    "low_span_exact_f1": 0.04274465691788527,
+    "low_span_char_f1": 0.08455467869222097
+  },
+  "initial_metrics": {
+    "total": 1500,
+    "accuracy": 0.7766666666666666,
+    "macro_f1": 0.7741518078100804,
+    "per_grade": {
+      "high": {
+        "precision": 0.7611464968152867,
+        "recall": 0.956,
+        "f1": 0.847517730496454,
+        "support": 500
+      },
+      "medium": {
+        "precision": 0.6985743380855397,
+        "recall": 0.686,
+        "f1": 0.6922300706357215,
+        "support": 500
+      },
+      "low": {
+        "precision": 0.9076517150395779,
+        "recall": 0.688,
+        "f1": 0.7827076222980659,
+        "support": 500
+      }
+    },
+    "confusion": {
+      "high": {
+        "high": 478,
+        "medium": 22
+      },
+      "medium": {
+        "low": 35,
+        "medium": 343,
+        "high": 120,
+        "invalid": 2
+      },
+      "low": {
+        "low": 344,
+        "medium": 126,
+        "high": 30
+      }
+    },
+    "low_span_exact_f1": 0.0,
+    "low_span_char_f1": 0.0
+  },
+  "agent2_verdict_counts": {
+    "supported": 1038,
+    "contradicted": 448,
+    "unclear": 12,
+    "invalid": 2
+  },
+  "agent3_stage_count": 456,
+  "change_guards": {
+    "not_triggered": 1033,
+    "confirmed_by_agent3": 432,
+    "promotion_blocked_insufficient_evidence": 16,
+    "changed_by_agent3": 7
+  },
+  "boundary_effect_completed_only": {
+    "changed_wrong_to_correct": 6,
+    "changed_correct_to_wrong": 0,
+    "net_correct_change": 6
+  },
+  "invalid_samples": [
+    {
+      "sample_id": "sample_ccbcf67cb7fc",
+      "reference_label": "low",
+      "invalid_stages": {
+        "agent2": {
+          "status": "invalid",
+          "error": "invalid output schema"
+        }
+      }
+    },
+    {
+      "sample_id": "sample_cfe94d42eb81",
+      "reference_label": "low",
+      "invalid_stages": {
+        "agent2": {
+          "status": "invalid",
+          "error": "invalid output schema"
+        }
+      }
+    },
+    {
+      "sample_id": "sample_0979e04f4c44",
+      "reference_label": "high",
+      "invalid_stages": {
+        "agent2": {
+          "status": "invalid",
+          "error": "invalid output schema"
+        }
+      }
+    },
+    {
+      "sample_id": "sample_d43bbe52525b",
+      "reference_label": "medium",
+      "invalid_stages": {
+        "agent2": {
+          "status": "invalid",
+          "error": "invalid output schema"
+        }
+      }
+    },
+    {
+      "sample_id": "sample_205dc3d521cf",
+      "reference_label": "high",
+      "invalid_stages": {
+        "agent2": {
+          "status": "invalid",
+          "error": "invalid output schema"
+        }
+      }
+    },
+    {
+      "sample_id": "sample_aab2e1f6b45c",
+      "reference_label": "low",
+      "invalid_stages": {
+        "agent3": {
+          "status": "invalid",
+          "error": "invalid output schema"
+        }
+      }
+    },
+    {
+      "sample_id": "sample_07176baf6e4a",
+      "reference_label": "medium",
+      "invalid_stages": {
+        "agent2": {
+          "status": "invalid",
+          "error": "invalid output schema"
+        }
+      }
+    },
+    {
+      "sample_id": "sample_679b9de003c3",
+      "reference_label": "medium",
+      "invalid_stages": {
+        "agent1": {
+          "status": "invalid",
+          "error": "invalid output schema"
+        }
+      }
+    },
+    {
+      "sample_id": "sample_40574b1a4570",
+      "reference_label": "medium",
+      "invalid_stages": {
+        "agent1": {
+          "status": "invalid",
+          "error": "invalid output schema"
+        }
+      }
+    },
+    {
+      "sample_id": "sample_2b4348ef52d4",
+      "reference_label": "medium",
+      "invalid_stages": {
+        "agent2": {
+          "status": "invalid",
+          "error": "invalid output schema"
+        }
+      }
+    },
+    {
+      "sample_id": "sample_e79bf83d327b",
+      "reference_label": "medium",
+      "invalid_stages": {
+        "agent2": {
+          "status": "invalid",
+          "error": "invalid output schema"
+        }
+      }
+    },
+    {
+      "sample_id": "sample_b5e9a5b7a10d",
+      "reference_label": "medium",
+      "invalid_stages": {
+        "agent2": {
+          "status": "invalid",
+          "error": "invalid output schema"
+        }
+      }
+    }
+  ],
+  "usage": {
+    "completion_tokens": 255749,
+    "prompt_tokens": 3538137,
+    "total_tokens": 3793886
+  }
+}

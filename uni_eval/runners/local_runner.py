@@ -1,6 +1,8 @@
 import os
 import json
 import random
+import copy
+import hashlib
 from typing import Dict, Any, List, Tuple
 from uni_eval.registry import RUNNERS, MODELS, DATASETS, EVALUATORS, METRICS, SUMMARIZERS
 from uni_eval.runners.base import BaseRunner
@@ -12,7 +14,7 @@ def _ensure_dir(path: str) -> None:
 def _is_jsonl(path: str) -> bool:
     return path.lower().endswith(".jsonl")
 
-def _load_predictions(path: str) -> Dict[str, Any]:
+def _load_predictions(path: str, strict: bool = False) -> Dict[str, Any]:
     """
     Supports:
     - JSONL: each line is a JSON object with at least {id, prediction} (extra fields preserved)
@@ -23,6 +25,10 @@ def _load_predictions(path: str) -> Dict[str, Any]:
         raise FileNotFoundError(f"predictions_path not found: {path}")
 
     out: Dict[str, Any] = {}
+    def put(rid, value):
+        if strict and rid in out:
+            raise ValueError(f"Duplicate prediction ID: {rid}")
+        out[rid] = value
     if _is_jsonl(path):
         with open(path, "r", encoding="utf-8") as f:
             for idx, line in enumerate(f):
@@ -30,14 +36,16 @@ def _load_predictions(path: str) -> Dict[str, Any]:
                 if not line:
                     continue
                 rec = json.loads(line)
+                if strict and (not isinstance(rec, dict) or rec.get("id") is None):
+                    raise ValueError("Strict replay requires an explicit ID on every prediction")
                 rid = str(rec.get("id")) if rec.get("id") is not None else str(idx)
                 if rid == "None":
                     continue
 
                 if isinstance(rec, dict):
-                    out[rid] = rec
+                    put(rid, rec)
                 else:
-                    out[rid] = rec
+                    put(rid, rec)
         return out
 
     with open(path, "r", encoding="utf-8") as f:
@@ -50,19 +58,58 @@ def _load_predictions(path: str) -> Dict[str, Any]:
             rid = str(rec.get("id"))
             if rid == "None":
                 continue
-            out[rid] = rec
+            put(rid, rec)
         return out
 
     if isinstance(obj, dict):
         for k, v in obj.items():
             rid = str(k)
             if isinstance(v, dict):
-                out[rid] = v
+                put(rid, v)
             else:
-                out[rid] = v
+                put(rid, v)
         return out
 
     raise ValueError(f"Unsupported predictions file format: {path}")
+
+_PREDICTION_FIELDS = ("prediction", "issues", "attribution", "attribution_error",
+                      "classification_error", "localization_error", "run_info")
+
+
+def _input_fingerprint(item):
+    # Ground truth deliberately excluded: corrected labels can be rescored,
+    # but the text sent to the model must still match exactly.
+    value = {"id": str(item["id"]), "answer": item.get("answer"), "prompt": item.get("prompt")}
+    if "valueqa_input" in item:
+        value["valueqa_input"] = item["valueqa_input"]
+    return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()
+
+
+def _task_identity(config):
+    return [config["dataset"]["type"], config["evaluator"]["type"]]
+
+
+def _public_run_info(config):
+    model = config["model"]
+    return {"method": config["evaluator"]["type"], "model_type": model["type"],
+            **{k: model[k] for k in ("model_name", "temperature", "max_tokens") if k in model}}
+
+
+def _snapshot_predictions(rows, dataset, config):
+    inputs = {str(item["id"]): item for item in dataset}
+    if len(rows) != len(inputs) or {str(row["id"]) for row in rows} != set(inputs):
+        raise ValueError("Generated prediction IDs/count do not match the dataset")
+    snapshots = []
+    for row in rows:
+        item = inputs[str(row["id"])]
+        snapshots.append({
+            **{k: row[k] for k in _PREDICTION_FIELDS if k in row},
+            "id": item["id"], "input_sha256": _input_fingerprint(item),
+            "task_identity": _task_identity(config),
+            "run_info": row.get("run_info") or _public_run_info(config),
+        })
+    return snapshots
+
 
 def _write_predictions_jsonl(path: str, rows: List[Dict[str, Any]]) -> None:
     def _sanitize_jsonable(x: Any) -> Any:
@@ -216,26 +263,53 @@ class LocalRunner(BaseRunner):
         prediction_field: str = "prediction",
         require_predictions: bool = False,
         badcase_unknown_samples: int = 5,
+        prediction_policy: str = "legacy",
+        model_connection_subdirs: bool = False,
         **kwargs,
     ):
         super().__init__(**kwargs)
         self.output_dir = output_dir
+        self.base_output_dir = output_dir
+        self.model_connection_subdirs = bool(model_connection_subdirs)
         self.stage = stage
         self.predictions_path = predictions_path
         self.prediction_field = prediction_field
         self.require_predictions = require_predictions
+        self.prediction_policy = prediction_policy
         self.badcase_unknown_samples = int(badcase_unknown_samples)
         _ensure_dir(self.output_dir)
 
     def run(self, config: Dict[str, Any]):
+        config = copy.deepcopy(config)
         stage = str(getattr(self, "stage", "all") or "all").lower().strip()
         if stage not in ("all", "gen", "eval"):
             raise ValueError(f"Invalid runner.stage={stage!r}, expected one of: all, gen, eval")
 
         runner_cfg = config.get("runner", {}) if isinstance(config.get("runner", {}), dict) else {}
+        if runner_cfg.get("model_connection_subdirs", self.model_connection_subdirs):
+            from uni_eval.models.valueqa_service import select_service
+            model_cfg = config["model"]
+            if model_cfg.get("type") != "ValueQAServiceModel":
+                raise ValueError("model_connection_subdirs requires ValueQAServiceModel")
+            connection = model_cfg.get("connection")
+            select_service(connection, model_cfg.get("api"), model_cfg.get("local"))
+            self.output_dir = os.path.join(self.base_output_dir, connection)
+            runner_cfg["output_dir"] = self.output_dir
+            config["evaluator"]["state_dir"] = os.path.join(config["evaluator"]["state_dir"], connection)
+            _ensure_dir(self.output_dir)
+        policy = runner_cfg.get("prediction_policy", self.prediction_policy)
+        if policy not in ("legacy", "strict"):
+            raise ValueError(f"Unknown prediction_policy: {policy}")
+        strict = policy == "strict"
+        if strict:
+            config["evaluator"]["use_precomputed_predictions"] = stage == "eval"
+            if stage == "eval":
+                config["model"] = {"type": "NoOpModel"}
         predictions_path = str(runner_cfg.get("predictions_path", self.predictions_path) or "").strip()
         prediction_field = str(runner_cfg.get("prediction_field", self.prediction_field) or "prediction").strip()
         require_predictions = bool(runner_cfg.get("require_predictions", self.require_predictions))
+        if strict:
+            require_predictions = stage == "eval"
         badcase_unknown_samples = int(runner_cfg.get("badcase_unknown_samples", self.badcase_unknown_samples))
 
         env_n = os.getenv("MBEF_BADCASE_UNKNOWN_SAMPLES")
@@ -268,6 +342,8 @@ class LocalRunner(BaseRunner):
                         print(f"Stage=gen: using evaluator.generate_predictions() from {evaluator_cfg.get('type')}...")
                         rows = list(gen_fn(model, list(dataset)))
                 except Exception as e:
+                    if strict:
+                        raise
                                                                                        
                     print(f"Stage=gen: WARNING: custom gen unavailable, fallback to generic. err={e!r}")
 
@@ -290,7 +366,10 @@ class LocalRunner(BaseRunner):
                     unit="batch",
                 ):
                     batch_prompts = prompts[i : i + batch_size]
-                    responses.extend(model.generate(batch_prompts))
+                    batch_responses = model.generate(batch_prompts)
+                    if strict and len(batch_responses) != len(batch_prompts):
+                        raise ValueError("Model returned a different number of outputs than inputs in a batch")
+                    responses.extend(batch_responses)
 
                 for item, resp in zip(list(dataset), responses):
 
@@ -307,6 +386,8 @@ class LocalRunner(BaseRunner):
                     print(f"Generate: {row}")
                     rows.append(row)
 
+            if strict:
+                rows = _snapshot_predictions(rows, dataset, config)
             _write_predictions_jsonl(predictions_path, rows)
             print(f"Stage=gen: saved predictions to {predictions_path}")
             print("Stage=gen finished.")
@@ -316,13 +397,26 @@ class LocalRunner(BaseRunner):
         model = MODELS.build(config["model"])
         dataset = DATASETS.build(config["dataset"])
 
-        if predictions_path and os.path.isfile(predictions_path):
-            preds = _load_predictions(predictions_path)
+        if (not strict or stage == "eval") and predictions_path and os.path.isfile(predictions_path):
+            preds = _load_predictions(predictions_path, strict=strict)
             injected = 0
             for idx, item in enumerate(dataset.data):
                 rid = str(item.get("id")) if item.get("id") is not None else str(idx)
                 if rid in preds:
                     v = preds[rid]
+                    if strict:
+                        if not isinstance(v, dict) or "prediction" not in v:
+                            raise ValueError(f"Missing prediction for ID {rid}")
+                        if v.get("task_identity") != _task_identity(config):
+                            raise ValueError(f"Prediction task mismatch for ID {rid}; regenerate predictions")
+                        if v.get("input_sha256") != _input_fingerprint(item):
+                            raise ValueError(f"Prediction input mismatch for ID {rid}; regenerate predictions")
+                        if not isinstance(v.get("run_info"), dict) or not v["run_info"]:
+                            raise ValueError(f"Missing prediction provenance for ID {rid}")
+                        # Never replace current answers, prompts, labels or dataset metadata.
+                        item.update({k: v[k] for k in _PREDICTION_FIELDS if k in v})
+                        injected += 1
+                        continue
                     if isinstance(v, dict):
                                                                                                   
                         item.update(v)
@@ -348,6 +442,14 @@ class LocalRunner(BaseRunner):
         
         print("Running evaluation...")
         details = evaluator.evaluate(model, list(dataset))
+        run_info = None
+        if strict:
+            if len(details) != len(dataset):
+                raise ValueError("Evaluation output count does not match the dataset")
+            infos = [item.get("run_info") or _public_run_info(config) for item in details]
+            if any(info != infos[0] for info in infos):
+                raise ValueError("Mixed model/provenance records in a single evaluation")
+            run_info = infos[0] if infos else _public_run_info(config)
 
         try:
             _print_empty_output_badcases(details, max_n=badcase_unknown_samples)
@@ -368,6 +470,8 @@ class LocalRunner(BaseRunner):
             "metrics": final_metrics,
             "details": details,
         }
+        if run_info:
+            results["run_info"] = run_info
         
         summarizer_cfg = config.get("summarizer", {"type": "StandardSummarizer"})
         print(f"Summarizing results using {summarizer_cfg['type']}...")
