@@ -1,17 +1,14 @@
-# Qwen LoRA initial -> a different API model for evidence review -> deterministic gate.
-# Explicit current single-stage settings. Credentials: LLM_REVIEW_API_KEY.
-# Set QWEN_BASE_PATH (and QWEN_LORA_PATH on Linux); limit=0 runs all pending samples.
-module_profile: value
+﻿module_profile: value
 model:
-  type: QwenEvidenceModel
+  type: ValueQAClassificationModel
 dataset:
-  type: QwenEvidenceDataset
+  type: ValueQAClassificationDataset
   labels_from_references: true
   path: data/valueqa/evaluation_samples.jsonl
   references_path: data/valueqa/reference_annotations.jsonl
 evaluator:
-  type: QwenEvidenceEvaluator
-  config_path: qwen_evidence_review/config.current.local.json
+  type: ValueQAClassificationEvaluator
+  config_path: ValueQA_Classification/config.current.local.json
   runtime:
     review_backend: api
     review_api_base: https://api.deepseek.com
@@ -19,26 +16,31 @@ evaluator:
     review_api_workers: 5
     review_api_timeout: 120
     review_max_new_tokens: 4096
-    review_confidence_thresholds: {high: 0.9, medium: 0.9, low: 0.7}
+    review_confidence_thresholds:
+      high: 0.9
+      medium: 0.9
+      low: 0.7
     quantization: 4bit
     local_files_only: true
     mode: experimental
     review_max_input_tokens: 6144
-  state_dir: results/qwen_evidence_current_api/state
+  state_dir: results/valueqa_classification_current_cached_1533/state
   limit: 0
   policy_path: ''
+  # Supply --evaluator.initial_predictions <prediction.jsonl> on the command line.
+  # A fresh cached-only run refuses to proceed without an explicit source.
   initial_predictions: ''
-  imported_only: false
+  imported_only: true
   dry_run: false
   use_precomputed_predictions: false
 metrics:
-- type: QwenEvidenceMetric
+- type: ValueQAClassificationMetric
 summarizer:
   type: StandardSummarizer
 runner:
   type: LocalRunner
   stage: all
   prediction_policy: strict
-  output_dir: results/qwen_evidence_current_api
+  output_dir: results/valueqa_classification_current_cached_1533
   use_evaluator_gen: true
   badcase_unknown_samples: 0

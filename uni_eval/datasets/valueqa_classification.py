@@ -3,7 +3,7 @@
 import json
 from pathlib import Path
 
-from qwen_evidence_review.common import LABELS, FIELDS, blind
+from valueqa_classification_review.common import LABELS, FIELDS, blind
 from uni_eval.datasets.base import BaseDataset
 from uni_eval.registry import DATASETS
 
@@ -25,7 +25,7 @@ def read_records(path):
 
 
 @DATASETS.register_module()
-class QwenEvidenceDataset(BaseDataset):
+class ValueQAClassificationDataset(BaseDataset):
     def load(self):
         rows = read_records(self.path)
         reference_path = self.kwargs.get("references_path")
@@ -78,7 +78,7 @@ class QwenEvidenceDataset(BaseDataset):
                               "prompt": json.dumps(blind(inputs), ensure_ascii=False), "ground_truth": label,
                               "ground_truth_annotations": annotations,
                               "ground_truth_spans": [annotation["text"] for annotation in annotations],
-                              "meta": {"prompt_version": "qwen_evidence_v1"}})
+                              "meta": {"prompt_version": "valueqa_classification_v1"}})
         if not self.data:
             raise ValueError("Qwen evidence dataset is empty")
         if reference_path and set(references) != seen:

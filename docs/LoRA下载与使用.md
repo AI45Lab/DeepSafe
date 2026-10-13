@@ -23,7 +23,7 @@ DeepSafe/
 │           ├── classification_schema.json
 │           ├── training_config.json
 │           └── README.md
-└── qwen_evidence_review/
+└── valueqa_classification_review/
     ├── config.current.local.json
     └── config.current.server.json
 ```
@@ -56,7 +56,7 @@ hf download Qwen/Qwen3.5-4B --revision 851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a 
 
 两个显式配置均将 `adapter_path` 设置为 `../models/qwen35_4b_lora/best_adapter`，相对于配置文件所在目录解析。放置正确后不需要改 LoRA 路径。使用本地基础权重时，可显式设置 `base_model` 为 `../models/Qwen3.5-4B`，或用 `QWEN_BASE_PATH` / `--base-model` 指定已存在的基础模型目录；`base_revision` 保持上述值。
 
-Windows与Linux均安装 `qwen_evidence_review/requirements.txt`，再显式选择 `qwen_evidence_api.yaml`、`qwen_evidence_api_linux.yaml` 或 `qwen_evidence_vllm.yaml`。API复核另需配置自己的 `LLM_REVIEW_API_KEY`；可选vLLM由setup_vllm.sh安装到独立Linux环境，并需指定独立复核模型。具体运行方式见 [框架README](../qwen_evidence_review/README.md)。
+Windows与Linux均安装 `valueqa_classification_review/requirements.txt`，再显式选择 `valueqa_classification_api.yaml`、`valueqa_classification_api_linux.yaml` 或 `valueqa_classification_vllm.yaml`。API复核另需配置自己的 `LLM_REVIEW_API_KEY`；可选vLLM由setup_vllm.sh安装到独立Linux环境，并需指定独立复核模型。具体运行方式见 [框架README](../valueqa_classification_review/README.md)。
 
 该 adapter 按 `classification_schema.json` 的训练提示词和三类 token logits 完成分类；置信度由三个类别的 logits softmax 得到。单纯下载权重，或换用任意聊天提示词，不等于复现 DeepSafe 的初判协议。
 

@@ -1,11 +1,11 @@
 """Paired classification metrics; evidence quotations are not span localization predictions."""
-from qwen_evidence_review.evaluate import report
+from valueqa_classification_review.evaluate import report
 from uni_eval.metrics.base import BaseMetric
 from uni_eval.registry import METRICS
 
 
 @METRICS.register_module()
-class QwenEvidenceMetric(BaseMetric):
+class ValueQAClassificationMetric(BaseMetric):
     def compute(self, results):
         rows = [{"sample_id": str(item["id"]), "label": item["ground_truth"]} for item in results]
         outputs = [item["attribution"] for item in results]

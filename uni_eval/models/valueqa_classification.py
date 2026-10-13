@@ -4,16 +4,16 @@ from uni_eval.registry import MODELS
 
 
 @MODELS.register_module()
-class QwenEvidenceModel(BaseModel):
+class ValueQAClassificationModel(BaseModel):
     def generate(self, prompts, **kwargs):
-        raise RuntimeError("QwenEvidenceModel requires QwenEvidenceEvaluator, not generic text generation")
+        raise RuntimeError("ValueQAClassificationModel requires ValueQAClassificationEvaluator, not generic text generation")
 
     def initial_backend(self, config):
-        from qwen_evidence_review.backend import LocalBackend
+        from valueqa_classification_review.backend import LocalBackend
         return LocalBackend(config)
 
     def review_backend(self, config, state_dir):
-        from qwen_evidence_review.backend import ReviewAPIBackend, ReviewVLLMBackend
+        from valueqa_classification_review.backend import ReviewAPIBackend, ReviewVLLMBackend
         if config["review_backend"] == "api":
             return ReviewAPIBackend(config)
         if config["review_backend"] == "vllm":

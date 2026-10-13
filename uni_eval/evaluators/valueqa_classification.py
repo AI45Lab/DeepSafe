@@ -4,16 +4,16 @@ from contextlib import contextmanager, ExitStack
 import os
 import threading
 
-from qwen_evidence_review.common import (Checkpoint, LABELS, blind, digest, file_hash,
+from valueqa_classification_review.common import (Checkpoint, LABELS, blind, digest, file_hash,
                                        output_lock, read_json, write_json, write_jsonl)
-from qwen_evidence_review.gate import decide, gate_identity, validate_policy
-from qwen_evidence_review.run import (engine_identity, freeze_outputs, import_initials,
+from valueqa_classification_review.gate import decide, gate_identity, validate_policy
+from valueqa_classification_review.run import (engine_identity, freeze_outputs, import_initials,
                                      load_config, process_phased)
 from uni_eval.evaluators.base import BaseEvaluator
 from uni_eval.registry import EVALUATORS
 
 ROOT = Path(__file__).resolve().parents[2]
-METHOD = "qwen_evidence_review"
+METHOD = "valueqa_classification_review"
 
 
 def project_path(value):
@@ -23,16 +23,16 @@ def project_path(value):
 
 def bridge_identity(config):
     # Include the integration contract, without making metric/report edits invalidate inference.
-    files = ("uni_eval/evaluators/qwen_evidence.py", "uni_eval/models/qwen_evidence.py",
-             "uni_eval/datasets/qwen_evidence.py")
+    files = ("uni_eval/evaluators/valueqa_classification.py", "uni_eval/models/valueqa_classification.py",
+             "uni_eval/datasets/valueqa_classification.py")
     return digest({"qwen_engine": engine_identity(config),
                    "bridge": {name: file_hash(ROOT / name) for name in files}})
 
 
 @EVALUATORS.register_module()
-class QwenEvidenceEvaluator(BaseEvaluator):
+class ValueQAClassificationEvaluator(BaseEvaluator):
     def __init__(self, config_path=None, runtime=None,
-                 state_dir="results/qwen_evidence/state", limit=0, policy_path="",
+                 state_dir="results/valueqa_classification/state", limit=0, policy_path="",
                  initial_predictions="", imported_only=False, dry_run=False,
                  use_precomputed_predictions=False, **kwargs):
         if not config_path:
@@ -125,7 +125,7 @@ class QwenEvidenceEvaluator(BaseEvaluator):
             # A validation run cannot overwrite a genuine inference snapshot.
             raise SystemExit(0)
         if not callable(getattr(model, "initial_backend", None)):
-            raise TypeError("QwenEvidenceEvaluator requires QwenEvidenceModel")
+            raise TypeError("ValueQAClassificationEvaluator requires ValueQAClassificationModel")
         with self.publication_lock():
             checkpoint = Checkpoint(self.state_dir / "checkpoint.jsonl", identity, hashes)
             write_json(self.state_dir / "run_manifest.json",

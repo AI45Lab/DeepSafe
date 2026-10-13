@@ -278,7 +278,7 @@ class LocalRunner(BaseRunner):
         _ensure_dir(self.output_dir)
 
     def run(self, config: Dict[str, Any]):
-        if config.get("evaluator", {}).get("type") != "QwenEvidenceEvaluator":
+        if config.get("evaluator", {}).get("type") != "ValueQAClassificationEvaluator":
             return self._run(config)
         # The evaluator's state lock must remain held until root snapshots/reports are published.
         task_config = copy.deepcopy(config)

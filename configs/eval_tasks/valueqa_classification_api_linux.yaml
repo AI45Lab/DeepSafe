@@ -1,14 +1,14 @@
-module_profile: value
+﻿module_profile: value
 model:
-  type: QwenEvidenceModel
+  type: ValueQAClassificationModel
 dataset:
-  type: QwenEvidenceDataset
+  type: ValueQAClassificationDataset
   labels_from_references: true
   path: data/valueqa/evaluation_samples.jsonl
   references_path: data/valueqa/reference_annotations.jsonl
 evaluator:
-  type: QwenEvidenceEvaluator
-  config_path: qwen_evidence_review/config.current.server.json
+  type: ValueQAClassificationEvaluator
+  config_path: ValueQA_Classification/config.current.server.json
   runtime:
     review_backend: api
     review_api_base: https://api.deepseek.com
@@ -24,7 +24,7 @@ evaluator:
     local_files_only: true
     mode: experimental
     review_max_input_tokens: 6144
-  state_dir: results/qwen_evidence_current_api_linux/state
+  state_dir: results/valueqa_classification_current_api_linux/state
   limit: 0
   policy_path: ''
   initial_predictions: ''
@@ -32,13 +32,13 @@ evaluator:
   dry_run: false
   use_precomputed_predictions: false
 metrics:
-- type: QwenEvidenceMetric
+- type: ValueQAClassificationMetric
 summarizer:
   type: StandardSummarizer
 runner:
   type: LocalRunner
   stage: all
   prediction_policy: strict
-  output_dir: results/qwen_evidence_current_api_linux
+  output_dir: results/valueqa_classification_current_api_linux
   use_evaluator_gen: true
   badcase_unknown_samples: 0

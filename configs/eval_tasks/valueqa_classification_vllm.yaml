@@ -1,17 +1,17 @@
-# Qwen LoRA initial -> a different local vLLM model for evidence review -> deterministic gate.
+﻿# Qwen LoRA initial -> a different local vLLM model for evidence review -> deterministic gate.
 # Set REVIEW_MODEL_PATH or evaluator.runtime.review_local_model explicitly.
 # Set QWEN_BASE_PATH (and QWEN_LORA_PATH on Linux); limit=0 runs all pending samples.
 module_profile: value
 model:
-  type: QwenEvidenceModel
+  type: ValueQAClassificationModel
 dataset:
-  type: QwenEvidenceDataset
+  type: ValueQAClassificationDataset
   labels_from_references: true
   path: data/valueqa/evaluation_samples.jsonl
   references_path: data/valueqa/reference_annotations.jsonl
 evaluator:
-  type: QwenEvidenceEvaluator
-  config_path: qwen_evidence_review/config.current.server.json
+  type: ValueQAClassificationEvaluator
+  config_path: ValueQA_Classification/config.current.server.json
   runtime:
     review_backend: vllm
     quantization: 4bit
@@ -19,7 +19,7 @@ evaluator:
     mode: experimental
     review_max_new_tokens: 4096
     review_confidence_thresholds: {high: 0.9, medium: 0.9, low: 0.7}
-  state_dir: results/qwen_evidence_current_vllm/state
+  state_dir: results/valueqa_classification_current_vllm/state
   limit: 0
   policy_path: ''
   initial_predictions: ''
@@ -27,13 +27,13 @@ evaluator:
   dry_run: false
   use_precomputed_predictions: false
 metrics:
-- type: QwenEvidenceMetric
+- type: ValueQAClassificationMetric
 summarizer:
   type: StandardSummarizer
 runner:
   type: LocalRunner
   stage: all
   prediction_policy: strict
-  output_dir: results/qwen_evidence_current_vllm
+  output_dir: results/valueqa_classification_current_vllm
   use_evaluator_gen: true
   badcase_unknown_samples: 0

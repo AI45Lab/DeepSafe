@@ -18,9 +18,9 @@ import yaml
 import uni_eval
 uni_eval.load_all_modules("value")
 from uni_eval.registry import DATASETS, EVALUATORS, METRICS, MODELS, RUNNERS
-from uni_eval.models.qwen_evidence import QwenEvidenceModel
-from qwen_evidence_review.common import output_lock, read_json, read_jsonl, write_json, write_jsonl
-from qwen_evidence_review.boundary_test_support import certify_review, stage_response, visible_sample
+from uni_eval.models.valueqa_classification import ValueQAClassificationModel
+from valueqa_classification_review.common import output_lock, read_json, read_jsonl, write_json, write_jsonl
+from valueqa_classification_review.boundary_test_support import certify_review, stage_response, visible_sample
 
 ROOT = Path(__file__).resolve().parents[1]
 ROW = {"sample_id": "one", "original_context": "台风导致会议延期，最终改到周五。",
@@ -75,7 +75,7 @@ class QwenIntegrationTests(unittest.TestCase):
         self.directory = Path(self.temp.name)
         adapter = self.directory / "adapter"
         adapter.mkdir()
-        config = read_json(ROOT / "qwen_evidence_review/config.current.server.json")
+        config = read_json(ROOT / "valueqa_classification_review/config.current.server.json")
         config.update(adapter_path=str(adapter), review_backend="api", local_files_only=True,
                       review_api_base="http://127.0.0.1:1/v1", review_api_model="mock-review", review_api_workers=1,
                       review_api_warmup_models=False, quantization="none")
@@ -91,11 +91,11 @@ class QwenIntegrationTests(unittest.TestCase):
         self.references = self.directory / "references.jsonl"
         write_jsonl(self.samples, [{**ROW, "label": "medium"}, {**ROW, "sample_id": "two", "label": "medium"}])
         write_jsonl(self.references, [{"sample_id": sid, "label": "medium", "annotations": []} for sid in ("one", "two")])
-        self.cfg = {"module_profile": "value", "model": {"type": "QwenEvidenceModel"},
-                    "dataset": {"type": "QwenEvidenceDataset", "path": str(self.samples), "references_path": str(self.references)},
-                    "evaluator": {"type": "QwenEvidenceEvaluator", "config_path": str(self.config_path),
+        self.cfg = {"module_profile": "value", "model": {"type": "ValueQAClassificationModel"},
+                    "dataset": {"type": "ValueQAClassificationDataset", "path": str(self.samples), "references_path": str(self.references)},
+                    "evaluator": {"type": "ValueQAClassificationEvaluator", "config_path": str(self.config_path),
                                   "state_dir": str(self.directory / "state"), "runtime": {"mode": "observe"}},
-                    "metrics": [{"type": "QwenEvidenceMetric"}], "summarizer": {"type": "StandardSummarizer"},
+                    "metrics": [{"type": "ValueQAClassificationMetric"}], "summarizer": {"type": "StandardSummarizer"},
                     "runner": {"type": "LocalRunner", "stage": "all", "prediction_policy": "strict",
                                "output_dir": str(self.directory / "results"), "use_evaluator_gen": True,
                                "badcase_unknown_samples": 0}}
@@ -111,7 +111,7 @@ class QwenIntegrationTests(unittest.TestCase):
 
     def infer(self, **kwargs):
         calls = []
-        model = QwenEvidenceModel()
+        model = ValueQAClassificationModel()
         fail = kwargs.pop("fail", False)
         with patch.object(model, "initial_backend", side_effect=lambda cfg: FakeBackend(calls, "initial")), \
              patch.object(model, "review_backend", side_effect=lambda cfg, path: FakeBackend(calls, "review", fail=fail)):
@@ -123,23 +123,23 @@ class QwenIntegrationTests(unittest.TestCase):
             RUNNERS.build(cfg["runner"]).run(cfg)
 
     def test_registry_construction_is_lazy(self):
-        with patch("qwen_evidence_review.backend.LocalBackend", side_effect=AssertionError("eager load")):
+        with patch("valueqa_classification_review.backend.LocalBackend", side_effect=AssertionError("eager load")):
             MODELS.build(self.cfg["model"])
             self.evaluator()
-            METRICS.build({"type": "QwenEvidenceMetric"})
+            METRICS.build({"type": "ValueQAClassificationMetric"})
 
     def test_environment_adapter_overrides_defaults_and_explicit_path_overrides_environment(self):
         adapter=self.directory/"adapter"
         explicit_adapter=self.directory/"explicit_adapter"
         shutil.copytree(adapter,explicit_adapter)
         for name in ("api", "api_linux", "vllm", "cached_1533"):
-            cfg=yaml.safe_load((ROOT/f"configs/eval_tasks/qwen_evidence_{name}.yaml").read_text(encoding="utf-8"))
+            cfg=yaml.safe_load((ROOT/f"configs/eval_tasks/valueqa_classification_{name}.yaml").read_text(encoding="utf-8"))
             runtime=dict(cfg["evaluator"]["runtime"])
             runtime.update(review_api_base="http://127.0.0.1:1/v1", review_api_model="mock-review",
                            review_local_model="mock-local-review")
             settings={"config_path":cfg["evaluator"]["config_path"],"runtime":runtime}
             with patch.dict(os.environ,{"QWEN_LORA_PATH":str(adapter),"QWEN_BASE_PATH":"","VLLM_PYTHON":""}), \
-                 patch("qwen_evidence_review.run.sys.platform", "linux"):
+                 patch("valueqa_classification_review.run.sys.platform", "linux"):
                 config=self.evaluator(**settings).prepare(list(self.dataset()))[0]
                 self.assertEqual(config["adapter_path"],str(adapter))
                 runtime["adapter_path"]=str(explicit_adapter)
@@ -147,7 +147,7 @@ class QwenIntegrationTests(unittest.TestCase):
                 self.assertEqual(config["adapter_path"],str(explicit_adapter))
 
     def test_evaluation_input_import_does_not_load_model_or_record_initials(self):
-        model=QwenEvidenceModel()
+        model=ValueQAClassificationModel()
         with patch.object(model,"initial_backend",side_effect=AssertionError("must not load a model")):
             with self.assertRaisesRegex(ValueError,"Explicit prediction field required"):
                 self.evaluator(initial_predictions=str(self.samples),imported_only=True).evaluate(model,self.dataset())
@@ -171,7 +171,7 @@ class QwenIntegrationTests(unittest.TestCase):
     def test_limit_then_resume_then_no_model_calls(self):
         results, calls = self.infer(limit=1)
         self.assertEqual(results[1]["attribution"]["initial_status"], "pending")
-        scores = METRICS.build({"type": "QwenEvidenceMetric"}).compute(results)
+        scores = METRICS.build({"type": "ValueQAClassificationMetric"}).compute(results)
         self.assertEqual(scores["initial_n"], 1)
         self.assertEqual(scores["candidate_n"], 1)
         results, calls = self.infer()
@@ -208,16 +208,16 @@ class QwenIntegrationTests(unittest.TestCase):
             def close(self):
                 if state["active"]: raise AssertionError("Reviewer closed before in-flight work finished")
                 state["closed"] = True
-        with patch.object(QwenEvidenceModel, "initial_backend", side_effect=lambda cfg: FakeBackend([])), \
-             patch.object(QwenEvidenceModel, "review_backend", side_effect=lambda cfg, path: Reviewer()):
+        with patch.object(ValueQAClassificationModel, "initial_backend", side_effect=lambda cfg: FakeBackend([])), \
+             patch.object(ValueQAClassificationModel, "review_backend", side_effect=lambda cfg, path: Reviewer()):
             self.run_runner(cfg)
         self.assertEqual((state["calls"], state["peak"], state["closed"]), (30, 10, True))
         outputs = read_jsonl(self.directory / "state/predictions.jsonl")
         self.assertEqual([r["sample_id"] for r in outputs], [str(i) for i in range(30)])
         self.assertEqual([r["review"]["reason"] for r in outputs], [r["answer"] for r in rows])
         cfg["evaluator"]["runtime"]["review_api_workers"] = 3
-        with patch.object(QwenEvidenceModel, "initial_backend", side_effect=AssertionError("recomputed initial")), \
-             patch.object(QwenEvidenceModel, "review_backend", side_effect=AssertionError("repeated review")):
+        with patch.object(ValueQAClassificationModel, "initial_backend", side_effect=AssertionError("recomputed initial")), \
+             patch.object(ValueQAClassificationModel, "review_backend", side_effect=AssertionError("repeated review")):
             self.run_runner(cfg)
 
     def test_failure_falls_back_and_is_not_retried(self):
@@ -230,10 +230,10 @@ class QwenIntegrationTests(unittest.TestCase):
     def test_phased_release_before_review(self):
         for selected in ("vllm", "api"):
             calls = []
-            model = QwenEvidenceModel()
+            model = ValueQAClassificationModel()
             runtime = {"review_backend": selected, "review_api_model": "mock",
                        "review_local_model": "mock-local-review"}
-            with patch("qwen_evidence_review.run.sys.platform", "linux"), \
+            with patch("valueqa_classification_review.run.sys.platform", "linux"), \
                  patch.object(model, "initial_backend", side_effect=lambda cfg: FakeBackend(calls, "initial")), \
                  patch.object(model, "review_backend", side_effect=lambda cfg, path: FakeBackend(calls, "review")):
                 self.evaluator(runtime=runtime, state_dir=str(self.directory / selected)).evaluate(model, self.dataset())
@@ -241,18 +241,18 @@ class QwenIntegrationTests(unittest.TestCase):
             self.assertEqual(calls[-1], ("close", "review"))
 
     def test_factory_routes_review_backend(self):
-        model = QwenEvidenceModel()
+        model = ValueQAClassificationModel()
         for selection, name in (("api", "ReviewAPIBackend"), ("vllm", "ReviewVLLMBackend")):
-            with patch("qwen_evidence_review.backend." + name) as factory:
+            with patch("valueqa_classification_review.backend." + name) as factory:
                 model.review_backend({"review_backend": selection}, self.directory)
                 self.assertEqual(factory.call_count, 1)
-        with patch("qwen_evidence_review.backend.LocalBackend", side_effect=AssertionError("same-model fallback")):
+        with patch("valueqa_classification_review.backend.LocalBackend", side_effect=AssertionError("same-model fallback")):
             with self.assertRaisesRegex(ValueError, "api or vllm"):
                 model.review_backend({"review_backend": "transformers"}, self.directory)
 
     def test_native_windows_vllm_rejected_before_initial_loading(self):
-        model = QwenEvidenceModel()
-        with patch("qwen_evidence_review.run.sys.platform", "win32"), \
+        model = ValueQAClassificationModel()
+        with patch("valueqa_classification_review.run.sys.platform", "win32"), \
              patch.object(model, "initial_backend", side_effect=AssertionError("initial model loaded")):
             with self.assertRaisesRegex(ValueError, "requires Linux"):
                 self.evaluator(runtime={"review_backend": "vllm", "review_local_model": "different-reviewer"}).evaluate(
@@ -278,8 +278,8 @@ class QwenIntegrationTests(unittest.TestCase):
                         RUNNERS.build(cfg["runner"]).run(cfg)
                     except BaseException as exc:
                         errors.append(exc)
-                with patch.object(QwenEvidenceModel, "initial_backend", side_effect=lambda cfg: FakeBackend([])), \
-                     patch.object(QwenEvidenceModel, "review_backend", side_effect=lambda cfg, path: FakeBackend([])), \
+                with patch.object(ValueQAClassificationModel, "initial_backend", side_effect=lambda cfg: FakeBackend([])), \
+                     patch.object(ValueQAClassificationModel, "review_backend", side_effect=lambda cfg, path: FakeBackend([])), \
                      patch("uni_eval.runners.local_runner._write_predictions_jsonl", side_effect=delayed_write), \
                      patch("builtins.print"):
                     thread = threading.Thread(target=first_run)
@@ -310,8 +310,8 @@ class QwenIntegrationTests(unittest.TestCase):
                 with self.assertRaisesRegex(RuntimeError, "in use"):
                     with output_lock(path): pass
             return original(instance, results, directory)
-        with patch.object(QwenEvidenceModel, "initial_backend", side_effect=lambda cfg: FakeBackend([])), \
-             patch.object(QwenEvidenceModel, "review_backend", side_effect=lambda cfg, path: FakeBackend([])), \
+        with patch.object(ValueQAClassificationModel, "initial_backend", side_effect=lambda cfg: FakeBackend([])), \
+             patch.object(ValueQAClassificationModel, "review_backend", side_effect=lambda cfg, path: FakeBackend([])), \
              patch.object(StandardSummarizer, "summarize", summarize):
             self.run_runner(cfg)
         for path in (self.directory / "state", self.directory / "results", predictions.parent):
@@ -327,21 +327,21 @@ class QwenIntegrationTests(unittest.TestCase):
         with output_lock(state): pass
         cfg = copy.deepcopy(self.cfg)
         cfg["runner"]["output_dir"] = str(state)
-        with patch.object(QwenEvidenceModel, "initial_backend", side_effect=lambda cfg: FakeBackend([])), \
-             patch.object(QwenEvidenceModel, "review_backend", side_effect=lambda cfg, path: FakeBackend([])):
+        with patch.object(ValueQAClassificationModel, "initial_backend", side_effect=lambda cfg: FakeBackend([])), \
+             patch.object(ValueQAClassificationModel, "review_backend", side_effect=lambda cfg, path: FakeBackend([])):
             self.run_runner(cfg)
         self.assertTrue((state / "result.json").exists())
 
     def test_runner_all_saves_snapshot_and_offline_redecides(self):
-        with patch.object(QwenEvidenceModel, "initial_backend", side_effect=lambda cfg: FakeBackend([])), \
-             patch.object(QwenEvidenceModel, "review_backend", side_effect=lambda cfg, path: FakeBackend([])):
+        with patch.object(ValueQAClassificationModel, "initial_backend", side_effect=lambda cfg: FakeBackend([])), \
+             patch.object(ValueQAClassificationModel, "review_backend", side_effect=lambda cfg, path: FakeBackend([])):
             self.run_runner(self.cfg)
         snapshot = self.directory / "results/predictions.jsonl"
         self.assertTrue(snapshot.is_file())
         cfg = copy.deepcopy(self.cfg)
         cfg["runner"].update(stage="eval", output_dir=str(self.directory / "offline"), predictions_path=str(snapshot))
         cfg["evaluator"]["runtime"]["mode"] = "experimental"
-        with patch("qwen_evidence_review.backend.LocalBackend", side_effect=AssertionError("offline load")):
+        with patch("valueqa_classification_review.backend.LocalBackend", side_effect=AssertionError("offline load")):
             self.run_runner(cfg)
         result = read_json(self.directory / "offline/result.json")
         self.assertEqual(result["metrics"]["initial_acc"], 0)
@@ -379,7 +379,7 @@ class QwenIntegrationTests(unittest.TestCase):
         results, _ = self.infer()
         old = (self.directory / "state/predictions.jsonl").read_bytes()
         with self.assertRaises(SystemExit) as result:
-            self.evaluator(dry_run=True).generate_predictions(QwenEvidenceModel(), self.dataset())
+            self.evaluator(dry_run=True).generate_predictions(ValueQAClassificationModel(), self.dataset())
         self.assertEqual(result.exception.code, 0)
         self.assertEqual(old, (self.directory / "state/predictions.jsonl").read_bytes())
 
@@ -438,7 +438,7 @@ class QwenIntegrationTests(unittest.TestCase):
 
     def test_frozen_dataset_loads_and_configs_register(self):
         for name in ("vllm", "api"):
-            cfg = yaml.safe_load((ROOT / f"configs/eval_tasks/qwen_evidence_{name}.yaml").read_text(encoding="utf-8"))
+            cfg = yaml.safe_load((ROOT / f"configs/eval_tasks/valueqa_classification_{name}.yaml").read_text(encoding="utf-8"))
             self.assertEqual(cfg["evaluator"]["runtime"]["review_backend"], name)
             self.assertEqual(cfg["evaluator"]["runtime"]["mode"], "experimental")
             MODELS.build(cfg["model"])
@@ -449,7 +449,7 @@ class QwenIntegrationTests(unittest.TestCase):
         references = read_jsonl(ROOT / "data/valueqa/reference_annotations.jsonl")
         expected = ("sample_id", "triplet_id", "display_number", "source_id", "evaluation_dimension",
                     "primary_metric", "original_context", "target_comment", "question", "answer", "label")
-        cfg = yaml.safe_load((ROOT / "configs/eval_tasks/qwen_evidence_api.yaml").read_text(encoding="utf-8"))
+        cfg = yaml.safe_load((ROOT / "configs/eval_tasks/valueqa_classification_api.yaml").read_text(encoding="utf-8"))
         dataset = DATASETS.build(cfg["dataset"])
         for sample, reference, record in zip(samples, references, dataset):
             self.assertEqual(tuple(sample), expected)

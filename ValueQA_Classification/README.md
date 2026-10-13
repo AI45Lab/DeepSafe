@@ -26,7 +26,7 @@ Windows 与 Linux 共用本模块的 [requirements.txt](requirements.txt)，其�
 
 ```powershell
 conda activate Laya
-python -m pip install -r qwen_evidence_review/requirements.txt
+python -m pip install -r valueqa_classification_review/requirements.txt
 python -m pip check
 python -c "import torch; print(torch.__version__, torch.version.cuda); assert torch.cuda.is_available(), 'CUDA unavailable'; print(torch.cuda.get_device_name(0))"
 ```
@@ -36,13 +36,13 @@ python -c "import torch; print(torch.__version__, torch.version.cuda); assert to
 先激活已装好 CUDA PyTorch 的 Python 环境，再创建模块专用环境并激活它：
 
 ```bash
-bash qwen_evidence_review/setup_server.sh
-source qwen_evidence_review/.venv_server/bin/activate
+bash valueqa_classification_review/setup_server.sh
+source valueqa_classification_review/.venv_server/bin/activate
 python -m pip check
 python -c "import torch; print(torch.__version__, torch.version.cuda); assert torch.cuda.is_available(), 'CUDA unavailable'; print(torch.cuda.get_device_name(0))"
 ```
 
-`setup_server.sh` 先检查现有 CUDA PyTorch，再通过 `--system-site-packages` 创建 `.venv_server` 并安装依赖。安装依赖可能在新环境内另装 PyTorch，不能保证始终复用原 CUDA 构建；安装后要核对输出。脚本**不会自动激活**新环境，后续命令应在上述 `source` 后执行，或明确使用 `qwen_evidence_review/.venv_server/bin/python`。
+`setup_server.sh` 先检查现有 CUDA PyTorch，再通过 `--system-site-packages` 创建 `.venv_server` 并安装依赖。安装依赖可能在新环境内另装 PyTorch，不能保证始终复用原 CUDA 构建；安装后要核对输出。脚本**不会自动激活**新环境，后续命令应在上述 `source` 后执行，或明确使用 `valueqa_classification_review/.venv_server/bin/python`。
 
 `setup_local.ps1` 是 Windows 的可选环境安装辅助脚本；已配置好 Laya 时直接使用前面的安装命令即可。虚拟环境不能从 Windows 复制到 Linux 使用。
 
@@ -87,7 +87,7 @@ DeepSafe/
 ├── data/valueqa/
 │   ├── evaluation_samples.jsonl
 │   └── reference_annotations.jsonl
-└── qwen_evidence_review/
+└── valueqa_classification_review/
     ├── README.md
     ├── config.current.local.json
     └── config.current.server.json
@@ -127,7 +127,7 @@ LoRA 已通过配置字段 `adapter_path: ../models/qwen35_4b_lora/best_adapter`
 | --- | --- |
 | 独立 Windows JSON `config.current.local.json` | `false` |
 | 独立 Linux JSON `config.current.server.json` | `true` |
-| DeepSafe 的四份 `qwen_evidence_*.yaml` | `true`，覆盖对应 JSON |
+| DeepSafe 的四份 `valueqa_classification_*.yaml` | `true`，覆盖对应 JSON |
 
 选择 `true` 时，必须提前下载完整模型，或已有固定 revision 的完整 Hub 缓存；缺文件时程序报错，不会自动下载。配置中的 `cache_dir: ../models_cache` 指向 DeepSafe 根目录的模型缓存，与 `models/Qwen3.5-4B` 显式下载目录是两种存放方式。指定 `QWEN_BASE_PATH` 后直接加载该目录，不需要再下载一份缓存。
 
@@ -136,7 +136,7 @@ LoRA 已通过配置字段 `adapter_path: ../models/qwen35_4b_lora/best_adapter`
 DeepSafe Linux 入口需要自动下载时，使用以下显式覆盖；仍须提前下载 LoRA 并设置 API 密钥：
 
 ```bash
-python tools/run.py configs/eval_tasks/qwen_evidence_api_linux.yaml --evaluator.runtime.base_model Qwen/Qwen3.5-4B --evaluator.runtime.local_files_only false --runner.output_dir results/qwen_evidence_online --evaluator.state_dir results/qwen_evidence_online/state
+python tools/run.py configs/eval_tasks/valueqa_classification_api_linux.yaml --evaluator.runtime.base_model Qwen/Qwen3.5-4B --evaluator.runtime.local_files_only false --runner.output_dir results/valueqa_classification_online --evaluator.state_dir results/valueqa_classification_online/state
 ```
 
 基础模型仍按配置中固定的 `base_revision` 下载。**当前代码不会自动从 Hugging Face 下载 LoRA**，即使 `local_files_only` 为 `false`，LoRA 的配套文件也必须存在。离线 vLLM 的 `local_files_only` 同时约束独立复核模型和它的分词器；真正离线部署需提前准备这些文件。
@@ -155,8 +155,8 @@ JSON 相对路径按配置文件目录解析；DeepSafe 的数据和状态路径
 
 ```powershell
 $env:LLM_REVIEW_API_KEY = "替换为你的API密钥"
-python qwen_evidence_review/check_env.py --config qwen_evidence_review/config.current.local.json
-python tools/run.py configs/eval_tasks/qwen_evidence_api.yaml
+python valueqa_classification_review/check_env.py --config valueqa_classification_review/config.current.local.json
+python tools/run.py configs/eval_tasks/valueqa_classification_api.yaml
 ```
 
 ### Linux
@@ -165,14 +165,14 @@ python tools/run.py configs/eval_tasks/qwen_evidence_api.yaml
 
 ```bash
 export LLM_REVIEW_API_KEY="替换为你的API密钥"
-python qwen_evidence_review/check_env.py --config qwen_evidence_review/config.current.server.json
-python tools/run.py configs/eval_tasks/qwen_evidence_api_linux.yaml
+python valueqa_classification_review/check_env.py --config valueqa_classification_review/config.current.server.json
+python tools/run.py configs/eval_tasks/valueqa_classification_api_linux.yaml
 ```
 
 `check_env.py` 只检查依赖与配置，不实际加载模型或验证 API 可用性。运行前可额外做完整输入和指纹检查：
 
 ```bash
-python qwen_evidence_review/run.py --config qwen_evidence_review/config.current.server.json --dry-run
+python valueqa_classification_review/run.py --config valueqa_classification_review/config.current.server.json --dry-run
 ```
 
 Windows 将上述 JSON 换为 `config.current.local.json`。dry-run 不加载或下载模型，也不调用 API；若指定本地基础模型，它会读取权重计算哈希，因此不保证立即完成。输入和参考文件路径以所选 JSON 为准，不能代替其他 YAML 数据配置的核验。
@@ -190,7 +190,7 @@ Windows 将上述 JSON 换为 `config.current.local.json`。dry-run 不加载或
 在 DeepSafe 根目录选择完整 JSON，独立运行：
 
 ```bash
-python qwen_evidence_review/run.py --config qwen_evidence_review/config.current.server.json
+python valueqa_classification_review/run.py --config valueqa_classification_review/config.current.server.json
 ```
 
 Windows 使用 `config.current.local.json`。也可以进入模块目录后运行 `python run.py --config config.current.server.json`。独立入口必须显式提供 `--config`，不使用隐式配置文件。
@@ -204,10 +204,10 @@ Linux 的 `run_server.sh` 是独立入口包装器，不是 `tools/run.py` 的�
 在 DeepSafe 根目录执行：
 
 ```bash
-bash qwen_evidence_review/setup_vllm.sh
+bash valueqa_classification_review/setup_vllm.sh
 export REVIEW_MODEL_PATH="/独立复核模型的绝对路径"
-export VLLM_PYTHON="$PWD/qwen_evidence_review/.venv_vllm/bin/python"
-python tools/run.py configs/eval_tasks/qwen_evidence_vllm.yaml
+export VLLM_PYTHON="$PWD/valueqa_classification_review/.venv_vllm/bin/python"
+python tools/run.py configs/eval_tasks/valueqa_classification_vllm.yaml
 ```
 
 `QWEN_BASE_PATH` 仍按第 2 节设置。vLLM 0.31.0 安装在单独的 `.venv_vllm` 中；运行 `tools/run.py` 的仍是初判环境。复核不需要 API 密钥。单卡先完成初判、卸载分类模型，再加载独立复核模型。本地复核顺序处理，不使用 API 并发参数；输入预算为 6144 tokens，输出预算为 4096 tokens，总配置上下文预算 10240 tokens。完整材料不截断，超输入预算时复核失败并保留初判。本地复核不会自动套用初判的 NF4 量化。
@@ -223,7 +223,7 @@ API 与本地 vLLM 共用分类提示词、证据结构检查和改判规则。
 冻结初判可直接导入，避免重新运行 Qwen：
 
 ```bash
-python tools/run.py configs/eval_tasks/qwen_evidence_cached_1533.yaml --evaluator.initial_predictions /已有初判/initial_predictions.jsonl
+python tools/run.py configs/eval_tasks/valueqa_classification_cached_1533.yaml --evaluator.initial_predictions /已有初判/initial_predictions.jsonl
 ```
 
 API 密钥仍需设置。此配置可在 Linux 和 Windows 使用，但需要相应依赖和完整 LoRA 元数据；当前身份计算仍会检查所配置的本地模型文件，因此不能把缓存复核理解为自动免除所有文件准备。首次缓存运行必须显式提供初判文件，或指定已有匹配 checkpoint 的状态目录。
@@ -238,12 +238,12 @@ DeepSafe 导出的冻结初判位于对应 `state/initial_predictions.jsonl`；�
 
 | 入口 | 当前结果目录 | 暂停文件 |
 | --- | --- | --- |
-| DeepSafe Windows API | `results/qwen_evidence_current_api/` | `state/.pause` |
-| DeepSafe Linux API | `results/qwen_evidence_current_api_linux/` | `state/.pause` |
-| DeepSafe 缓存 API | `results/qwen_evidence_current_cached_1533/` | `state/.pause` |
-| DeepSafe 本地 vLLM | `results/qwen_evidence_current_vllm/` | `state/.pause` |
-| 独立 Windows JSON | `qwen_evidence_review/outputs/current_single_local/` | `.pause` |
-| 独立 Linux JSON | `qwen_evidence_review/outputs/current_single_server/` | `.pause` |
+| DeepSafe Windows API | `results/valueqa_classification_current_api/` | `state/.pause` |
+| DeepSafe Linux API | `results/valueqa_classification_current_api_linux/` | `state/.pause` |
+| DeepSafe 缓存 API | `results/valueqa_classification_current_cached_1533/` | `state/.pause` |
+| DeepSafe 本地 vLLM | `results/valueqa_classification_current_vllm/` | `state/.pause` |
+| 独立 Windows JSON | `valueqa_classification_review/outputs/current_single_local/` | `.pause` |
+| 独立 Linux JSON | `valueqa_classification_review/outputs/current_single_server/` | `.pause` |
 
 表中的 `state/.pause` 相对于相应结果目录；路径被配置或命令行覆盖时，以实际状态目录为准。创建暂停文件后停止派发新请求，已开始的请求可能继续完成；移除暂停文件并以相同配置、同一状态目录重新启动即可续跑。不要把暂停文件放错到 DeepSafe 结果目录顶层。
 
@@ -254,7 +254,7 @@ DeepSafe 的 `evaluator.limit: 0` 表示处理全部待处理样本。独立入�
 代码、模型、输入、提示词或会影响身份的运行配置改变时，使用新状态与结果目录；不要修改旧 checkpoint 的身份来强行恢复。例如新开一轮 Linux API 实验：
 
 ```bash
-python tools/run.py configs/eval_tasks/qwen_evidence_api_linux.yaml --runner.output_dir results/qwen_evidence_run2 --evaluator.state_dir results/qwen_evidence_run2/state
+python tools/run.py configs/eval_tasks/valueqa_classification_api_linux.yaml --runner.output_dir results/valueqa_classification_run2 --evaluator.state_dir results/valueqa_classification_run2/state
 ```
 
 必要时在新任务中显式导入内容匹配的冻结初判。只修改本 README 不改变框架推理代码身份。
@@ -290,13 +290,13 @@ DeepSafe 结果包含 `result.json`、`report.md` 和 runner 的 `predictions.js
 在 DeepSafe 根目录执行，测试使用模拟模型与本地 HTTP 服务，不下载模型或消耗真实 API：
 
 ```bash
-python -B -m unittest qwen_evidence_review.test_framework -q
-python -B -m unittest discover -s tests -p test_qwen_evidence_integration.py -q
+python -B -m unittest valueqa_classification_review.test_framework -q
+python -B -m unittest discover -s tests -p test_valueqa_classification_integration.py -q
 ```
 
 这些测试不能替代 Linux GPU、bitsandbytes 或真实 vLLM 兼容性试运行。部署后先小批量验证，再运行全量数据。
 
-完整 DeepSafe 部署需保留本模块、四份 `configs/eval_tasks/qwen_evidence_*.yaml` 和 `uni_eval` 中的四个 `qwen_evidence.py` 集成模块。仅复制本模块可以使用独立入口，但仍须按前述结构准备模型和数据，不能调用缺失的 `tools/run.py`。
+完整 DeepSafe 部署需保留本模块、四份 `configs/eval_tasks/valueqa_classification_*.yaml` 和 `uni_eval` 中的四个 `valueqa_classification.py` 集成模块。仅复制本模块可以使用独立入口，但仍须按前述结构准备模型和数据，不能调用缺失的 `tools/run.py`。
 
 源码目录保留运行代码、提示词、明确配置、安装和启动脚本、测试、协议来源记录及 README。虚拟环境、基础模型权重与缓存、密钥、日志、结果和生成的 ZIP 不提交到 GitHub。LoRA 若随 GitHub 分发须使用已配置的 Git LFS，克隆后执行 `git lfs pull`；也可直接使用第 2 节的 Hugging Face 下载命令。
 

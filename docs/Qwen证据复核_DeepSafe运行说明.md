@@ -1,8 +1,8 @@
 # DeepSafe当前方案运行说明
 
-运行入口为tools/run.py，组件为QwenEvidenceModel、QwenEvidenceDataset、QwenEvidenceEvaluator、QwenEvidenceMetric。只使用置信度筛选与单阶段独立证据复核，旧两阶段和兼容入口已删除。
+运行入口为tools/run.py，组件为ValueQAClassificationModel、ValueQAClassificationDataset、ValueQAClassificationEvaluator、ValueQAClassificationMetric。只使用置信度筛选与单阶段独立证据复核，旧两阶段和兼容入口已删除。
 
-框架README和唯一依赖清单均位于[qwen_evidence_review目录](../qwen_evidence_review/README.md)。在DeepSafe根目录执行`python -m pip install -r qwen_evidence_review/requirements.txt`即可安装初判/API复核依赖。可选vLLM由setup_vllm.sh安装到独立Linux环境。
+框架README和唯一依赖清单均位于[valueqa_classification_review目录](../valueqa_classification_review/README.md)。在DeepSafe根目录执行`python -m pip install -r valueqa_classification_review/requirements.txt`即可安装初判/API复核依赖。可选vLLM由setup_vllm.sh安装到独立Linux环境。
 
 ## 当前明确参数
 
@@ -20,16 +20,16 @@
 
 ## Windows
 
-设置LLM_REVIEW_API_KEY，选择configs/eval_tasks/qwen_evidence_api.yaml。已有1533条完整初判时用qwen_evidence_cached_1533.yaml，不加载Qwen：
+设置LLM_REVIEW_API_KEY，选择configs/eval_tasks/valueqa_classification_api.yaml。已有1533条完整初判时用valueqa_classification_cached_1533.yaml，不加载Qwen：
 
 ```powershell
 conda activate Laya
-python tools/run.py configs/eval_tasks/qwen_evidence_cached_1533.yaml --evaluator.initial_predictions path/to/initial_predictions.jsonl
+python tools/run.py configs/eval_tasks/valueqa_classification_cached_1533.yaml --evaluator.initial_predictions path/to/initial_predictions.jsonl
 ```
 
 ## Linux
 
-选择qwen_evidence_api_linux.yaml，并明确设置QWEN_BASE_PATH；LoRA已位于仓库models/qwen35_4b_lora/best_adapter，配置通过相对路径加载。QWEN_LORA_PATH仅在使用其他adapter目录时覆盖。离线vLLM选择qwen_evidence_vllm.yaml并设置REVIEW_MODEL_PATH，必要时用VLLM_PYTHON指定独立环境。使用4bit NF4、BF16及训练时初判协议。Windows和Linux统一安装qwen_evidence_review/requirements.txt，其中已包含bitsandbytes。
+选择valueqa_classification_api_linux.yaml，并明确设置QWEN_BASE_PATH；LoRA已位于仓库models/qwen35_4b_lora/best_adapter，配置通过相对路径加载。QWEN_LORA_PATH仅在使用其他adapter目录时覆盖。离线vLLM选择valueqa_classification_vllm.yaml并设置REVIEW_MODEL_PATH，必要时用VLLM_PYTHON指定独立环境。使用4bit NF4、BF16及训练时初判协议。Windows和Linux统一安装valueqa_classification_review/requirements.txt，其中已包含bitsandbytes。
 
 ## 恢复和数据
 
@@ -43,4 +43,4 @@ python tools/run.py configs/eval_tasks/qwen_evidence_cached_1533.yaml --evaluato
 
 [规则说明](单阶段置信度复核_20261012.md) · [完整600与1533实验结果](../experiments/single_review_deepseek_newkey_600_1533_20261012/report.md)。
 
-LoRA权重使用Git LFS管理，GitHub克隆后执行git lfs pull。相对路径按配置文件目录解析，不按当前终端目录解析。服务器压缩包同时包含qwen_evidence_review代码目录和models中的推理adapter，不包含基础模型、训练checkpoint或API密钥。[发布说明](GitHub发布说明.md)。
+LoRA权重使用Git LFS管理，GitHub克隆后执行git lfs pull。相对路径按配置文件目录解析，不按当前终端目录解析。服务器压缩包同时包含valueqa_classification_review代码目录和models中的推理adapter，不包含基础模型、训练checkpoint或API密钥。[发布说明](GitHub发布说明.md)。

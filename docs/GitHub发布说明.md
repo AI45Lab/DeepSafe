@@ -19,18 +19,18 @@ git lfs ls-files
 
 所有入口必须显式选择配置。基础模型不随 Git 仓库发布：设置 `QWEN_BASE_PATH` 为基础权重目录，或在独立 Windows 配置中使用固定 revision 的 Hugging Face 模型 ID 下载权重。两种配置已包含 LoRA 相对路径，无需再设置个人桌面路径。
 
-API复核使用环境变量 `LLM_REVIEW_API_KEY`。配置文件中只保存变量名。Windows与Linux共用 `qwen_evidence_review/requirements.txt`，其中直接包含Transformers、PEFT及NF4配置必需的bitsandbytes；CUDA PyTorch需预先匹配驱动安装。框架README集中在qwen_evidence_review目录。可选vLLM由setup_vllm.sh安装到独立Linux/WSL2环境。
+API复核使用环境变量 `LLM_REVIEW_API_KEY`。配置文件中只保存变量名。Windows与Linux共用 `valueqa_classification_review/requirements.txt`，其中直接包含Transformers、PEFT及NF4配置必需的bitsandbytes；CUDA PyTorch需预先匹配驱动安装。框架README集中在valueqa_classification_review目录。可选vLLM由setup_vllm.sh安装到独立Linux/WSL2环境。
 
 ## 缓存复核
 
 Git 仓库不发布本机 `results/` 中的冻结初判。首次使用缓存任务，必须显式提供缓存文件：
 
 ```bash
-python tools/run.py configs/eval_tasks/qwen_evidence_cached_1533.yaml \
+python tools/run.py configs/eval_tasks/valueqa_classification_cached_1533.yaml \
   --evaluator.initial_predictions /absolute/path/initial_predictions.jsonl
 ```
 
-文件应由匹配输入的 Qwen 初判生成，包含 `sample_id`、`predicted_level`、`probabilities` 和 `input_sha256`。无缓存时先用 `qwen_evidence_api.yaml` 或 `qwen_evidence_api_linux.yaml` 运行初判；生成文件位于该任务的 `state/initial_predictions.jsonl`。已有同配置 checkpoint 可续跑，参考标签不能代替初判预测。
+文件应由匹配输入的 Qwen 初判生成，包含 `sample_id`、`predicted_level`、`probabilities` 和 `input_sha256`。无缓存时先用 `valueqa_classification_api.yaml` 或 `valueqa_classification_api_linux.yaml` 运行初判；生成文件位于该任务的 `state/initial_predictions.jsonl`。已有同配置 checkpoint 可续跑，参考标签不能代替初判预测。
 
 ## 历史实验
 
