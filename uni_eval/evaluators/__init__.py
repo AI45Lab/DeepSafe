@@ -1,5 +1,6 @@
 from uni_eval import _module_profile
 from .valueqa import ValueQASingleLLMEvaluator, ValueQAFrameworkEvaluator
+from .qwen_evidence import QwenEvidenceEvaluator
 
 if _module_profile == "value":
     from .base import BaseEvaluator
@@ -72,4 +73,4 @@ else:
         "BeHonestEvaluator",
     ]
 
-__all__ += ['ValueQASingleLLMEvaluator', 'ValueQAFrameworkEvaluator']
+__all__ += ['ValueQASingleLLMEvaluator', 'ValueQAFrameworkEvaluator', 'QwenEvidenceEvaluator']

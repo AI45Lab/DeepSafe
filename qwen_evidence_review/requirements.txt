@@ -1,0 +1,13 @@
+# Shared classifier / API-review dependencies for Windows and Linux.
+# Install driver-compatible CUDA PyTorch before installing this file.
+transformers==5.19.0
+peft==0.21.2
+accelerate==1.15.0
+bitsandbytes==0.50.2
+requests>=2.32,<3
+openai>=1.0,<3
+PyYAML>=6,<7
+tqdm>=4.66,<5
+
+# Optional offline reviewer: setup_vllm.sh installs vllm==0.31.0 in its own
+# Linux/WSL2 environment. Do not install it into the classifier environment.

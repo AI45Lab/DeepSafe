@@ -1,0 +1,6 @@
+# Keep Linux entrypoints executable through bash on Windows-created checkouts.
+*.sh text eol=lf
+*.ps1 text eol=crlf
+
+# This LoRA is larger than GitHub's ordinary Git single-file limit.
+models/qwen35_4b_lora/best_adapter/adapter_model.safetensors filter=lfs diff=lfs merge=lfs -text

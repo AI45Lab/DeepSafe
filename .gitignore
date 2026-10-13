@@ -28,3 +28,16 @@ vlsbench_app/
 *.out
 vlsbench_service.py
 reports/
+
+# Machine-specific settings / credentials (publish the explicit current configs).
+.env
+.env.*
+!.env.example
+*.local.private.json
+
+# Not required for adapter inference; leave the copied training artifact local.
+models/**/training_args.bin
+
+# Local base-model download cache, kept outside the source module.
+/models_cache/
+/models/Qwen3.5-4B/

@@ -1,0 +1,44 @@
+module_profile: value
+model:
+  type: QwenEvidenceModel
+dataset:
+  type: QwenEvidenceDataset
+  labels_from_references: true
+  path: data/valueqa/evaluation_samples.jsonl
+  references_path: data/valueqa/reference_annotations.jsonl
+evaluator:
+  type: QwenEvidenceEvaluator
+  config_path: qwen_evidence_review/config.current.server.json
+  runtime:
+    review_backend: api
+    review_api_base: https://api.deepseek.com
+    review_api_model: deepseek-flash
+    review_api_workers: 5
+    review_api_timeout: 120
+    review_max_new_tokens: 4096
+    review_confidence_thresholds:
+      high: 0.9
+      medium: 0.9
+      low: 0.7
+    quantization: 4bit
+    local_files_only: true
+    mode: experimental
+    review_max_input_tokens: 6144
+  state_dir: results/qwen_evidence_current_api_linux/state
+  limit: 0
+  policy_path: ''
+  initial_predictions: ''
+  imported_only: false
+  dry_run: false
+  use_precomputed_predictions: false
+metrics:
+- type: QwenEvidenceMetric
+summarizer:
+  type: StandardSummarizer
+runner:
+  type: LocalRunner
+  stage: all
+  prediction_policy: strict
+  output_dir: results/qwen_evidence_current_api_linux
+  use_evaluator_gen: true
+  badcase_unknown_samples: 0

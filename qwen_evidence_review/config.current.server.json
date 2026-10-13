@@ -1,0 +1,58 @@
+{
+  "backend": "transformers",
+  "review_backend": "api",
+  "review_confidence_thresholds": {
+    "high": 0.9,
+    "medium": 0.9,
+    "low": 0.7
+  },
+  "review_local_model": "CHANGE_ME",
+  "review_local_tokenizer": "",
+  "review_local_revision": "",
+  "review_vllm_python": "",
+  "review_vllm_startup_timeout": 600,
+  "review_vllm_tensor_parallel_size": 1,
+  "review_vllm_gpu_memory_utilization": 0.8,
+  "review_vllm_enforce_eager": true,
+  "review_api_base": "https://api.deepseek.com",
+  "review_api_model": "deepseek-flash",
+  "review_api_key_env": "LLM_REVIEW_API_KEY",
+  "review_api_timeout": 120,
+  "review_api_extra_body": {
+    "thinking": {
+      "type": "disabled"
+    },
+    "response_format": {
+      "type": "json_object"
+    },
+    "stream": false
+  },
+  "adapter_path": "../models/qwen35_4b_lora/best_adapter",
+  "base_model": "Qwen/Qwen3.5-4B",
+  "base_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "local_files_only": true,
+  "cache_dir": "../models_cache",
+  "quantization": "4bit",
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "attention": "sdpa",
+  "initial_attempts": 2,
+  "review_attempts": 1,
+  "review_use_adapter": false,
+  "review_enable_thinking": false,
+  "review_max_input_tokens": 6144,
+  "review_max_new_tokens": 4096,
+  "review_max_time_seconds": 240,
+  "input": "../data/valueqa/evaluation_samples.jsonl",
+  "references": "../data/valueqa/reference_annotations.jsonl",
+  "output_dir": "outputs/current_single_server",
+  "mode": "experimental",
+  "api_base": "http://127.0.0.1:8000/v1",
+  "api_model": "qwen35-valueqa",
+  "api_key_env": "LLM_API_KEY",
+  "api_timeout": 240,
+  "api_extra_body": {},
+  "review_api_workers": 5,
+  "review_api_transport": "requests",
+  "review_api_warmup_models": true
+}

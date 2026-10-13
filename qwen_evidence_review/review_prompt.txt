@@ -1,0 +1,65 @@
+任务类型：single_call_boundary_review
+一次调用完成本题必要要求识别和完整答案证据复核，你看不到初判、初判置信度或参考标签。
+先依据题目与完整材料识别真正必要的要求，排除可选背景、例子、后果和题外维度；再核验答案。不要因为答案没写某个细节，就把那个细节追加为题目要求。本调用会看到答案，不得声称要求清单是独立盲提取。
+在 requirements_plan 中记录必要要求、必要性、可接受的等价表达、题目与材料引文、材料可回答性和歧义说明。target_comment 为 null 时表示没有目标评论，只以 original_context 为材料依据；任务占位说明也不能当成事实证据。每个要求都须在 requirements 中核验同一 id。
+先核验核心误读／无有效回答，再检查各项覆盖，最后判断修复是否保留理解。引用存在并不证明语义关系成立，须附简短诊断。
+每项必要要求返回同一 id：met=明确表达或合理蕴含；partial=必要解释未完成；missing=必要内容未表达；contradicted=发生实质语义误读，不限于字面矛盾；uncertain=无法可靠核验。
+met／partial／contradicted 须引用答案实际文字；纯遗漏 answer_evidence=[]。检查整份答案含末句，不能按关键词判遗漏。
+high 须有全部必要项的正面覆盖证据、核心理解正确、关键陈述有材料支持；issues=[]，repair.mode=none。仅“未发现问题”不足以升级。
+medium 须已有实质正确理解、没有核心误读，并指出必要性、真实缺口及保留理解的修复方向。每个 partial／missing 要求必须有一个 local 问题，合并同一要求重复诊断，不限固定问题数量；repair.mode=preserve。
+low 核心误读须关联必要要求及具体材料／答案证据，kind=central，repair.mode=change_core。反讽、观点归属及无依据中心解释无需字面相反引文。
+low 无有效回答仅在 material_answerable=true 且 substantive_correct_understanding=false 时成立，kind=nonresponse，repair.mode=rebuild；引用实际拒答／偏题表述。
+如必要要求不可靠、材料无法核验或预算不足，完成状态须为 false；仍给一个证据最支持的三档候选，程序保留初判。不能为了凑等级夸大要求或替答案补出未表达的理解。
+仅输出一个 JSON 对象，不添加 Markdown。field 必须是真实单一字段名，各枚举只选一项：
+{
+  "label": "high|medium|low",
+  "reason": "决定档位的简短理由",
+  "requirements_plan": {
+    "requirements_complete": true,
+    "material_answerable": true,
+    "ambiguity_note": "材料的真实歧义或限制；没有时为空字符串",
+    "requirements": [{
+      "id": "R1",
+      "point": "本题一个真正必要的要求",
+      "necessity_reason": "为何缺少该项就没有完成题目",
+      "acceptable_completion": "允许的等价表达和合理解释",
+      "question_evidence": [{"field":"question","text":"逐字引用"}],
+      "material_evidence": [{"field":"original_context","text":"逐字引用；真实评论也可使用target_comment"}]
+    }]
+  },
+  "review_complete": true,
+  "requirements_complete": true,
+  "residual_core_check_complete": true,
+  "full_answer_checked": true,
+  "reasonable_entailment_checked": true,
+  "key_claims_supported": true,
+  "substantive_correct_understanding": true,
+  "core": {
+    "status": "correct|incorrect|no_understanding|uncertain",
+    "error_type": "none|wrong_object|reversed_stance|nonliteral_misreading|wrong_attribution|key_relation_error|unsupported_core|value_misreading|no_effective_answer|uncertain",
+    "reason": "中心理解及语境核验的短诊断",
+    "answer_evidence": [{"field":"answer","text":"逐字引用"}],
+    "material_evidence": [{"field":"original_context","text":"逐字引用；也可用真实target_comment字段"}]
+  },
+  "requirements": [{
+    "id": "R1",
+    "status": "met|partial|missing|contradicted|uncertain",
+    "reason": "答案表达或合理蕴含了什么，或具体缺少什么",
+    "answer_evidence": [{"field":"answer","text":"逐字引用；纯遗漏可为空列表"}]
+  }],
+  "issues": [{
+    "requirement_id": "R1",
+    "kind": "central|local|nonresponse",
+    "status": "confirmed|uncertain",
+    "defect_type": "required_omission|required_explanation|required_judgment|required_limitation|core_misreading|no_effective_answer",
+    "necessity_reason": "该问题为什么影响本题必要要求",
+    "reason": "经过全文及合理蕴含检查后的具体缺口或误读",
+    "missing_point": "未表达的必要含义；没有时为空字符串",
+    "preserves_core": true,
+    "correct_understanding_evidence": [{"field":"answer","text":"已有正确理解；local必填，其他可为空"}],
+    "answer_evidence": [{"field":"answer","text":"逐字引用；纯遗漏可为空列表"}],
+    "material_evidence": [{"field":"original_context","text":"逐字引用；也可用真实target_comment字段"}]
+  }],
+  "repair": {"mode":"none|preserve|change_core|rebuild|uncertain", "action":"简短修复方向；high可写无需实质修复"}
+}
+local 的 preserves_core=true；central／nonresponse 为 false。medium 已有正确理解的证据不可为空。

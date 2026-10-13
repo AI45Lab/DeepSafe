@@ -1,5 +1,6 @@
 from uni_eval import _module_profile
 from .valueqa_service import ValueQAServiceModel
+from .qwen_evidence import QwenEvidenceModel
 
 if _module_profile == "value":
     from .api import APIModel
@@ -30,3 +31,5 @@ else:
         "ValueQAServiceModel"
     ]
 
+
+__all__ += ["QwenEvidenceModel"]

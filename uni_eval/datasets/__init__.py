@@ -1,5 +1,6 @@
 from uni_eval import _module_profile
 from .valueqa import ValueQADataset
+from .qwen_evidence import QwenEvidenceDataset
 
 if _module_profile == "value":
     from .base import BaseDataset
@@ -69,4 +70,4 @@ else:
         "BeHonestDataset",
     ]
 
-__all__ += ['ValueQADataset']
+__all__ += ['ValueQADataset', 'QwenEvidenceDataset']

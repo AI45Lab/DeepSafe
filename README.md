@@ -1,274 +1,313 @@
+# DeepSafe
+
+**Enterprise-grade deepfake detection across image, video, and audio.**
+
+[![CI](https://github.com/siddharthksah/DeepSafe/actions/workflows/ci.yml/badge.svg)](https://github.com/siddharthksah/DeepSafe/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/)
+[![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](https://www.docker.com/)
+[![Dataset on HF](https://img.shields.io/badge/HuggingFace-Dataset-orange)](https://huggingface.co/datasets/siddharthksah/DeepSafe-benchmark)
+[![Weights on HF](https://img.shields.io/badge/HuggingFace-Weights-orange)](https://huggingface.co/siddharthksah/deepsafe-weights)
+
+> ### Does any of this actually work?
+>
+> We ran 24 detectors against 411 AI generators to find out. They catch
+> **66.2% of fakes**, and only **7% of Sora video**.
+>
+> That work lives in **[deepsafe-bench](https://github.com/deepsafehq/deepsafe-bench)**:
+> a benchmark, model zoo and adaptation toolkit, with the full results, the
+> evaluation corpus, and a `pip install` that reproduces every number without
+> a GPU.
+>
+> ```bash
+> pip install deepsafe-bench
+> deepsafe eval --baseline ensemble --modality video
+> ```
+>
+> This repository remains the original MIT-licensed detection platform and is
+> unchanged. deepsafe-bench is a separate, newer project under a
+> non-commercial licence.
+
+DeepSafe is a modular platform that combines multiple state-of-the-art deepfake detection models into a single ensemble system. Each model runs in its own Docker container. A central API gateway orchestrates requests, dispatches them to model services, and fuses results using voting, averaging, or a trained stacking meta-learner.
+
+**Add a new model in minutes, retrain the ensemble in one command.**
+
 <div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./data/deepsafe-logo-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./data/deepsafe-logo-light.svg">
-    <img alt="DeepSafe Logo" src="./data/deepsafe-logo-dark.svg" width="280">
-  </picture>
+  <img src="docs/images/dashboard_1.png" alt="Dashboard" width="90%">
 </div>
-<div style="height: 8px;"></div>
-<div align="center">
-  <h3 style="margin: 0;">All-in-One Safety Evaluation ToolKit for LLMs and MLLMs</h3>
-</div>
-<div style="height: 6px;"></div>
-<div align="center">
-  <a href="https://ai45.shlab.org.cn/deepsight"><img alt="Homepage" src="https://img.shields.io/static/v1?label=&message=%F0%9F%8C%90%20Homepage&color=2F81F7&style=flat"></a>
-  <a href="https://arxiv.org/abs/2602.12092"><img alt="Technical Report (arXiv)" src="https://img.shields.io/static/v1?label=&message=Report&color=B31B1B&style=flat&logo=arxiv&logoColor=FFFFFF"></a>
-  <a href="#quick-start"><img alt="Documentation" src="https://img.shields.io/badge/Documentation-8CA1AF?style=flat-square&logo=readthedocs&logoColor=white"></a>
-</div>
-<div style="height: 18px;"></div>
-
-Current safety evaluation for large models lacks comprehensive standardized protocols and dedicated assessment tools. **DeepSafe** is the first all-in-one framework integrating 25+ safety datasets and the specialized [**ProGuard**](https://huggingface.co/yushaohan/ProGuard-7B) evaluation model, supporting full-modal LLM/VLM assessment.
-
-> **DeepSafe** is part of **DeepSight** and works best with 🔍 [**DeepScan**](https://github.com/AI45Lab/DeepScan) (LLM/MLLM diagnosis toolkit). See the unified evaluation–diagnosis workflow on the [<img src="https://avatars.githubusercontent.com/u/194484914?s=200&v=4" height="14" alt="AI45"> HomePage](https://ai45.shlab.org.cn/deepsight).
-
-
-## 🆕 News
-- **2026-07-15: DeepSafe-Sci is now available on the [`deepsafe-sci`](https://github.com/AI45Lab/DeepSafe-Sci).** It provides dedicated evaluation workflows for SciHazard, Safe-Scientist, and SOSBench, covering harmful scientific assistance, safe handling of risky research requests, and over-refusal in scientific settings.
-- 🔥🔥🔥 **2026-02-06: DeepSafe's latest leaderboards and in-depth analyses are out now!**
-  Our evaluation comprehensively covers mainstream LLMs and MLLMs, including GPT, Claude, Gemini, DeepSeek, Qwen, Llama, and Mistral, providing a deep dive into the current state of AI safety. Access full results: [**Leaderboard**](https://ai45.shlab.org.cn/deepsafe) | [**Frontier Risk Report**](https://ai45.shlab.org.cn/safety-report#front-risk-report) | [**Content Risk Report**](https://ai45.shlab.org.cn/safety-report#eval-report)
-
-## ✨ Features
-
-DeepSafe features a modular, configuration-driven elastic architecture, enabling a full-link automated closed loop from inference and generation to judgment and deep evaluation reporting. It provides a deeply evaluable, reproducible, and highly scalable evolving security infrastructure for AI Safety research, aiming to drive safety assessment from superficial testing to in-depth analysis and accelerate the construction of Trustworthy AI. 🚀
-
-
-### All-in-One Framework
-- **High Extensibility**: Powered by a **Registry mechanism**, new components (datasets, metrics, etc.) can be integrated with minimal code. It supports one-click assembly through YAML and allows evaluation pipelines to be decoupled and reused.
-- **Streamlined Usability**: Adopts a "Config-as-Execution" paradigm. Simply provide a single YAML file, and the framework automatically completes the full cycle and generates standardized reports.
-- **Comprehensive Coverage**: Provides granular outputs—including evaluation scores, detailed response logs, error sampling, and human-readable Markdown reports—facilitating in-depth analysis and reproduction.
-
-### ProGuard Evaluation Model
-- **Proactive Risk Identification**: Introduces a pioneering proactive detection paradigm capable of reasoning about and describing unknown risks, transcending the rigid constraints of predefined classification systems.
-- **Eradicating Modality Bias**: Implements a hierarchical multimodal safety taxonomy trained on a balanced dataset of 87,000 samples, ensuring fair and precise risk assessment across both text and visual modalities.
 
 ---
 
-## 📖 Model Support
+## Architecture
 
-DeepSafe supports major open-source models and commercial APIs, allowing flexible switching between evaluation backends.
+```mermaid
+graph TD
+    Browser["Browser :8888"] --> Nginx["Nginx + React SPA"]
+    Nginx -->|"/api/*"| Gateway["FastAPI Gateway :8000"]
 
-| Open-source Models (via vLLM/HF) | API Models |
-| :--- | :--- |
-| • **Llama / Llama3 / Alpaca / Vicuna** | • **OpenAI (GPT-4/3.5)** |
-| • **Qwen / Qwen2 / Qwen2.5 / Qwen3** | • **Gemini** |
-| • **GLM / ChatGLM2 / ChatGLM3** | • **Claude** |
-| • **InternLM / InternLM2.5** | • **ZhipuAI (ChatGLM)** |
-| • **Baichuan / Baichuan2** | • **Baichuan API** |
-| • **Yi / Yi-1.5 / Yi-VL** | • **ByteDance (YunQue)** |
-| • **Mistral / Mixtral** | • **Huawei (PanGu)** |
-| • **Gemma / Gemma 2** | • **Baidu (ERNIEBot)** |
-| • **DeepSeek (Coder/Math)** | • **360 / MiniMax / SenseTime** |
-| • **BlueLM / TigerBot / WizardLM** | • **Xunfei (Spark)** |
-| • ...... | • ...... |
+    Gateway --> NPR["NPR :5001<br/>(Image)"]
+    Gateway --> UFD["UniversalFakeDetect :5004<br/>(Image)"]
+    Gateway --> CEV["CrossEfficientViT :7001<br/>(Video)"]
 
-## 📊 Dataset Support
+    NPR --> Ensemble["Meta-Learner<br/>(Stacking / Voting / Average)"]
+    UFD --> Ensemble
+    CEV --> Ensemble
 
-| Name | Description |
-| :--- | :--- |
-| **Salad-Bench** | Joint safety benchmark covering multi-dimensional and multi-lingual evaluation. |
-| **HarmBench** | Standardized benchmark for model robustness against Jailbreak attacks. |
-| **Do-Not-Answer** | Evaluates model refusal capabilities for harmful prompts. |
-| **BeaverTails** | Large-scale safety dataset for human preference alignment. |
-| **MM-SafetyBench** | Multi-dimensional benchmark for multi-modal large models. |
-| **VLSBench** | Vision-language safety benchmark focusing on image-text alignment. |
-| **FLAMES** | Fine-grained safety alignment and evaluation framework. |
-| **XSTest** | Benchmark for measuring "Exaggerated Safety" (over-refusal) tendencies. |
-| **SIUO** | Multi-modal hidden harmful intent discernment test. |
-| **Uncontrolled-AIRD** | AI risk detection in uncontrolled scenarios. |
-| **TruthfulQA** | Measures content truthfulness and resistance to misleading prompts. |
-| **HaluEval-QA** | Hallucination evaluation for question-answering scenarios. |
-| **MedHallu** | Hallucination benchmark for the medical domain. |
-| **MossBench** | Comprehensive benchmark for safety and capabilities. |
-| **Fake-Alignment** | Differentiation between true and deceptive alignment. |
-| **Sandbagging** | Measures intentional hiding of model capabilities. |
-| **Evaluation-Faking** | Assessment of cheating/manipulation during evaluation. |
-| **WMDP** | Safety measurement in hazardous knowledge domains (e.g., bio-chemical). |
-| **MASK** | Evaluation for model Deceptive Alignment. |
-| **MSSBench** | Multi-stage fine-grained safety standard tests. |
-| **BeHonest** | Honesty and self-knowledge evaluation for LLMs. |
-| **Deception-Bench** | Specialized tests for deceptive model behaviors. |
-| **Ch3EF** | Multi-level and multi-dimensional safety capability assessment. |
-| **Manipulation-Persuasion-Conv** | Tests resistance to manipulation in conversations. |
-| **Reason-Under-Pressure** | Logic reasoning tests under high-pressure constraints. |
-
----
-
-<a id="quick-start"></a>
-## 🚀 Quick Start
-
-DeepSafe provides a standardized workflow consisting of four stages: **Configure -> Inference -> Evaluation -> Visualization**.
-
-### 1. Environment Setup
-```bash
-# Recommended to use a virtual environment
-pip install -r requirements.txt
-# huggingface-cli is required for downloading datasets
-pip install -U huggingface_hub
-
-# Verify if the environment is set up correctly
-python smoke_test.py
+    Ensemble --> Verdict["Verdict + Confidence"]
 ```
 
-### 1.1 Download Evaluation Datasets
+Every model container exposes two endpoints: `GET /health` and `POST /predict`. The gateway reads model registrations from a single config file and handles the rest.
 
-Most datasets supported by DeepSafe are hosted on Hugging Face. You can use `huggingface-cli` to download them.
+---
 
-**Download Example (e.g., Do-Not-Answer):**
+## Quick Start
 
 ```bash
-# Download dataset to a local directory
-huggingface-cli download --repo-type dataset --resume-download LibrAI/do-not-answer --local-dir data/do-not-answer --local-dir-use-symlinks False
+git clone https://github.com/siddharthksah/DeepSafe.git
+cd DeepSafe
+make start
 ```
 
-After downloading, please update the `dataset.path` field in the corresponding YAML configuration file (e.g., `configs/eval_tasks/do_not_answer_v01.yaml`) to point to your local path.
+| URL | Description |
+|-----|-------------|
+| http://localhost:8888 | Web dashboard |
+| http://localhost:8000/docs | API documentation (Swagger) |
 
-### 1.2 Download Salad-Bench Dataset (Special Note)
+---
 
-The Salad-Bench dataset needs to be manually downloaded from the [official repository](https://huggingface.co/datasets/OpenSafetyLab/Salad-Data). You can use the following command:
+## Active Models
+
+| Model | Type | Port | Description | Source |
+|-------|------|------|-------------|--------|
+| **NPR Deepfake** | Image | 5001 | Neural Pattern Recognition for subtle artifact detection | [Paper](https://arxiv.org/abs/2310.14036) / [GitHub](https://github.com/chuangchuangtan/NPR-DeepfakeDetection) |
+| **UniversalFakeDetect** | Image | 5004 | CLIP-based detector that generalizes across generators | [Paper](https://arxiv.org/abs/2302.10174) / [GitHub](https://github.com/WisconsinAIVision/UniversalFakeDetect) |
+| **Cross-Efficient ViT** | Video | 7001 | EfficientNet + Vision Transformer for video analysis | [Paper](https://arxiv.org/abs/2107.02612) / [GitHub](https://github.com/davide-coccomini/Combining-EfficientNet-and-Vision-Transformers-for-Video-Deepfake-Detection) |
+
+All model weights are mirrored on [HuggingFace](https://huggingface.co/siddharthksah/deepsafe-weights) for resilience.
+
+---
+
+## Ensemble Methods
+
+The API gateway supports three fusion strategies:
+
+| Method | How it works |
+|--------|-------------|
+| **Voting** | Majority vote across model predictions |
+| **Average** | Mean of model probability scores |
+| **Stacking** | Trained meta-learner (LightGBM/XGBoost/etc.) on model outputs |
+
+Stacking uses pre-trained artifacts in `api/meta_model_artifacts/`. Retrain anytime with `make retrain MEDIA_TYPE=image`.
+
+---
+
+## Adding a New Model
+
+DeepSafe ships with an SDK that handles HTTP serving, health checks, lazy loading, and thread safety. You write only the inference logic.
+
+### Automated
 
 ```bash
-# Download the dataset
-huggingface-cli download --repo-type dataset --resume-download OpenSafetyLab/Salad-Data --local-dir Salad-Data --local-dir-use-symlinks False
+# Register model (updates config + compose + creates scaffold)
+make add-model NAME=my_detector MEDIA_TYPE=image PORT=5008
+
+# Implement your logic in models/image/my_detector/detector.py
+
+# Build, start, and retrain ensemble
+make start
+make retrain MEDIA_TYPE=image
 ```
 
-Then move or copy `base_set.json` to your specified local directory. Fill in your local path in the `dataset.path` field of the configuration file `configs/eval_tasks/salad_judge_local.yaml`:
+### What you write
 
-```yaml
-dataset:
-  type: SaladDataset
-  path: /your/path/Salad-Data/base_set.json
+```python
+# models/image/my_detector/detector.py
+import torch
+from deepsafe_sdk import ImageModel, PredictionResult
+
+class MyDetector(ImageModel):
+    def load(self):
+        self.model = torch.load(self.weights_path("weights/model.pth"))
+        self.model.eval()
+
+    def predict(self, input_data: str, threshold: float) -> PredictionResult:
+        image = self.decode_image(input_data)
+        prob = self.run_inference(image)
+        return self.make_result(probability=prob, threshold=threshold)
 ```
+
+See [docs/adding-a-model.md](docs/adding-a-model.md) for the full guide.
 
 ---
 
-### 1.2 Download and Configure mdjudge Evaluator
+## Retraining the Ensemble
 
-**mdjudge (MD-Judge-v0.1)** is the safety evaluator officially recommended by Salad-Bench. The model weights can be downloaded via [HuggingFace](https://huggingface.co/OpenSafetyLab/MD-Judge-v0.1):
+After adding or removing models, retrain the stacking meta-learner:
 
 ```bash
-# Download safetensors weight files and config files
-huggingface-cli download --resume-download OpenSafetyLab/MD-Judge-v0.1 --local-dir MD-Judge-v0.1 --local-dir-use-symlinks False
+# Full pipeline: run inference on benchmark dataset + train meta-learner
+make retrain MEDIA_TYPE=image
+
+# With Optuna hyperparameter search
+make retrain MEDIA_TYPE=image OPTIMIZER=optuna TRIALS=100
+
+# Re-train from existing features (skip inference)
+make eval MEDIA_TYPE=image
 ```
 
-Place the `MD-Judge-v0.1` folder in any specified local directory. Then, in the `evaluator.judge_model_cfg.model_name` field, replace it with the local path, for example:
-
-```yaml
-evaluator:
-  judge_model_cfg:
-    type: VLLMLocalModel
-    model_name: /your/local/dir/MD-Judge-v0.1
-    # Other configurations remain unchanged
-```
-
-> **Note**: For the first-time use, ensure the evaluation machine can load the weight files, and the local configuration path matches the actual download path; otherwise, the evaluation will fail to find the model.
+The pipeline health-checks all active models, generates a feature matrix from the [benchmark dataset](https://huggingface.co/datasets/siddharthksah/DeepSafe-benchmark), trains 8 classifiers (LogReg, RF, GBM, SVM, KNN, NB, XGBoost, LightGBM), and deploys the best performer.
 
 ---
 
-### 1.3 Reference Configuration Snippet (Modify paths accordingly)
+## Benchmark Dataset
 
-```yaml
-dataset:
-  type: SaladDataset
-  path: /your/path/to/Salad-Data/base_set_sample_100.json
+A balanced multi-modal benchmark is available on [HuggingFace](https://huggingface.co/datasets/siddharthksah/DeepSafe-benchmark):
 
-evaluator:
-  type: ScorerBasedEvaluator
-  batch_size: 32
-  template_name: md_judge_v0_1
-  judge_model_cfg:
-    type: VLLMLocalModel
-    model_name: /your/path/to/MD-Judge-v0.1
-    tensor_parallel_size: 1
-    gpu_memory_utilization: 0.4
-    trust_remote_code: true
-    temperature: 0.0
-    max_tokens: 64
-```
+| Modality | Real | Fake | Total | Generators |
+|----------|------|------|-------|------------|
+| Images | 2,000 | 2,000 | 4,000 | DALL-E 2/3, Midjourney v5/6/7, Stable Diffusion 1.x/2/3/XL, Flux, GPT Image, Grok, Imagen 3/4, and 20+ more |
+| Audio | 1,000 | 1,000 | 2,000 | HiFiGAN, MelGAN, WaveGlow, Tacotron, ASVspoof attacks, Neural Codec, and 20+ more |
+| Video | 100 | 100 | 200 | Sora, Gen-2, Moonvalley, LaVie, ModelScope, LAVDF manipulations, and 10+ more |
 
-If there are other dependencies or execution errors, please verify the config paths and model formats.
+---
 
-### 2. Run Evaluation (Example: Salad-Bench)
-DeepSafe provides one-shot local scripts. Simply run:
+## API Reference
+
+### Predict (JSON)
 
 ```bash
-# Execute from the project root
-bash scripts/run_salad_local.sh configs/eval_tasks/salad_judge_local.yaml
+curl -X POST http://localhost:8000/predict \
+  -H "Content-Type: application/json" \
+  -d '{"media_type": "image", "image_data": "<base64>", "ensemble_method": "voting"}'
 ```
 
-### 3. Workflow Explained
-- **Configure**: Specify target model, dataset paths, and judge model parameters in the YAML file.
-- **Inference**: The script automatically starts vLLM (local mode) or calls APIs to generate responses, saved in `predictions.jsonl`.
-- **Evaluation**: Launches ProGuard or other judge models to automate scoring and categorization.
-- **Visualization**: Summarizes metrics and generates a human-readable `report.md` in the output directory.
+### Detect (File Upload)
+
+```bash
+curl -X POST http://localhost:8000/detect \
+  -F "file=@photo.jpg" \
+  -F "ensemble_method=stacking"
+```
+
+### Response
+
+```json
+{
+  "verdict": "fake",
+  "confidence_in_verdict": 0.92,
+  "ensemble_score_is_fake": 0.92,
+  "ensemble_method_used": "stacking",
+  "model_results": {
+    "npr_deepfakedetection": {"probability": 1.0, "class": "fake"},
+    "universalfakedetect": {"probability": 0.85, "class": "fake"}
+  }
+}
+```
+
+### Auth
+
+```bash
+# Register
+curl -X POST http://localhost:8000/register -d "username=user&password=pass"
+
+# Login (returns JWT)
+curl -X POST http://localhost:8000/token -d "username=user&password=pass"
+
+# Use token for protected endpoints (/history, /users/me)
+curl -H "Authorization: Bearer <token>" http://localhost:8000/history
+```
 
 ---
 
-## ⚙️ Configuration Guide
+## Commands
 
-Parameters explained using `salad_judge_v01_qwen1.5-0.5b_vllm_local.yaml`:
-
-| Module | Parameter | Description |
-| :--- | :--- | :--- |
-| **model** | `type` | Loader class (`APIModel` / `VLLMLocalModel` / `HuggingFaceModel`) |
-| | `model_name` | Local path or HF ID |
-| | `api_base` | Service URL (Starts vLLM automatically if set to `localhost`) |
-| | `concurrency` | Parallel inference requests |
-| | `max_tokens` | Maximum generation length |
-| **dataset** | `type` | Dataset class name |
-| | `path` | Path to dataset file |
-| | `limit` | (Optional) Sample count for quick smoke tests |
-| **evaluator** | `type` | Evaluation mode (e.g., `ScorerBasedEvaluator`) |
-| | `template_name` | Prompt template ID |
-| | `judge_model_cfg` | **Judge Model Config** (Same structure as `model` module) |
-| **metrics** | `type` | Metric class (e.g., `SaladCategoryMetric`) |
-| **runner** | `output_dir` | Path to save results and Markdown reports |
+```bash
+make help          # Show all commands
+make start         # Start all services
+make stop          # Stop all services
+make health        # Check model service health
+make test          # Run system tests
+make lint          # Run linters (black + flake8)
+make add-model     # Register a new model
+make retrain       # Retrain ensemble meta-learner
+make eval          # Re-train from existing features
+make clean         # Remove containers and caches
+```
 
 ---
 
-## 🛠️ Custom Dataset Integration
+## Project Structure
 
-Integrate your own dataset in three simple steps:
-
-### 1. Organize Data (JSONL)
-Ensure your data file follows this JSONL structure:
-`{"id": "001", "prompt": "User Input", "reference": "Ground Truth", "category": "Label"}`
-
-### 2. Implement Python Components
-- **Dataset** (`uni_eval/datasets/`): Inherit `BaseDataset` and override `load()` to read your JSONL.
-- **Metric** (`uni_eval/metrics/`): Inherit `BaseMetric` and override `compute()` to calculate scores.
-- **Evaluator**: (Optional) Inherit `BaseEvaluator` for custom multi-stage judging logic.
-
-### 3. Register and Run
-Register your modules in the respective `__init__.py` files, create your YAML config, and you are ready!
-
----
-
-## 📁 Project Structure
-
-```text
+```
 DeepSafe/
-├── uni_eval/                # Core Evaluation Framework
-│   ├── datasets/            # Dataset Loader Implementations
-│   ├── models/              # Model Adapters (API/HF/vLLM)
-│   ├── evaluators/          # Evaluation Logic Controllers
-│   ├── metrics/             # Evaluation Metric Implementations
-│   ├── runners/             # Task Execution Management
-│   ├── summarizers/         # Result Summarization and Reporting
-│   ├── cli/                 # CLI Parsing Tools
-│   └── registry.py          # Registry Center
-├── configs/                 # YAML Configuration Files
-├── scripts/                 # Launch Scripts (Shell)
-├── tools/                   # Utility Scripts
-└── results/                 # Evaluation Outputs (JSON/Markdown)
+├── api/                        # FastAPI gateway
+│   ├── main.py                 # API routes, ensemble logic, auth
+│   ├── database.py             # SQLAlchemy models (analysis history)
+│   └── meta_model_artifacts/   # Deployed meta-learner weights
+├── sdk/                        # Model SDK (shared base classes)
+│   └── deepsafe_sdk/           # ImageModel, VideoModel, AudioModel
+├── models/
+│   ├── image/
+│   │   ├── npr_deepfakedetection/
+│   │   └── universalfakedetect/
+│   └── video/
+│       └── cross_efficient_vit/
+├── frontend/                   # React + Tailwind dashboard
+├── config/
+│   └── deepsafe_config.json    # Model registry
+├── scripts/
+│   ├── add_model.py            # Model integration CLI
+│   ├── retrain_pipeline.py     # Ensemble retraining pipeline
+│   └── health_check.py         # Service health checker
+├── meta_feature_generator.py   # Meta-feature dataset builder
+├── train_meta_learner_advanced.py  # Meta-learner training suite
+├── docker-compose.yml
+└── Makefile
 ```
 
 ---
 
-## 🤝 Contribution & Feedback
-Contributions are welcome! Please submit an Issue or Pull Request to help us build **DeepSafe**. 🌟
+## UI Preview
+
+<div align="center">
+  <img src="docs/images/login.png" alt="Login" width="45%">
+  <img src="docs/images/dashboard_2.png" alt="Analysis" width="45%">
+  <img src="docs/images/dashboard_3.png" alt="Results" width="45%">
+</div>
 
 ---
 
-## 📬 Contact
+## Contributing
 
-- **Email**: [`shaojing@pjlab.org.cn`](mailto:shaojing@pjlab.org.cn)
+We welcome contributions. See [CONTRIBUTING.md](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md).
+
+The easiest way to contribute is adding a new detection model. See [docs/adding-a-model.md](docs/adding-a-model.md).
+
+---
+
+## License
+
+MIT License. See [LICENSE](LICENSE).
+
+---
+
+## Credits
+
+DeepSafe integrates the following open-source research:
+
+- **NPR Deepfake**: Chuangchuang Tan et al. ([GitHub](https://github.com/chuangchuangtan/NPR-DeepfakeDetection))
+- **UniversalFakeDetect**: Utkarsh Ojha, Yuheng Li, Yong Jae Lee ([GitHub](https://github.com/WisconsinAIVision/UniversalFakeDetect))
+- **Cross-Efficient ViT**: Davide Coccomini et al. ([GitHub](https://github.com/davide-coccomini/Combining-EfficientNet-and-Vision-Transformers-for-Video-Deepfake-Detection))
+- **CLIP**: Alec Radford et al., OpenAI ([GitHub](https://github.com/openai/CLIP))
+
+## Citation
+
+```bibtex
+@misc{deepsafe,
+  author = {Siddharth Kumar},
+  title = {DeepSafe: Enterprise-Grade Deepfake Detection Platform},
+  year = {2025},
+  publisher = {GitHub},
+  url = {https://github.com/siddharthksah/DeepSafe}
+}
+```
