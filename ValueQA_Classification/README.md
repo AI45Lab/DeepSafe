@@ -301,3 +301,21 @@ python -B -m unittest discover -s tests -p test_valueqa_classification_integrati
 源码目录保留运行代码、提示词、明确配置、安装和启动脚本、测试、协议来源记录及 README。虚拟环境、基础模型权重与缓存、密钥、日志、结果和生成的 ZIP 不提交到 GitHub。LoRA 若随 GitHub 分发须使用已配置的 Git LFS，克隆后执行 `git lfs pull`；也可直接使用第 2 节的 Hugging Face 下载命令。
 
 `build_server_package.py` 只是可选归档工具，运行不依赖它或预先存在的 ZIP。本文件是框架说明，不替代 DeepSafe 根 README，也不替代 LoRA 仓库的模型卡。
+
+## 10. 交付版本校验
+
+本目录的 [framework_sha256.json](framework_sha256.json) 是随框架交付的 SHA-256 校验清单，记录当前 23 个核心源代码与配置文件的相对路径、逐文件校验值及清单整体版本标识。当前标识为 `a9e0266939f319b4cb57aeb7bcaf7801a8a686c13d695d6be086aa09a69e7510`。
+
+这是固定范围的源代码与配置清单指纹，不是整个仓库或 ZIP 的哈希；不覆盖 README、测试、依赖、校验脚本、模型权重、数据和结果。校验清单自身也不参与逐文件哈希，避免循环引用。
+
+在完整 DeepSafe 根目录执行，Windows 与 Linux 命令相同：
+
+```bash
+python ValueQA_Classification/verify_version.py
+```
+
+也可在模块目录执行 `python verify_version.py`，脚本会根据自身位置找到项目根目录。仅使用 Python 标准库，不加载模型、不调用 API。全部匹配时输出 `PASS` 并返回退出码 0；文件缺失、内容改变或清单摘要不匹配时输出 `FAIL` 并返回退出码 1。
+
+清单包含模块目录之外的四个 DeepSafe 集成文件和四份任务 YAML，完整校验要求它们一并交付。可选服务器独立 ZIP 会带上清单和脚本，但没有完整 DeepSafe 集成目录，因此不能仅凭独立 ZIP 宣称完整框架版本校验通过。
+
+哈希按原始文件字节计算。项目 `.gitattributes` 已固定覆盖文件的检出换行格式；复制文件时也应保留格式。测试实施前核验通过，再冻结清单和源码。之后修改覆盖文件时应生成新版本清单并另存旧记录，不应为绕过校验直接改写旧清单。

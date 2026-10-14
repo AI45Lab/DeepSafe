@@ -18,6 +18,7 @@ FILES=(
     "config.current.server.json","config.current.local.json","policy.example.json","protocol_source.json","README.md",
     "setup_server.sh","setup_local.ps1","setup_vllm.sh","run_server.sh","requirements.txt",
     "build_server_package.py",
+    "framework_sha256.json","verify_version.py",
 )
 DATA_FILES=("data/valueqa/evaluation_samples.jsonl",
             "data/valueqa/reference_annotations.jsonl")
