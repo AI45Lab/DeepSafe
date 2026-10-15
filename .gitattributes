@@ -1,0 +1,18 @@
+# Keep Linux entrypoints executable through bash on Windows-created checkouts.
+*.sh text eol=lf
+*.ps1 text eol=crlf
+
+# Prompt provenance uses raw-byte hashes; keep checkout bytes identical on both OSes.
+ValueQA_Classification/classification_prompt_strict.txt text eol=lf
+ValueQA_Classification/review_prompt.txt text eol=lf
+
+# Preserve the byte format of the frozen 23-file release manifest across checkouts.
+ValueQA_Classification/*.py text eol=crlf
+ValueQA_Classification/config.current.*.json text eol=crlf
+uni_eval/*/valueqa_classification.py text eol=lf
+configs/eval_tasks/valueqa_classification_*.yaml text eol=crlf
+ValueQA_Classification/verify_version.py text eol=lf
+ValueQA_Classification/framework_sha256.json text eol=lf
+
+# This LoRA is larger than GitHub's ordinary Git single-file limit.
+models/qwen35_4b_lora/best_adapter/adapter_model.safetensors filter=lfs diff=lfs merge=lfs -text

@@ -80,8 +80,8 @@ def _input_fingerprint(item):
     # Ground truth deliberately excluded: corrected labels can be rescored,
     # but the text sent to the model must still match exactly.
     value = {"id": str(item["id"]), "answer": item.get("answer"), "prompt": item.get("prompt")}
-    if "valueqa_input" in item:
-        value["valueqa_input"] = item["valueqa_input"]
+    if "qwen_input" in item:
+        value["qwen_input"] = item["qwen_input"]
     return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()
 
 
@@ -264,13 +264,11 @@ class LocalRunner(BaseRunner):
         require_predictions: bool = False,
         badcase_unknown_samples: int = 5,
         prediction_policy: str = "legacy",
-        model_connection_subdirs: bool = False,
         **kwargs,
     ):
         super().__init__(**kwargs)
         self.output_dir = output_dir
         self.base_output_dir = output_dir
-        self.model_connection_subdirs = bool(model_connection_subdirs)
         self.stage = stage
         self.predictions_path = predictions_path
         self.prediction_field = prediction_field
@@ -280,23 +278,28 @@ class LocalRunner(BaseRunner):
         _ensure_dir(self.output_dir)
 
     def run(self, config: Dict[str, Any]):
+        if config.get("evaluator", {}).get("type") != "ValueQAClassificationEvaluator":
+            return self._run(config)
+        # The evaluator's state lock must remain held until root snapshots/reports are published.
+        task_config = copy.deepcopy(config)
+        runner_cfg = task_config.get("runner", {}) if isinstance(task_config.get("runner", {}), dict) else {}
+        stage = str(self.stage or "all").lower().strip()
+        if runner_cfg.get("prediction_policy", self.prediction_policy) == "strict":
+            task_config["evaluator"]["use_precomputed_predictions"] = stage == "eval"
+        evaluator = EVALUATORS.build(task_config["evaluator"])
+        predictions_path = str(runner_cfg.get("predictions_path", self.predictions_path) or "").strip()
+        if not predictions_path:
+            predictions_path = os.path.join(os.path.abspath(self.output_dir), "predictions.jsonl")
+        with evaluator.publication_lock(self.output_dir, predictions_path):
+            return self._run(task_config, evaluator=evaluator)
+
+    def _run(self, config: Dict[str, Any], evaluator=None):
         config = copy.deepcopy(config)
         stage = str(getattr(self, "stage", "all") or "all").lower().strip()
         if stage not in ("all", "gen", "eval"):
             raise ValueError(f"Invalid runner.stage={stage!r}, expected one of: all, gen, eval")
 
         runner_cfg = config.get("runner", {}) if isinstance(config.get("runner", {}), dict) else {}
-        if runner_cfg.get("model_connection_subdirs", self.model_connection_subdirs):
-            from uni_eval.models.valueqa_service import select_service
-            model_cfg = config["model"]
-            if model_cfg.get("type") != "ValueQAServiceModel":
-                raise ValueError("model_connection_subdirs requires ValueQAServiceModel")
-            connection = model_cfg.get("connection")
-            select_service(connection, model_cfg.get("api"), model_cfg.get("local"))
-            self.output_dir = os.path.join(self.base_output_dir, connection)
-            runner_cfg["output_dir"] = self.output_dir
-            config["evaluator"]["state_dir"] = os.path.join(config["evaluator"]["state_dir"], connection)
-            _ensure_dir(self.output_dir)
         policy = runner_cfg.get("prediction_policy", self.prediction_policy)
         if policy not in ("legacy", "strict"):
             raise ValueError(f"Unknown prediction_policy: {policy}")
@@ -336,7 +339,7 @@ class LocalRunner(BaseRunner):
 
             if (runner_use_eval_gen or env_use_eval_gen) and isinstance(evaluator_cfg, dict) and evaluator_cfg.get("type"):
                 try:
-                    evaluator = EVALUATORS.build(evaluator_cfg)
+                    evaluator = evaluator or EVALUATORS.build(evaluator_cfg)
                     gen_fn = getattr(evaluator, "generate_predictions", None)
                     if callable(gen_fn):
                         print(f"Stage=gen: using evaluator.generate_predictions() from {evaluator_cfg.get('type')}...")
@@ -438,7 +441,7 @@ class LocalRunner(BaseRunner):
         elif require_predictions:
             raise FileNotFoundError(f"require_predictions=true but predictions file not found: {predictions_path}")
 
-        evaluator = EVALUATORS.build(config["evaluator"])
+        evaluator = evaluator or EVALUATORS.build(config["evaluator"])
         
         print("Running evaluation...")
         details = evaluator.evaluate(model, list(dataset))
@@ -450,6 +453,8 @@ class LocalRunner(BaseRunner):
             if any(info != infos[0] for info in infos):
                 raise ValueError("Mixed model/provenance records in a single evaluation")
             run_info = infos[0] if infos else _public_run_info(config)
+            if stage == "all":
+                _write_predictions_jsonl(predictions_path, _snapshot_predictions(details, dataset, config))
 
         try:
             _print_empty_output_badcases(details, max_n=badcase_unknown_samples)

@@ -1,5 +1,5 @@
 from uni_eval import _module_profile
-from .valueqa import ValueQAMetric
+from .valueqa_classification import ValueQAClassificationMetric
 
 if _module_profile == "value":
     from .base import BaseMetric
@@ -86,4 +86,4 @@ else:
         "BeHonestCombinedMetric",
     ]
 
-__all__ += ['ValueQAMetric']
+__all__ += ['ValueQAClassificationMetric']
