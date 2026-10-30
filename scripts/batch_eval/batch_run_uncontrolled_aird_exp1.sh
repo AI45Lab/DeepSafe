@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 set -eo pipefail
 
@@ -26,7 +27,7 @@ echo "Base config: $BASE_CONFIG"
 echo "Stage: $STAGE"
 echo "MBEF: $MBEF_ROOT"
 
-JUDGE_API_BASE="${AIRD_JUDGE_API_BASE:-http://35.220.164.252:3888/v1}"
+JUDGE_API_BASE="${AIRD_JUDGE_API_BASE:-${OPENAI_BASE_URL:-http://localhost:8000/v1}}"
 JUDGE_API_BASE="${JUDGE_API_BASE%/}"
 
 JUDGE_API_KEY="${AIRD_JUDGE_API_KEY:-OPENAI_API_KEY}"
@@ -70,10 +71,10 @@ OPEN_MODELS=(
 )
 
 CLOSED_MODELS=(
-  "gpt-4o|gpt-4o|http://35.220.164.252:3888/v1|OPENAI_API_KEY|8"
-  "gemini-3-flash-preview|gemini-3-flash-preview|http://35.220.164.252:3888/v1|OPENAI_API_KEY|8"
-  "doubao-seed-1-6-flash-250828|doubao-seed-1-6-flash-250828|http://35.220.164.252:3888/v1|OPENAI_API_KEY|8"
-  "deepseek-r1-250528|deepseek-r1-250528|http://35.220.164.252:3888/v1|OPENAI_API_KEY|8"
+  "gpt-4o|gpt-4o|${OPENAI_BASE_URL:-http://localhost:8000/v1}|OPENAI_API_KEY|8"
+  "gemini-3-flash-preview|gemini-3-flash-preview|${OPENAI_BASE_URL:-http://localhost:8000/v1}|OPENAI_API_KEY|8"
+  "doubao-seed-1-6-flash-250828|doubao-seed-1-6-flash-250828|${OPENAI_BASE_URL:-http://localhost:8000/v1}|OPENAI_API_KEY|8"
+  "deepseek-r1-250528|deepseek-r1-250528|${OPENAI_BASE_URL:-http://localhost:8000/v1}|OPENAI_API_KEY|8"
 )
 
 submit_gen () {

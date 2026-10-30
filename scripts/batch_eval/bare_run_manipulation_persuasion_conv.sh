@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 set -euo pipefail
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
@@ -26,7 +27,7 @@ echo "Config:    $CFG"
 echo "Stage:     $STAGE"
 
 VOTER_MODEL_NAME="${VOTER_MODEL_NAME:-gpt-4o}"
-VOTER_API_BASE="${VOTER_API_BASE:-http://35.220.164.252:3888/v1}"
+VOTER_API_BASE="${VOTER_API_BASE:-${OPENAI_BASE_URL:-http://localhost:8000/v1}}"
 VOTER_API_KEY_MODE="${VOTER_API_KEY_MODE:-ENV}"
 VOTER_CONCURRENCY="${VOTER_CONCURRENCY:-8}"
 

@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 
 CONFIG_PATH="$1"
 STAGE="${2:-eval}"
@@ -35,7 +36,7 @@ else
   CPU=140
 fi
 
-RUN_SCRIPT="/mnt/shared-storage-user/zhangbo1/MBEF/scripts/run_salad.sh"
+RUN_SCRIPT="/path/to/MBEF/scripts/run_salad.sh"
 if [[ "$STAGE" == "gen" ]]; then
   RUN_SCRIPT="/mnt/shared-storage-user/wuyuyao/gitee/Multi-Level-Bionic-Evaluation-Framework-develop/scripts/run_mssbench_gen.sh"
 elif [[ "$STAGE" == "eval" ]]; then
@@ -56,7 +57,7 @@ submit_one () {
 
   if [[ "$charged_group" == "ai4good2_cpu_task" ]]; then
     rjob submit --charged-group="$charged_group" \
-      --image=registry.h.pjlab.org.cn/ailab-ai4good2-ai4good2_gpu/zhangbo1:v0130-x86 \
+      --image=registry.example.com/your-image:tag \
       --memory 8192 \
       --cpu 4  \
       --mount=gpfs://gpfs1/ai4good2-share:/mnt/shared-storage-user/ai4good2-share \
@@ -65,7 +66,7 @@ submit_one () {
   else
     rjob submit --charged-group="$charged_group" \
       --private-machine=group \
-      --image=registry.h.pjlab.org.cn/ailab-ai4good2-ai4good2_gpu/zhangbo1:v0130-x86 \
+      --image=registry.example.com/your-image:tag \
       --gpu "$NUM_GPUS" \
       --memory "$MEMORY" \
       --cpu "$CPU" \

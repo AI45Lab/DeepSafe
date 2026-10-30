@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 
 CONFIG_PATH="$1"
 shift || true
@@ -23,7 +24,7 @@ rlaunch --charged-group=ai4good2_gpu \
   --private-machine=yes \
   --max-wait-duration 3600s \
   --enable-sshd=false \
-  --image=registry.h.pjlab.org.cn/ailab-ai4good2-ai4good2_gpu/zhangbo1:v0130-x86 \
+  --image=registry.example.com/your-image:tag \
   --private-machine=group \
   --gpu 1 \
   --memory 32768 \

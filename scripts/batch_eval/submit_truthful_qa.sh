@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 
 CONFIG_PATH="$1"
 STAGE="${2:-all}"
@@ -27,15 +28,15 @@ if [[ ${#OVERRIDES[@]} -gt 0 ]]; then
   echo "Overrides: ${OVERRIDES[*]}"
 fi
 
-RUN_SCRIPT="/mnt/shared-storage-user/zhangbo1/MBEF/scripts/run_truthful_qa.sh"
+RUN_SCRIPT="/path/to/MBEF/scripts/run_truthful_qa.sh"
 if [[ "$STAGE" == "gen" ]]; then
-  RUN_SCRIPT="/mnt/shared-storage-user/zhangbo1/MBEF/scripts/run_truthful_qa_gen.sh"
+  RUN_SCRIPT="/path/to/MBEF/scripts/run_truthful_qa_gen.sh"
 elif [[ "$STAGE" == "eval" ]]; then
-  RUN_SCRIPT="/mnt/shared-storage-user/zhangbo1/MBEF/scripts/run_truthful_qa_eval.sh"
+  RUN_SCRIPT="/path/to/MBEF/scripts/run_truthful_qa_eval.sh"
 fi
 
 TIMESTAMP=$(date +"%Y%m%d%H%M%S")
-LOG_DIR="/mnt/shared-storage-user/zhangbo1/MBEF/logs/truthful_qa/${STAGE}"
+LOG_DIR="/path/to/MBEF/logs/truthful_qa/${STAGE}"
 mkdir -p "$LOG_DIR"
 LOG_FILE="${LOG_DIR}/${TIMESTAMP}.log"
 echo "Submitting TruthfulQA task to $LOG_FILE"
@@ -51,20 +52,20 @@ if [[ "$STAGE" == "gen" ]]; then
   echo "rjob submit (charged-group=ai4good2_gpu, profile=gpu)"
   rjob submit --charged-group="ai4good2_gpu" \
     --private-machine=group \
-    --image=registry.h.pjlab.org.cn/ailab-ai4good2-ai4good2_gpu/zhangbo1:v0130-x86 \
+    --image=registry.example.com/your-image:tag \
     --gpu "$NUM_GPUS" \
     --memory "$MEMORY" \
     --cpu "$CPU" \
-    --mount=gpfs://gpfs1/zhangbo1:/mnt/shared-storage-user/zhangbo1 \
+    --mount=gpfs://YOUR_CLUSTER/your-storage:/path/to \
     --mount=gpfs://gpfs1/ai4good2-share:/mnt/shared-storage-user/ai4good2-share \
     -- bash "$RUN_SCRIPT" "$CONFIG_PATH" "${OVERRIDES[@]}" > "$LOG_FILE" 2>&1
 elif [[ "$STAGE" == "eval" ]]; then
   echo "rjob submit (charged-group=ai4good2_cpu_task, profile=cpu_task)"
   rjob submit --charged-group="ai4good2_cpu_task" \
-    --image=registry.h.pjlab.org.cn/ailab-ai4good2-ai4good2_gpu/zhangbo1:v0130-x86 \
+    --image=registry.example.com/your-image:tag \
     --memory 8192 \
     --cpu 4 \
-    --mount=gpfs://gpfs1/zhangbo1:/mnt/shared-storage-user/zhangbo1 \
+    --mount=gpfs://YOUR_CLUSTER/your-storage:/path/to \
     --mount=gpfs://gpfs1/ai4good2-share:/mnt/shared-storage-user/ai4good2-share \
     -- bash "$RUN_SCRIPT" "$CONFIG_PATH" "${OVERRIDES[@]}" > "$LOG_FILE" 2>&1
 else
@@ -78,11 +79,11 @@ else
   echo "rjob submit (charged-group=ai4good2_gpu, profile=gpu) [stage=all]"
   rjob submit --charged-group="ai4good2_gpu" \
     --private-machine=group \
-    --image=registry.h.pjlab.org.cn/ailab-ai4good2-ai4good2_gpu/zhangbo1:v0130-x86 \
+    --image=registry.example.com/your-image:tag \
     --gpu "$NUM_GPUS" \
     --memory "$MEMORY" \
     --cpu "$CPU" \
-    --mount=gpfs://gpfs1/zhangbo1:/mnt/shared-storage-user/zhangbo1 \
+    --mount=gpfs://YOUR_CLUSTER/your-storage:/path/to \
     --mount=gpfs://gpfs1/ai4good2-share:/mnt/shared-storage-user/ai4good2-share \
     -- bash "$RUN_SCRIPT" "$CONFIG_PATH" "${OVERRIDES[@]}" > "$LOG_FILE" 2>&1
 fi

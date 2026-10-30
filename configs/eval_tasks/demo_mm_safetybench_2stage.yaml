@@ -4,8 +4,8 @@ output_dir: results/demo_mm_safetybench_2stage
 dataset:
   type: MMSafetyBenchDataset
   # Path should be MM-SafetyBench root directory containing `data/`
-  # path: /mnt/shared-storage-user/zhangbo1/datasets/MM-SafetyBench-sample100
-  path: /mnt/shared-storage-user/zhangbo1/datasets/MM-SafetyBench
+  # path: /path/to/datasets/MM-SafetyBench-sample100
+  path: /path/to/datasets/MM-SafetyBench
   include_splits:
     - SD_TYPO
 
@@ -35,7 +35,8 @@ evaluator:
     # Judge fixed to gpt-4 (APIModel). Key comes from env (OPENAI_API_KEY).
     type: APIModel
     model_name: gpt-4
-    api_base: http://35.220.164.252:3888/v1
+    api_base: http://localhost:8000/v1  # fallback; set OPENAI_BASE_URL to override
+    api_base_env: OPENAI_BASE_URL
     api_key: ENV
     mode: chat
     concurrency: 8

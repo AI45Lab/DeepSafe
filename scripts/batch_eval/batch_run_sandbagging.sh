@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 set -eo pipefail
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
@@ -26,7 +27,7 @@ echo "Base config: $BASE_CONFIG"
 echo "Stage: $STAGE"
 echo "MBEF: $MBEF_ROOT"
 
-OPTION_JUDGE_API_BASE="${SANDBAGGING_OPTION_JUDGE_API_BASE:-http://35.220.164.252:3888/v1}"
+OPTION_JUDGE_API_BASE="${SANDBAGGING_OPTION_JUDGE_API_BASE:-${OPENAI_BASE_URL:-http://localhost:8000/v1}}"
 OPTION_JUDGE_API_BASE="${OPTION_JUDGE_API_BASE%/}"
 OPTION_JUDGE_API_KEY="${SANDBAGGING_OPTION_JUDGE_API_KEY:-OPENAI_API_KEY}"
 
@@ -47,7 +48,7 @@ OPEN_MODELS=(
 
 CLOSED_MODELS=(
   
-  "kimi-k2-thinking-turbo|kimi-k2-thinking-turbo|http://35.220.164.252:3888/v1|OPENAI_API_KEY|8"
+  "kimi-k2-thinking-turbo|kimi-k2-thinking-turbo|${OPENAI_BASE_URL:-http://localhost:8000/v1}|OPENAI_API_KEY|8"
 )
 
 submit_gen () {

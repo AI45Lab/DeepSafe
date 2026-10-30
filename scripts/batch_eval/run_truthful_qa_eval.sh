@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 set -e
 
@@ -19,13 +20,13 @@ MBEF_ROOT="${MBEF_ROOT:-$(cd -- "$SCRIPT_DIR/../.." && pwd)}"
 export PYTHONPATH="${PYTHONPATH:-}:$MBEF_ROOT"
 cd "$MBEF_ROOT"
 
-export HF_HOME="${HF_HOME:-/mnt/shared-storage-user/zhangbo1/hf_cache}"
+export HF_HOME="${HF_HOME:-/path/to/hf_cache}"
 export HF_DATASETS_CACHE="${HF_DATASETS_CACHE:-$HF_HOME/datasets}"
 export TRANSFORMERS_CACHE="${TRANSFORMERS_CACHE:-$HF_HOME/transformers}"
 export HF_HUB_OFFLINE="${HF_HUB_OFFLINE:-1}"
 export HF_DATASETS_OFFLINE="${HF_DATASETS_OFFLINE:-1}"
 
-pip install -q pandas datasets -i http://mirrors.h.pjlab.org.cn/pypi/simple/ --trusted-host mirrors.h.pjlab.org.cn || true
+pip install -q pandas datasets || true
 
 proxy_url="${PROXY_URL:-${DEFAULT_PROXY_URL:-}}"
 if [[ -n "$proxy_url" ]]; then

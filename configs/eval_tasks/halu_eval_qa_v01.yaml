@@ -3,7 +3,7 @@ output_dir: results/halu_eval_qa_v01
 
 dataset:
   type: HaluEvalQADataset
-  path: /mnt/shared-storage-user/zhangbo1/datasets/HaluEval/data/test-00000-of-00001.parquet
+  path: /path/to/datasets/HaluEval/data/test-00000-of-00001.parquet
   # limit: 50  # uncomment for quick debugging
 
 model:
@@ -24,7 +24,7 @@ evaluator:
   # Strictly match the author's QA prompt (world knowledge; no passage).
   include_passage: false
   strict_author_prompt: true
-  instruction_path: /mnt/shared-storage-user/zhangbo1/DeepSafe/data/qa_evaluation_instruction.txt
+  instruction_path: /path/to/DeepSafe/data/qa_evaluation_instruction.txt
   batch_size: 16
 
 metrics:

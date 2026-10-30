@@ -5,7 +5,7 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("DEBUG_NETWORK")
 
-sys.path.append("/mnt/shared-storage-user/zhangbo1/MBEF")
+sys.path.append("/path/to/MBEF")
 
 try:
     from uni_eval.models.api import APIModel
@@ -20,8 +20,8 @@ def test_connection():
 
     config = {
         "model_name": "gpt-4o",
-        "api_base": "http://35.220.164.252:3888/v1/",
-        "api_key": "OPENAI_API_KEY",                     
+        "api_base": os.getenv("OPENAI_BASE_URL", "http://localhost:8000/v1"),
+        "api_key": "ENV",                     
         "http_proxy": "HTTP_PROXY",
         "timeout": 10.0,
         "concurrency": 1

@@ -10,7 +10,8 @@ model:
   # You will need to launch a VLM (Vision Language Model) like Qwen2-VL or LLaVA 
   # compatible with vLLM's OpenAI vision API.
   model_name: /mnt/shared-storage-user/ai4good2-share/models/Qwen/Qwen-VL-Chat
-  api_base: http://100.99.208.155:21111/v1
+  api_base: http://localhost:8000/v1  # fallback; set OPENAI_BASE_URL to override
+  api_base_env: OPENAI_BASE_URL
   api_key: EMPTY
   mode: chat
   temperature: 0.0
@@ -26,8 +27,9 @@ evaluator:
     # Target VLM
     model_name: gpt-4-turbo
     mode: chat
-    api_base: http://35.220.164.252:3888/v1
-    api_key: OPENAI_API_KEY
+    api_base: http://localhost:8000/v1  # fallback; set OPENAI_BASE_URL to override
+    api_base_env: OPENAI_BASE_URL
+    api_key: ENV  # reads OPENAI_API_KEY env var
     temperature: 0.0
     max_tokens: 1024
 

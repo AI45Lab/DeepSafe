@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 set -e
 
@@ -16,7 +17,7 @@ if [[ ! -f "$CONFIG_PATH" ]]; then
 fi
 
 
-pip install spacy datasketch -i http://mirrors.h.pjlab.org.cn/pypi/simple/ --trusted-host mirrors.h.pjlab.org.cn
+pip install spacy datasketch
 
 echo "Setting proxy..."
 export http_proxy="HTTP_PROXY"
@@ -29,7 +30,7 @@ export PYTHONPATH="${PYTHONPATH:-}:$MBEF_ROOT"
 cd "$MBEF_ROOT"
 
 echo "Installing spaCy English model..."
-pip install $MBEF_ROOT/data/harmbench/en_core_web_sm-3.8.0-py3-none-any.whl -i http://mirrors.h.pjlab.org.cn/pypi/simple/ --trusted-host mirrors.h.pjlab.org.cn
+pip install $MBEF_ROOT/data/harmbench/en_core_web_sm-3.8.0-py3-none-any.whl
 
 PY_BIN=$(which python3)
 echo "Parsing config: $CONFIG_PATH"

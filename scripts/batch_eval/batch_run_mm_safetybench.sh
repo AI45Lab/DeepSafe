@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 set -eo pipefail
 
@@ -25,7 +26,7 @@ echo "Base config: $BASE_CONFIG"
 echo "Stage: $STAGE"
 echo "MBEF: $MBEF_ROOT"
 
-JUDGE_API_BASE="${MM_SAFETYBENCH_JUDGE_API_BASE:-http://35.220.164.252:3888/v1}"
+JUDGE_API_BASE="${MM_SAFETYBENCH_JUDGE_API_BASE:-${OPENAI_BASE_URL:-http://localhost:8000/v1}}"
 JUDGE_API_BASE="${JUDGE_API_BASE%/}"
 JUDGE_API_KEY_MODE="${MM_SAFETYBENCH_JUDGE_API_KEY_MODE:-OPENAI_API_KEY}"
 JUDGE_CONCURRENCY="${MM_SAFETYBENCH_JUDGE_CONCURRENCY:-8}"
@@ -42,7 +43,7 @@ JUDGE_OVERRIDES=(
 )
 
 OPEN_MODELS=(
-  "llava-1.5-7b-hf|/mnt/shared-storage-user/zhangbo1/models/llava-hf/models--llava-hf--llava-1.5-7b-hf|1|0.9"
+  "llava-1.5-7b-hf|/path/to/models/llava-hf/models--llava-hf--llava-1.5-7b-hf|1|0.9"
 
 )
 

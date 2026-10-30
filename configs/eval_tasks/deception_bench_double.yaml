@@ -2,7 +2,8 @@ model:
   type: APIModel
   # Target Model: GPT-4o (OpenAI API)
   model_name: Qwen/Qwen3-235B-A22B-Thinking-2507
-  api_base: https://api.boyuerichdata.opensphereai.com/v1
+  api_base: http://localhost:8000/v1  # fallback; set OPENAI_BASE_URL to override
+  api_base_env: OPENAI_BASE_URL
   api_key: ENV  # 从环境变量 OPENAI_API_KEY 读取，或者直接写你的 API key
   concurrency: 10  # OpenAI API 有速率限制，建议设置较小的并发数
   mode: chat
@@ -25,7 +26,8 @@ evaluator:
   judge_model_cfg:
     type: APIModel
     model_name: gpt-4o
-    api_base: https://api.boyuerichdata.opensphereai.com/v1
+    api_base: http://localhost:8000/v1  # fallback; set OPENAI_BASE_URL to override
+    api_base_env: OPENAI_BASE_URL
     api_key: ENV  # 从环境变量 OPENAI_API_KEY 读取
     concurrency: 10
     mode: chat

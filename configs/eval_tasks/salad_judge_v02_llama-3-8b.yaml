@@ -1,6 +1,6 @@
 model:
   type: APIModel
-  model_name: /mnt/shared-storage-user/zhangbo1/models/meta-llama/Meta-Llama-3-8B-Instruct
+  model_name: /path/to/models/meta-llama/Meta-Llama-3-8B-Instruct
   api_base: http://localhost:21111/v1
   api_key: EMPTY
   concurrency: 32
@@ -12,7 +12,7 @@ model:
 
 dataset:
   type: SaladDataset
-  path: /mnt/shared-storage-user/zhangbo1/datasets/Salad-Data/base_set.json
+  path: /path/to/datasets/Salad-Data/base_set.json
 
 evaluator:
   type: ScorerBasedEvaluator
@@ -20,7 +20,7 @@ evaluator:
   template_name: md_judge_v0_2
   judge_model_cfg:
     type: APIModel
-    model_name: /mnt/shared-storage-user/zhangbo1/models/MD-Judge-v0_2-internlm2_7b
+    model_name: /path/to/models/MD-Judge-v0_2-internlm2_7b
     api_base: http://localhost:21112/v1
     api_key: EMPTY
     concurrency: 32

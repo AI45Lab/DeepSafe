@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 
 CONFIG_PATH="$1"
 if [[ -z "$CONFIG_PATH" ]]; then
@@ -15,7 +16,7 @@ fi
 echo "Submitting Salad-Bench EVAL task: $CONFIG_PATH"
 
 rlaunch --charged-group=ai4good2_cpu_task \
-  --image=registry.h.pjlab.org.cn/ailab-ai4good2-ai4good2_gpu/zhangbo1:v0130-x86 \
+  --image=registry.example.com/your-image:tag \
   --max-wait-duration 3600s \
   --enable-sshd=false \
   --memory 32768 \

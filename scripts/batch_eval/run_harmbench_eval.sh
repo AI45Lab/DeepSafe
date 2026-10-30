@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 set -e
 
@@ -15,10 +16,10 @@ if [[ ! -f "$CONFIG_PATH" ]]; then
   exit 1
 fi
 
-export no_proxy="localhost,127.0.0.1,0.0.0.0,::1,.pjlab.org.cn,.h.pjlab.org.cn"
-export NO_PROXY="localhost,127.0.0.1,0.0.0.0,::1,.pjlab.org.cn,.h.pjlab.org.cn"
+export no_proxy="localhost,127.0.0.1,0.0.0.0,::1"
+export NO_PROXY="localhost,127.0.0.1,0.0.0.0,::1"
 
-pip install spacy==3.8.11 datasketch -i http://mirrors.h.pjlab.org.cn/pypi/simple/ --trusted-host mirrors.h.pjlab.org.cn
+pip install spacy==3.8.11 datasketch
 export LD_LIBRARY_PATH=/usr/local/cuda-12.9/compat:$LD_LIBRARY_PATH
 
 MBEF_ROOT="${MBEF_ROOT:-$(cd -- "$SCRIPT_DIR/../.." && pwd)}"
@@ -26,7 +27,7 @@ export PYTHONPATH="${PYTHONPATH:-}:$MBEF_ROOT"
 cd "$MBEF_ROOT"
 
 echo "Installing spaCy English model..."
-pip install $MBEF_ROOT/data/harmbench/en_core_web_sm-3.8.0-py3-none-any.whl -i http://mirrors.h.pjlab.org.cn/pypi/simple/ --trusted-host mirrors.h.pjlab.org.cn
+pip install $MBEF_ROOT/data/harmbench/en_core_web_sm-3.8.0-py3-none-any.whl
 
 PY_BIN=$(which python3)
 echo "Parsing config: $CONFIG_PATH"

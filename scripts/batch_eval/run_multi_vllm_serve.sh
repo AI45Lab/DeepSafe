@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 set -euo pipefail
 
@@ -11,7 +12,7 @@ export PYTHONPATH="${PYTHONPATH:-}:$MBEF_ROOT"
 
 PY_BIN="$(which python3)"
 
-pip install fastapi uvicorn httpx -i http://mirrors.h.pjlab.org.cn/pypi/simple/ --trusted-host mirrors.h.pjlab.org.cn
+pip install fastapi uvicorn httpx
 
 ROUTER_PORT="${ROUTER_PORT:-21111}"
 FIRST_PORT="${FIRST_PORT:-21112}"

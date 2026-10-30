@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 set -eo pipefail
 
@@ -37,7 +38,7 @@ OPEN_MODELS=(
 )
 
 CLOSED_MODELS=(
-  "DeepSeek-R1|deepseek-ai/DeepSeek-R1|http://35.220.164.252:3888/v1|OPENAI_API_KEY|8"
+  "DeepSeek-R1|deepseek-ai/DeepSeek-R1|${OPENAI_BASE_URL:-http://localhost:8000/v1}|OPENAI_API_KEY|8"
 )
 
 get_eval_num_gpus () {

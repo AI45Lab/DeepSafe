@@ -4,7 +4,8 @@
 model:
   type: APIModel
   model_name: /mnt/shared-storage-user/ai4good2-share/models/Qwen/Qwen-VL-Chat
-  api_base: http://10.102.235.21:21111/v1
+  api_base: http://localhost:8000/v1  # fallback; set OPENAI_BASE_URL to override
+  api_base_env: OPENAI_BASE_URL
   api_key: EMPTY
   concurrency: 32
   mode: chat

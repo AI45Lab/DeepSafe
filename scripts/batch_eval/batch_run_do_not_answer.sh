@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 set -eo pipefail
 
@@ -46,7 +47,7 @@ if [[ -n "${LIMIT:-}" && "${LIMIT}" != "0" ]]; then
 fi
 
 OPEN_MODELS=(
-  "Qwen1.5-0.5B-Chat|/mnt/shared-storage-user/zhangbo1/models/Qwen/Qwen1.5-0.5B-Chat|1|0.80"
+  "Qwen1.5-0.5B-Chat|/path/to/models/Qwen/Qwen1.5-0.5B-Chat|1|0.80"
   "Llama-2-7b-chat-hf|/mnt/shared-storage-user/ai4good2-share/models/meta-llama/Llama-2-7b-chat-hf|1|0.85"
 )
 

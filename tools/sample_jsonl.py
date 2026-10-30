@@ -4,11 +4,11 @@ import os
 
 num_samples = 10
 
-input_path = "/mnt/shared-storage-user/zhangbo1/Fake-Alignment-main/safety.jsonl"
-output_path = f"/mnt/shared-storage-user/zhangbo1/Fake-Alignment-main/safety_sample_{num_samples}.jsonl"
+input_path = "/path/to/Fake-Alignment-main/safety.jsonl"
+output_path = f"/path/to/Fake-Alignment-main/safety_sample_{num_samples}.jsonl"
 
-input_path = "/mnt/shared-storage-user/zhangbo1/oaieval_sandbagging/evals/registry/data/sandbagging/samples-all.jsonl"
-output_path = f"/mnt/shared-storage-user/zhangbo1/oaieval_sandbagging/evals/registry/data/sandbagging/samples-all_sample_{num_samples}.jsonl"
+input_path = "/path/to/oaieval_sandbagging/evals/registry/data/sandbagging/samples-all.jsonl"
+output_path = f"/path/to/oaieval_sandbagging/evals/registry/data/sandbagging/samples-all_sample_{num_samples}.jsonl"
 
 if os.path.exists(input_path):
     print(f"Loading from {input_path}...")

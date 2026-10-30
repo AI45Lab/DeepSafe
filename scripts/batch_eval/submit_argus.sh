@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 
 CONFIG_PATH="$1"
 STAGE="${2:-all}"
@@ -35,7 +36,7 @@ else
   CPU=160
 fi
 
-RUN_SCRIPT="/mnt/shared-storage-user/zhangbo1/MBEF/scripts/run_salad.sh"
+RUN_SCRIPT="/path/to/MBEF/scripts/run_salad.sh"
 if [[ "$STAGE" == "gen" ]]; then
   RUN_SCRIPT="/mnt/shared-storage-user/guoshaoxiong/Multi-Level-Bionic-Evaluation-Framework/scripts/run_argus_gen.sh"
 elif [[ "$STAGE" == "eval" ]]; then
@@ -45,7 +46,7 @@ fi
 echo "rlaunch $RUN_SCRIPT with $CONFIG_PATH"
 rlaunch --charged-group=ai4good2_gpu \
   --private-machine=yes \
-  --image=registry.h.pjlab.org.cn/ailab-ai4good2-ai4good2_gpu/zhangbo1:v0130-x86 \
+  --image=registry.example.com/your-image:tag \
   --max-wait-duration 3600s \
   --enable-sshd=false \
   --private-machine=group \

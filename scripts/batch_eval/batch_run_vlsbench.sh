@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 set -eo pipefail
 
@@ -25,7 +26,7 @@ echo "Base config: $BASE_CONFIG"
 echo "Stage: $STAGE"
 echo "MBEF: $MBEF_ROOT"
 
-JUDGE_API_BASE="${VLSBENCH_JUDGE_API_BASE:-http://35.220.164.252:3888/v1}"
+JUDGE_API_BASE="${VLSBENCH_JUDGE_API_BASE:-${OPENAI_BASE_URL:-http://localhost:8000/v1}}"
 JUDGE_API_BASE="${JUDGE_API_BASE%/}"
 
 JUDGE_API_KEY="${VLSBENCH_JUDGE_API_KEY:-OPENAI_API_KEY}"

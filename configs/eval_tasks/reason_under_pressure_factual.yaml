@@ -4,7 +4,8 @@ output_dir: results/reason_under_pressure_factual
 model:
   type: APIModel
   model_name: gpt-4o-mini
-  api_base: http://35.220.164.252:3888/v1
+  api_base: http://localhost:8000/v1  # fallback; set OPENAI_BASE_URL to override
+  api_base_env: OPENAI_BASE_URL
   api_key: ENV
   mode: chat
   concurrency: 16
@@ -28,7 +29,8 @@ evaluator:
   judge_model_cfg:
     type: APIModel
     model_name: gpt-4o-mini
-    api_base: http://35.220.164.252:3888/v1
+    api_base: http://localhost:8000/v1  # fallback; set OPENAI_BASE_URL to override
+    api_base_env: OPENAI_BASE_URL
     api_key: ENV
     concurrency: 16
     mode: chat

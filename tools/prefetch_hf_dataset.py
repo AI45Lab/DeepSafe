@@ -11,10 +11,10 @@ Example:
     --dataset truthful_qa \
     --config multiple_choice \
     --split validation \
-    --cache_dir /mnt/shared-storage-user/zhangbo1/hf_cache
+    --cache_dir /path/to/hf_cache
 
 Optional: also persist as a local json file (offline-first workflow)
-  python3 tools/prefetch_hf_dataset.py ... --save_json /mnt/shared-storage-user/zhangbo1/MBEF/data/truthful_qa_hf.json
+  python3 tools/prefetch_hf_dataset.py ... --save_json /path/to/MBEF/data/truthful_qa_hf.json
 """
 
 from __future__ import annotations

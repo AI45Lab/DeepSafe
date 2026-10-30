@@ -3,8 +3,8 @@ import random
 import os
 
 num_samples = 10
-input_path = "/mnt/shared-storage-user/zhangbo1/datasets/vlsbench/data.json"
-output_path = f"/mnt/shared-storage-user/zhangbo1/datasets/vlsbench/data_sample_{num_samples}.json"
+input_path = "/path/to/datasets/vlsbench/data.json"
+output_path = f"/path/to/datasets/vlsbench/data_sample_{num_samples}.json"
 
 if os.path.exists(input_path):
     print(f"Loading from {input_path}...")
