@@ -70,6 +70,8 @@ class APIModel(BaseModel):
         model_name: str,
         api_base: str,
         api_key: str = "EMPTY",
+        api_base_env: Optional[str] = None,
+        api_key_env: Optional[str] = None,
         http_proxy: Optional[str] = None,
         timeout: Optional[float] = None, 
         max_retries: int = 10,                                             
@@ -85,7 +87,15 @@ class APIModel(BaseModel):
         if OpenAI is None:
             raise ImportError("Please install openai package: pip install openai")
 
-        if api_key == "ENV":
+        if api_base_env:
+            api_base = os.getenv(api_base_env, api_base)
+
+        if api_key_env:
+            resolved_key = os.getenv(api_key_env)
+            if not resolved_key:
+                raise ValueError(f"environment variable {api_key_env} is not set")
+            api_key = resolved_key
+        elif api_key == "ENV":
             api_key = os.getenv("OPENAI_API_KEY", "EMPTY")
 
         self.model_name = model_name

@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 set -eo pipefail
 
@@ -31,7 +32,7 @@ echo "MBEF: $MBEF_ROOT"
 JUDGE_OVERRIDES=(
   --evaluator.judge_model_cfg.type APIModel
   --evaluator.judge_model_cfg.model_name gpt-4
-  --evaluator.judge_model_cfg.api_base http://35.220.164.252:3888/v1
+  --evaluator.judge_model_cfg.api_base ${OPENAI_BASE_URL:-http://localhost:8000/v1}
   --evaluator.judge_model_cfg.api_key OPENAI_API_KEY
   --evaluator.judge_model_cfg.concurrency 16
   --evaluator.judge_model_cfg.mode chat

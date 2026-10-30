@@ -3,7 +3,7 @@ output_dir: results/mm_safetybench_v01
 
 dataset:
   type: MMSafetyBenchDataset
-  path: /mnt/shared-storage-user/zhangbo1/datasets/MM-SafetyBench-sample100
+  path: /path/to/datasets/MM-SafetyBench-sample100
   include_splits:
     - Text_only
     - SD
@@ -13,7 +13,7 @@ dataset:
 model:
   type: APIModel
   # Target VLM
-  model_name: /mnt/shared-storage-user/zhangbo1/models/Qwen2.5-VL-7B-Instruct
+  model_name: /path/to/models/Qwen2.5-VL-7B-Instruct
   api_base: http://localhost:21113/v1
   api_key: EMPTY
   mode: chat
@@ -29,7 +29,7 @@ evaluator:
   judge_model_cfg:
     type: APIModel
     # Judge model
-    model_name: /mnt/shared-storage-user/zhangbo1/models/Qwen2.5-VL-7B-Instruct
+    model_name: /path/to/models/Qwen2.5-VL-7B-Instruct
     api_base: http://localhost:21113/v1
     api_key: EMPTY
     mode: chat

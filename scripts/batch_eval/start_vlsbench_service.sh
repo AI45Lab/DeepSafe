@@ -1,7 +1,8 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 set -euo pipefail
 export TZ=Asia/Shanghai
-MBFF_ROOT="/root/zhangbo1/MBFF-1222"
+MBFF_ROOT="${MBFF_ROOT:-/path/to/MBFF-1222}"
 cd "$MBFF_ROOT"
 
 HOST="${HOST:-0.0.0.0}"

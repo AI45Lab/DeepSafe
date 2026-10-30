@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 set -e
 
@@ -19,7 +20,7 @@ MBEF_ROOT="${MBEF_ROOT:-$(cd -- "$SCRIPT_DIR/../.." && pwd)}"
 export PYTHONPATH="${PYTHONPATH:-}:$MBEF_ROOT"
 cd "$MBEF_ROOT"
 
-export HF_HOME="${HF_HOME:-/mnt/shared-storage-user/zhangbo1/hf_cache}"
+export HF_HOME="${HF_HOME:-/path/to/hf_cache}"
 export HF_DATASETS_CACHE="${HF_DATASETS_CACHE:-$HF_HOME/datasets}"
 export TRANSFORMERS_CACHE="${TRANSFORMERS_CACHE:-$HF_HOME/transformers}"
 export HF_HUB_OFFLINE="${HF_HUB_OFFLINE:-1}"
@@ -29,9 +30,9 @@ export HF_DATASETS_OFFLINE="${HF_DATASETS_OFFLINE:-1}"
  || true
 export no_proxy="localhost,127.0.0.1,0.0.0.0,::1"
 export NO_PROXY="localhost,127.0.0.1,0.0.0.0,::1"
-export HF_HOME=/mnt/shared-storage-user/zhangbo1/hf_cache
-export HF_DATASETS_CACHE=/mnt/shared-storage-user/zhangbo1/hf_cache/datasets
-export TRANSFORMERS_CACHE=/mnt/shared-storage-user/zhangbo1/hf_cache/transformers
+export HF_HOME=/path/to/hf_cache
+export HF_DATASETS_CACHE=/path/to/hf_cache/datasets
+export TRANSFORMERS_CACHE=/path/to/hf_cache/transformers
 proxy_url="${PROXY_URL:-${DEFAULT_PROXY_URL:-}}"
 if [[ -n "$proxy_url" ]]; then
   export http_proxy="$proxy_url"

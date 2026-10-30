@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 
 CONFIG_PATH="$1"
@@ -41,7 +42,7 @@ submit_one () {
   if [[ "$charged_group" == "ai4good2_cpu_task" ]]; then
     rjob submit --charged-group="$charged_group" \
       --namespace=ailab-ai4good2 \
-      --image=registry.h.pjlab.org.cn/ailab-ai4good2-ai4good2_gpu/linqihao:v0116-x86 \
+      --image=registry.example.com/your-image:tag \
       --memory 8192 \
       --cpu 4 \
       --mount=gpfs://gpfs1/linqihao:/mnt/shared-storage-user/linqihao \
@@ -50,7 +51,7 @@ submit_one () {
   else
     rjob submit --charged-group="$charged_group" \
       --private-machine=group \
-      --image=registry.h.pjlab.org.cn/ailab-ai4good2-ai4good2_gpu/linqihao:v0116-x86 \
+      --image=registry.example.com/your-image:tag \
       --gpu "$NUM_GPUS" \
       --memory "$MEMORY" \
       --cpu "$CPU" \

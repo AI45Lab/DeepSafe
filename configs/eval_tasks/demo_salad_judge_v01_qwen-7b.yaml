@@ -1,6 +1,6 @@
 model:
   type: APIModel
-  model_name: /mnt/shared-storage-user/zhangbo1/models/Qwen3-4B
+  model_name: /path/to/models/Qwen3-4B
   api_base: http://localhost:21111/v1
   api_key: EMPTY
   concurrency: 32
@@ -12,7 +12,7 @@ model:
 
 dataset:
   type: SaladDataset
-  path: /mnt/shared-storage-user/zhangbo1/datasets/Salad-Data/base_set.json
+  path: /path/to/datasets/Salad-Data/base_set.json
 
 evaluator:
   type: ScorerBasedEvaluator
@@ -22,7 +22,7 @@ evaluator:
   judge_model_cfg:
     type: APIModel
     # NOTE: You only need to ensure the model is downloaded to this path or adjust accordingly.
-    model_name: /mnt/shared-storage-user/zhangbo1/models/MD-Judge-v0.1
+    model_name: /path/to/models/MD-Judge-v0.1
     api_base: http://localhost:21112/v1
     api_key: EMPTY
     concurrency: 32

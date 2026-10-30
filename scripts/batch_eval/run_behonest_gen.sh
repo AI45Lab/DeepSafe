@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 set -e
 
@@ -19,7 +20,7 @@ MBEF_ROOT="${MBEF_ROOT:-$(cd -- "$SCRIPT_DIR/../.." && pwd)}"
 export PYTHONPATH="${PYTHONPATH:-}:$MBEF_ROOT"
 cd "$MBEF_ROOT"
 
-python3 -m pip install -q pandas datasets -i http://mirrors.h.pjlab.org.cn/pypi/simple/ --trusted-host mirrors.h.pjlab.org.cn || true
+python3 -m pip install -q pandas datasets || true
 
 export no_proxy="localhost,127.0.0.1,0.0.0.0,::1"
 export NO_PROXY="localhost,127.0.0.1,0.0.0.0,::1"

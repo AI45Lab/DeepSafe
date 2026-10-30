@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 set -e
 
@@ -21,8 +22,8 @@ export VLLM_LOGGING_LEVEL=ERROR
 
 
 
-export no_proxy="localhost,127.0.0.1,0.0.0.0,::1,.pjlab.org.cn,.h.pjlab.org.cn"
-export NO_PROXY="localhost,127.0.0.1,0.0.0.0,::1,.pjlab.org.cn,.h.pjlab.org.cn"
+export no_proxy="localhost,127.0.0.1,0.0.0.0,::1"
+export NO_PROXY="localhost,127.0.0.1,0.0.0.0,::1"
 
 MBEF_ROOT="${MBEF_ROOT:-$(cd -- "$SCRIPT_DIR/../.." && pwd)}"
 export PYTHONPATH="${PYTHONPATH:-}:$MBEF_ROOT"

@@ -19,7 +19,7 @@ def sample_jsonl(input_path, output_path, num_samples):
             f.write(json.dumps(item) + '\n')
 
 if __name__ == "__main__":
-    input_path = "/root/zhangbo1/Fake-Alignment-main/safety.jsonl"
-    output_path = "/root/zhangbo1/Fake-Alignment-main/safety_sample_30.jsonl"
+    input_path = "/path/to/Fake-Alignment-main/safety.jsonl"
+    output_path = "/path/to/Fake-Alignment-main/safety_sample_30.jsonl"
     num_samples = 30
     sample_jsonl(input_path, output_path, num_samples)

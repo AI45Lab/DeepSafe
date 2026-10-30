@@ -13,7 +13,7 @@ model:
 
 dataset:
   type: SaladDataset
-  path: /mnt/shared-storage-user/zhangbo1/datasets/Salad-Data/base_set_sample_100.json
+  path: /path/to/datasets/Salad-Data/base_set_sample_100.json
 
 evaluator:
   type: ScorerBasedEvaluator
@@ -22,7 +22,7 @@ evaluator:
   template_name: md_judge_v0_1
   judge_model_cfg:
     type: VLLMLocalModel
-    model_name: /mnt/shared-storage-user/zhangbo1/models/MD-Judge-v0.1
+    model_name: /path/to/models/MD-Judge-v0.1
     tensor_parallel_size: 1
     gpu_memory_utilization: 0.4
     trust_remote_code: true

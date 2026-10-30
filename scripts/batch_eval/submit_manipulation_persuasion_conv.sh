@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 
 set -eo pipefail
 
@@ -38,15 +39,15 @@ else
   CPU=160
 fi
 
-RUN_SCRIPT="/mnt/shared-storage-user/zhangbo1/MBEF/scripts/run_manipulation_persuasion_conv_gen.sh"
+RUN_SCRIPT="/path/to/MBEF/scripts/run_manipulation_persuasion_conv_gen.sh"
 if [[ "$STAGE" == "eval" ]]; then
-  RUN_SCRIPT="/mnt/shared-storage-user/zhangbo1/MBEF/scripts/run_manipulation_persuasion_conv_eval.sh"
+  RUN_SCRIPT="/path/to/MBEF/scripts/run_manipulation_persuasion_conv_eval.sh"
 elif [[ "$STAGE" == "all" ]]; then
-  RUN_SCRIPT="/mnt/shared-storage-user/zhangbo1/MBEF/scripts/run_manipulation_persuasion_conv_gen.sh"
+  RUN_SCRIPT="/path/to/MBEF/scripts/run_manipulation_persuasion_conv_gen.sh"
 fi
 
 TIMESTAMP=$(date +"%Y%m%d%H%M%S")
-LOG_DIR="/mnt/shared-storage-user/zhangbo1/MBEF/logs/manipulation_persuasion_conv/${STAGE}"
+LOG_DIR="/path/to/MBEF/logs/manipulation_persuasion_conv/${STAGE}"
 mkdir -p "$LOG_DIR"
 LOG_FILE="${LOG_DIR}/${TIMESTAMP}.log"
 echo "Log: $LOG_FILE"
@@ -59,20 +60,20 @@ submit_one () {
 
   if [[ "$charged_group" == "ai4good2_cpu_task" ]]; then
     rjob submit --charged-group="$charged_group" \
-      --image=registry.h.pjlab.org.cn/ailab-ai4good2-ai4good2_gpu/zhangbo1:v0130-x86 \
+      --image=registry.example.com/your-image:tag \
       --memory 8192 \
       --cpu 4 \
-      --mount=gpfs://gpfs1/zhangbo1:/mnt/shared-storage-user/zhangbo1 \
+      --mount=gpfs://YOUR_CLUSTER/your-storage:/path/to \
       --mount=gpfs://gpfs1/ai4good2-share:/mnt/shared-storage-user/ai4good2-share \
       -- bash "$RUN_SCRIPT" "$CONFIG_PATH" "${OVERRIDES[@]}" > "$LOG_FILE" 2>&1
   else
     rjob submit --charged-group="$charged_group" \
       --private-machine=group \
-      --image=registry.h.pjlab.org.cn/ailab-ai4good2-ai4good2_gpu/zhangbo1:v0130-x86 \
+      --image=registry.example.com/your-image:tag \
       --gpu "$NUM_GPUS" \
       --memory "$MEMORY" \
       --cpu "$CPU" \
-      --mount=gpfs://gpfs1/zhangbo1:/mnt/shared-storage-user/zhangbo1 \
+      --mount=gpfs://YOUR_CLUSTER/your-storage:/path/to \
       --mount=gpfs://gpfs1/ai4good2-share:/mnt/shared-storage-user/ai4good2-share \
       -- bash "$RUN_SCRIPT" "$CONFIG_PATH" "${OVERRIDES[@]}" > "$LOG_FILE" 2>&1
   fi

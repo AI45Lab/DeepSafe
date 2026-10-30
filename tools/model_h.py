@@ -1,8 +1,8 @@
                       
 """
 示例：# llava-hf/llava-1.5-7b-hf
-  python /mnt/shared-storage-user/zhangbo1/MBEF/tools/model_h.py models--Qwen--Qwen-7B-Chat
-  python /mnt/shared-storage-user/zhangbo1/MBEF/tools/model_h.py models--mistralai--Mistral-Small-24B-Instruct-2501
+  python /path/to/MBEF/tools/model_h.py models--Qwen--Qwen-7B-Chat
+  python /path/to/MBEF/tools/model_h.py models--mistralai--Mistral-Small-24B-Instruct-2501
   如缓存没有,modelscope下载    LibrAI/longformer-harmful-ro
   modelscope download --model LibrAI/longformer-harmful-ro --local_dir LibrAI/longformer-harmful-ro
 """
@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 from typing import List
 
-DEFAULT_HF_CACHE_TO_DIR = "/mnt/shared-storage-user/zhangbo1/tools/hf_cache_to_dir.py"
+DEFAULT_HF_CACHE_TO_DIR = "/path/to/tools/hf_cache_to_dir.py"
 DEFAULT_REMOTE_PREFIX = "h-ceph:ailab-public-shared/hf_hub"
 DEFAULT_LOCAL_ROOT = "/mnt/shared-storage-user/ai4good2-share/models/"
 

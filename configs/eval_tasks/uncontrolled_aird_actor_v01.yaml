@@ -4,7 +4,7 @@ output_dir: results/uncontrolled_aird_actor_v01
 dataset:
   type: UncontrolledAIRDDataset
   # Attack_600-style JSON
-  path: /mnt/shared-storage-user/zhangbo1/MBEF/Uncontrolled_AIRD/data/Attack_600.json
+  path: /path/to/MBEF/Uncontrolled_AIRD/data/Attack_600.json
   task: actor
   # For quick smoke runs, set a small limit; remove to run full.
   limit: 5
@@ -12,7 +12,7 @@ dataset:
 
 model:
   type: APIModel
-  model_name: /mnt/shared-storage-user/zhangbo1/models/Qwen/Qwen1.5-0.5B-Chat
+  model_name: /path/to/models/Qwen/Qwen1.5-0.5B-Chat
   api_base: http://localhost:21113/v1
   api_key: EMPTY
   mode: chat

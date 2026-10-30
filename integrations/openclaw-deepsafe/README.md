@@ -17,7 +17,7 @@ This plugin is a preflight security scanner for OpenClaw.
 From your machine:
 
 ```bash
-openclaw plugins install -l /mnt/shared-storage-user/zhangbo1/DeepSafe/integrations/openclaw-deepsafe
+openclaw plugins install -l /path/to/DeepSafe/integrations/openclaw-deepsafe
 ```
 
 Then restart OpenClaw Gateway.

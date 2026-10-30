@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 set -eo pipefail
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
@@ -29,15 +30,15 @@ echo "MBEF: $MBEF_ROOT"
 OPEN_MODELS=()
 
 CLOSED_MODELS=(
-  "doubao-seed-1-6-flash-250828|doubao-seed-1-6-flash-250828|http://35.220.164.252:3888/v1|OPENAI_API_KEY|8"
-  "deepseek-r1-250528|deepseek-r1-250528|http://35.220.164.252:3888/v1|OPENAI_API_KEY|8"
+  "doubao-seed-1-6-flash-250828|doubao-seed-1-6-flash-250828|${OPENAI_BASE_URL:-http://localhost:8000/v1}|OPENAI_API_KEY|8"
+  "deepseek-r1-250528|deepseek-r1-250528|${OPENAI_BASE_URL:-http://localhost:8000/v1}|OPENAI_API_KEY|8"
 
 )
 
 PROTOCOL="${PROTOCOL:-author_score_v1}"
 
 VOTER_MODEL_NAME="${VOTER_MODEL_NAME:-gpt-4o}"
-VOTER_API_BASE="${VOTER_API_BASE:-http://35.220.164.252:3888/v1}"
+VOTER_API_BASE="${VOTER_API_BASE:-${OPENAI_BASE_URL:-http://localhost:8000/v1}}"
 VOTER_API_KEY_MODE="${VOTER_API_KEY_MODE:-OPENAI_API_KEY}"
 VOTER_CONCURRENCY="${VOTER_CONCURRENCY:-8}"
 

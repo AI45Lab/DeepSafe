@@ -1,8 +1,9 @@
 model:
   type: APIModel
   model_name: gpt-4o
-  api_base: http://35.220.164.252:3888/v1
-  api_key: OPENAI_API_KEY
+  api_base: http://localhost:8000/v1  # fallback; set OPENAI_BASE_URL to override
+  api_base_env: OPENAI_BASE_URL
+  api_key: ENV  # reads OPENAI_API_KEY env var
   mode: chat
   temperature: 0.0
   repetition_penalty: 1.0
@@ -32,8 +33,9 @@ evaluator:
   judge_model_cfg:
     type: APIModel
     model_name: gpt-4o
-    api_base: http://35.220.164.252:3888/v1
-    api_key: OPENAI_API_KEY
+    api_base: http://localhost:8000/v1  # fallback; set OPENAI_BASE_URL to override
+    api_base_env: OPENAI_BASE_URL
+    api_key: ENV  # reads OPENAI_API_KEY env var
     mode: chat
     temperature: 0.0
     max_retries: 5

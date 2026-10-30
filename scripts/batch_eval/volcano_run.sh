@@ -1,8 +1,9 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 set -euo pipefail
 
-MBFF_ROOT="/root/zhangbo1/MBFF-1222"
-MODEL_PATH="${MODEL_PATH:-/root/zhangbo1/models/Qwen2.5-VL-3B-Instruct}"
+MBFF_ROOT="${MBFF_ROOT:-/path/to/MBFF-1222}"
+MODEL_PATH="${MODEL_PATH:-/path/to/models/Qwen2.5-VL-3B-Instruct}"
 
 VLSBENCH_DATASET_PATH="${VLSBENCH_DATASET_PATH:-/path/to/vlsbench/data.json}"
 

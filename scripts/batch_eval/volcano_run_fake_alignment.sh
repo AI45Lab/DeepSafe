@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 set -eo pipefail
 
 export no_proxy="localhost,127.0.0.1,0.0.0.0,::1"
@@ -17,7 +18,7 @@ if [[ ! -f "$CONFIG_PATH" ]]; then
   exit 1
 fi
 
-MBFF_ROOT="${MBFF_ROOT:-/root/zhangbo1/MBFF-1222}"
+MBFF_ROOT="${MBFF_ROOT:-/path/to/MBFF-1222}"
 if [[ ! -d "$MBFF_ROOT" ]]; then
   echo "ERROR: MBFF_ROOT does not exist: $MBFF_ROOT"
   exit 1

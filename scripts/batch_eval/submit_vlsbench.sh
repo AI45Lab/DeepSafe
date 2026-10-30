@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 
 CONFIG_PATH="$1"
 STAGE="${2:-all}"
@@ -22,11 +23,11 @@ if [[ "$STAGE" != "gen" && "$STAGE" != "eval" && "$STAGE" != "all" ]]; then
   exit 1
 fi
 
-RUN_SCRIPT="/mnt/shared-storage-user/zhangbo1/MBEF/scripts/run_vlsbench.sh"
+RUN_SCRIPT="/path/to/MBEF/scripts/run_vlsbench.sh"
 if [[ "$STAGE" == "gen" ]]; then
-  RUN_SCRIPT="/mnt/shared-storage-user/zhangbo1/MBEF/scripts/run_vlsbench_gen.sh"
+  RUN_SCRIPT="/path/to/MBEF/scripts/run_vlsbench_gen.sh"
 elif [[ "$STAGE" == "eval" ]]; then
-  RUN_SCRIPT="/mnt/shared-storage-user/zhangbo1/MBEF/scripts/run_vlsbench_eval.sh"
+  RUN_SCRIPT="/path/to/MBEF/scripts/run_vlsbench_eval.sh"
 fi
 
 echo "Submitting VLSBench task: $CONFIG_PATH (stage=$STAGE)"
@@ -36,7 +37,7 @@ fi
 
 GPU_GROUP="${VLSBENCH_GPU_GROUP:-ai4good2_gpu}"
 CPU_GROUP="${VLSBENCH_CPU_GROUP:-ai4good2_cpu_task}"
-IMAGE="${VLSBENCH_IMAGE:-registry.h.pjlab.org.cn/ailab-ai4good2-ai4good2_gpu/zhangbo1:v0130-x86}"
+IMAGE="${VLSBENCH_IMAGE:-registry.example.com/your-image:tag}"
 
 IS_CPU_JOB=false
 if [[ "$STAGE" == "eval" || "$NUM_GPUS" == "0" ]]; then
@@ -44,7 +45,7 @@ if [[ "$STAGE" == "eval" || "$NUM_GPUS" == "0" ]]; then
 fi
 
 TIMESTAMP=$(date +"%Y%m%d%H%M%S")
-LOG_DIR="/mnt/shared-storage-user/zhangbo1/MBEF/logs/vlsbench/${STAGE}"
+LOG_DIR="/path/to/MBEF/logs/vlsbench/${STAGE}"
 mkdir -p "$LOG_DIR"
 LOG_FILE="${LOG_DIR}/${TIMESTAMP}.log"
 echo "Submitting VLSBench task to $LOG_FILE"
@@ -56,7 +57,7 @@ if [[ "$IS_CPU_JOB" == true ]]; then
     --image="$IMAGE" \
     --memory "$MEMORY" \
     --cpu "$CPU" \
-    --mount=gpfs://gpfs1/zhangbo1:/mnt/shared-storage-user/zhangbo1 \
+    --mount=gpfs://YOUR_CLUSTER/your-storage:/path/to \
     --mount=gpfs://gpfs1/ai4good2-share:/mnt/shared-storage-user/ai4good2-share \
     -- bash "$RUN_SCRIPT" "$CONFIG_PATH" "${OVERRIDES[@]}" > "$LOG_FILE" 2>&1
 else
@@ -73,7 +74,7 @@ else
     --gpu "$NUM_GPUS" \
     --memory "$MEMORY" \
     --cpu "$CPU" \
-    --mount=gpfs://gpfs1/zhangbo1:/mnt/shared-storage-user/zhangbo1 \
+    --mount=gpfs://YOUR_CLUSTER/your-storage:/path/to \
     --mount=gpfs://gpfs1/ai4good2-share:/mnt/shared-storage-user/ai4good2-share \
     -- bash "$RUN_SCRIPT" "$CONFIG_PATH" "${OVERRIDES[@]}" > "$LOG_FILE" 2>&1
 fi

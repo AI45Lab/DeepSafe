@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 set -e
 
 CONFIG_PATH="$1"
@@ -14,7 +15,7 @@ if [[ ! -f "$CONFIG_PATH" ]]; then
   exit 1
 fi
 
-pip install -q pandas pyarrow -i http://mirrors.h.pjlab.org.cn/pypi/simple/ --trusted-host mirrors.h.pjlab.org.cn || true
+pip install -q pandas pyarrow || true
 
 export no_proxy="localhost,127.0.0.1,0.0.0.0,::1"
 export NO_PROXY="localhost,127.0.0.1,0.0.0.0,::1"

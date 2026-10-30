@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 set -e
 
@@ -15,8 +16,8 @@ if [[ ! -f "$CONFIG_PATH" ]]; then
   exit 1
 fi
 
-export no_proxy="localhost,127.0.0.1,0.0.0.0,::1,.pjlab.org.cn,.h.pjlab.org.cn"
-export NO_PROXY="localhost,127.0.0.1,0.0.0.0,::1,.pjlab.org.cn,.h.pjlab.org.cn"
+export no_proxy="localhost,127.0.0.1,0.0.0.0,::1"
+export NO_PROXY="localhost,127.0.0.1,0.0.0.0,::1"
 
 export LD_LIBRARY_PATH=/usr/local/cuda-12.9/compat:$LD_LIBRARY_PATH
 

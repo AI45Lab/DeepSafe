@@ -3,7 +3,7 @@ output_dir: results/demo_vlsbench_2stage
 
 dataset:
   type: VLSBenchDataset
-  path: /mnt/shared-storage-user/zhangbo1/datasets/vlsbench/data.json
+  path: /path/to/datasets/vlsbench/data.json
 
 # Target model (used in GEN stage; ignored in EVAL-only because run_vlsbench_eval.sh forces NoOpModel)
 model:
@@ -28,7 +28,8 @@ evaluator:
   judge_model_cfg:
     type: APIModel
     model_name: gpt-4o
-    api_base: http://35.220.164.252:3888/v1
+    api_base: http://localhost:8000/v1  # fallback; set OPENAI_BASE_URL to override
+    api_base_env: OPENAI_BASE_URL
     api_key: ENV        # expects OPENAI_API_KEY in env
     mode: chat
     concurrency: 5     # Match batch size to avoid idle threads

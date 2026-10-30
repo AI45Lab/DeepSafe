@@ -46,8 +46,8 @@ def test_dataset(path, name):
         traceback.print_exc()
 
 if __name__ == "__main__":
-    mcq_path = "/mnt/shared-storage-user/zhangbo1/datasets/Salad-Data/mcq_set_sample_100.json"
-    qa_path = "/mnt/shared-storage-user/zhangbo1/datasets/Salad-Data/base_set_sample_100.json"
+    mcq_path = "/path/to/datasets/Salad-Data/mcq_set_sample_100.json"
+    qa_path = "/path/to/datasets/Salad-Data/base_set_sample_100.json"
     
     test_dataset(mcq_path, "MCQ")
     print("\n")

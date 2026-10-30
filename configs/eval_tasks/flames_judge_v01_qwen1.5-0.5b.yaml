@@ -1,6 +1,6 @@
 model:
   type: APIModel
-  model_name: /mnt/shared-storage-user/zhangbo1/models/Qwen/Qwen1.5-0.5B-Chat
+  model_name: /path/to/models/Qwen/Qwen1.5-0.5B-Chat
   api_base: http://localhost:21111/v1
   api_key: EMPTY
   concurrency: 32
@@ -12,7 +12,7 @@ model:
 
 dataset:
   type: FlamesDataset
-  path: /mnt/shared-storage-user/zhangbo1/Flames-main/Flames_1k_Chinese.jsonl
+  path: /path/to/Flames-main/Flames_1k_Chinese.jsonl
 
 evaluator:
   # Flames 官方推荐：使用其开放的 scorer 模型给 response 打分
@@ -22,7 +22,7 @@ evaluator:
   scorer_model_cfg:
     type: FlamesScorerModel
     # 也可以换成本地HF缓存/本地路径
-    model_name_or_path: /mnt/shared-storage-user/zhangbo1/models/flames-scorer
+    model_name_or_path: /path/to/models/flames-scorer
     device: cuda
     batch_size: 16
     max_length: 2048

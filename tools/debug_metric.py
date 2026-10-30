@@ -3,7 +3,7 @@ import re
 import os
 
 def debug_metric_parsing():
-    result_path = "/mnt/shared-storage-user/zhangbo1/MBEF/results/demo_salad_judge/result.json"
+    result_path = "/path/to/MBEF/results/demo_salad_judge/result.json"
     if not os.path.exists(result_path):
         print(f"Error: {result_path} not found.")
         return

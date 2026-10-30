@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 set -euo pipefail
 
@@ -15,7 +16,7 @@ if [[ $# -lt 1 || "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
   exit 2
 fi
 
-if [[ -f "/mnt/shared-storage-user/zhangbo1/miniconda3/etc/profile.d/conda.sh" ]]; then
+if [[ -f "/path/to/miniconda3/etc/profile.d/conda.sh" ]]; then
   
   conda activate "${CONDA_ENV:-vllm_10_2}"
 fi
@@ -64,7 +65,7 @@ if [[ "$MODE" == "submit" ]]; then
 
   rlaunch --charged-group="${RLAUNCH_GROUP:-ai4good2_gpu}" \
     --private-machine=yes \
-    --image="${RLAUNCH_IMAGE:-registry.h.pjlab.org.cn/ailab-trustworthyaitest-aitest_gpu/test_gpu:gptv0}" \
+    --image="${RLAUNCH_IMAGE:-registry.example.com/your-image:tag}" \
     --max-wait-duration "${RLAUNCH_MAX_WAIT:-3600s}" \
     --enable-sshd=false \
     --private-machine=group \
@@ -72,7 +73,7 @@ if [[ "$MODE" == "submit" ]]; then
     --memory "${RLAUNCH_MEMORY:-32768}" \
     --cpu "${RLAUNCH_CPU:-8}" \
     --entrypoint='' \
-    --mount="${RLAUNCH_MOUNT:-gpfs://gpfs1/zhangbo1:/mnt/shared-storage-user/zhangbo1}" \
+    --mount="${RLAUNCH_MOUNT:-gpfs://YOUR_CLUSTER/your-storage:/path/to}" \
     -- bash "$SCRIPT_PATH" --worker "$CONFIG_PATH"
 
   exit $?

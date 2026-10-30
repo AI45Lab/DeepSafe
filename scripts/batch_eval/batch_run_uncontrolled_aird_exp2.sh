@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 set -eo pipefail
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
@@ -27,7 +28,7 @@ echo "Stage: $STAGE"
 echo "MBEF: $MBEF_ROOT"
 
 OPEN_MODELS=(
-  "Qwen1.5-0.5B-Chat|/mnt/shared-storage-user/zhangbo1/models/Qwen/Qwen1.5-0.5B-Chat|1|0.85|2048"
+  "Qwen1.5-0.5B-Chat|/path/to/models/Qwen/Qwen1.5-0.5B-Chat|1|0.85|2048"
 )
 
 submit_gen () {

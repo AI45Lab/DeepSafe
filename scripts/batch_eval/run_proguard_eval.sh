@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 set -euo pipefail
 
@@ -51,11 +52,11 @@ if [[ "${1:-}" == "submit" ]]; then
 
   rjob submit --charged-group="ai4good2_gpu" \
     --private-machine=group \
-    --image=registry.h.pjlab.org.cn/ailab-ai4good2-ai4good2_gpu/zhangbo1:v0130-x86 \
+    --image=registry.example.com/your-image:tag \
     --gpu 1 \
     --memory 32768 \
     --cpu 16 \
-    --mount=gpfs://gpfs1/zhangbo1:/mnt/shared-storage-user/zhangbo1 \
+    --mount=gpfs://YOUR_CLUSTER/your-storage:/path/to \
     --mount=gpfs://gpfs1/ai4good2-share:/mnt/shared-storage-user/ai4good2-share \
     -- bash -lc "set -euo pipefail; bash '$MBEF_ROOT/scripts/run_proguard_eval_with_vllm.sh' '$CFG_SUB' '$OUT_REL_SUB' '$PROGUARD_MODEL_PATH' '$SERVED_NAME' '$PORT' 2>&1 | tee '$LOG_FILE'"
 

@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: internal storage paths, registry and cluster mounts were replaced with placeholders for the public release. Fill in your own values before running.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 set -eo pipefail
 
@@ -39,7 +40,7 @@ echo "MBEF: $MBEF_ROOT"
 JUDGE_OVERRIDES=(
   --evaluator.judge_model_cfg.type APIModel
   --evaluator.judge_model_cfg.model_name gpt-4
-  --evaluator.judge_model_cfg.api_base http://35.220.164.252:3888/v1
+  --evaluator.judge_model_cfg.api_base ${OPENAI_BASE_URL:-http://localhost:8000/v1}
   --evaluator.judge_model_cfg.api_key OPENAI_API_KEY
   --evaluator.judge_model_cfg.concurrency 16
   --evaluator.judge_model_cfg.mode chat
@@ -52,12 +53,12 @@ OPEN_MODELS=(
 )
 
 CLOSED_MODELS=(
-  "gpt-4o-mini|gpt-4o-mini|http://35.220.164.252:3888/v1|OPENAI_API_KEY|8"
-  "gpt-4o|gpt-4o|http://35.220.164.252:3888/v1|OPENAI_API_KEY|8"
-  "gpt-5.2|gpt-5.2|http://35.220.164.252:3888/v1|OPENAI_API_KEY|8"
-  "gemini-3-flash-preview|gemini-3-flash-preview|http://35.220.164.252:3888/v1|OPENAI_API_KEY|8"
-  "claude-sonnet-4-5-20250929|claude-sonnet-4-5-20250929|http://35.220.164.252:3888/v1|OPENAI_API_KEY|8"
-  "doubao-seed-1-6-flash-250828|doubao-seed-1-6-flash-250828|http://35.220.164.252:3888/v1|OPENAI_API_KEY|8"
+  "gpt-4o-mini|gpt-4o-mini|${OPENAI_BASE_URL:-http://localhost:8000/v1}|OPENAI_API_KEY|8"
+  "gpt-4o|gpt-4o|${OPENAI_BASE_URL:-http://localhost:8000/v1}|OPENAI_API_KEY|8"
+  "gpt-5.2|gpt-5.2|${OPENAI_BASE_URL:-http://localhost:8000/v1}|OPENAI_API_KEY|8"
+  "gemini-3-flash-preview|gemini-3-flash-preview|${OPENAI_BASE_URL:-http://localhost:8000/v1}|OPENAI_API_KEY|8"
+  "claude-sonnet-4-5-20250929|claude-sonnet-4-5-20250929|${OPENAI_BASE_URL:-http://localhost:8000/v1}|OPENAI_API_KEY|8"
+  "doubao-seed-1-6-flash-250828|doubao-seed-1-6-flash-250828|${OPENAI_BASE_URL:-http://localhost:8000/v1}|OPENAI_API_KEY|8"
 )
 
 get_eval_num_gpus () {
